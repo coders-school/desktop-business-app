@@ -30,4 +30,4 @@ jobs:
 
       - name: Run Program
         run: |
-            docker run --rm -it desktop-business-app
+            docker run desktop-business-app
