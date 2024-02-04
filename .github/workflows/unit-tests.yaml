@@ -23,10 +23,10 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          tags: coders-school/desktop-business-app:latest
+          tags: desktop-business-app
           # We could give some condition later to push the image to the registry
           push: false
 
-      - name: Run Tests
+      - name: Run Program
         run: |
-          docker run --rm coders-school/desktop-business-app:latest
+            docker run --rm -it desktop-business-app
