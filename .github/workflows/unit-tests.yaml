@@ -1,0 +1,27 @@
+name: CI/CD Action
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    env:
+      path: build
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: mkdir ${{ env.path }}
+      - name: Compile
+        working-directory: ${{ env.path }}
+        run: |
+          cmake ..
+          make
+      - name: Test
+        working-directory: ${{ env.path }}
+        run: ctest -V
+
