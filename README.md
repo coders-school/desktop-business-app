@@ -15,3 +15,8 @@ TBD...
 ```bash
 docker build -t desktop-business-application .
 ```
+
+### Run
+```bash
+docker run -it --entrypoint /bin/ash desktop-business-application
+```
