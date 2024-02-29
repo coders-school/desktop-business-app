@@ -4,6 +4,7 @@ ENV PROJECT_NAME=desktop-business-app
 # Install required packages: g++, cmake, make
 RUN apk update && apk add --no-cache g++ cmake make
 RUN apk add --no-cache gtest-dev
+RUN apk add qt6-qtbase-dev
 
 # Copy source code and tests
 WORKDIR /app
@@ -22,6 +23,7 @@ FROM alpine:latest as FINAL
 ENV PROJECT_NAME=desktop-business-app
 
 RUN apk update && apk add --no-cache g++ cmake make
+RUN apk add qt6-qtbase-dev
 WORKDIR /app
 COPY --from=BUILD /app/build/${PROJECT_NAME} /app/build/${PROJECT_NAME}
 
