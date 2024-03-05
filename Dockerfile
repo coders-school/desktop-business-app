@@ -9,7 +9,7 @@ RUN apt install -y libgl1-mesa-dev
 WORKDIR /application
 COPY . /application
 
-RUN cmake -S . -B build && cmake --build build -rpath
+RUN cmake -S . -B build && cmake --build build
 
 RUN /application/bin/${PROJECT_NAME}-ut
 
