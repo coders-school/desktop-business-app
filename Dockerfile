@@ -1,13 +1,26 @@
-FROM alpine:latest
+FROM ubuntu:latest as BUILD
 ENV PROJECT_NAME=desktop-business-app
 
-RUN apk update && apk add --no-cache g++ cmake make
-RUN apk add --no-cache gtest-dev
-RUN apk add qt6-qtbase-dev
+RUN apt update -y && \
+    apt install -y libgtest-dev cmake make g++ && \
+    apt install -y qt6-base-dev 
+RUN apt install -y libgl1-mesa-dev
 
 WORKDIR /application
 COPY . /application
 
 RUN cmake -S . -B build && cmake --build build
 
-ENTRYPOINT /app/bin/${PROJECT_NAME}
+RUN /application/bin/${PROJECT_NAME}-ut
+
+FROM ubuntu:latest as FINAL
+ENV PROJECT_NAME=desktop-business-app
+
+RUN apt update -y && \
+    apt install -y libgtest-dev cmake make g++ && \
+    apt install -y qt6-base-dev 
+
+WORKDIR /application
+COPY . /application
+
+ENTRYPOINT /app/bin/${PROJECT_NAME} 
