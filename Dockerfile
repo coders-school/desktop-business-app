@@ -23,4 +23,4 @@ RUN apt update -y && \
 WORKDIR /application
 COPY . /application
 
-ENTRYPOINT /app/bin/${PROJECT_NAME} 
+ENTRYPOINT /application/bin/${PROJECT_NAME} 
