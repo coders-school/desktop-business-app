@@ -8,9 +8,7 @@ find_package(GTest REQUIRED)
 enable_testing()
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
-set(CMAKE_AUTOMOC ON) 
-set(CMAKE_AUTORCC ON) 
-set(CMAKE_AUTOUIC ON)
+qt_standard_project_setup()
 
 add_subdirectory(src/app)
 add_subdirectory(src/tests)
