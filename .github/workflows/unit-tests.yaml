@@ -29,4 +29,4 @@ jobs:
 
       - name: Run Program
         run: |
-            docker run desktop-business-app
+            docker run desktop-business-app-ut
