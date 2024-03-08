@@ -16,7 +16,14 @@ TBD...
 docker build -t desktop-business-application .
 ```
 
-### Run
+### Run image
+
 ```bash
 docker run -it --entrypoint /bin/ash desktop-business-application
+```
+
+### Run GUI application from docker
+
+```bash
+docker run --net=host -e DISPLAY=$DISPLAY desktop-business-application
 ```
