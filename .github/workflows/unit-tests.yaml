@@ -27,6 +27,5 @@ jobs:
           push: false
           load: true
 
-      - name: Run Program
-        run: |
-            docker run desktop-business-app
+      - name: Run Tests
+        run: ./bin/desktop-business-app-ut 
