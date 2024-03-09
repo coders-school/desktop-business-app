@@ -1,29 +1,26 @@
-FROM alpine:latest as BUILD
+FROM ubuntu:mantic as BUILD
 ENV PROJECT_NAME=desktop-business-app
 
-# Install required packages: g++, cmake, make
-RUN apk update && apk add --no-cache g++ cmake make
-RUN apk add --no-cache gtest-dev
+RUN apt update -y && \
+    apt install -y libgtest-dev cmake make g++ && \
+    apt install -y qt6-base-dev && \
+    apt install -y libgl1-mesa-dev
 
-# Copy source code and tests
-WORKDIR /app
-COPY src /app/src
-COPY tests /app/tests
-COPY CMakeLists.txt .
+WORKDIR /application
+COPY . /application
 
-# Build and run tests
 RUN cmake -S . -B build && cmake --build build
 
-# Run tests
-RUN /app/build/${PROJECT_NAME}-ut
+RUN /application/bin/${PROJECT_NAME}-ut
 
-# Build the final image
-FROM alpine:latest as FINAL
+FROM ubuntu:mantic as FINAL
 ENV PROJECT_NAME=desktop-business-app
 
-RUN apk update && apk add --no-cache g++ cmake make
-WORKDIR /app
-COPY --from=BUILD /app/build/${PROJECT_NAME} /app/build/${PROJECT_NAME}
+RUN apt update -y && \
+    apt install -y libgtest-dev cmake make g++&& \
+    apt install -y qt6-base-dev
 
-# RUN PROGRAM
-ENTRYPOINT /app/build/${PROJECT_NAME}
+WORKDIR /application
+COPY --from=BUILD /application/bin/${PROJECT_NAME} /application/bin/${PROJECT_NAME}
+
+ENTRYPOINT /application/bin/${PROJECT_NAME} 
