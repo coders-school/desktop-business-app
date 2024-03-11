@@ -22,7 +22,7 @@ docker build -t desktop-business-application .
 docker run -it --entrypoint /bin/bash desktop-business-application
 ```
 
-### Run GUI application from docker
+### Run GUI application from docker (on Ubuntu)
 
 ```bash
 xhost +local:docker
