@@ -22,5 +22,6 @@ RUN apt update -y && \
 
 WORKDIR /application
 COPY --from=BUILD /application/bin/${PROJECT_NAME} /application/bin/${PROJECT_NAME}
+COPY --from=BUILD /application/bin/${PROJECT_NAME}-ut /application/bin/${PROJECT_NAME}-ut
 
-ENTRYPOINT /application/bin/${PROJECT_NAME} 
+ENTRYPOINT /application/bin/${PROJECT_NAME}

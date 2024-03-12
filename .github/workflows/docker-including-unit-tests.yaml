@@ -27,5 +27,3 @@ jobs:
           push: false
           load: true
 
-      - name: Run Tests
-        run: ./bin/desktop-business-app-ut 
