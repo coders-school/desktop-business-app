@@ -1,34 +1,43 @@
 #include "person.hpp"
 
-Person::Person(std::string firstName, std::string lastName, std::string pesel){
+Person::Person(std::string firstName, std::string lastName, std::string pesel)
+{
     setFirstName(firstName);
     setLastName(lastName);
     setPesel(pesel);
 }
 
-Person::~Person(){}
+Person::~Person()
+{
+}
 
-void Person::setFirstName(std::string firstName){
+void Person::setFirstName(std::string firstName)
+{
     firstName_ = firstName;
 }
 
-std::string Person::getFirstName(){
+std::string Person::getFirstName()
+{
     return firstName_;
 }
 
-void Person::setLastName(std::string lastName){
+void Person::setLastName(std::string lastName)
+{
     lastName_ = lastName;
 }
 
-std::string Person::getLastName(){
+std::string Person::getLastName()
+{
     return lastName_;
 }
 
-void Person::setPesel(std::string pesel){
-    //TODO Validation
+void Person::setPesel(std::string pesel)
+{
+    // TODO Validation
     pesel_ = pesel;
 }
 
-std::string Person::getPesel(){
+std::string Person::getPesel()
+{
     return pesel_;
 }
