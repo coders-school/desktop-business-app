@@ -4,8 +4,7 @@
 std::unordered_set<Visit*> Visit::visitExtent;
 
 
-Visit::Visit(std::shared_ptr<Doctor> doc){
-    setAssociation(doc);
+Visit::Visit(){
     visitExtent.insert(this);
 }
 
@@ -14,7 +13,7 @@ Visit::~Visit() {
 }
 
 std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doc) {
-    auto visit = std::shared_ptr<Visit>(new Visit(doc));
+    auto visit = std::shared_ptr<Visit>(new Visit());
     doc->addAssociation(visit);
     return visit;
 }

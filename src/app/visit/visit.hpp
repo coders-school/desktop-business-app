@@ -7,7 +7,7 @@
 class Doctor;
 
 class Visit : public std::enable_shared_from_this<Visit>{
-        Visit(std::shared_ptr<Doctor> doc);
+        Visit();
         static std::unordered_set<Visit*> visitExtent;
         std::shared_ptr<Doctor> docAssociation_;
 
