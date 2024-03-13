@@ -1,5 +1,4 @@
 #include <QApplication>
-#include "visit/visit.hpp"
 
 #include "mainwindow.h"
 

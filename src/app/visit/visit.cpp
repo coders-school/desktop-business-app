@@ -1,7 +1,7 @@
 #include "visit.hpp"
 #include "../doctor/doctor.hpp"
 
-std::unordered_set<Visit *> Visit::visitExtent;
+std::set<Visit *> Visit::visitExtent;
 
 Visit::Visit()
 {
@@ -20,7 +20,7 @@ std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doc)
     return visit;
 }
 
-std::unordered_set<Visit *> Visit::getExtent()
+std::set<Visit *> Visit::getExtent()
 {
     return visitExtent;
 }

@@ -19,7 +19,7 @@ void Doctor::addAssociation(std::shared_ptr<Visit> visit)
     }
 }
 
-std::unordered_set<std::shared_ptr<Visit>> Doctor::getVisitAssociations()
+std::set<std::shared_ptr<Visit>> Doctor::getVisitAssociations()
 {
     return visitAssociation_;
 }
