@@ -1,5 +1,9 @@
 #include "doctor.hpp"
+#include "../visit/visit.hpp"
 #include <stdexcept>
+
+Doctor::Doctor(std::string firstName, std::string lastName, std::string pesel)
+ : Person(firstName, lastName, pesel){}
 
 void Doctor::addAssociation(std::shared_ptr<Visit> visit){
     if(visit == nullptr){
@@ -11,6 +15,6 @@ void Doctor::addAssociation(std::shared_ptr<Visit> visit){
     }
 }
 
-std::unordered_set<std::shared_ptr<Visit>> Doctor::getVisitAssociation(){
+std::unordered_set<std::shared_ptr<Visit>> Doctor::getVisitAssociations(){
     return visitAssociation_;
 }

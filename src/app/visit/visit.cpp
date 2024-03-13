@@ -1,6 +1,11 @@
 #include "visit.hpp"
+#include "../doctor/doctor.hpp"
 
-Visit::Visit(std::shared_ptr<Doctor> doc) : docAssociation_{doc}{
+std::unordered_set<Visit*> Visit::visitExtent;
+
+
+Visit::Visit(std::shared_ptr<Doctor> doc){
+    setAssociation(doc);
     visitExtent.insert(this);
 }
 
@@ -8,9 +13,10 @@ Visit::~Visit() {
     removeFromExtent(this);
 }
 
-void Visit::createVisit(std::shared_ptr<Doctor> doc){
-    auto visit{std::make_shared<Visit>(doc)};
+std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doc) {
+    auto visit = std::shared_ptr<Visit>(new Visit(doc));
     doc->addAssociation(visit);
+    return visit;
 }
 
 std::unordered_set<Visit*> Visit::getExtent(){
@@ -35,4 +41,10 @@ std::shared_ptr<Doctor> Visit::getDocAssociation(){
     return docAssociation_;
 }
 
+void Visit::setVisitInfo(std::string info){
+    visitInfo_ = info;
+}
 
+std::string Visit::getVisitInfo(){
+    return visitInfo_;
+}

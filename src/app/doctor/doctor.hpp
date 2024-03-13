@@ -1,14 +1,16 @@
 #pragma once
 
 #include "../person/person.hpp"
-#include "../visit/visit.hpp"
+
 #include <unordered_set>
 
-class Doctor : public Person, std::enable_shared_from_this<Doctor>{
+class Visit;
+
+class Doctor : public Person, public std::enable_shared_from_this<Doctor>{
         std::unordered_set<std::shared_ptr<Visit>> visitAssociation_;
     public:
-        Doctor();
+        Doctor(std::string firstName, std::string lastName, std::string pesel);
 
         void addAssociation(std::shared_ptr<Visit> visit);
-        std::unordered_set<std::shared_ptr<Visit>> getVisitAssociation();
+        std::unordered_set<std::shared_ptr<Visit>> getVisitAssociations();
 };
