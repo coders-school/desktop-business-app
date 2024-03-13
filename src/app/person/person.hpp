@@ -11,5 +11,5 @@ class Person{
         virtual ~Person(){};
         void setName(std::string name){};
         std::string getName(){};
-        virtual void setPesel(std::string pesel) = 0;
+        void setPesel(std::string pesel){};
 };

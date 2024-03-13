@@ -1,11 +1,12 @@
 #include "doctor.hpp"
+#include <stdexcept>
 
 void Doctor::addAssociation(std::shared_ptr<Visit> visit){
     if(visit == nullptr){
-        //TODO Exception
-        return;
+        throw std::invalid_argument("Argument points to nullptr");
     }
-    //if() sprawdzamy czy w vectorze istnieje juz ta wizyta
-    visitAssociation_.push_back(visit);
-    visit->setAssociation(shared_from_this());
+    if(visitAssociation_.find(visit) == visitAssociation_.end()){
+        visitAssociation_.insert(visit);
+        visit->setAssociation(shared_from_this());
+    }
 }
