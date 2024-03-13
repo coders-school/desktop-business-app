@@ -9,10 +9,11 @@ class Visit : public std::enable_shared_from_this<Visit>{
         static std::vector<Visit*> visitExtent;
         Visit(std::shared_ptr<Doctor> doc);
         ~Visit();
-        std::shared_ptr<Doctor> doc_;
+        std::shared_ptr<Doctor> docAssociation_;
 
         std::string visitInfo_;
     public:
         static void createVisit(std::shared_ptr<Doctor> doc);
         void setAssociation(std::shared_ptr<Doctor> doc);
+        std::shared_ptr<Doctor> getDocAssociation();
 };

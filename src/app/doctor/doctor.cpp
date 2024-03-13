@@ -10,3 +10,7 @@ void Doctor::addAssociation(std::shared_ptr<Visit> visit){
         visit->setAssociation(shared_from_this());
     }
 }
+
+std::unordered_set<std::shared_ptr<Visit>> Doctor::getVisitAssociation(){
+    return visitAssociation_;
+}

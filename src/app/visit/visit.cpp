@@ -1,6 +1,6 @@
 #include "visit.hpp"
 
-Visit::Visit(std::shared_ptr<Doctor> doc) : doc_{doc}{
+Visit::Visit(std::shared_ptr<Doctor> doc) : docAssociation_{doc}{
     visitExtent.push_back(this);
 }
 
@@ -10,9 +10,13 @@ void Visit::createVisit(std::shared_ptr<Doctor> doc){
 };
 
 void Visit::setAssociation(std::shared_ptr<Doctor> doc){
-    if(!doc_){
-        doc_={doc};
-        doc->addAssociation(shared_from_this());
+    if(!docAssociation_){
+        docAssociation_={doc};
+        docAssociation_->addAssociation(shared_from_this());
     }
+}
+
+std::shared_ptr<Doctor> Visit::getDocAssociation(){
+    return docAssociation_;
 }
 
