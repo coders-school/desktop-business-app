@@ -4,7 +4,6 @@
 #include <string>
 
 class Person{
-    private:
         std::string name_;
         std::string pesel_;
     public:

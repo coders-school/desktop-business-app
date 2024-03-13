@@ -5,7 +5,6 @@
 #include <unordered_set>
 
 class Doctor : public Person, std::enable_shared_from_this<Doctor>{
-    private:
         std::unordered_set<std::shared_ptr<Visit>> visitAssociation_;
     public:
         Doctor();
