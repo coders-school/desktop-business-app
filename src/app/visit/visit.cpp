@@ -1,11 +1,11 @@
 #include "visit.hpp"
 #include "../doctor/doctor.hpp"
 
-std::set<Visit *> Visit::visitExtent;
+std::set<Visit *> Visit::visit_extent_;
 
 Visit::Visit()
 {
-    visitExtent.insert(this);
+    visit_extent_.insert(this);
 }
 
 Visit::~Visit()
@@ -13,47 +13,47 @@ Visit::~Visit()
     removeFromExtent(this);
 }
 
-std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doc)
+std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doctor)
 {
     auto visit = std::shared_ptr<Visit>(new Visit());
-    doc->addAssociation(visit);
+    doctor->addVisitAssociation(visit);
     return visit;
 }
 
 std::set<Visit *> Visit::getExtent()
 {
-    return visitExtent;
+    return visit_extent_;
 }
 
 void Visit::removeFromExtent(Visit *visit)
 {
-    auto it = visitExtent.find(visit);
-    if (it != visitExtent.end())
+    auto it = visit_extent_.find(visit);
+    if (it != visit_extent_.end())
     {
-        visitExtent.erase(it);
+        visit_extent_.erase(it);
     }
 }
 
-void Visit::setAssociation(std::shared_ptr<Doctor> doc)
+void Visit::setDoctorAssociation(const std::shared_ptr<Doctor>& doctor)
 {
-    if (!docAssociation_)
+    if (!doctor_association_)
     {
-        docAssociation_ = {doc};
-        docAssociation_->addAssociation(shared_from_this());
+        doctor_association_ = {doctor};
+        doctor_association_->addVisitAssociation(shared_from_this());
     }
 }
 
-std::shared_ptr<Doctor> Visit::getDocAssociation()
+std::shared_ptr<Doctor> Visit::getDoctorAssociation() const
 {
-    return docAssociation_;
+    return doctor_association_;
 }
 
-void Visit::setVisitInfo(std::string info)
+void Visit::setVisitInformation(const std::string& visit_information)
 {
-    visitInfo_ = info;
+    visit_information_ = visit_information;
 }
 
-std::string Visit::getVisitInfo()
+std::string Visit::getVisitInformation() const
 {
-    return visitInfo_;
+    return visit_information_;
 }

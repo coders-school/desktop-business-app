@@ -2,24 +2,24 @@
 #include "../visit/visit.hpp"
 #include <stdexcept>
 
-Doctor::Doctor(std::string firstName, std::string lastName, std::string pesel) : Person(firstName, lastName, pesel)
+Doctor::Doctor(std::string first_name, std::string last_name, std::string pesel) : Person{first_name, last_name, pesel}
 {
 }
 
-void Doctor::addAssociation(std::shared_ptr<Visit> visit)
+void Doctor::addVisitAssociation(const std::shared_ptr<Visit>& visit)
 {
-    if (visit == nullptr)
+    if (!visit)
     {
-        throw std::invalid_argument("Argument points to nullptr");
+        throw std::invalid_argument(std::string("Argument points to nullptr in ") + __func__);
     }
-    if (visitAssociation_.find(visit) == visitAssociation_.end())
+    if (visit_associations_.find(visit) == visit_associations_.end())
     {
-        visitAssociation_.insert(visit);
-        visit->setAssociation(shared_from_this());
+        visit_associations_.insert(visit);
+        visit->setDoctorAssociation(shared_from_this());
     }
 }
 
-std::set<std::shared_ptr<Visit>> Doctor::getVisitAssociations()
+std::set<std::shared_ptr<Visit>> Doctor::getVisitAssociations() const
 {
-    return visitAssociation_;
+    return visit_associations_;
 }

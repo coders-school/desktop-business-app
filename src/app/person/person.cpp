@@ -1,9 +1,8 @@
 #include "person.hpp"
 
-Person::Person(std::string firstName, std::string lastName, std::string pesel)
+Person::Person(std::string first_name, std::string last_name, std::string pesel)
+    : first_name_{first_name}, last_name_{last_name}
 {
-    setFirstName(firstName);
-    setLastName(lastName);
     setPesel(pesel);
 }
 
@@ -11,33 +10,33 @@ Person::~Person()
 {
 }
 
-void Person::setFirstName(std::string firstName)
+void Person::setFirstName(const std::string& first_name)
 {
-    firstName_ = firstName;
+    first_name_ = first_name;
 }
 
-std::string Person::getFirstName()
+std::string Person::getFirstName() const
 {
-    return firstName_;
+    return first_name_;
 }
 
-void Person::setLastName(std::string lastName)
+void Person::setLastName(const std::string& last_name)
 {
-    lastName_ = lastName;
+    last_name_ = last_name;
 }
 
-std::string Person::getLastName()
+std::string Person::getLastName() const
 {
-    return lastName_;
+    return last_name_;
 }
 
-void Person::setPesel(std::string pesel)
+void Person::setPesel(const std::string& pesel)
 {
     // TODO Validation
     pesel_ = pesel;
 }
 
-std::string Person::getPesel()
+std::string Person::getPesel() const
 {
     return pesel_;
 }

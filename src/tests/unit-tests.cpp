@@ -17,8 +17,8 @@ struct AssociationTest : ::testing::Test
         visit2 = Visit::createVisit(doc2);
         visit3 = Visit::createVisit(doc2);
 
-        visit2->setVisitInfo("Tworze klub ninja!");
-        visit3->setVisitInfo("I w klubie sa sami fajni ludzie");
+        visit2->setVisitInformation("Tworze klub ninja!");
+        visit3->setVisitInformation("I w klubie sa sami fajni ludzie");
     }
 };
 
@@ -31,14 +31,14 @@ TEST_F(AssociationTest, ExtentDemo)
 
 TEST_F(AssociationTest, AssociationDemo)
 {
-    auto content = visit1->getDocAssociation()->getLastName();
+    auto content = visit1->getDoctorAssociation()->getLastName();
     auto expected = "Tracz";
     EXPECT_EQ(content, expected);
 }
 
 TEST_F(AssociationTest, AssociationDemo2)
 {
-    auto content = doc2->getVisitAssociations().begin()->get()->getVisitInfo();
+    auto content = doc2->getVisitAssociations().begin()->get()->getVisitInformation();
     auto expected = "Tworze klub ninja!";
     EXPECT_EQ(content, expected);
 }
@@ -52,7 +52,7 @@ TEST_F(AssociationTest, AssociationDemo3)
         std::advance(it, 1);
         if (it != doc2->getVisitAssociations().end())
         {
-            content = it->get()->getVisitInfo();
+            content = it->get()->getVisitInformation();
         }
         else
         {

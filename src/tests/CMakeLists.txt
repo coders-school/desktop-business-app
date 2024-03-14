@@ -1,7 +1,5 @@
 set(TESTS unit-tests.cpp)
 set(SOURCES ../app/doctor/doctor.cpp ../app/person/person.cpp ../app/visit/visit.cpp)
-set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk")
-
 
 add_executable(${PROJECT_NAME}-ut ${TESTS} ${SOURCES})
 
