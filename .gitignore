@@ -61,3 +61,6 @@ build/
 
 # Binary directory
 bin/
+
+# Local machine files
+.vscode/
