@@ -11,4 +11,6 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets)
 qt_standard_project_setup()
 
 add_subdirectory(src/app)
+add_subdirectory(src/app/warehouse)
 add_subdirectory(src/tests)
+add_subdirectory(src/app/warehouse/test)
