@@ -12,3 +12,5 @@ qt_standard_project_setup()
 
 add_subdirectory(src/app)
 add_subdirectory(src/tests)
+add_subdirectory(src/app/receptionist)
+add_subdirectory(src/tests/ut/receptionist)
