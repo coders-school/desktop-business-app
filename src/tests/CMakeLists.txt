@@ -22,3 +22,5 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
 set(CTEST_BINARY_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
 add_test(NAME ${PROJECT_NAME}-tests COMMAND ${PROJECT_NAME}-tests WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+
+add_subdirectory(ut/warehouse)
