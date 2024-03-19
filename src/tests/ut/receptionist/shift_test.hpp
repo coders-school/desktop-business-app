@@ -1,6 +1,10 @@
 #pragma once
-#include "../../../app/receptionist/shift.hpp"
+
+#include "shift.hpp"
 #include "gtest/gtest.h"
+
+namespace unit_test::receptionist
+{
 
 struct TestParams
 {
@@ -11,3 +15,5 @@ struct TestParams
 class ShiftParameterizedFixture : public ::testing::TestWithParam<TestParams>
 {
 };
+
+} // namespace unit_test::receptionist

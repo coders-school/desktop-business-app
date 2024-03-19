@@ -1,6 +1,7 @@
 #include "shift_test.hpp"
+#include "shift.hpp"
 
-namespace
+namespace unit_test::receptionist
 {
 
 TEST_P(ShiftParameterizedFixture, GivenShiftEnumerationExpectValidConversionToString)
@@ -14,4 +15,4 @@ INSTANTIATE_TEST_SUITE_P(ShiftConversionTest, ShiftParameterizedFixture,
                          ::testing::Values(TestParams{Shift::Morning, "morning shift"},
                                            TestParams{Shift::Afternoon, "afternoon shift"}));
 
-} // namespace
+} // namespace unit_test::receptionist

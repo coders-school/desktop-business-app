@@ -1,6 +1,9 @@
-#include "../app/doctor/doctor.hpp"
-#include "../app/visit/visit.hpp"
+#include "doctor.hpp"
+#include "visit.hpp"
 #include "gtest/gtest.h"
+
+namespace unit_test::visit
+{
 
 struct AssociationTest : ::testing::Test
 {
@@ -62,3 +65,5 @@ TEST_F(AssociationTest, AssociationDemo3)
     auto expected = "I w klubie sa sami fajni ludzie";
     EXPECT_EQ(content, expected);
 }
+
+} // namespace unit_test::visit

@@ -1,10 +1,22 @@
-set(TESTS unit-tests.cpp)
-set(SOURCES ../app/doctor/doctor.cpp ../app/person/person.cpp ../app/visit/visit.cpp)
-
-add_executable(${PROJECT_NAME}-ut ${TESTS} ${SOURCES})
-
-target_compile_options(${PROJECT_NAME}-ut PRIVATE -Werror -Wall -Wextra -pedantic)
-target_link_libraries(${PROJECT_NAME}-ut GTest::gtest_main)
+set(UT_SOURCES ut/receptionist/shift_test.cpp
+               ut/visit/visit_test.cpp)
+# NOTE: similar set for INTEGRATION_SOURCES to be done when tests apear
 
 include(GoogleTest)
-gtest_discover_tests(${PROJECT_NAME}-ut)
+
+add_executable(${PROJECT_NAME}-all-tests ${UT_SOURCES})
+
+target_compile_options(${PROJECT_NAME}-all-tests PRIVATE -Werror -Wall -Wextra -pedantic)
+
+target_link_libraries(${PROJECT_NAME}-all-tests PRIVATE
+                                                GTest::gtest_main
+                                                doctor
+                                                person
+                                                receptionist
+                                                visit
+)
+
+set(CTEST_BINARY_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+
+add_test(NAME ${PROJECT_NAME}-tests COMMAND ${PROJECT_NAME}-all-tests WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+
