@@ -4,19 +4,18 @@ set(UT_SOURCES ut/receptionist/shift_test.cpp
 
 include(GoogleTest)
 
-add_executable(${PROJECT_NAME}-all-tests ${UT_SOURCES})
+add_executable(${PROJECT_NAME}-tests ${UT_SOURCES})
 
-target_compile_options(${PROJECT_NAME}-all-tests PRIVATE -Werror -Wall -Wextra -pedantic)
+target_compile_options(${PROJECT_NAME}-tests PRIVATE -Werror -Wall -Wextra -pedantic)
 
-target_link_libraries(${PROJECT_NAME}-all-tests PRIVATE
-                                                GTest::gtest_main
-                                                doctor
-                                                person
-                                                receptionist
-                                                visit
+target_link_libraries(${PROJECT_NAME}-tests PRIVATE
+                                            GTest::gtest_main
+                                            doctor
+                                            person
+                                            receptionist
+                                            visit
 )
 
 set(CTEST_BINARY_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
-add_test(NAME ${PROJECT_NAME}-tests COMMAND ${PROJECT_NAME}-all-tests WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
-
+add_test(NAME ${PROJECT_NAME}-tests COMMAND ${PROJECT_NAME}-tests WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
