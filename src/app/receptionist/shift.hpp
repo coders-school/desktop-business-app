@@ -9,4 +9,4 @@ enum class Shift
     Afternoon = 1
 };
 
-std::string toString(const Shift &shift);
+std::string toString(const Shift& shift);

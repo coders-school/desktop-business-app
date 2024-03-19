@@ -8,7 +8,7 @@ class Person
     std::string first_name_;
     std::string last_name_;
     std::string pesel_;
-    
+
   public:
     explicit Person(std::string first_name, std::string last_name, std::string pesel);
     virtual ~Person();
