@@ -1,7 +1,12 @@
 add_executable(warehouse-ut warehouse-ut.cpp)
 
 target_compile_options(warehouse-ut PRIVATE -Werror -Wall -Wextra -pedantic)
-target_link_libraries(warehouse-ut GTest::gtest_main warehouse-lib product-lib)
+target_link_libraries(warehouse-ut GTest::gtest_main
+                                   warehouse-lib
+                                   product-lib
+                                   medicine-lib
+                                   equipment-lib)
+# target_include_directories()
 
 include(GoogleTest)
 gtest_discover_tests(warehouse-ut)
