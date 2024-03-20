@@ -23,7 +23,7 @@ void Warehouse::decreaseAmount(const std::string &name, uint amount)
     }
 }
 
-void Warehouse::addProducts(const std::vector<std::shared_ptr<Product>> products)
+void Warehouse::addProducts(const std::vector<std::shared_ptr<Product>> &products)
 {
     for (const auto &product : products)
     {
@@ -34,31 +34,32 @@ void Warehouse::addProducts(const std::vector<std::shared_ptr<Product>> products
     }
 }
 
-bool Warehouse::validateAdd(const std::string &name)
+bool Warehouse::validateAdd(const std::string &name) const
 {
     return std::ranges::any_of(products_, [&](const auto &el) { return el->getName() == name; });
 }
 
-void Warehouse::removeProducts(const std::vector<std::shared_ptr<Product>> &products)
+void Warehouse::removeProducts(const std::vector<std::string> &products)
 {
     for (const auto &product : products)
     {
         for (auto it = begin(products_); it != end(products_); it++)
         {
-            if ((*it)->getName() == product->getName())
+            if ((*it)->getName() == product)
             {
                 products_.erase(it);
+                break;
             }
         }
     }
 }
 
-bool Warehouse::validateRemoval(const std::string &name)
+bool Warehouse::validateRemoval(const std::string &name) const
 {
     return std::ranges::all_of(products_, [&](const auto &el) { return el->getName() != name; });
 }
 
-std::shared_ptr<Product> Warehouse::getPtrToProduct(std::string name)
+std::shared_ptr<Product> Warehouse::getPtrToProduct(const std::string &name)
 {
     for (const auto &product_ : products_)
     {
@@ -68,13 +69,6 @@ std::shared_ptr<Product> Warehouse::getPtrToProduct(std::string name)
         }
     }
     return nullptr;
-}
-
-std::vector<std::shared_ptr<Product>> Warehouse::getExpiredProducts()
-{
-    std::vector<std::shared_ptr<Product>> ret;
-    // TODO: write this function when type Date will be created
-    return ret;
 }
 
 std::vector<std::shared_ptr<Product>> &Warehouse::getProducts()
