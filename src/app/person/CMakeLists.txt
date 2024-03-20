@@ -1,3 +1,4 @@
-add_library(person person.cpp)
+add_library(person-lib person.cpp)
 
-target_include_directories(person PUBLIC .)
+target_compile_options(person-lib PRIVATE -Werror -Wall -Wextra -pedantic)
+target_include_directories(person-lib PUBLIC .)

@@ -1,3 +1,4 @@
-add_library(visit visit.cpp)
+add_library(visit-lib visit.cpp)
 
-target_include_directories(visit PUBLIC .)
+target_compile_options(visit-lib PRIVATE -Werror -Wall -Wextra -pedantic)
+target_include_directories(visit-lib PUBLIC .)

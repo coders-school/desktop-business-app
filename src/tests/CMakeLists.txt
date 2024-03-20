@@ -10,10 +10,10 @@ target_compile_options(${PROJECT_NAME}-tests PRIVATE -Werror -Wall -Wextra -peda
 
 target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             GTest::gtest_main
-                                            doctor
-                                            person
-                                            receptionist
-                                            visit
+                                            doctor-lib
+                                            person-lib
+                                            receptionist-lib
+                                            visit-lib
 )
 
 set(CTEST_BINARY_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

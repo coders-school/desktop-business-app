@@ -1,3 +1,4 @@
-add_library(receptionist shift.cpp)
+add_library(receptionist-lib shift.cpp)
 
-target_include_directories(receptionist PUBLIC .)
+target_compile_options(receptionist-lib PRIVATE -Werror -Wall -Wextra -pedantic)
+target_include_directories(receptionist-lib PUBLIC .)
