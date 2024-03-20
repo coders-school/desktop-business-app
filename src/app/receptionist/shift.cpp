@@ -1,6 +1,6 @@
 #include "shift.hpp"
 
-std::string toString(const Shift &shift)
+std::string toString(const Shift& shift)
 {
     std::string shift_text{};
 

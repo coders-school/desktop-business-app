@@ -1,7 +1,7 @@
 #include "visit.hpp"
 #include "../doctor/doctor.hpp"
 
-std::set<Visit *> Visit::visit_extent_;
+std::set<Visit*> Visit::visit_extent_;
 
 Visit::Visit()
 {
@@ -20,12 +20,12 @@ std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doctor)
     return visit;
 }
 
-std::set<Visit *> Visit::getExtent()
+std::set<Visit*> Visit::getExtent()
 {
     return visit_extent_;
 }
 
-void Visit::removeFromExtent(Visit *visit)
+void Visit::removeFromExtent(Visit* visit)
 {
     auto it = visit_extent_.find(visit);
     if (it != visit_extent_.end())

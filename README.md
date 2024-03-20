@@ -9,6 +9,13 @@ TBD...
 - Docker
 - Google Test
 - C++20
+- clang-format (recommended minimum ver. 17)
+
+### Format code before committing
+
+```bash
+find . -name '*.cpp' -or -name '*.h' | xargs clang-format --verbose -style=file -i
+```
 
 ### Build
 
