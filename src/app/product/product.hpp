@@ -10,6 +10,7 @@ class Product
     void increaseAmount(int amount);
     void decreaseAmount(int amount);
     std::string_view getName() const;
+    int getAmount() const;
 
   private:
     std::string name_;

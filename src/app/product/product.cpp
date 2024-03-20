@@ -18,3 +18,8 @@ std::string_view Product::getName() const
 {
     return name_;
 }
+
+int Product::getAmount() const
+{
+    return amount_;
+}
