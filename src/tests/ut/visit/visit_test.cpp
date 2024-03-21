@@ -1,27 +1,9 @@
-#include "../app/doctor/doctor.hpp"
-#include "../app/visit/visit.hpp"
-#include "gtest/gtest.h"
+#include "doctor.hpp"
 
-struct AssociationTest : ::testing::Test
+#include "visit_test.hpp"
+
+namespace
 {
-    std::shared_ptr<Doctor> doc1{std::make_shared<Doctor>("Janusz", "Tracz", "1234")};
-    std::shared_ptr<Doctor> doc2{std::make_shared<Doctor>("Lukasz", "Ziobron", "123456")};
-
-    std::shared_ptr<Visit> visit1;
-    std::shared_ptr<Visit> visit2;
-    std::shared_ptr<Visit> visit3;
-
-    AssociationTest()
-    {
-        visit1 = Visit::createVisit(doc1);
-        visit2 = Visit::createVisit(doc2);
-        visit3 = Visit::createVisit(doc2);
-
-        visit2->setVisitInformation("Tworze klub ninja!");
-        visit3->setVisitInformation("I w klubie sa sami fajni ludzie");
-    }
-};
-
 TEST_F(AssociationTest, ExtentDemo)
 {
     auto content = Visit::getExtent().size();
@@ -62,3 +44,5 @@ TEST_F(AssociationTest, AssociationDemo3)
     auto expected = "I w klubie sa sami fajni ludzie";
     EXPECT_EQ(content, expected);
 }
+
+} // namespace

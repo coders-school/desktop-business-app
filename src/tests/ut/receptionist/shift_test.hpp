@@ -1,5 +1,6 @@
 #pragma once
-#include "../../../app/receptionist/shift.hpp"
+
+#include "shift.hpp"
 #include "gtest/gtest.h"
 
 struct TestParams
