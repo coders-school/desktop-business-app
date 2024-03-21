@@ -6,7 +6,6 @@ target_link_libraries(warehouse-ut GTest::gtest_main
                                    product-lib
                                    medicine-lib
                                    equipment-lib)
-# target_include_directories()
 
 include(GoogleTest)
 gtest_discover_tests(warehouse-ut)
