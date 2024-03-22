@@ -17,16 +17,17 @@ enum class Allergent
 
 class Patient : public Person
 {
+    Patient() = delete;
+    Patient(const std::string name, const std::string last_name, const std::string pesel,
+            const std::unordered_set<Allergent> allergents);
     static std::vector<std::shared_ptr<Patient>> patients_;
 
     std::unordered_set<Allergent> allergents_;
     size_t debt_;
 
   public:
-    Patient() = delete;
-    Patient(const std::string name, const std::string last_name, const std::string pesel,
-            const std::unordered_set<Allergent> allergents);
-
+    static void createPatient(const std::string name, const std::string last_name, const std::string pesel,
+                              const std::unordered_set<Allergent> allergents);
     static std::shared_ptr<Patient> getPatient(const std::string pesel);
     static std::shared_ptr<Patient> getPatient(const std::string name, const std::string last_name);
     static std::vector<std::shared_ptr<Patient>> getPatients();
