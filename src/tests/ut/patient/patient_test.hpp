@@ -9,21 +9,27 @@ class PatientTestFixture : public ::testing::Test
 {
     void SetUp() override
     {
-        unit_ = std::make_shared<Patient>(createPatient());
+        createPatient();
     }
 
   protected:
-    Patient createPatient(std::unordered_set<Allergent> allergents = std::unordered_set<Allergent>{},
-                          std::string name = "Jan", std::string last_name = "Kowalski",
-                          std::string pesel = "00000000000")
+    void createPatient(std::unordered_set<Allergent> allergents = std::unordered_set<Allergent>{},
+                       std::string name = "Jan", std::string last_name = "Kowalski", std::string pesel = "00000000000")
     {
-        Patient patient{name, last_name, pesel, allergents};
-
-        return patient;
+        Patient::createPatient(name, last_name, pesel, allergents);
     }
 
-    std::shared_ptr<Patient> unit_;
+    std::vector<std::shared_ptr<Patient>> unit_{Patient::getPatients()};
 };
+
+TEST_F(PatientTestFixture, GivenMultiplePatientsExpectCorrectNumberOfPatientsCreated)
+{
+    const size_t extected_size{2};
+
+    createPatient({}, "Pawel");
+
+    EXPECT_EQ(Patient::getPatients().size(), extected_size);
+}
 
 TEST_F(PatientTestFixture, GivenDefaultConstructorExpectNotConstructible)
 {
@@ -34,7 +40,7 @@ TEST_F(PatientTestFixture, GivenDefaultDebtExpectGetDebtEqualsZero)
 {
     const size_t expected_output{0};
 
-    EXPECT_EQ(unit_->getDebt(), expected_output);
+    EXPECT_EQ(unit_.front()->getDebt(), expected_output);
 }
 
 TEST_F(PatientTestFixture, GivenDebtSetToFiftyExpectDebtEqualsFifty)
@@ -42,9 +48,9 @@ TEST_F(PatientTestFixture, GivenDebtSetToFiftyExpectDebtEqualsFifty)
     const size_t expected_output{50};
     const size_t input{50};
 
-    unit_->setDebt(input);
+    unit_.front()->setDebt(input);
 
-    EXPECT_EQ(unit_->getDebt(), expected_output);
+    EXPECT_EQ(unit_.front()->getDebt(), expected_output);
 }
 
 TEST_F(PatientTestFixture, GivenPatientExpectProperInformationReturned)
@@ -52,17 +58,17 @@ TEST_F(PatientTestFixture, GivenPatientExpectProperInformationReturned)
     // TODO Issue#46
     const std::string expected_output{};
 
-    EXPECT_EQ(unit_->showInformationAboutPatient(), expected_output);
+    EXPECT_EQ(unit_.front()->showInformationAboutPatient(), expected_output);
 }
 
 TEST_F(PatientTestFixture, GivenPatientWithAlergentExpectOtherAllergentsNotIncluded)
 {
-    unit_.reset();
+    unit_.clear();
     const std::unordered_set<Allergent> expected_allergents{Allergent::Allergent};
     const std::unordered_set<Allergent> input{Allergent::AnotherAllergent};
-    unit_ = std::make_shared<Patient>(createPatient(input));
+    createPatient(input);
 
-    EXPECT_NE(unit_->getAllergents(), expected_allergents);
+    EXPECT_NE(unit_.front()->getAllergents(), expected_allergents);
 }
 
 TEST_F(PatientTestFixture, GivenPatientWithUpdatedAlergentsExpectExactAllergentsReturned)
@@ -72,7 +78,7 @@ TEST_F(PatientTestFixture, GivenPatientWithUpdatedAlergentsExpectExactAllergents
     const std::unordered_set<Allergent> input{Allergent::AnotherAllergent, Allergent::DifferentAllergent,
                                               Allergent::SomeAllergent, Allergent::Allergent};
 
-    unit_->updateAllergents(input);
+    unit_.front()->updateAllergents(input);
 
-    EXPECT_EQ(unit_->getAllergents(), expected_allergents);
+    EXPECT_EQ(unit_.front()->getAllergents(), expected_allergents);
 }

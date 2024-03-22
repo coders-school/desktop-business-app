@@ -2,11 +2,17 @@
 
 std::vector<std::shared_ptr<Patient>> Patient::patients_;
 
-
 Patient::Patient(const std::string name, const std::string last_name, const std::string pesel,
                  const std::unordered_set<Allergent> allergents)
     : Person(name, last_name, pesel), allergents_{allergents}, debt_{}
 {
+}
+
+void Patient::createPatient(const std::string name, const std::string last_name, const std::string pesel,
+                            const std::unordered_set<Allergent> allergents)
+{
+    auto patient = std::shared_ptr<Patient>(new Patient(name, last_name, pesel, allergents));
+    patients_.push_back(patient);
 }
 
 std::shared_ptr<Patient> Patient::getPatient(const std::string pesel)
