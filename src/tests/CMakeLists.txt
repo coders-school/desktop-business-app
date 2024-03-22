@@ -1,4 +1,5 @@
-set(UT_SOURCES ut/receptionist/shift_test.cpp
+set(UT_SOURCES ut/receptionist/receptionist_test.cpp
+               ut/receptionist/shift_test.cpp
                ut/visit/visit_test.cpp)
 # NOTE: similar set for INTEGRATION_SOURCES to be done when tests apear
 
