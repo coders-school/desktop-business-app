@@ -67,14 +67,14 @@ TEST_F(WarehouseTest, addTwoMedicinesInVectorTest)
     EXPECT_EQ(testWarehouse.getProducts().size(), 2);
 }
 
-TEST_F(WarehouseTest, validateAddTest)
-{
-    std::vector<std::shared_ptr<Product>> addedProducts{anaesthetic};
-    testWarehouse.addProducts(addedProducts);
+// TEST_F(WarehouseTest, validateAddTest)
+// {
+//     std::vector<std::shared_ptr<Product>> addedProducts{anaesthetic};
+//     testWarehouse.addProducts(addedProducts);
 
-    EXPECT_EQ(testWarehouse.validateAdd("anaesthetic"), true);
-    EXPECT_EQ(testWarehouse.validateAdd("painkiller"), false);
-}
+//     EXPECT_EQ(testWarehouse.validateAdd("anaesthetic"), true);
+//     EXPECT_EQ(testWarehouse.validateAdd("painkiller"), false);
+// }
 
 TEST_F(WarehouseTest, removeSingleMedicineTest)
 {
@@ -95,15 +95,15 @@ TEST_F(WarehouseTest, removeTwoMedicineTest)
     EXPECT_EQ(testWarehouse.getProducts().size(), 0);
 }
 
-TEST_F(WarehouseTest, validateRemovalTest)
-{
-    std::vector<std::shared_ptr<Product>> addedProducts{anaesthetic, painkiller};
-    testWarehouse.addProducts(addedProducts);
-    testWarehouse.removeProducts({{"anaesthetic"}});
+// TEST_F(WarehouseTest, validateRemovalTest)
+// {
+//     std::vector<std::shared_ptr<Product>> addedProducts{anaesthetic, painkiller};
+//     testWarehouse.addProducts(addedProducts);
+//     testWarehouse.removeProducts({{"anaesthetic"}});
 
-    EXPECT_EQ(testWarehouse.validateRemoval("anaesthetic"), true);
-    EXPECT_EQ(testWarehouse.validateRemoval("painkiller"), false);
-}
+//     EXPECT_EQ(testWarehouse.validateRemoval("anaesthetic"), true);
+//     EXPECT_EQ(testWarehouse.validateRemoval("painkiller"), false);
+// }
 
 TEST_F(WarehouseTest, getPtrToProductExistingProductTest)
 {

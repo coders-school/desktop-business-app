@@ -1,6 +1,16 @@
 #include "warehouse.hpp"
 #include "product.hpp"
 
+bool Warehouse::validateAdd(const std::string &name) const
+{
+    return std::ranges::any_of(products_, [&](const auto &el) { return el->getName() == name; });
+}
+
+bool Warehouse::validateRemoval(const std::string &name) const
+{
+    return std::ranges::all_of(products_, [&](const auto &el) { return el->getName() != name; });
+}
+
 void Warehouse::increaseAmount(const std::string &name, const uint amount)
 {
     for (auto &el : products_)
@@ -27,16 +37,11 @@ void Warehouse::addProducts(const std::vector<std::shared_ptr<Product>> &product
 {
     for (const auto &product : products)
     {
-        if (std::ranges::all_of(products_, [&](const auto &el) { return el->getName() != product->getName(); }))
+        if (std::ranges::none_of(products_, [&](const auto &el) { return el->getName() == product->getName(); }))
         {
             products_.push_back(product);
         }
     }
-}
-
-bool Warehouse::validateAdd(const std::string &name) const
-{
-    return std::ranges::any_of(products_, [&](const auto &el) { return el->getName() == name; });
 }
 
 void Warehouse::removeProducts(const std::vector<std::string> &products)
@@ -52,11 +57,6 @@ void Warehouse::removeProducts(const std::vector<std::string> &products)
             }
         }
     }
-}
-
-bool Warehouse::validateRemoval(const std::string &name) const
-{
-    return std::ranges::all_of(products_, [&](const auto &el) { return el->getName() != name; });
 }
 
 std::shared_ptr<Product> Warehouse::getPtrToProduct(const std::string &name)
