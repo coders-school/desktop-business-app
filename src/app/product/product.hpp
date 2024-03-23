@@ -3,17 +3,23 @@
 
 class Product
 {
+    std::string name_;
+    double price_;
+    uint amount_;
+
   public:
     Product() = delete;
-    Product(const std::string &name, double price, int amount);
+    Product(const std::string &name, const double price, const uint amount);
+    virtual ~Product() = default;
 
     void increaseAmount(int amount);
     void decreaseAmount(int amount);
-    std::string_view getName() const;
-    int getAmount() const;
 
-  private:
-    std::string name_;
-    double price_;
-    int amount_;
+    std::string_view getName() const;
+    double getPrice() const;
+    uint getAmount() const;
+
+    void setName(const std::string &name);
+    void setPrice(const double price);
+    void setAmount(const uint amount);
 };
