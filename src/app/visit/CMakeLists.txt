@@ -1,4 +1,5 @@
-add_library(visit-lib visit.cpp)
+add_library(visit-lib visit.cpp
+                      treatment.cpp)
 
 target_compile_options(visit-lib PRIVATE -Werror -Wall -Wextra -pedantic)
 target_include_directories(visit-lib PUBLIC .)
