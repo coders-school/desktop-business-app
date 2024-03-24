@@ -1,9 +1,9 @@
 #include "visit.hpp"
-#include "../doctor/doctor.hpp"
+#include "doctor.hpp"
 
 std::set<Visit*> Visit::visit_extent_;
 
-Visit::Visit()
+Visit::Visit(std::vector<Treatment> predictedTreatments) : treatments_(std::move(predictedTreatments))
 {
     visit_extent_.insert(this);
 }
@@ -13,10 +13,11 @@ Visit::~Visit()
     removeFromExtent(this);
 }
 
-std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doctor)
+std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doctor, std::vector<Treatment> predictedTreatments)
 {
-    auto visit = std::shared_ptr<Visit>(new Visit());
+    auto visit = std::shared_ptr<Visit>(new Visit(std::move(predictedTreatments)));
     doctor->addVisitAssociation(visit);
+
     return visit;
 }
 
@@ -48,6 +49,11 @@ std::shared_ptr<Doctor> Visit::getDoctorAssociation() const
     return doctor_association_;
 }
 
+std::vector<Treatment> Visit::getTreatments() const
+{
+    return treatments_;
+}
+
 void Visit::setVisitInformation(const std::string& visit_information)
 {
     visit_information_ = visit_information;
@@ -56,4 +62,9 @@ void Visit::setVisitInformation(const std::string& visit_information)
 std::string Visit::getVisitInformation() const
 {
     return visit_information_;
+}
+
+void Visit::updateTreatments(std::vector<Treatment> newTreatments)
+{
+    treatments_ = std::move(newTreatments);
 }
