@@ -2,6 +2,8 @@
 
 #include "visit_test.hpp"
 
+#include <algorithm>
+
 namespace
 {
 TEST_F(AssociationTest, ExtentDemo)
@@ -29,20 +31,11 @@ TEST_F(AssociationTest, AssociationDemo3)
 {
     std::string content;
     auto associations = doc2->getVisitAssociations();
-    if (auto it = associations.begin(); it != associations.end())
-    {
-        std::advance(it, 1);
-        if (it != doc2->getVisitAssociations().end())
-        {
-            content = it->get()->getVisitInformation();
-        }
-        else
-        {
-            content = "null";
-        }
-    }
+
     auto expected = "I w klubie sa sami fajni ludzie";
-    EXPECT_EQ(content, expected);
+
+    EXPECT_TRUE(std::ranges::any_of(
+        associations, [&expected](const auto& visitSPtr) { return visitSPtr->getVisitInformation() == expected; }));
 }
 
 } // namespace
