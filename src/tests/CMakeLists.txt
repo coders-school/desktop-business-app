@@ -1,5 +1,7 @@
 set(UT_SOURCES ut/login/login_test.cpp
+               ut/patient/allergen_test.cpp
                ut/clinic/clinic_test.cpp
+               ut/patient/patient_test.cpp
                ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
                ut/visit/treatment_test.cpp
@@ -18,6 +20,7 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             clinic-lib
                                             doctor-lib
                                             login-lib
+                                            patient-lib
                                             person-lib
                                             receptionist-lib
                                             visit-lib
