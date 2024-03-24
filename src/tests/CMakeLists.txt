@@ -1,4 +1,5 @@
-set(UT_SOURCES ut/patient/patient_test.cpp
+set(UT_SOURCES ut/patient/allergen_test.cpp
+               ut/patient/patient_test.cpp
                ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
                ut/visit/visit_test.cpp)
