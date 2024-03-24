@@ -15,3 +15,15 @@ TEST_F(MedicineTest, MedicineGetInfoTest)
     EXPECT_EQ(infoVec.at(1).second, "-10.000000 / 0.000000");
     EXPECT_EQ(infoVec.at(2).second, "chemicals, ");
 }
+
+TEST_F(MedicineTest, increaseAmountTest)
+{
+    anaesthetic->increaseAmount(100);
+    EXPECT_EQ(anaesthetic->getAmount(), 200);
+}
+
+TEST_F(MedicineTest, decreaseAmountTest)
+{
+    anaesthetic->decreaseAmount(50);
+    EXPECT_EQ(anaesthetic->getAmount(), 50);
+}

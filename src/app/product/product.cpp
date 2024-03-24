@@ -5,12 +5,12 @@ Product::Product(const std::string &name, const double price, const uint amount)
 {
 }
 
-void Product::increaseAmount(int amount)
+void Product::increaseAmount(uint amount)
 {
     amount_ += amount;
 }
 
-void Product::decreaseAmount(int amount)
+void Product::decreaseAmount(uint amount)
 {
     amount_ -= amount;
 }
