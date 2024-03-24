@@ -15,11 +15,5 @@ class Medicine : public Product
 
     bool checkIfExpired(); // TODO: Write this function when Date will be ready
 
-    int getExpirationDate() const;
-    std::pair<double, double> getStorageTemperature() const;
-    std::vector<std::string> getComposition() const;
-
-    void setExpirationDate(const int expirationDate);
-    void setStorageTemperature(const std::pair<double, double> &storageTemperature);
-    void setComposition(const std::vector<std::string> &composition);
+    std::vector<std::pair<std::string, std::string>> getInfo() const override;
 };
