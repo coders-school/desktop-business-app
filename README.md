@@ -44,9 +44,41 @@ docker run -it --entrypoint /bin/bash desktop-business-application
 docker run -it --entrypoint="/application/bin/desktop-business-app-tests" desktop-business-application
 ```
 
+### Running test locally
+After building test target locally  we can run all tests:
+```bash
+cd bin
+./desktop-business-app-tests
+```
+
+Or we can limit testing to some tests according to our needs (finding best phrase in our test code like test-case name), for example:
+```bash
+cd bin
+./desktop-business-app-tests --gtest_filter="*ReceptionistTestFixture*"
+```
+
 ### Run GUI application from docker (on Ubuntu)
 
 ```bash
 xhost +local:docker
 docker run --net=host -e DISPLAY=$DISPLAY desktop-business-application
+```
+
+### Investigating memory issues in valgrind
+Example of installing `valgrind` on ubuntu:
+
+```bash
+sudo apt install valgrind
+```
+After building tests for example one can run valgrind on tests:
+
+```bash
+cd bin
+valgrind --leak-check=full ./desktop-business-app-tests
+```
+
+If we want to limit our output somehow, we can find a best identification string in our test's name and use it like this:
+
+```bash
+valgrind --leak-check=full ./desktop-business-app-tests --gtest_filter="*Association*"
 ```
