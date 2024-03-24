@@ -14,8 +14,8 @@ class Product
     Product(const std::string &name, const double price, const uint amount);
     virtual ~Product() = default;
 
-    void increaseAmount(int amount);
-    void decreaseAmount(int amount);
+    void increaseAmount(uint amount);
+    void decreaseAmount(uint amount);
 
     std::string_view getName() const;
     double getPrice() const;
