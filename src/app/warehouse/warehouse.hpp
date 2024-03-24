@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <memory>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -23,4 +24,6 @@ class Warehouse
     std::vector<std::shared_ptr<Product>> &getExpiredProducts(); // TODO: write this function when type Date will be
                                                                  // created
     std::vector<std::shared_ptr<Product>> &getProducts();
+
+    static std::set<Warehouse *> warehouseExtent_;
 };
