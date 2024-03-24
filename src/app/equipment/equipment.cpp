@@ -6,22 +6,7 @@ Equipment::Equipment(const std::string &name, const double price, const int amou
 {
 }
 
-std::string_view Equipment::getMaterial() const
+std::vector<std::pair<std::string, std::string>> Equipment::getInfo() const
 {
-    return material_;
-}
-
-std::string_view Equipment::getDescription() const
-{
-    return description_;
-}
-
-void Equipment::setMaterial(const std::string &material)
-{
-    material_ = material;
-}
-
-void Equipment::setDescription(const std::string &description)
-{
-    description_ = description;
+    return {{{"material"}, {material_}}, {{"description"}, {description_}}};
 }

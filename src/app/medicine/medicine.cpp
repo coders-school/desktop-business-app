@@ -12,32 +12,15 @@ bool Medicine::checkIfExpired()
     return false;
 }
 
-int Medicine::getExpirationDate() const
+std::vector<std::pair<std::string, std::string>> Medicine::getInfo() const
 {
-    return expirationDate_;
-}
-
-std::pair<double, double> Medicine::getStorageTemperature() const
-{
-    return storageTemperature_;
-}
-
-std::vector<std::string> Medicine::getComposition() const
-{
-    return composition_;
-}
-
-void Medicine::setExpirationDate(const int expirationDate)
-{
-    expirationDate_ = expirationDate;
-}
-
-void Medicine::setStorageTemperature(const std::pair<double, double> &storageTemperature)
-{
-    storageTemperature_ = storageTemperature;
-}
-
-void Medicine::setComposition(const std::vector<std::string> &composition)
-{
-    composition_ = composition;
+    std::string comp{};
+    for (const auto &el : composition_)
+    {
+        comp += el + ", ";
+    }
+    return {{{"expiration date"}, {std::to_string(expirationDate_)}},
+            {{"storage temperature"},
+             {std::to_string(storageTemperature_.first) + " / " + std::to_string(storageTemperature_.second)}},
+            {{"composition"}, {comp}}};
 }

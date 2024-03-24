@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <utility>
+#include <vector>
 
 class Product
 {
@@ -22,4 +24,6 @@ class Product
     void setName(const std::string &name);
     void setPrice(const double price);
     void setAmount(const uint amount);
+
+    virtual std::vector<std::pair<std::string, std::string>> getInfo() const = 0;
 };
