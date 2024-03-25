@@ -16,13 +16,13 @@ class PatientTestFixture : public ::testing::Test
     {
         for (const auto& patient : Patient::getPatients())
         {
-            patient->removePatient();
+            Patient::removePatient(patient.getPesel());
         }
     }
 
   protected:
-    void createPatient(std::set<Allergen> allergens = std::set<Allergen>{}, std::string name = "Jan",
-                       std::string last_name = "Kowalski", std::string pesel = "00000000000")
+    void createPatient(std::string name = "Jan", std::string last_name = "Kowalski", std::string pesel = "00000000000",
+                       std::set<Allergen> allergens = {})
     {
         Patient::createPatient(name, last_name, pesel, allergens);
     }

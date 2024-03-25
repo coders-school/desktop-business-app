@@ -1,5 +1,3 @@
-#include "doctor.hpp"
-
 #include "visit_test.hpp"
 
 namespace

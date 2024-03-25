@@ -1,5 +1,4 @@
 #include "visit.hpp"
-#include "../doctor/doctor.hpp"
 
 std::set<Visit*> Visit::visit_extent_;
 
