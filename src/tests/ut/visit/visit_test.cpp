@@ -1,4 +1,3 @@
-
 #include "visit_test.hpp"
 
 #include <algorithm>
