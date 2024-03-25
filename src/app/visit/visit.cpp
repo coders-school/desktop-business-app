@@ -13,9 +13,10 @@ Visit::~Visit()
     removeFromExtent(this);
 }
 
-std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doctor, std::vector<Treatment> predictedTreatments)
+std::shared_ptr<Visit> Visit::createVisit(const std::shared_ptr<Doctor>& doctor,
+                                          const std::vector<Treatment>& predicted_treatments)
 {
-    auto visit = std::shared_ptr<Visit>(new Visit(std::move(predictedTreatments)));
+    auto visit = std::shared_ptr<Visit>(new Visit(predicted_treatments));
     doctor->addVisitAssociation(visit);
 
     return visit;
@@ -64,7 +65,7 @@ std::string Visit::getVisitInformation() const
     return visit_information_;
 }
 
-void Visit::updateTreatments(std::vector<Treatment> newTreatments)
+void Visit::updateTreatments(const std::vector<Treatment>& new_treatments)
 {
-    treatments_ = std::move(newTreatments);
+    treatments_ = new_treatments;
 }

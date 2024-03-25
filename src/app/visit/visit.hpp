@@ -1,7 +1,6 @@
 #pragma once
 
 #include "treatment.hpp"
-
 #include <memory>
 #include <set>
 #include <string>
@@ -20,8 +19,8 @@ class Visit : public std::enable_shared_from_this<Visit>
 
   public:
     ~Visit();
-    static std::shared_ptr<Visit> createVisit(std::shared_ptr<Doctor> doctor,
-                                              std::vector<Treatment> predictedTreatments = {});
+    static std::shared_ptr<Visit> createVisit(const std::shared_ptr<Doctor>& doctor,
+                                              const std::vector<Treatment>& predicted_treatments = {});
     static std::set<Visit*> getExtent();
     static void removeFromExtent(Visit* visit);
     void setDoctorAssociation(const std::shared_ptr<Doctor>& doctor);
@@ -29,5 +28,5 @@ class Visit : public std::enable_shared_from_this<Visit>
     void setVisitInformation(const std::string& visit_information);
     std::string getVisitInformation() const;
     std::vector<Treatment> getTreatments() const;
-    void updateTreatments(std::vector<Treatment> newTreatments);
+    void updateTreatments(const std::vector<Treatment>& new_treatments);
 };

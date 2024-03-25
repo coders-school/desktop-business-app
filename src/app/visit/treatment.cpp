@@ -6,24 +6,20 @@
 namespace
 {
 const std::map<Treatment, std::string> DentalTreatments = {
-    {Treatment::TeethCleaning, "Teeth Cleaning"},   {Treatment::RootCanal, "Root Canal"},
-    {Treatment::DentalFilling, "Dental Filling"},   {Treatment::ToothExtraction, "Tooth Extraction"},
-    {Treatment::TeethWhitening, "Teeth Whitening"}, {Treatment::DentalImplants, "Dental Implants"},
-    {Treatment::Orthodontics, "Orthodontics"},      {Treatment::Periodontics, "Periodontics"},
-    {Treatment::DentalVeneers, "Dental Veneers"},   {Treatment::DentalCrowns, "Dental Crowns"},
-    {Treatment::DentalBridges, "Dental Bridges"},   {Treatment::Dentures, "Dentures"},
-    {Treatment::GumSurgery, "Gum Surgery"},         {Treatment::DentalSealants, "Dental Sealants"},
-    {Treatment::MouthGuards, "Mouth Guards"},       {Treatment::SleepApneaTreatment, "Sleep Apnea Treatment"}};
+    {Treatment::TeethCleaning, "teeth cleaning"},   {Treatment::RootCanal, "root canal"},
+    {Treatment::DentalFilling, "dental filling"},   {Treatment::ToothExtraction, "tooth extraction"},
+    {Treatment::TeethWhitening, "teeth whitening"}, {Treatment::DentalImplants, "dental implants"},
+    {Treatment::Orthodontics, "orthodontics"},      {Treatment::Periodontics, "periodontics"},
+    {Treatment::DentalVeneers, "dental veneers"},   {Treatment::DentalCrowns, "dental crowns"},
+    {Treatment::DentalBridges, "dental bridges"},   {Treatment::Dentures, "dentures"},
+    {Treatment::GumSurgery, "gum surgery"},         {Treatment::DentalSealants, "dental sealants"},
+    {Treatment::MouthGuards, "mouth guards"},       {Treatment::SleepApneaTreatment, "sleep apnea treatment"},
+    {Treatment::OTHER, "other treatment type"}};
 } // namespace
 
-std::string toString(Treatment dentalTreatment)
+std::string toString(Treatment dental_treatment)
 {
-    try
-    {
-        return DentalTreatments.at(dentalTreatment);
-    }
-    catch (const std::out_of_range& atException)
-    {
-        return "Unknown treatment enum value!";
-    }
+    auto searched_pair = DentalTreatments.find(dental_treatment);
+
+    return searched_pair != DentalTreatments.end() ? searched_pair->second : "other treatment type";
 }

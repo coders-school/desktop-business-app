@@ -4,8 +4,8 @@
 
 #include "treatment.hpp"
 
-using TreatmentWithStringRepresentation = std::pair<const Treatment, std::string>;
+using TestParam = std::pair<const Treatment, std::string>;
 
-struct TreatmentParameterizedFixture : public ::testing::TestWithParam<TreatmentWithStringRepresentation>
+struct TreatmentParameterizedFixture : public ::testing::TestWithParam<TestParam>
 {
 };

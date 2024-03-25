@@ -5,8 +5,9 @@
 
 class Doctor;
 
-struct VisitTestsFixture : ::testing::Test
+class VisitTestsFixture : public ::testing::Test
 {
+  protected:
     std::shared_ptr<Doctor> doc1{std::make_shared<Doctor>("Janusz", "Tracz", "1234")};
     std::shared_ptr<Doctor> doc2{std::make_shared<Doctor>("Lukasz", "Ziobron", "123456")};
 
@@ -22,5 +23,14 @@ struct VisitTestsFixture : ::testing::Test
 
         visit2->setVisitInformation("Tworze klub ninja!");
         visit3->setVisitInformation("I w klubie sa sami fajni ludzie");
+    }
+
+    void updateVisitTreatments(const std::vector<Treatment>& visit_1_replacing_treatments,
+                               const std::vector<Treatment>& visit_2_replacing_treatments,
+                               const std::vector<Treatment>& visit_3_replacing_treatments)
+    {
+        visit1->updateTreatments(visit_1_replacing_treatments);
+        visit2->updateTreatments(visit_2_replacing_treatments);
+        visit3->updateTreatments(visit_3_replacing_treatments);
     }
 };
