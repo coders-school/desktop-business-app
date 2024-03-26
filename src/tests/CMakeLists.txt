@@ -1,6 +1,7 @@
 set(UT_SOURCES ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
-               ut/visit/visit_test.cpp)
+               ut/visit/visit_test.cpp
+               ut/doctor/doctor_test.cpp)
 # NOTE: similar set for INTEGRATION_SOURCES to be done when tests apear
 
 include(GoogleTest)
@@ -15,6 +16,7 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             person-lib
                                             receptionist-lib
                                             visit-lib
+                                            objectPlus-lib
 )
 
 set(CTEST_BINARY_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
