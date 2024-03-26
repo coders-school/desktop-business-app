@@ -12,5 +12,5 @@ class Equipment : public Product
     Equipment(const std::string &name, const double price, const int amount, const std::string &material,
               const std::string &description);
 
-    std::vector<std::pair<std::string, std::string>> getInfo() const override;
+    std::map<std::string, std::string> getInfo() const override;
 };

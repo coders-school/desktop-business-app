@@ -11,8 +11,8 @@ struct EquipmentTest : ::testing::Test
 TEST_F(EquipmentTest, getInfoTest)
 {
     auto infoVec = dentalDrill->getInfo();
-    EXPECT_EQ(infoVec.at(0).second, "steel");
-    EXPECT_EQ(infoVec.at(1).second, "steel dental drill");
+    EXPECT_EQ(infoVec.at("material"), "steel");
+    EXPECT_EQ(infoVec.at("description"), "steel dental drill");
 }
 
 TEST_F(EquipmentTest, increaseAmountTest)

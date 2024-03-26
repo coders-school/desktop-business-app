@@ -10,20 +10,16 @@ class Product;
 class Warehouse
 {
     bool is_valid_state;
-    std::vector<std::shared_ptr<Product>> products_;
-
-    bool validateAdd(const std::string &name) const;
-    bool validateRemoval(const std::string &name) const;
+    std::set<std::shared_ptr<Product>> products_;
+    static Warehouse *warehouseExtent_;
 
   public:
-    void increaseAmount(const std::string &name, const uint amount);
-    void decreaseAmount(const std::string &name, const uint amount);
+    void increaseAmount(const std::shared_ptr<Product> &ptrToProduct, const uint amount);
+    void decreaseAmount(const std::shared_ptr<Product> &ptrToProduct, const uint amount);
     void addProducts(const std::vector<std::shared_ptr<Product>> &products);
-    void removeProducts(const std::vector<std::string> &products);
-    std::shared_ptr<Product> getPtrToProduct(const std::string &name);
+    void removeProducts(const std::vector<std::shared_ptr<Product>> &products);
+    std::vector<std::shared_ptr<Product>> getPtrsToProducts(const std::string &name);
     std::vector<std::shared_ptr<Product>> &getExpiredProducts(); // TODO: write this function when type Date will be
                                                                  // created
-    std::vector<std::shared_ptr<Product>> &getProducts();
-
-    static std::set<Warehouse *> warehouseExtent_;
+    std::set<std::shared_ptr<Product>> &getProducts();
 };

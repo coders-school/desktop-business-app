@@ -6,7 +6,7 @@ Equipment::Equipment(const std::string &name, const double price, const int amou
 {
 }
 
-std::vector<std::pair<std::string, std::string>> Equipment::getInfo() const
+std::map<std::string, std::string> Equipment::getInfo() const
 {
     return {{{"material"}, {material_}}, {{"description"}, {description_}}};
 }

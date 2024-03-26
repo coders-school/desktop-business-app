@@ -15,5 +15,5 @@ class Medicine : public Product
 
     bool checkIfExpired(); // TODO: Write this function when Date will be ready
 
-    std::vector<std::pair<std::string, std::string>> getInfo() const override;
+    std::map<std::string, std::string> getInfo() const override;
 };

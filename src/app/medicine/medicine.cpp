@@ -12,7 +12,7 @@ bool Medicine::checkIfExpired()
     return false;
 }
 
-std::vector<std::pair<std::string, std::string>> Medicine::getInfo() const
+std::map<std::string, std::string> Medicine::getInfo() const
 {
     std::string comp{};
     for (const auto &el : composition_)
