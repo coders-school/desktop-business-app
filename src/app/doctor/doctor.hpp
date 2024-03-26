@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../person/person.hpp"
+#include "../objectPlus/objectPlus.hpp"
 #include <set>
 
 class Visit;

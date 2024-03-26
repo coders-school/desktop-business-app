@@ -4,6 +4,7 @@
 
 Doctor::Doctor(std::string first_name, std::string last_name, std::string pesel) : Person{first_name, last_name, pesel}
 {
+    ObjectPlus::addObject<Doctor>(*this);
 }
 
 void Doctor::addVisitAssociation(const std::shared_ptr<Visit>& visit)
