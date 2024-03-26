@@ -1,7 +1,7 @@
 #pragma once
+#include <map>
 #include <string>
 #include <utility>
-#include <vector>
 
 class Product
 {
@@ -25,5 +25,5 @@ class Product
     void setPrice(const double price);
     void setAmount(const uint amount);
 
-    virtual std::vector<std::pair<std::string, std::string>> getInfo() const = 0;
+    virtual std::map<std::string, std::string> getInfo() const = 0;
 };
