@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../doctor/doctor.hpp"
 #include <memory>
 #include <set>
 #include <string>
