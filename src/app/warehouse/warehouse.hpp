@@ -11,7 +11,6 @@ class Warehouse
 {
     bool is_valid_state;
     std::set<std::shared_ptr<Product>> products_;
-    static Warehouse *warehouseExtent_;
 
   public:
     void increaseAmount(const std::shared_ptr<Product> &ptrToProduct, const uint amount);
