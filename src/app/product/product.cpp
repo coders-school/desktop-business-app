@@ -1,6 +1,6 @@
 #include "product.hpp"
 
-Product::Product(const std::string &name, const double price, const uint amount)
+Product::Product(const std::string& name, const double price, const uint amount)
     : name_{name}, price_{price}, amount_{amount}
 {
 }
@@ -30,7 +30,7 @@ uint Product::getAmount() const
     return amount_;
 }
 
-void Product::setName(const std::string &name)
+void Product::setName(const std::string& name)
 {
     name_ = name;
 }

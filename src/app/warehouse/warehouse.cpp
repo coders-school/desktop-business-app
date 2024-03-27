@@ -1,9 +1,9 @@
 #include "warehouse.hpp"
 #include "product.hpp"
 
-void Warehouse::increaseAmount(const std::shared_ptr<Product> &ptrToProduct, const uint amount)
+void Warehouse::increaseAmount(const std::shared_ptr<Product>& ptrToProduct, const uint amount)
 {
-    for (auto &product_ : products_)
+    for (auto& product_ : products_)
     {
         if (product_ == ptrToProduct)
         {
@@ -12,9 +12,9 @@ void Warehouse::increaseAmount(const std::shared_ptr<Product> &ptrToProduct, con
     }
 }
 
-void Warehouse::decreaseAmount(const std::shared_ptr<Product> &ptrToProduct, uint amount)
+void Warehouse::decreaseAmount(const std::shared_ptr<Product>& ptrToProduct, uint amount)
 {
-    for (auto &product_ : products_)
+    for (auto& product_ : products_)
     {
         if (product_ == ptrToProduct)
         {
@@ -29,20 +29,20 @@ void Warehouse::decreaseAmount(const std::shared_ptr<Product> &ptrToProduct, uin
     }
 }
 
-void Warehouse::addProducts(const std::vector<std::shared_ptr<Product>> &products)
+void Warehouse::addProducts(const std::vector<std::shared_ptr<Product>>& products)
 {
-    for (const auto &product : products)
+    for (const auto& product : products)
     {
-        if (std::ranges::none_of(products_, [&](const auto &ptrToProduct) { return ptrToProduct == product; }))
+        if (std::ranges::none_of(products_, [&](const auto& ptrToProduct) { return ptrToProduct == product; }))
         {
             products_.insert(product);
         }
     }
 }
 
-void Warehouse::removeProducts(const std::vector<std::shared_ptr<Product>> &products)
+void Warehouse::removeProducts(const std::vector<std::shared_ptr<Product>>& products)
 {
-    for (const auto &product : products)
+    for (const auto& product : products)
     {
         for (auto it = begin(products_); it != end(products_); it++)
         {
@@ -55,10 +55,10 @@ void Warehouse::removeProducts(const std::vector<std::shared_ptr<Product>> &prod
     }
 }
 
-std::vector<std::shared_ptr<Product>> Warehouse::getPtrsToProducts(const std::string &name)
+std::vector<std::shared_ptr<Product>> Warehouse::getPtrsToProducts(const std::string& name)
 {
     std::vector<std::shared_ptr<Product>> ret;
-    for (const auto &product_ : products_)
+    for (const auto& product_ : products_)
     {
         if (product_->getName() == name)
         {
@@ -68,7 +68,7 @@ std::vector<std::shared_ptr<Product>> Warehouse::getPtrsToProducts(const std::st
     return ret;
 }
 
-std::set<std::shared_ptr<Product>> &Warehouse::getProducts()
+std::set<std::shared_ptr<Product>>& Warehouse::getProducts()
 {
     return products_;
 }

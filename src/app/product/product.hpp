@@ -11,7 +11,7 @@ class Product
 
   public:
     Product() = delete;
-    Product(const std::string &name, const double price, const uint amount);
+    Product(const std::string& name, const double price, const uint amount);
     virtual ~Product() = default;
 
     void increaseAmount(uint amount);
@@ -21,7 +21,7 @@ class Product
     double getPrice() const;
     uint getAmount() const;
 
-    void setName(const std::string &name);
+    void setName(const std::string& name);
     void setPrice(const double price);
     void setAmount(const uint amount);
 

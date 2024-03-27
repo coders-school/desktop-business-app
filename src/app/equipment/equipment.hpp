@@ -9,8 +9,8 @@ class Equipment : public Product
 
   public:
     Equipment() = delete;
-    Equipment(const std::string &name, const double price, const int amount, const std::string &material,
-              const std::string &description);
+    Equipment(const std::string& name, const double price, const int amount, const std::string& material,
+              const std::string& description);
 
     std::map<std::string, std::string> getInfo() const override;
 };
