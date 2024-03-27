@@ -1,16 +1,17 @@
 #pragma once
 
 #include "../person/person.hpp"
-#include <set>
-
+// #include <set>
+#include <vector>
+#include <iostream>
 class Visit;
 
 class Doctor : public Person, public std::enable_shared_from_this<Doctor>
 {
-    std::set<std::shared_ptr<Visit>> visit_associations_;
+    std::vector<Visit> visits_; // could it be Visit(with copy) or it has to be pointer? (const Visit& ) seems to be impossible 
 
   public:
-    Doctor(std::string first_name, std::string last_name, std::string pesel);
-    void addVisitAssociation(const std::shared_ptr<Visit>& visit);
-    std::set<std::shared_ptr<Visit>> getVisitAssociations() const;
+    explicit Doctor(std::string first_name, std::string last_name, std::string pesel);
+    void addVisitAssociation(const Visit& visit);
+    std::vector<Visit> getVisitAssociations() const;
 };

@@ -1,51 +1,33 @@
 #include "visit.hpp"
+#include "../clinic/clinic_facade.hpp"
 #include "../doctor/doctor.hpp"
 
-std::set<Visit*> Visit::visit_extent_;
-
-Visit::Visit()
+Visit::Visit(Doctor& doctor) : doctor_{doctor}
 {
-    visit_extent_.insert(this);
+    doctor_.addVisitAssociation(*this);
+    Clinic::addObject(std::move(*this));
 }
-
-Visit::~Visit()
-{
-    removeFromExtent(this);
-}
-
-std::shared_ptr<Visit> Visit::createVisit(std::shared_ptr<Doctor> doctor)
-{
-    auto visit = std::shared_ptr<Visit>(new Visit());
-    doctor->addVisitAssociation(visit);
-    return visit;
-}
-
-std::set<Visit*> Visit::getExtent()
-{
-    return visit_extent_;
-}
-
-void Visit::removeFromExtent(Visit* visit)
-{
-    auto it = visit_extent_.find(visit);
-    if (it != visit_extent_.end())
+Visit& Visit::operator=(const Visit& other)
     {
-        visit_extent_.erase(it);
-    }
-}
+      if(this != &other)
+      {
+        doctor_ = other.doctor_;
+      }
 
-void Visit::setDoctorAssociation(const std::shared_ptr<Doctor>& doctor)
-{
-    if (!doctor_association_)
-    {
-        doctor_association_ = {doctor};
-        doctor_association_->addVisitAssociation(shared_from_this());
+    return *this;
     }
-}
+// void Visit::setDoctorAssociation(const std::shared_ptr<Doctor>& doctor)
+// {
+//     if (!doctor_association_)
+//     {
+//         doctor_association_ = {doctor};
+//         doctor_association_->addVisitAssociation(shared_from_this());
+//     }
+// }
 
-std::shared_ptr<Doctor> Visit::getDoctorAssociation() const
+Doctor Visit::getDoctor() const
 {
-    return doctor_association_;
+    return doctor_;
 }
 
 void Visit::setVisitInformation(const std::string& visit_information)
