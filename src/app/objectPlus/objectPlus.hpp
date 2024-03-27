@@ -7,6 +7,7 @@
 #include <typeinfo>
 #include <algorithm>
 #include <stdexcept>
+#include <memory>
 
 class ObjectPlus
 {
@@ -42,11 +43,9 @@ class ObjectPlus
         std::string key = typeid(T).name();
 
         if(auto it = all_extents_.find(key); it != all_extents_.end()){
-          it->second.erase(std::find_if(it->second.begin(), it->second.end(), [&object](auto& elem){
-            if (T* p = std::any_cast<T>(&elem)) {
-                return p == &object;
-            }
-            return false;
+          it->second.erase(std::find_if(it->second.begin(), it->second.end(), [&object](const auto& elem){
+            T* p = const_cast<T*>(std::any_cast<T>(&elem));
+            return p == std::addressof(object);
           }));
         }
     }
