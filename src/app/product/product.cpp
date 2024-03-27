@@ -1,7 +1,7 @@
 #include "product.hpp"
 
 Product::Product(const std::string &name, const double price, const uint amount)
-    : name_(name), price_(price), amount_(amount)
+    : name_{name}, price_{price}, amount_{amount}
 {
 }
 

@@ -2,8 +2,8 @@
 
 Medicine::Medicine(const std::string &name, const double price, const int amount, const int expirationDate,
                    const std::pair<double, double> &storageTemperature, const std::vector<std::string> &composition)
-    : Product(name, price, amount), expirationDate_(expirationDate), storageTemperature_(storageTemperature),
-      composition_(composition)
+    : Product(name, price, amount), expirationDate_{expirationDate}, storageTemperature_{storageTemperature},
+      composition_{composition}
 {
 }
 bool Medicine::checkIfExpired()
