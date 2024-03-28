@@ -1,4 +1,5 @@
-set(UT_SOURCES ut/receptionist/receptionist_test.cpp
+set(UT_SOURCES ut/login/login_test.cpp
+               ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
                ut/visit/treatment_test.cpp
                ut/visit/visit_test.cpp
@@ -14,6 +15,7 @@ target_compile_options(${PROJECT_NAME}-tests PRIVATE -Werror -Wall -Wextra -peda
 target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             GTest::gtest_main
                                             doctor-lib
+                                            login-lib
                                             person-lib
                                             receptionist-lib
                                             visit-lib
