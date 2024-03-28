@@ -4,7 +4,9 @@ ENV PROJECT_NAME=desktop-business-app
 RUN apt update -y && \
     apt install -y libgtest-dev cmake make g++ && \
     apt install -y qt6-base-dev && \
-    apt install -y libgl1-mesa-dev
+    apt install -y libgl1-mesa-dev && \
+    apt install -y libssl-dev && \
+    apt install -y nlohmann-json3-dev
 
 WORKDIR /application
 COPY . /application
@@ -18,7 +20,9 @@ ENV PROJECT_NAME=desktop-business-app
 
 RUN apt update -y && \
     apt install -y libgtest-dev cmake make g++&& \
-    apt install -y qt6-base-dev
+    apt install -y qt6-base-dev && \
+    apt install -y libssl-dev && \
+    apt install -y nlohmann-json3-dev
 
 WORKDIR /application
 COPY --from=BUILD /application/bin/${PROJECT_NAME} /application/bin/${PROJECT_NAME}
