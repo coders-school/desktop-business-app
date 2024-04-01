@@ -6,9 +6,11 @@ class Receptionist : public Person
 {
     Shift shift_;
 
-  public:
-    explicit Receptionist(const std::string first_name, const std::string last_name, const std::string pesel);
+    explicit Receptionist(const std::string name, const std::string surname, const std::string pesel);
 
+  public:
     std::string getShift() const;
     void setShift(const Shift& shift);
+
+    static void createReceptionist(std::string name, std::string surname, std::string pesel);
 };

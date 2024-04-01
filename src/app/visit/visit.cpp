@@ -1,53 +1,15 @@
 #include "visit.hpp"
-#include "doctor.hpp"
+#include "../clinic/clinic_facade.hpp"
+#include "../doctor/doctor.hpp"
 
-std::set<Visit*> Visit::visit_extent_;
-
-Visit::Visit(std::vector<Treatment> predictedTreatments) : treatments_(std::move(predictedTreatments))
+Visit::Visit(std::shared_ptr<Doctor> doctor, const std::vector<Treatment>& treatments)
+    : doctor_{doctor}, treatments_{std::move(treatments)}, visit_information_{}
 {
-    visit_extent_.insert(this);
 }
 
-Visit::~Visit()
+std::shared_ptr<Doctor> Visit::getDoctor() const
 {
-    removeFromExtent(this);
-}
-
-std::shared_ptr<Visit> Visit::createVisit(const std::shared_ptr<Doctor>& doctor,
-                                          const std::vector<Treatment>& predicted_treatments)
-{
-    auto visit = std::shared_ptr<Visit>(new Visit(predicted_treatments));
-    doctor->addVisitAssociation(visit);
-
-    return visit;
-}
-
-std::set<Visit*> Visit::getExtent()
-{
-    return visit_extent_;
-}
-
-void Visit::removeFromExtent(Visit* visit)
-{
-    auto it = visit_extent_.find(visit);
-    if (it != visit_extent_.end())
-    {
-        visit_extent_.erase(it);
-    }
-}
-
-void Visit::setDoctorAssociation(const std::shared_ptr<Doctor>& doctor)
-{
-    if (!doctor_association_)
-    {
-        doctor_association_ = {doctor};
-        doctor_association_->addVisitAssociation(shared_from_this());
-    }
-}
-
-std::shared_ptr<Doctor> Visit::getDoctorAssociation() const
-{
-    return doctor_association_;
+    return doctor_;
 }
 
 std::vector<Treatment> Visit::getTreatments() const
@@ -65,7 +27,15 @@ std::string Visit::getVisitInformation() const
     return visit_information_;
 }
 
-void Visit::updateTreatments(const std::vector<Treatment>& new_treatments)
+void Visit::updateTreatments(const std::vector<Treatment>& treatments)
 {
-    treatments_ = new_treatments;
+    treatments_ = treatments;
+}
+
+void Visit::createVisit(std::shared_ptr<Doctor> doctor)
+{
+    Visit visit(doctor);
+    auto visit_ptr = std::make_shared<Visit>(visit);
+    visit.doctor_->appendVisit(visit_ptr);
+    Clinic::appendVisit(visit_ptr);
 }

@@ -1,16 +1,19 @@
 #pragma once
 
 #include "../person/person.hpp"
-#include <set>
+#include <vector>
 
 class Visit;
 
-class Doctor : public Person, public std::enable_shared_from_this<Doctor>
+class Doctor : public Person
 {
-    std::set<std::shared_ptr<Visit>> visit_associations_;
+    std::vector<std::shared_ptr<Visit>> visits_;
+    explicit Doctor(std::string name, std::string surname, std::string pesel);
 
   public:
-    Doctor(std::string first_name, std::string last_name, std::string pesel);
-    void addVisitAssociation(const std::shared_ptr<Visit>& visit);
-    std::set<std::shared_ptr<Visit>> getVisitAssociations() const;
+    void appendVisit(const std::shared_ptr<Visit>& visit);
+    void removeVisit(const std::shared_ptr<Visit>& visit);
+    std::vector<std::shared_ptr<Visit>> getVisits() const;
+
+    static void createDoctor(std::string name, std::string surname, std::string pesel);
 };

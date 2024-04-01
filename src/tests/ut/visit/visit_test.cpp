@@ -1,4 +1,3 @@
-#include "doctor.hpp"
 
 #include "visit_test.hpp"
 
@@ -6,58 +5,48 @@
 
 namespace
 {
-TEST_F(VisitTestsFixture, ExtentDemo)
+
+TEST_F(VisitTestFixture, GivenVisitExpectDoctorValidData)
 {
-    const auto content = Visit::getExtent().size();
-    const auto expected = 3;
-    EXPECT_EQ(content, expected);
+    const auto visit = Clinic::getVisits().front();
+
+    const auto assigned_doctor = visit->getDoctor();
+    const auto expected_name = "Jan";
+    const auto expected_surname = "Kowalski";
+
+    EXPECT_EQ(assigned_doctor->getName(), expected_name);
+    EXPECT_EQ(assigned_doctor->getSurname(), expected_surname);
 }
 
-TEST_F(VisitTestsFixture, AssociationDemo)
+TEST_F(VisitTestFixture, GivenVisitInformationExpectInformationReturned)
 {
-    const auto content = visit1->getDoctorAssociation()->getLastName();
-    const auto expected = "Tracz";
-    EXPECT_EQ(content, expected);
+    const auto visit = Clinic::getVisits().front();
+    const std::string visit_information{"Patient absent"};
+    visit->setVisitInformation(visit_information);
+    const auto visit_info = visit->getVisitInformation();
+
+    EXPECT_EQ(visit_info, visit_information);
 }
 
-TEST_F(VisitTestsFixture, AssociationDemo2)
+TEST_F(VisitTestFixture, GivenDefaultTreatmentExpectTreatmentsEmpty)
 {
-    const auto content = doc2->getVisitAssociations().begin()->get()->getVisitInformation();
-    const auto expected = "Tworze klub ninja!";
-    EXPECT_EQ(content, expected);
+    const auto visit = Clinic::getVisits().front();
+    const auto visit_treatments = visit->getTreatments();
+    const auto expected_treatments{std::vector<Treatment>{}};
+
+    EXPECT_EQ(visit_treatments, expected_treatments);
 }
 
-TEST_F(VisitTestsFixture, AssociationDemo3)
+TEST_F(VisitTestFixture, GivenTreatmentSetExpectTreatmentsUpdated)
 {
-    std::string content;
-    const auto associations = doc2->getVisitAssociations();
+    const auto visit = Clinic::getVisits().front();
 
-    const auto expected = "I w klubie sa sami fajni ludzie";
+    const std::vector expected_treatments = {Treatment::DentalFilling, Treatment::DentalSealants};
 
-    bool associationsContainExpectedVisitInformation = std::ranges::any_of(
-        associations, [&expected](const auto& visitSPtr) { return visitSPtr->getVisitInformation() == expected; });
+    visit->updateTreatments(expected_treatments);
+    const auto visit_treatments = visit->getTreatments();
 
-    EXPECT_TRUE(associationsContainExpectedVisitInformation);
-}
-
-TEST_F(VisitTestsFixture, UpdateTreatmentsShouldReplacePreviouslyStoredTreatments)
-{
-    const auto visitOneTreatmentsBefore = visit1->getTreatments();
-    const auto visitTwoTreatmentsBefore = visit2->getTreatments();
-    const auto visitThreeTreatmentsBefore = visit3->getTreatments();
-    ASSERT_TRUE(visitOneTreatmentsBefore.empty());
-    ASSERT_EQ(visitTwoTreatmentsBefore, std::vector{Treatment::TeethWhitening});
-    ASSERT_EQ(visitThreeTreatmentsBefore,
-              (std::vector{Treatment::TeethCleaning, Treatment::RootCanal, Treatment::ToothExtraction}));
-
-    std::vector newTreatmentsForVisit1 = {Treatment::GumSurgery};
-    std::vector newTreatmentsForVisit2 = {Treatment::DentalFilling, Treatment::DentalSealants};
-
-    updateVisitTreatments(newTreatmentsForVisit1, newTreatmentsForVisit2, {});
-
-    EXPECT_EQ(visit1->getTreatments(), newTreatmentsForVisit1);
-    EXPECT_EQ(visit2->getTreatments(), newTreatmentsForVisit2);
-    EXPECT_TRUE(visit3->getTreatments().empty());
+    EXPECT_EQ(visit_treatments, expected_treatments);
 }
 
 } // namespace
