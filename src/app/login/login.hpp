@@ -16,7 +16,7 @@ class Login
     std::string hashPassword(const std::string& password);
 
   public:
-    explicit Login(const std::string& user_name, const std::string& password);
+    Login(const std::string& user_name, const std::string& password);
     bool isPasswordProper(const std::string& user_name, const std::string& password);
     std::string getPasswordHash() const;
     std::string getUserName() const;
