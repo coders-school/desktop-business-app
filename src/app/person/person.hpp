@@ -10,7 +10,7 @@ class Person
     std::string pesel_;
 
   public:
-    explicit Person(std::string first_name, std::string last_name, std::string pesel);
+     Person(const std::string& name, const std::string& surname, const std::string& pesel);
     virtual ~Person();
     void setName(const std::string& first_name);
     std::string getName() const;

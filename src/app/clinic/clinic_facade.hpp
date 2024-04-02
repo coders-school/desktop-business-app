@@ -13,13 +13,13 @@ class Clinic
     inline static std::vector<std::shared_ptr<Receptionist>> receptionists_;
 
   public:
-    static void appendDoctor(std::shared_ptr<Doctor> doctor);
-    static void appendVisit(std::shared_ptr<Visit> visit);
-    static void appendReceptionist(std::shared_ptr<Receptionist> receptionist);
+    static void appendDoctor(const std::shared_ptr<Doctor>& doctor);
+    static void appendVisit(const std::shared_ptr<Visit>& visit);
+    static void appendReceptionist(const std::shared_ptr<Receptionist>& receptionist);
     static std::vector<std::shared_ptr<Doctor>>& getDoctors();
     static std::vector<std::shared_ptr<Visit>>& getVisits();
     static std::vector<std::shared_ptr<Receptionist>>& getReceptionists();
-    static void removeDoctor(std::shared_ptr<Doctor> doctor);
-    static void removeVisit(std::shared_ptr<Visit> visit);
-    static void removeReceptionist(std::shared_ptr<Receptionist> receptionist);
+    static void removeDoctor(const std::shared_ptr<Doctor>& doctor);
+    static void removeVisit(const std::shared_ptr<Visit>& visit);
+    static void removeReceptionist(const std::shared_ptr<Receptionist>& receptionist);
 };

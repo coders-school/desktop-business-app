@@ -2,7 +2,7 @@
 #include "../clinic/clinic_facade.hpp"
 #include "../doctor/doctor.hpp"
 
-Visit::Visit(std::shared_ptr<Doctor> doctor, const std::vector<Treatment>& treatments)
+Visit::Visit(const std::shared_ptr<Doctor>& doctor, const std::vector<Treatment>& treatments)
     : doctor_{doctor}, treatments_{std::move(treatments)}, visit_information_{}
 {
 }
@@ -32,7 +32,7 @@ void Visit::updateTreatments(const std::vector<Treatment>& treatments)
     treatments_ = treatments;
 }
 
-void Visit::createVisit(std::shared_ptr<Doctor> doctor)
+void Visit::createVisit(const std::shared_ptr<Doctor>& doctor)
 {
     Visit visit(doctor);
     auto visit_ptr = std::make_shared<Visit>(visit);

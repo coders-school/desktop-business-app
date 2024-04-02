@@ -1,7 +1,7 @@
 #include "person.hpp"
 
-Person::Person(std::string first_name, std::string last_name, std::string pesel)
-    : name_{first_name}, surname_{last_name}
+Person::Person(const std::string& name, const std::string& surname, const std::string& pesel)
+    : name_{name}, surname_{surname}
 {
     setPesel(pesel);
 }
@@ -10,9 +10,9 @@ Person::~Person()
 {
 }
 
-void Person::setName(const std::string& first_name)
+void Person::setName(const std::string& name)
 {
-    name_ = first_name;
+    name_ = name;
 }
 
 std::string Person::getName() const
@@ -20,9 +20,9 @@ std::string Person::getName() const
     return name_;
 }
 
-void Person::setSurname(const std::string& last_name)
+void Person::setSurname(const std::string& surname)
 {
-    surname_ = last_name;
+    surname_ = surname;
 }
 
 std::string Person::getSurname() const
