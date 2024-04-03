@@ -5,7 +5,7 @@ Room::Room(const uint roomNumber, const std::vector<Treatment> treatments, Wareh
 {
 }
 
-uint Room::getRoomNumber()
+uint Room::getRoomNumber() const
 {
     return roomNumber_;
 }
@@ -15,7 +15,7 @@ void Room::setRoomAvalaibility(bool avalaibility)
     avalaibility_ = avalaibility;
 }
 
-std::vector<Treatment> Room::getTreatments()
+std::vector<Treatment> Room::getTreatments() const
 {
     return treatments_;
 }

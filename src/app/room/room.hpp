@@ -15,8 +15,8 @@ class Room
     Room() = delete;
     Room(const uint roomNumber, const std::vector<Treatment> treatments, Warehouse& refToWarehouse);
 
-    uint getRoomNumber();
+    uint getRoomNumber() const;
     // bool isRoomFree(timeInterval); TODO: write this function
     void setRoomAvalaibility(bool avalaibility);
-    std::vector<Treatment> getTreatments();
+    std::vector<Treatment> getTreatments() const;
 };
