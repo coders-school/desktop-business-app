@@ -3,14 +3,11 @@
 #include "../person/person.hpp"
 #include "../visit/visit.hpp"
 #include "allergen.hpp"
-#include <algorithm>
 #include <memory>
-#include <optional>
 #include <set>
 #include <string>
-#include <vector>
 
-class Patient : public Person
+class Patient : public Person, public std::enable_shared_from_this<Patient>
 {
     std::set<std::shared_ptr<Visit>> visits_;
     std::set<Allergen> allergens_;
@@ -25,8 +22,9 @@ class Patient : public Person
     std::string showInformationAboutPatient() const;
     size_t getDebt() const;
     void changePatientInformation();
-    void addVisit(std::shared_ptr<Visit> visit);
-    void setDebt(const size_t debt);
+
+    void setVisit(const std::shared_ptr<Visit>& visit);
+    void setDebt(const size_t& debt);
     void updateAllergens(const std::set<Allergen>& allergens);
 
     static void createPatient(const std::string& name, const std::string& surname, const std::string& pesel,

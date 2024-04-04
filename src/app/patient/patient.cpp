@@ -30,11 +30,11 @@ size_t Patient::getDebt() const
 
 void Patient::changePatientInformation()
 {
+    // TODO Issue#46
 }
 
-void Patient::addVisit(std::shared_ptr<Visit> visit)
+void Patient::setVisit(const std::shared_ptr<Visit>& visit)
 {
-
     if (!visit)
     {
         throw std::invalid_argument(std::string("Argument points to nullptr in ") + __func__);
@@ -43,10 +43,11 @@ void Patient::addVisit(std::shared_ptr<Visit> visit)
     if (visits_.find(visit) == visits_.end())
     {
         visits_.insert(visit);
+        visit->setPatient(shared_from_this());
     }
 }
 
-void Patient::setDebt(const size_t debt)
+void Patient::setDebt(const size_t& debt)
 {
     debt_ = debt;
 }

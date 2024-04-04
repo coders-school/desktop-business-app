@@ -3,7 +3,7 @@
 #include "../doctor/doctor.hpp"
 
 Visit::Visit(const std::shared_ptr<Doctor>& doctor, const std::vector<Treatment>& treatments)
-    : doctor_{doctor}, treatments_{std::move(treatments)}, visit_information_{}
+    : doctor_{doctor}, patient_{}, treatments_{std::move(treatments)}, visit_information_{}
 {
 }
 
@@ -38,4 +38,13 @@ void Visit::createVisit(const std::shared_ptr<Doctor>& doctor)
     auto visit_ptr = std::make_shared<Visit>(visit);
     visit.doctor_->appendVisit(visit_ptr);
     Clinic::appendVisit(visit_ptr);
+}
+
+void Visit::setPatient(const std::shared_ptr<Patient>& patient)
+{
+    if (patient_ == nullptr)
+    {
+        patient_ = patient;
+        patient->setVisit(shared_from_this());
+    }
 }
