@@ -1,8 +1,9 @@
 qt_standard_project_setup()
 
+add_subdirectory(account)
 add_subdirectory(clinic)
 add_subdirectory(doctor)
-add_subdirectory(login)
+add_subdirectory(encrypt)
 add_subdirectory(person)
 add_subdirectory(receptionist)
 add_subdirectory(visit)
@@ -18,9 +19,10 @@ qt_add_executable(${PROJECT_NAME} main.cpp
 
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
+                                              account-lib     
                                               clinic-lib
                                               doctor-lib
-                                              login-lib
+                                              encrypt-lib
                                               equipment-lib
                                               medicine-lib
                                               person-lib
