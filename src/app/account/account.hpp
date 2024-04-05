@@ -1,23 +1,21 @@
 #pragma once
 
 #include <fstream>
-#include <iomanip>
 #include <map>
 #include <nlohmann/json.hpp>
-#include <openssl/evp.h>
-#include <sstream>
 #include <string>
 
-class Login
+#include "encrypt.hpp"
+
+class Account : public Encrypt
 {
     std::string user_name_;
     std::string password_hash_;
-    //  std::map<std::string, std::string> mapOfRandomQuestionsAndAnswers{}; TODO #54
-    std::string hashPassword(const std::string& password);
-
+    std::unordered_map<std::string, std::string> map_of_random_questions_and_answers_;
   public:
-    Login(const std::string& user_name, const std::string& password);
+    explicit Account(const std::string& user_name, const std::string& password);
     bool isPasswordProper(const std::string& user_name, const std::string& password);
+    bool areAnswersCorrect(const std::string& answer1, const std::string& answer2, const std::string& answer3);
     std::string getPasswordHash() const;
     std::string getUserName() const;
 };
