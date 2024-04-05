@@ -1,12 +1,17 @@
 #pragma once
 
 #include "clinic_facade.hpp"
+#include "patient.hpp"
 #include "gtest/gtest.h"
+#include <memory>
 
-class ClinicTestFixture : public ::testing::Test
+class PatientTestFixture : public ::testing::Test
 {
+    void SetUp() override
+    {
+        createPatient();
+    }
 
-  protected:
     void TearDown() override
     {
         for (const auto& visit : Clinic::getVisits())
@@ -28,5 +33,12 @@ class ClinicTestFixture : public ::testing::Test
         {
             Clinic::removePatient(patient);
         }
+    }
+
+  protected:
+    void createPatient(std::string name = "Jan", std::string surname = "Kowalski", std::string pesel = "00000000000",
+                       std::set<Allergen> allergens = {})
+    {
+        Patient::createPatient(name, surname, pesel, allergens);
     }
 };

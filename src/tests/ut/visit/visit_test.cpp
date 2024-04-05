@@ -1,4 +1,3 @@
-
 #include "visit_test.hpp"
 
 #include <algorithm>
@@ -47,6 +46,32 @@ TEST_F(VisitTestFixture, GivenTreatmentSetExpectTreatmentsUpdated)
     const auto visit_treatments = visit->getTreatments();
 
     EXPECT_EQ(visit_treatments, expected_treatments);
+}
+
+TEST_F(VisitTestFixture, GivenVisitAddedViaPatientExpectCorrectConnectionBetweenObjects)
+{
+    const auto visit = Clinic::getVisits().front();
+    Patient::createPatient("Dawid", "Goliat", "00000000000");
+    const auto patient = Clinic::getPatients().front();
+
+    patient->addVisit(visit);
+
+    EXPECT_EQ(visit->getPatient()->getName(), "Dawid");
+    EXPECT_EQ(*(visit->getPatient()->getVisits().begin()), visit);
+    EXPECT_EQ((*(patient->getVisits().begin()))->getPatient(), patient);
+}
+
+TEST_F(VisitTestFixture, GivenPatientAddedViaVisitExpectCorrectConnectionBetweenObjects)
+{
+    const auto visit = Clinic::getVisits().front();
+    Patient::createPatient("Dawid", "Goliat", "00000000000");
+    const auto patient = Clinic::getPatients().front();
+
+    visit->setPatient(patient);
+
+    EXPECT_EQ(visit->getPatient()->getName(), "Dawid");
+    EXPECT_EQ(*(visit->getPatient()->getVisits().begin()), visit);
+    EXPECT_EQ((*(patient->getVisits().begin()))->getPatient(), patient);
 }
 
 } // namespace
