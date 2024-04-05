@@ -32,7 +32,7 @@ void Doctor::createDoctor(const std::string& name, const std::string& surname, c
 std::shared_ptr<Doctor>& Doctor::getDoctor(const std::string& name, const std::string& surname)
 {
     auto doctors = Clinic::getDoctors();
-    auto exact_doctor = std::find_if(doctors.begin(), doctors.end(), [&](const std::shared_ptr<Doctor>& doctor) {
+    auto exact_doctor = std::find_if(doctors.begin(), doctors.end(), [&](const auto& doctor) {
         return (doctor->getName() == name) && (doctor->getSurname() == surname);
     });
 
