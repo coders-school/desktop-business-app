@@ -1,12 +1,12 @@
 #pragma once
 
 #include <iomanip>
-#include <string>
-#include <sstream>
 #include <openssl/evp.h>
+#include <sstream>
+#include <string>
 
 class Encrypt
 {
-public:
+  public:
     std::string hashSHA512(const std::string& string);
 };

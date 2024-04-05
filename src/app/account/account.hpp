@@ -12,6 +12,7 @@ class Account : public Encrypt
     std::string user_name_;
     std::string password_hash_;
     std::unordered_map<std::string, std::string> map_of_random_questions_and_answers_;
+
   public:
     explicit Account(const std::string& user_name, const std::string& password);
     bool isPasswordProper(const std::string& user_name, const std::string& password);

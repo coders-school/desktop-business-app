@@ -2,7 +2,7 @@
 
 std::string Encrypt::hashSHA512(const std::string& string)
 {
-  unsigned char hash[EVP_MAX_MD_SIZE];
+    unsigned char hash[EVP_MAX_MD_SIZE];
     unsigned int hash_len{};
     EVP_MD_CTX* ctx = EVP_MD_CTX_new();
     EVP_DigestInit_ex(ctx, EVP_sha512(), NULL);

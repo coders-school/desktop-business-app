@@ -31,19 +31,19 @@ bool Account::areAnswersCorrect(const std::string& answer1, const std::string& a
     nlohmann::json jsonFile;
     file >> jsonFile;
 
-    for (const auto& user : jsonFile) 
+    for (const auto& user : jsonFile)
     {
-        for(const auto& answer : user["security_questions"])
+        for (const auto& answer : user["security_questions"])
         {
             if (answer == answer1)
             {
                 judge++;
-            } 
-            if(answer == answer2)
+            }
+            if (answer == answer2)
             {
                 judge++;
             }
-            if(answer == answer3) 
+            if (answer == answer3)
             {
                 judge++;
             }
