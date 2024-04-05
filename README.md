@@ -10,7 +10,7 @@ TBD...
 - Google Test
 - C++20
 - clang-format (recommended minimum ver. 17)
-- requires OpenSSL
+- OpenSSL
 
 ### Format code before committing manually
 
