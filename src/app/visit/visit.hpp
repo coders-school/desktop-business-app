@@ -22,6 +22,7 @@ class Visit : public std::enable_shared_from_this<Visit>
 
   public:
     std::shared_ptr<Doctor> getDoctor() const;
+    std::shared_ptr<Patient> getPatient() const;
     std::vector<Treatment> getTreatments() const;
     std::string getVisitInformation() const;
 

@@ -33,7 +33,7 @@ void Patient::changePatientInformation()
     // TODO Issue#46
 }
 
-void Patient::setVisit(const std::shared_ptr<Visit>& visit)
+void Patient::addVisit(const std::shared_ptr<Visit>& visit)
 {
     if (!visit)
     {

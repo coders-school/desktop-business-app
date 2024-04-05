@@ -23,7 +23,7 @@ class Patient : public Person, public std::enable_shared_from_this<Patient>
     size_t getDebt() const;
     void changePatientInformation();
 
-    void setVisit(const std::shared_ptr<Visit>& visit);
+    void addVisit(const std::shared_ptr<Visit>& visit);
     void setDebt(const size_t& debt);
     void updateAllergens(const std::set<Allergen>& allergens);
 

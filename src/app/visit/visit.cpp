@@ -12,6 +12,11 @@ std::shared_ptr<Doctor> Visit::getDoctor() const
     return doctor_;
 }
 
+std::shared_ptr<Patient> Visit::getPatient() const
+{
+    return patient_;
+}
+
 std::vector<Treatment> Visit::getTreatments() const
 {
     return treatments_;
@@ -45,6 +50,6 @@ void Visit::setPatient(const std::shared_ptr<Patient>& patient)
     if (patient_ == nullptr)
     {
         patient_ = patient;
-        patient->setVisit(shared_from_this());
+        patient->addVisit(shared_from_this());
     }
 }
