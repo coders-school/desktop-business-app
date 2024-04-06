@@ -5,8 +5,6 @@
 
 class ClinicTestFixture : public ::testing::Test
 {
-
-  protected:
     void TearDown() override
     {
         for (const auto& visit : Clinic::getVisits())

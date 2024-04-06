@@ -5,6 +5,7 @@ namespace
 
 TEST_F(PatientTestFixture, GivenDefaultDebtExpectGetDebtEqualsZero)
 {
+    Patient::createPatient("Jan", "Kowalski", "00000000000");
     const size_t expected_output{0};
 
     EXPECT_EQ(Clinic::getPatients().front()->getDebt(), expected_output);
@@ -12,6 +13,7 @@ TEST_F(PatientTestFixture, GivenDefaultDebtExpectGetDebtEqualsZero)
 
 TEST_F(PatientTestFixture, GivenDebtSetToFiftyExpectDebtEqualsFifty)
 {
+    Patient::createPatient("Jan", "Kowalski", "00000000000");
     const size_t expected_output{50};
     const size_t input{50};
     auto patient = Clinic::getPatients().front();
@@ -22,6 +24,7 @@ TEST_F(PatientTestFixture, GivenDebtSetToFiftyExpectDebtEqualsFifty)
 
 TEST_F(PatientTestFixture, GivenPatientExpectProperInformationReturned)
 {
+    Patient::createPatient("Jan", "Kowalski", "00000000000");
     // TODO Issue#46
     const std::string expected_output{};
 
@@ -30,6 +33,7 @@ TEST_F(PatientTestFixture, GivenPatientExpectProperInformationReturned)
 
 TEST_F(PatientTestFixture, GivenPatientWithUpdatedAllergensExpectExactAllergensReturned)
 {
+    Patient::createPatient("Jan", "Kowalski", "00000000000");
     const std::set<Allergen> expected_allergens{Allergen::Allergen, Allergen::AnotherAllergen,
                                                 Allergen::DifferentAllergen, Allergen::SomeAllergen};
     const std::set<Allergen> input{Allergen::AnotherAllergen, Allergen::DifferentAllergen, Allergen::SomeAllergen,
@@ -40,12 +44,28 @@ TEST_F(PatientTestFixture, GivenPatientWithUpdatedAllergensExpectExactAllergensR
     EXPECT_EQ(patient->getAllergens(), expected_allergens);
 }
 
-TEST_F(PatientTestFixture, GivenMultiplePatientsExpectCorrectNumberOfPatientsCreated)
+TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByNameAndSurnameExpectCorrectPatientReturned)
 {
-    const size_t extected_size{2};
     Patient::createPatient("Pawel", "Awel", "999");
+    Patient::createPatient("Pawel", "Gawel", "000999");
 
-    EXPECT_EQ(Clinic::getPatients().size(), extected_size);
+    auto expected_patient = Clinic::getPatients().at(1);
+
+    auto patient = Patient::getPatient("Pawel", "Gawel");
+
+    EXPECT_EQ(patient, expected_patient);
+}
+
+TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByPeselExpectCorrectPatientReturned)
+{
+    Patient::createPatient("Pawel", "Awel", "00000000000");
+    Patient::createPatient("Pawel", "Gawel", "00000000001");
+
+    auto expected_patient = Clinic::getPatients().at(1);
+
+    auto patient = Patient::getPatient("00000000001");
+
+    EXPECT_EQ(patient, expected_patient);
 }
 
 } // namespace

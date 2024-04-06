@@ -3,14 +3,9 @@
 #include "clinic_facade.hpp"
 #include "patient.hpp"
 #include "gtest/gtest.h"
-#include <memory>
 
 class PatientTestFixture : public ::testing::Test
 {
-    void SetUp() override
-    {
-        createPatient();
-    }
 
     void TearDown() override
     {
@@ -36,9 +31,4 @@ class PatientTestFixture : public ::testing::Test
     }
 
   protected:
-    void createPatient(std::string name = "Jan", std::string surname = "Kowalski", std::string pesel = "00000000000",
-                       std::set<Allergen> allergens = {})
-    {
-        Patient::createPatient(name, surname, pesel, allergens);
-    }
 };

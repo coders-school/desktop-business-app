@@ -29,4 +29,6 @@ class Patient : public Person, public std::enable_shared_from_this<Patient>
 
     static void createPatient(const std::string& name, const std::string& surname, const std::string& pesel,
                               const std::set<Allergen>& allergens = {});
+    static std::shared_ptr<Patient>& getPatient(const std::string& name, const std::string& surname);
+    static std::shared_ptr<Patient>& getPatient(const std::string& pesel);
 };
