@@ -1,6 +1,10 @@
+
 set(UT_SOURCES ut/account/account_test.cpp
                ut/clinic/clinic_test.cpp
                ut/encrypt/encrypt_test.cpp
+               ut/patient/allergen_test.cpp
+               ut/clinic/clinic_test.cpp
+               ut/patient/patient_test.cpp
                ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
                ut/visit/treatment_test.cpp
@@ -20,6 +24,7 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             clinic-lib
                                             doctor-lib
                                             encrypt-lib
+                                            patient-lib
                                             person-lib
                                             receptionist-lib
                                             visit-lib

@@ -14,6 +14,7 @@ class VisitTestFixture : public ::testing::Test
         Doctor::createDoctor("Jan", "Kowalski", "00000000000");
         Visit::createVisit(Clinic::getDoctors().front());
     }
+
     void TearDown() override
     {
         for (const auto& visit : Clinic::getVisits())
@@ -28,6 +29,11 @@ class VisitTestFixture : public ::testing::Test
         for (const auto& receptionist : Clinic::getReceptionists())
         {
             Clinic::removeReceptionist(receptionist);
+        }
+
+        for (const auto& patient : Clinic::getPatients())
+        {
+            Clinic::removePatient(patient);
         }
     }
 };
