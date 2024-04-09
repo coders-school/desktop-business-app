@@ -2,7 +2,7 @@ FROM ubuntu:mantic as BUILD
 ENV PROJECT_NAME=desktop-business-app
 
 RUN apt update -y && \
-    apt install -y libgtest-dev cmake make g++ && \
+    apt install -y libgtest-dev libgmock-dev cmake make g++ && \
     apt install -y qt6-base-dev && \
     apt install -y libgl1-mesa-dev && \
     apt install -y libssl-dev && \
