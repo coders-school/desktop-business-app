@@ -26,5 +26,4 @@ class ReserveQueue
   private:
     std::unordered_map<Treatment, PatientQueueType> treatment_queue_;
     std::unordered_map<std::shared_ptr<Doctor>, PatientQueueType> doctor_queue_;
-
 };
