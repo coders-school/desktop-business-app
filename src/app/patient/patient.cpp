@@ -67,21 +67,18 @@ void Patient::createPatient(const std::string& name, const std::string& surname,
     Clinic::appendPatient(std::make_shared<Patient>(patient));
 }
 
-std::shared_ptr<Patient>& Patient::getPatient(const std::string& name, const std::string& surname)
+std::vector<std::shared_ptr<Patient>> Patient::getPatient(const std::string& name, const std::string& surname)
 {
-    auto patients = Clinic::getPatients();
-    auto exact_patient = std::find_if(patients.begin(), patients.end(), [&](const auto& patient) {
-        return (patient->getName() == name) && (patient->getSurname() == surname);
-    });
-
-    if (exact_patient != patients.end())
+    auto all_patients = Clinic::getPatients();
+    std::vector<std::shared_ptr<Patient>> patients{};
+    for (const auto& patient : Clinic::getPatients())
     {
-        return *exact_patient;
+        if ((patient->getName() == name) && (patient->getSurname() == surname))
+        {
+            patients.push_back(patient);
+        }
     }
-    else
-    {
-        throw std::runtime_error("patient not found.");
-    }
+    return patients;
 }
 
 std::shared_ptr<Patient>& Patient::getPatient(const std::string& pesel)

@@ -29,19 +29,15 @@ void Doctor::createDoctor(const std::string& name, const std::string& surname, c
     Clinic::appendDoctor(std::make_shared<Doctor>(doctor));
 }
 
-std::shared_ptr<Doctor>& Doctor::getDoctor(const std::string& name, const std::string& surname)
+std::vector<std::shared_ptr<Doctor>> Doctor::getDoctor(const std::string& name, const std::string& surname)
 {
-    auto doctors = Clinic::getDoctors();
-    auto exact_doctor = std::find_if(doctors.begin(), doctors.end(), [&](const auto& doctor) {
-        return (doctor->getName() == name) && (doctor->getSurname() == surname);
-    });
-
-    if (exact_doctor != doctors.end())
+    std::vector<std::shared_ptr<Doctor>> doctors{};
+    for (const auto& doctor : Clinic::getDoctors())
     {
-        return *exact_doctor;
+        if ((doctor->getName() == name) && (doctor->getSurname() == surname))
+        {
+            doctors.push_back(doctor);
+        }
     }
-    else
-    {
-        throw std::runtime_error("Doctor not found.");
-    }
+    return doctors;
 }

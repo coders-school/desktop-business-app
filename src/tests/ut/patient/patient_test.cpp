@@ -49,11 +49,24 @@ TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByNameAndSurnameExpectCorr
     Patient::createPatient("Pawel", "Awel", "999");
     Patient::createPatient("Pawel", "Gawel", "000999");
 
-    auto expected_patient = Clinic::getPatients().at(1);
+    const auto expected_patient = Clinic::getPatients().at(1);
 
-    auto patient = Patient::getPatient("Pawel", "Gawel");
+    const auto patient = Patient::getPatient("Pawel", "Gawel");
 
-    EXPECT_EQ(patient, expected_patient);
+    EXPECT_EQ(patient.front(), expected_patient);
+}
+
+TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByNameAndSurnameExpectAllPatientsReturned)
+{
+    Patient::createPatient("Pawel", "Awel", "999");
+    Patient::createPatient("Pawel", "Gawel", "000999");
+    Patient::createPatient("Pawel", "Gawel", "000991");
+
+    const auto expected_size = 2U;
+
+    const auto patients = Patient::getPatient("Pawel", "Gawel");
+
+    EXPECT_EQ(patients.size(), expected_size);
 }
 
 TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByPeselExpectCorrectPatientReturned)
@@ -61,9 +74,9 @@ TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByPeselExpectCorrectPatien
     Patient::createPatient("Pawel", "Awel", "00000000000");
     Patient::createPatient("Pawel", "Gawel", "00000000001");
 
-    auto expected_patient = Clinic::getPatients().at(1);
+    const auto expected_patient = Clinic::getPatients().at(1);
 
-    auto patient = Patient::getPatient("00000000001");
+    const auto patient = Patient::getPatient("00000000001");
 
     EXPECT_EQ(patient, expected_patient);
 }

@@ -11,7 +11,7 @@ TEST_F(DoctorTestFixture, test)
     Doctor::createDoctor("Jan", "Poniatowski", "00000000003");
     auto expected_doctor = Clinic::getDoctors().at(3);
 
-    EXPECT_EQ(Doctor::getDoctor("Jan", "Poniatowski"), expected_doctor);
+    EXPECT_EQ(Doctor::getDoctor("Jan", "Poniatowski").front(), expected_doctor);
 }
 
 } // namespace
