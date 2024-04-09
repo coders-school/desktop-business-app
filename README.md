@@ -7,7 +7,7 @@ TBD...
 ### Prerequisites
 
 - Docker
-- Google Test
+- Google Test (including gmock)
 - C++20
 - clang-format (recommended minimum ver. 17)
 - OpenSSL
