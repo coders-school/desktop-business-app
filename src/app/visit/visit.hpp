@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../doctor/doctor.hpp"
-#include "../patient/patient.hpp"
 #include "treatment.hpp"
 #include <memory>
 #include <set>

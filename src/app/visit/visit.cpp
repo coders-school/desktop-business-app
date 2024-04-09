@@ -1,6 +1,6 @@
 #include "visit.hpp"
-#include "../clinic/clinic_facade.hpp"
-#include "../doctor/doctor.hpp"
+#include "clinic_facade.hpp"
+#include "patient.hpp"
 
 Visit::Visit(const std::shared_ptr<Doctor>& doctor, const std::vector<Treatment>& treatments)
     : doctor_{doctor}, patient_{}, treatments_{std::move(treatments)}, visit_information_{}
