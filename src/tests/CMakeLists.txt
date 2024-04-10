@@ -1,6 +1,7 @@
 set(UT_SOURCES ut/login/login_test.cpp
                ut/patient/allergen_test.cpp
                ut/clinic/clinic_test.cpp
+               ut/doctor/doctor_test.cpp
                ut/patient/patient_test.cpp
                ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp

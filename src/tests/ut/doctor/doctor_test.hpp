@@ -1,9 +1,10 @@
 #pragma once
 
 #include "clinic_facade.hpp"
+#include "doctor.hpp"
 #include "gtest/gtest.h"
 
-class ClinicTestFixture : public ::testing::Test
+class DoctorTestFixture : public ::testing::Test
 {
     void TearDown() override
     {
@@ -27,4 +28,6 @@ class ClinicTestFixture : public ::testing::Test
             Clinic::removePatient(patient);
         }
     }
+
+  protected:
 };

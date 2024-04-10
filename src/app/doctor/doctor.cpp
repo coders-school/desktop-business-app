@@ -28,3 +28,16 @@ void Doctor::createDoctor(const std::string& name, const std::string& surname, c
     Doctor doctor{name, surname, pesel};
     Clinic::appendDoctor(std::make_shared<Doctor>(doctor));
 }
+
+std::vector<std::shared_ptr<Doctor>> Doctor::getDoctor(const std::string& name, const std::string& surname)
+{
+    std::vector<std::shared_ptr<Doctor>> doctors{};
+    for (const auto& doctor : Clinic::getDoctors())
+    {
+        if ((doctor->getName() == name) && (doctor->getSurname() == surname))
+        {
+            doctors.push_back(doctor);
+        }
+    }
+    return doctors;
+}

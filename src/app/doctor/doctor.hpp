@@ -16,4 +16,5 @@ class Doctor : public Person
     std::vector<std::shared_ptr<Visit>> getVisits() const;
 
     static void createDoctor(const std::string& name, const std::string& surname, const std::string& pesel);
+    static std::vector<std::shared_ptr<Doctor>> getDoctor(const std::string& name, const std::string& surname);
 };
