@@ -9,14 +9,16 @@ class Room
     uint roomNumber_;
     std::vector<Treatment> treatments_;
     bool avalaibility_{true};
-    Warehouse& refToWarehouse_;
+    std::shared_ptr<Warehouse> ptrToWarehouse_;
 
   public:
     Room() = delete;
-    Room(const uint roomNumber, const std::vector<Treatment> treatments, Warehouse& refToWarehouse);
+    Room(const uint roomNumber, const std::vector<Treatment> treatments, std::shared_ptr<Warehouse>& ptrToWarehouse);
 
-    uint getRoomNumber() const;
     // bool isRoomFree(timeInterval); TODO: write this function
-    void setRoomAvalaibility(bool avalaibility);
+    uint getRoomNumber() const;
     std::vector<Treatment> getTreatments() const;
+    std::shared_ptr<Warehouse> getWarehouse() const;
+    void setRoomAvalaibility(bool avalaibility);
+    void setWarehouse(std::shared_ptr<Warehouse> ptrToWarehouse);
 };
