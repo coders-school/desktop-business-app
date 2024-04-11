@@ -1,6 +1,6 @@
 #include "room.hpp"
 
-Room::Room(const uint roomNumber, const std::vector<Treatment> treatments, std::shared_ptr<Warehouse>& ptrToWarehouse)
+Room::Room(const uint roomNumber, const std::vector<Treatment>& treatments, std::shared_ptr<Warehouse>& ptrToWarehouse)
     : roomNumber_{roomNumber}, treatments_{treatments}, ptrToWarehouse_{ptrToWarehouse}
 {
 }
@@ -20,12 +20,12 @@ std::shared_ptr<Warehouse> Room::getWarehouse() const
     return ptrToWarehouse_;
 }
 
-void Room::setRoomAvalaibility(bool avalaibility)
+void Room::setRoomAvalaibility(bool avalaible)
 {
-    avalaibility_ = avalaibility;
+    avalaible_ = avalaible;
 }
 
-void Room::setWarehouse(std::shared_ptr<Warehouse> ptrToWarehouse)
+void Room::setWarehouse(std::shared_ptr<Warehouse>& ptrToWarehouse)
 {
     ptrToWarehouse_ = ptrToWarehouse;
 }
