@@ -3,7 +3,7 @@
 #include "clinic_facade.hpp"
 #include "gtest/gtest.h"
 
-class ReceptionistTestFixture : public ::testing::Test
+class ClinicTestFixture : public ::testing::Test
 {
   protected:
     void TearDown() override
@@ -17,6 +17,7 @@ class ReceptionistTestFixture : public ::testing::Test
         {
             Clinic::removeDoctor(doctor);
         }
+
         for (const auto& receptionist : Clinic::getReceptionists())
         {
             Clinic::removeReceptionist(receptionist);

@@ -5,17 +5,17 @@
 
 class Person
 {
-    std::string first_name_;
-    std::string last_name_;
+    std::string name_;
+    std::string surname_;
     std::string pesel_;
 
   public:
-    explicit Person(std::string first_name, std::string last_name, std::string pesel);
+    Person(const std::string& name, const std::string& surname, const std::string& pesel);
     virtual ~Person();
-    void setFirstName(const std::string& first_name);
-    std::string getFirstName() const;
-    void setLastName(const std::string& last_name);
-    std::string getLastName() const;
+    void setName(const std::string& name);
+    std::string getName() const;
+    void setSurname(const std::string& surname);
+    std::string getSurname() const;
     void setPesel(const std::string& pesel);
     std::string getPesel() const;
 };

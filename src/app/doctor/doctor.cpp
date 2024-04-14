@@ -1,25 +1,43 @@
 #include "doctor.hpp"
+#include "../clinic/clinic_facade.hpp"
 #include "../visit/visit.hpp"
 #include <stdexcept>
 
-Doctor::Doctor(std::string first_name, std::string last_name, std::string pesel) : Person{first_name, last_name, pesel}
+Doctor::Doctor(const std::string& name, const std::string& surname, const std::string& pesel)
+    : Person{name, surname, pesel}
 {
 }
 
-void Doctor::addVisitAssociation(const std::shared_ptr<Visit>& visit)
+void Doctor::appendVisit(const std::shared_ptr<Visit>& visit)
 {
-    if (!visit)
-    {
-        throw std::invalid_argument(std::string("Argument points to nullptr in ") + __func__);
-    }
-    if (visit_associations_.find(visit) == visit_associations_.end())
-    {
-        visit_associations_.insert(visit);
-        visit->setDoctorAssociation(shared_from_this());
-    }
+    visits_.push_back(visit);
 }
 
-std::set<std::shared_ptr<Visit>> Doctor::getVisitAssociations() const
+void Doctor::removeVisit(const std::shared_ptr<Visit>& visit)
 {
-    return visit_associations_;
+    visits_.erase(std::remove(visits_.begin(), visits_.end(), visit));
+}
+
+std::vector<std::shared_ptr<Visit>> Doctor::getVisits() const
+{
+    return visits_;
+}
+
+void Doctor::createDoctor(const std::string& name, const std::string& surname, const std::string& pesel)
+{
+    Doctor doctor{name, surname, pesel};
+    Clinic::appendDoctor(std::make_shared<Doctor>(doctor));
+}
+
+std::vector<std::shared_ptr<Doctor>> Doctor::getDoctor(const std::string& name, const std::string& surname)
+{
+    std::vector<std::shared_ptr<Doctor>> doctors{};
+    for (const auto& doctor : Clinic::getDoctors())
+    {
+        if ((doctor->getName() == name) && (doctor->getSurname() == surname))
+        {
+            doctors.push_back(doctor);
+        }
+    }
+    return doctors;
 }

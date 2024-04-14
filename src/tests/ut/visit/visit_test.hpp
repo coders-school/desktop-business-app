@@ -1,36 +1,39 @@
 #pragma once
 
+#include "clinic_facade.hpp"
+#include "doctor.hpp"
 #include "visit.hpp"
 #include "gtest/gtest.h"
 
-class Doctor;
-
-class VisitTestsFixture : public ::testing::Test
+class VisitTestFixture : public ::testing::Test
 {
+
   protected:
-    std::shared_ptr<Doctor> doc1{std::make_shared<Doctor>("Janusz", "Tracz", "1234")};
-    std::shared_ptr<Doctor> doc2{std::make_shared<Doctor>("Lukasz", "Ziobron", "123456")};
-
-    std::shared_ptr<Visit> visit1;
-    std::shared_ptr<Visit> visit2;
-    std::shared_ptr<Visit> visit3;
-
-    VisitTestsFixture()
+    void SetUp() override
     {
-        visit1 = Visit::createVisit(doc1);
-        visit2 = Visit::createVisit(doc2, {Treatment::TeethWhitening});
-        visit3 = Visit::createVisit(doc2, {Treatment::TeethCleaning, Treatment::RootCanal, Treatment::ToothExtraction});
-
-        visit2->setVisitInformation("Tworze klub ninja!");
-        visit3->setVisitInformation("I w klubie sa sami fajni ludzie");
+        Doctor::createDoctor("Jan", "Kowalski", "00000000000");
+        Visit::createVisit(Clinic::getDoctors().front());
     }
 
-    void updateVisitTreatments(const std::vector<Treatment>& visit_1_replacing_treatments,
-                               const std::vector<Treatment>& visit_2_replacing_treatments,
-                               const std::vector<Treatment>& visit_3_replacing_treatments)
+    void TearDown() override
     {
-        visit1->updateTreatments(visit_1_replacing_treatments);
-        visit2->updateTreatments(visit_2_replacing_treatments);
-        visit3->updateTreatments(visit_3_replacing_treatments);
+        for (const auto& visit : Clinic::getVisits())
+        {
+            Clinic::removeVisit(visit);
+        }
+
+        for (const auto& doctor : Clinic::getDoctors())
+        {
+            Clinic::removeDoctor(doctor);
+        }
+        for (const auto& receptionist : Clinic::getReceptionists())
+        {
+            Clinic::removeReceptionist(receptionist);
+        }
+
+        for (const auto& patient : Clinic::getPatients())
+        {
+            Clinic::removePatient(patient);
+        }
     }
 };

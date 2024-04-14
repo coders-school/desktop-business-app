@@ -1,11 +1,11 @@
 #pragma once
 
 #include "clinic_facade.hpp"
+#include "doctor.hpp"
 #include "gtest/gtest.h"
 
-class ReceptionistTestFixture : public ::testing::Test
+class DoctorTestFixture : public ::testing::Test
 {
-  protected:
     void TearDown() override
     {
         for (const auto& visit : Clinic::getVisits())
@@ -17,6 +17,7 @@ class ReceptionistTestFixture : public ::testing::Test
         {
             Clinic::removeDoctor(doctor);
         }
+
         for (const auto& receptionist : Clinic::getReceptionists())
         {
             Clinic::removeReceptionist(receptionist);
@@ -27,4 +28,6 @@ class ReceptionistTestFixture : public ::testing::Test
             Clinic::removePatient(patient);
         }
     }
+
+  protected:
 };
