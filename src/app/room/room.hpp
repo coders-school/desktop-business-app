@@ -1,19 +1,13 @@
 #pragma once
 #include "treatment.hpp"
 #include "warehouse.hpp"
-<<<<<<< HEAD
 #include <memory>
-    == == ==
-    =
-#include <utility>
-        >>>>>>> d349a39(Update README.md(#66))
 #include <vector>
 
-                    class Room
+class Room
 {
     uint roomNumber_;
     std::vector<Treatment> treatments_;
-<<<<<<< HEAD
     bool avalaible_{true};
     std::shared_ptr<Warehouse> ptrToWarehouse_;
 
@@ -27,7 +21,6 @@
     std::shared_ptr<Warehouse> getWarehouse() const;
     void setRoomAvalaibility(bool avalaible);
     void setWarehouse(std::shared_ptr<Warehouse>& ptrToWarehouse);
-=======
     bool avalaibility_{true};
     Warehouse& refToWarehouse_;
 
@@ -39,5 +32,4 @@
     // bool isRoomFree(timeInterval); TODO: write this function
     void setRoomAvalaibility(bool avalaibility);
     std::vector<Treatment> getTreatments();
->>>>>>> d349a39 (Update README.md (#66))
 };
