@@ -8,6 +8,7 @@ add_subdirectory(person)
 add_subdirectory(receptionist)
 add_subdirectory(visit)
 add_subdirectory(product)
+add_subdirectory(room)
 add_subdirectory(medicine)
 add_subdirectory(equipment)
 add_subdirectory(warehouse)
@@ -27,6 +28,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
                                               person-lib
                                               product-lib
                                               receptionist-lib
+                                              room-lib
                                               warehouse-lib
                                               visit-lib)
 
