@@ -21,15 +21,4 @@ class Room
     std::shared_ptr<Warehouse> getWarehouse() const;
     void setRoomAvalaibility(bool avalaible);
     void setWarehouse(std::shared_ptr<Warehouse>& ptrToWarehouse);
-    bool avalaibility_{true};
-    Warehouse& refToWarehouse_;
-
-  public:
-    Room() = delete;
-    Room(const uint roomNumber, const std::vector<Treatment> treatments, Warehouse& refToWarehouse);
-
-    uint getRoomNumber();
-    // bool isRoomFree(timeInterval); TODO: write this function
-    void setRoomAvalaibility(bool avalaibility);
-    std::vector<Treatment> getTreatments();
 };
