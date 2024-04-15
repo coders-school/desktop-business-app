@@ -1,5 +1,9 @@
 #include "encrypt.hpp"
 
+#include <iomanip>
+#include <openssl/evp.h>
+#include <sstream>
+
 std::string Encrypt::hashSHA512(const std::string& string)
 {
     unsigned char hash[EVP_MAX_MD_SIZE];

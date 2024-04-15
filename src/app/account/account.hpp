@@ -16,7 +16,7 @@ class Account : public Encrypt
   public:
     explicit Account(const std::string& user_name, const std::string& password);
     bool isPasswordProper(const std::string& user_name, const std::string& password);
-    bool areAnswersCorrect(const std::string& answer1, const std::string& answer2, const std::string& answer3);
+    bool isAnswerCorrect(const std::string& answer, const int& id);
     std::string getPasswordHash() const;
     std::string getUserName() const;
 };

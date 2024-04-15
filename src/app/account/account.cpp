@@ -8,12 +8,12 @@ Account::Account(const std::string& user_name, const std::string& password)
 bool Account::isPasswordProper(const std::string& login, const std::string& password)
 {
     std::ifstream file("users/users.json");
-    nlohmann::json jsonFile;
-    file >> jsonFile;
+    nlohmann::json json_file;
+    file >> json_file;
 
     std::string hashedPassword = hashSHA512(password);
 
-    for (auto& element : jsonFile)
+    for (const auto& element : json_file)
     {
         if (element[login] == login && element[password] == hashedPassword)
         {
@@ -24,32 +24,23 @@ bool Account::isPasswordProper(const std::string& login, const std::string& pass
     return false;
 }
 
-bool Account::areAnswersCorrect(const std::string& answer1, const std::string& answer2, const std::string& answer3)
+bool Account::isAnswerCorrect(const std::string& answer, const int& id)
 {
-    size_t judge{};
     std::ifstream file("users/users.json");
-    nlohmann::json jsonFile;
-    file >> jsonFile;
+    nlohmann::json json_file;
+    file >> json_file;
 
-    for (const auto& user : jsonFile)
+    for (const auto& user : json_file)
     {
-        for (const auto& answer : user["security_questions"])
+        for (const auto& question : user["security_questions"])
         {
-            if (answer == answer1)
+            if (question["id"] == id && question["answer"] == answer)
             {
-                judge++;
-            }
-            if (answer == answer2)
-            {
-                judge++;
-            }
-            if (answer == answer3)
-            {
-                judge++;
+                return true;
             }
         }
     }
-    return judge >= 2;
+    return false;
 }
 
 std::string Account::getPasswordHash() const
