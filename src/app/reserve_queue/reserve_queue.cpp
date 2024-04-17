@@ -1,42 +1,17 @@
 #include "reserve_queue.hpp"
 #include <algorithm>
 
-namespace
-{
-bool addPatientIfNotPresent(ReserveQueue::PatientQueueType& patients_queued, const std::shared_ptr<Patient>& patient)
-{
-    auto patient_iterator = std::ranges::find(patients_queued, patient);
-
-    if (patient_iterator == patients_queued.end())
-    {
-        patients_queued.emplace_back(patient);
-
-        return true;
-    }
-
-    return false;
-}
-
-void removePatientFromQueue(ReserveQueue::PatientQueueType& patients_queued, const std::shared_ptr<Patient>& patient)
-{
-    if (auto patientSearched = std::ranges::find(patients_queued, patient); patientSearched != patients_queued.end())
-    {
-        patients_queued.erase(patientSearched);
-    }
-}
-} // namespace
-
-bool ReserveQueue::addAwaitingPatient(Treatment treatment, const std::shared_ptr<Patient>& patient)
+bool ReserveQueue::addPatientToQueue(Treatment treatment, const std::shared_ptr<Patient>& patient)
 {
     return addPatientIfNotPresent(treatment_queue_[treatment], patient);
 }
 
-bool ReserveQueue::addAwaitingPatient(const std::shared_ptr<Doctor>& doctor, const std::shared_ptr<Patient>& patient)
+bool ReserveQueue::addPatientToQueue(const std::shared_ptr<Doctor>& doctor, const std::shared_ptr<Patient>& patient)
 {
     return addPatientIfNotPresent(doctor_queue_[doctor], patient);
 }
 
-void ReserveQueue::removeAwaitingPatient(Treatment treatment, const std::shared_ptr<Patient>& patient)
+void ReserveQueue::removePatientFromQueue(Treatment treatment, const std::shared_ptr<Patient>& patient)
 {
     auto& patients_queued = treatment_queue_[treatment];
 
@@ -48,7 +23,8 @@ void ReserveQueue::removeAwaitingPatient(Treatment treatment, const std::shared_
     }
 }
 
-void ReserveQueue::removeAwaitingPatient(const std::shared_ptr<Doctor>& doctor, const std::shared_ptr<Patient>& patient)
+void ReserveQueue::removePatientFromQueue(const std::shared_ptr<Doctor>& doctor,
+                                          const std::shared_ptr<Patient>& patient)
 {
     auto& patients_queued = doctor_queue_[doctor];
 
@@ -60,14 +36,14 @@ void ReserveQueue::removeAwaitingPatient(const std::shared_ptr<Doctor>& doctor, 
     }
 }
 
-ReserveQueue::PatientQueueType ReserveQueue::awaitingPatients(Treatment treatment) const
+ReserveQueue::PatientQueueType ReserveQueue::getQueuedPatients(Treatment treatment) const
 {
     auto queued_patients = treatment_queue_.find(treatment);
 
     return queued_patients != treatment_queue_.end() ? queued_patients->second : PatientQueueType{};
 }
 
-ReserveQueue::PatientQueueType ReserveQueue::awaitingPatients(const std::shared_ptr<Doctor>& doctor) const
+ReserveQueue::PatientQueueType ReserveQueue::getQueuedPatients(const std::shared_ptr<Doctor>& doctor) const
 {
     auto queued_patients = doctor_queue_.find(doctor);
 
@@ -92,4 +68,28 @@ std::vector<std::shared_ptr<Doctor>> ReserveQueue::doctorsHavingQueue() const
                            [](const auto& key_val_pair) { return key_val_pair.first; });
 
     return awaited_doctors;
+}
+
+bool ReserveQueue::addPatientIfNotPresent(ReserveQueue::PatientQueueType& patients_queued,
+                                          const std::shared_ptr<Patient>& patient)
+{
+    auto patient_iterator = std::ranges::find(patients_queued, patient);
+
+    if (patient_iterator == patients_queued.end())
+    {
+        patients_queued.emplace_back(patient);
+
+        return true;
+    }
+
+    return false;
+}
+
+void ReserveQueue::removePatientFromQueue(ReserveQueue::PatientQueueType& patients_queued,
+                                          const std::shared_ptr<Patient>& patient)
+{
+    if (auto patientSearched = std::ranges::find(patients_queued, patient); patientSearched != patients_queued.end())
+    {
+        patients_queued.erase(patientSearched);
+    }
 }

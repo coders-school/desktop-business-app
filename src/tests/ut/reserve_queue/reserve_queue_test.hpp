@@ -7,13 +7,24 @@
 
 class ReserveQueueFixture : public ::testing::Test
 {
-
   protected:
     ReserveQueue sut_;
     std::vector<std::shared_ptr<Patient>> patients_;
     std::vector<std::shared_ptr<Doctor>> doctors_;
     constexpr static size_t predicted_number_of_patients{4};
     constexpr static size_t predicted_number_of_dotors{3};
+
+    void expectTreatmentsHavingQueueEmpty() const
+    {
+        const auto treatments_awaiting_after_removal_attempts = sut_.treatmentsHavingQueue();
+        EXPECT_TRUE(treatments_awaiting_after_removal_attempts.empty());
+    }
+
+    void expectDoctorsHavingQueueEmpty() const
+    {
+        const auto doctors_with_patients_awaiting_appointments_after_removal_attempts = sut_.doctorsHavingQueue();
+        EXPECT_TRUE(doctors_with_patients_awaiting_appointments_after_removal_attempts.empty());
+    }
 
   public:
     void SetUp() override
@@ -30,7 +41,7 @@ class ReserveQueueFixture : public ::testing::Test
         patients_ = Clinic::getPatients();
         doctors_ = Clinic::getDoctors();
 
-        checkIfAssumedPatientsAndDoctorsPresent();
+        assertPatientsAndDoctorsPresent();
     }
 
     void TearDown() override
@@ -38,7 +49,7 @@ class ReserveQueueFixture : public ::testing::Test
         cleanupClinic();
     }
 
-    void checkIfAssumedPatientsAndDoctorsPresent()
+    void assertPatientsAndDoctorsPresent()
     {
         ASSERT_EQ(doctors_.size(), predicted_number_of_dotors);
         ASSERT_EQ(patients_.size(), predicted_number_of_patients);
