@@ -13,13 +13,11 @@ add_subdirectory(medicine)
 add_subdirectory(equipment)
 add_subdirectory(warehouse)
 
-qt_add_executable(${PROJECT_NAME} main.cpp
-                                  mainwindow.cpp
-                                  mainwindow.ui
-                                  mainwindow.h)
+qt_add_executable(${PROJECT_NAME} main.cpp)
 
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Gui
+                                              Qt6::Quick
                                               clinic-lib
                                               doctor-lib
                                               login-lib
@@ -31,5 +29,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
                                               room-lib
                                               warehouse-lib
                                               visit-lib)
+
+qt_add_qml_module(${PROJECT_NAME}
+                    URI desktop-business-app
+                    VERSION 1.0
+                    QML_FILES main.qml)
 
 target_compile_options(${PROJECT_NAME} PRIVATE -Werror -Wall -Wextra -pedantic)
