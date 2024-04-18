@@ -14,15 +14,15 @@ class ReserveQueueFixture : public ::testing::Test
     constexpr static size_t predicted_number_of_patients{4};
     constexpr static size_t predicted_number_of_dotors{3};
 
-    void expectTreatmentsHavingQueueEmpty() const
+    void expectTreatmentQueuesEmpty() const
     {
-        const auto treatments_awaiting_after_removal_attempts = sut_.treatmentsHavingQueue();
+        const auto treatments_awaiting_after_removal_attempts = sut_.getTreatmentQueues();
         EXPECT_TRUE(treatments_awaiting_after_removal_attempts.empty());
     }
 
-    void expectDoctorsHavingQueueEmpty() const
+    void expectDoctorQueuesEmpty() const
     {
-        const auto doctors_with_patients_awaiting_appointments_after_removal_attempts = sut_.doctorsHavingQueue();
+        const auto doctors_with_patients_awaiting_appointments_after_removal_attempts = sut_.getDoctorQueues();
         EXPECT_TRUE(doctors_with_patients_awaiting_appointments_after_removal_attempts.empty());
     }
 

@@ -3,71 +3,61 @@
 
 bool ReserveQueue::addPatientToQueue(Treatment treatment, const std::shared_ptr<Patient>& patient)
 {
-    return addPatientIfNotPresent(treatment_queue_[treatment], patient);
+    return addPatientIfNotPresent(treatment_queues_[treatment], patient);
 }
 
 bool ReserveQueue::addPatientToQueue(const std::shared_ptr<Doctor>& doctor, const std::shared_ptr<Patient>& patient)
 {
-    return addPatientIfNotPresent(doctor_queue_[doctor], patient);
+    return addPatientIfNotPresent(doctor_queues_[doctor], patient);
 }
 
 void ReserveQueue::removePatientFromQueue(Treatment treatment, const std::shared_ptr<Patient>& patient)
 {
-    auto& patients_queued = treatment_queue_[treatment];
+    auto& patients_queued = treatment_queues_[treatment];
 
     removePatientFromQueue(patients_queued, patient);
 
     if (patients_queued.empty())
     {
-        treatment_queue_.erase(treatment);
+        treatment_queues_.erase(treatment);
     }
 }
 
 void ReserveQueue::removePatientFromQueue(const std::shared_ptr<Doctor>& doctor,
                                           const std::shared_ptr<Patient>& patient)
 {
-    auto& patients_queued = doctor_queue_[doctor];
+    auto& patients_queued = doctor_queues_[doctor];
 
     removePatientFromQueue(patients_queued, patient);
 
     if (patients_queued.empty())
     {
-        doctor_queue_.erase(doctor);
+        doctor_queues_.erase(doctor);
     }
 }
 
 ReserveQueue::PatientQueueType ReserveQueue::getQueuedPatients(Treatment treatment) const
 {
-    auto queued_patients = treatment_queue_.find(treatment);
+    auto queued_patients = treatment_queues_.find(treatment);
 
-    return queued_patients != treatment_queue_.end() ? queued_patients->second : PatientQueueType{};
+    return queued_patients != treatment_queues_.end() ? queued_patients->second : PatientQueueType{};
 }
 
 ReserveQueue::PatientQueueType ReserveQueue::getQueuedPatients(const std::shared_ptr<Doctor>& doctor) const
 {
-    auto queued_patients = doctor_queue_.find(doctor);
+    auto queued_patients = doctor_queues_.find(doctor);
 
-    return queued_patients != doctor_queue_.end() ? queued_patients->second : PatientQueueType{};
+    return queued_patients != doctor_queues_.end() ? queued_patients->second : PatientQueueType{};
 }
 
-std::vector<Treatment> ReserveQueue::treatmentsHavingQueue() const
+std::unordered_map<Treatment, ReserveQueue::PatientQueueType> ReserveQueue::getTreatmentQueues() const
 {
-    std::vector<Treatment> awaiting_treatments;
-    awaiting_treatments.reserve(treatment_queue_.size());
-    std::ranges::transform(treatment_queue_, std::back_inserter(awaiting_treatments),
-                           [](const auto& key_val_pair) { return key_val_pair.first; });
-
-    return awaiting_treatments;
+    return treatment_queues_;
 }
 
-std::vector<std::shared_ptr<Doctor>> ReserveQueue::doctorsHavingQueue() const
+std::unordered_map<std::shared_ptr<Doctor>, ReserveQueue::PatientQueueType> ReserveQueue::getDoctorQueues() const
 {
-    std::vector<std::shared_ptr<Doctor>> awaited_doctors;
-    awaited_doctors.reserve(doctor_queue_.size());
-    std::ranges::transform(doctor_queue_, std::back_inserter(awaited_doctors),
-                           [](const auto& key_val_pair) { return key_val_pair.first; });
-
-    return awaited_doctors;
+    return doctor_queues_;
 }
 
 bool ReserveQueue::addPatientIfNotPresent(ReserveQueue::PatientQueueType& patients_queued,

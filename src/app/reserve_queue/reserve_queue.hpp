@@ -15,8 +15,8 @@ class ReserveQueue
 
     PatientQueueType getQueuedPatients(Treatment treatment) const;
     PatientQueueType getQueuedPatients(const std::shared_ptr<Doctor>& doctor) const;
-    std::vector<Treatment> treatmentsHavingQueue() const;
-    std::vector<std::shared_ptr<Doctor>> doctorsHavingQueue() const;
+    std::unordered_map<Treatment, PatientQueueType> getTreatmentQueues() const;
+    std::unordered_map<std::shared_ptr<Doctor>, PatientQueueType> getDoctorQueues() const;
 
     bool addPatientToQueue(Treatment treatment, const std::shared_ptr<Patient>& patient);
     bool addPatientToQueue(const std::shared_ptr<Doctor>& doctor, const std::shared_ptr<Patient>& patient);
@@ -29,6 +29,6 @@ class ReserveQueue
     void removePatientFromQueue(ReserveQueue::PatientQueueType& patients_queued,
                                 const std::shared_ptr<Patient>& patient);
 
-    std::unordered_map<Treatment, PatientQueueType> treatment_queue_;
-    std::unordered_map<std::shared_ptr<Doctor>, PatientQueueType> doctor_queue_;
+    std::unordered_map<Treatment, PatientQueueType> treatment_queues_;
+    std::unordered_map<std::shared_ptr<Doctor>, PatientQueueType> doctor_queues_;
 };
