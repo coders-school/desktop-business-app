@@ -7,6 +7,7 @@ RUN apt update -y && \
     apt install -y libgl1-mesa-dev && \
     apt install -y libssl-dev && \
     apt install -y nlohmann-json3-dev
+RUN apt install -y libgoogle-glog-dev     
 
 WORKDIR /application
 COPY . /application
@@ -23,6 +24,7 @@ RUN apt update -y && \
     apt install -y qt6-base-dev && \
     apt install -y libssl-dev && \
     apt install -y nlohmann-json3-dev
+RUN apt install -y libgoogle-glog-dev     
 
 WORKDIR /application
 COPY --from=BUILD /application/bin/${PROJECT_NAME} /application/bin/${PROJECT_NAME}
