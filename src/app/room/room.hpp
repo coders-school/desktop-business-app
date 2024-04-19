@@ -1,6 +1,7 @@
 #pragma once
-#include "treatment.hpp"
-#include "warehouse.hpp"
+
+#include "../visit/treatment.hpp"
+#include "../warehouse/warehouse.hpp"
 #include <memory>
 #include <vector>
 
