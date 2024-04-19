@@ -1,9 +1,10 @@
 #include "visit.hpp"
 #include "clinic_facade.hpp"
 #include "patient.hpp"
+#include "room.hpp"
 
 Visit::Visit(const std::shared_ptr<Doctor>& doctor, const std::vector<Treatment>& treatments)
-    : doctor_{doctor}, patient_{}, treatments_{std::move(treatments)}, visit_information_{}
+    : doctor_{doctor}, patient_{}, treatments_{std::move(treatments)}, room_{}, visit_information_{}
 {
 }
 
@@ -52,4 +53,9 @@ void Visit::setPatient(const std::shared_ptr<Patient>& patient)
         patient_ = patient;
         patient->addVisit(shared_from_this());
     }
+}
+
+void Visit::setRoom(const std::shared_ptr<Room>& room)
+{
+    room_ = room;
 }
