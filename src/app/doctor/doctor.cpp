@@ -10,7 +10,7 @@ Doctor::Doctor(const std::string& name, const std::string& surname, const std::s
 
 void Doctor::appendVisit(const std::shared_ptr<Visit>& visit)
 {
-    visits_.push_back(visit);
+    visits_.emplace_back(visit);
 }
 
 void Doctor::removeVisit(const std::shared_ptr<Visit>& visit)
@@ -36,7 +36,7 @@ std::vector<std::shared_ptr<Doctor>> Doctor::getDoctor(const std::string& name, 
     {
         if ((doctor->getName() == name) && (doctor->getSurname() == surname))
         {
-            doctors.push_back(doctor);
+            doctors.emplace_back(doctor);
         }
     }
     return doctors;

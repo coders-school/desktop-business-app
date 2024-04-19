@@ -62,7 +62,7 @@ std::vector<std::shared_ptr<Product>> Warehouse::getPtrsToProducts(const std::st
     {
         if (product_->getName() == name)
         {
-            ret.push_back(product_);
+            ret.emplace_back(product_);
         }
     }
     return ret;
