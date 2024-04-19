@@ -26,5 +26,5 @@ class Room
     void setWarehouse(std::shared_ptr<Warehouse>& warehouse);
 
     static void createRoom(const unsigned& room_id, const std::vector<Treatment>& treatments,
-                              std::shared_ptr<Warehouse>& warehouse);
+                           std::shared_ptr<Warehouse>& warehouse);
 };

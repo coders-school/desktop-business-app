@@ -2,8 +2,8 @@
 #include "../doctor/doctor.hpp"
 #include "../patient/patient.hpp"
 #include "../receptionist/receptionist.hpp"
-#include "../visit/visit.hpp"
 #include "../room/room.hpp"
+#include "../visit/visit.hpp"
 #include <algorithm>
 #include <memory>
 #include <vector>
