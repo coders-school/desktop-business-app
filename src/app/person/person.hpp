@@ -9,8 +9,8 @@ class Person
     std::string surname_;
     std::string pesel_;
 
-    bool validatePESELSize(const std::string& PESEL) const;
-    bool validatePESELDate(const std::string& PESEL) const;
+    bool validatePeselSize(const std::string& PESEL) const;
+    bool validatePeselDate(const std::string& PESEL) const;
     bool validateControlNumber(const std::string& PESEL) const;
 
   public:
@@ -22,5 +22,5 @@ class Person
     std::string getSurname() const;
     void setPesel(const std::string& pesel);
     std::string getPesel() const;
-    bool validatePESEL(const std::string& PESEL) const;
+    bool validatePesel(const std::string& PESEL) const;
 };

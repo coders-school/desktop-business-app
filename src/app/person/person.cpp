@@ -35,11 +35,7 @@ std::string Person::getSurname() const
 
 void Person::setPesel(const std::string& pesel)
 {
-    if (validatePESEL(pesel))
-    {
-        pesel_ = pesel;
-    }
-    // TODO: Else what?
+    pesel_ = pesel;
 }
 
 std::string Person::getPesel() const
@@ -47,28 +43,28 @@ std::string Person::getPesel() const
     return pesel_;
 }
 
-bool Person::validatePESEL(const std::string& PESEL) const
+bool Person::validatePesel(const std::string& pesel) const
 {
-    if (not validatePESELSize(PESEL) or not validatePESELDate(PESEL) or not validateControlNumber(PESEL))
+    if (not validatePeselSize(pesel) or not validatePeselDate(pesel) or not validateControlNumber(pesel))
     {
         return false;
     }
     return true;
 }
 
-bool Person::validatePESELSize(const std::string& PESEL) const
+bool Person::validatePeselSize(const std::string& pesel) const
 {
-    if (PESEL.size() != 11)
+    if (pesel.size() != 11)
     {
         return false;
     }
     return true;
 }
 
-bool Person::validatePESELDate(const std::string& PESEL) const
+bool Person::validatePeselDate(const std::string& pesel) const
 {
-    std::string Month = PESEL.substr(2, 2);
-    std::string Day = PESEL.substr(4, 2);
+    std::string Month = pesel.substr(2, 2);
+    std::string Day = pesel.substr(4, 2);
 
     if (std::stoi(Month) < 1 and std::stoi(Month) > 12)
     {
@@ -92,11 +88,11 @@ bool Person::validatePESELDate(const std::string& PESEL) const
     return true;
 }
 
-bool Person::validateControlNumber(const std::string& PESEL) const
+bool Person::validateControlNumber(const std::string& pesel) const
 {
     std::vector<int> weights{1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
-    std::transform(begin(weights), end(weights), begin(PESEL), begin(weights),
-                   [](auto weight, auto PESELNumber) { return weight * (PESELNumber - '0'); });
+    std::transform(begin(weights), end(weights), begin(pesel), begin(weights),
+                   [](auto weight, auto peselNumber) { return weight * (peselNumber - '0'); });
     std::string tempStr = std::to_string(std::accumulate(begin(weights), end(weights), 0));
     int controlNumber = 10 - (tempStr.back() - '0');
     if (controlNumber == 10)
@@ -104,7 +100,7 @@ bool Person::validateControlNumber(const std::string& PESEL) const
         controlNumber = 0;
     }
 
-    if (controlNumber != (PESEL.back() - '0'))
+    if (controlNumber != (pesel.back() - '0'))
     {
         return false;
     }
