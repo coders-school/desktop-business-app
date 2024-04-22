@@ -5,6 +5,7 @@ set(UT_SOURCES ut/clinic/clinic_test.cpp
                ut/medicine/medicine_test.cpp
                ut/patient/allergen_test.cpp
                ut/patient/patient_test.cpp
+               ut/person/person_test.cpp
                ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
                ut/reserve_queue/reserve_queue_test.cpp
