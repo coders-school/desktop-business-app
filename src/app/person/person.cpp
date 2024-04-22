@@ -45,7 +45,7 @@ std::string Person::getPesel() const
 
 bool Person::validatePesel(const std::string& pesel) const
 {
-    if (not validatePeselSize(pesel) or not validatePeselDate(pesel) or not validateControlNumber(pesel))
+    if (/*not validatePeselSize(pesel) or not validatePeselDate(pesel) or*/ not validateControlNumber(pesel))
     {
         return false;
     }
@@ -66,7 +66,7 @@ bool Person::validatePeselDate(const std::string& pesel) const
     std::string Month = pesel.substr(2, 2);
     std::string Day = pesel.substr(4, 2);
 
-    if (std::stoi(Month) < 1 and std::stoi(Month) > 12)
+    if (std::stoi(Month) < 1 or std::stoi(Month) > 12)
     {
         return false;
     }
