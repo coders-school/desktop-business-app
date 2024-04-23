@@ -45,7 +45,7 @@ std::string Person::getPesel() const
 
 bool Person::validatePesel(const std::string& pesel) const
 {
-    if (/*not validatePeselSize(pesel) or not validatePeselDate(pesel) or*/ not validateControlNumber(pesel))
+    if (not validatePeselSize(pesel) or not validatePeselDate(pesel) or not validateControlNumber(pesel))
     {
         return false;
     }
