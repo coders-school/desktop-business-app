@@ -8,6 +8,7 @@ set(UT_SOURCES ut/login/login_test.cpp
                ut/reserve_queue/reserve_queue_test.cpp
                ut/visit/treatment_test.cpp
                ut/visit/visit_test.cpp
+               ut/calendar/calendar_test.cpp
 )
 # NOTE: similar set for INTEGRATION_SOURCES to be done when tests apear
 
@@ -31,6 +32,7 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             reserve_queue-lib
                                             test_utils-lib
                                             visit-lib
+                                            calendar-lib
 )
 
 set(CTEST_BINARY_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

@@ -13,6 +13,7 @@ add_subdirectory(room)
 add_subdirectory(medicine)
 add_subdirectory(equipment)
 add_subdirectory(warehouse)
+add_subdirectory(calendar)
 
 qt_add_executable(${PROJECT_NAME} main.cpp
                                   mainwindow.cpp
@@ -32,6 +33,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
                                               reserve_queue-lib
                                               room-lib
                                               warehouse-lib
-                                              visit-lib)
+                                              visit-lib
+                                              calendar-lib)
 
 target_compile_options(${PROJECT_NAME} PRIVATE -Werror -Wall -Wextra -pedantic)
