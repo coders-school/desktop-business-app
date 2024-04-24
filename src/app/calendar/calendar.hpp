@@ -1,9 +1,10 @@
 #pragma once
-#include "../clinic/clinic_facade.hpp"
 #include <chrono>
 #include <memory>
 #include <string>
 #include <vector>
+
+class Year;
 
 class Calendar
 {

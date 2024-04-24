@@ -1,6 +1,8 @@
 #pragma once
 #include "year.hpp"
 
+class Day;
+
 class Month
 {
     std::chrono::month month_;

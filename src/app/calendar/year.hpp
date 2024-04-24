@@ -1,6 +1,8 @@
 #pragma once
 #include "calendar.hpp"
 
+class Month;
+
 class Year {
     std::chrono::year year_;
 
