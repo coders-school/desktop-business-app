@@ -9,6 +9,10 @@ class Person
     std::string surname_;
     std::string pesel_;
 
+    bool validatePeselSize(const std::string& PESEL) const;
+    bool validatePeselDate(const std::string& PESEL) const;
+    bool validateControlNumber(const std::string& PESEL) const;
+
   public:
     Person(const std::string& name, const std::string& surname, const std::string& pesel);
     virtual ~Person();
@@ -18,4 +22,5 @@ class Person
     std::string getSurname() const;
     void setPesel(const std::string& pesel);
     std::string getPesel() const;
+    bool validatePesel(const std::string& PESEL) const;
 };

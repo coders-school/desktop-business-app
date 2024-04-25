@@ -21,7 +21,8 @@ class CalendarTestFixture : public ::testing::Test
         cal = Clinic::getCalendar();
         cal->createYear(2024, DayName::Monday);
     }
-    void Add2025(){
+    void Add2025()
+    {
         cal->createYear(2025, DayName::Wednesday);
     }
 };

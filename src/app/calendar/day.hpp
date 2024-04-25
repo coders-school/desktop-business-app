@@ -1,12 +1,13 @@
 #pragma once
 #include "month.hpp"
 
-class Day{
+class Day
+{
     std::chrono::day day_;
     DayName day_name_;
     std::shared_ptr<Month> month_;
 
-public:
+  public:
     Day(const std::chrono::day& day, const DayName& name);
     std::chrono::day getDayNumber();
     DayName getDayName();

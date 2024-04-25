@@ -72,11 +72,11 @@ TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByNameAndSurnameExpectAllP
 TEST_F(PatientTestFixture, GivenMultiplePatientsSearchByPeselExpectCorrectPatientReturned)
 {
     Patient::createPatient("Pawel", "Awel", "00000000000");
-    Patient::createPatient("Pawel", "Gawel", "00000000001");
+    Patient::createPatient("Pawel", "Gawel", "95082910213");
 
     const auto expected_patient = Clinic::getPatients().at(1);
 
-    const auto patient = Patient::getPatient("00000000001");
+    const auto patient = Patient::getPatient("95082910213");
 
     EXPECT_EQ(patient, expected_patient);
 }

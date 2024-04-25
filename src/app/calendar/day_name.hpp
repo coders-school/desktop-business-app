@@ -1,8 +1,9 @@
 #pragma once
+#include <cstdint>
 #include <string>
-#include <cstdint> 
 
-enum class DayName : uint32_t{
+enum class DayName : uint32_t
+{
     Monday = 1,
     Tuesday = 2,
     Wednesday = 3,
