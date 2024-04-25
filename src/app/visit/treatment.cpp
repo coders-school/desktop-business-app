@@ -1,7 +1,6 @@
 #include "treatment.hpp"
 
 #include <map>
-#include <stdexcept>
 
 namespace
 {

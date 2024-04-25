@@ -3,10 +3,13 @@
 
 class Day{
     std::chrono::day day_;
-    std::string day_name_;
+    DayName day_name_;
+    std::shared_ptr<Month> month_;
 
 public:
-    Day(const std::chrono::day& day, const std::string& name);
+    Day(const std::chrono::day& day, const DayName& name);
     std::chrono::day getDayNumber();
-    std::string getDayName();
+    DayName getDayName();
+    void addMonth(const std::shared_ptr<Month>& ptr);
+    std::shared_ptr<Month> getMonth();
 };

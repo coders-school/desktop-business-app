@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <cstdint> 
 
 enum class DayName : uint32_t{
     Monday = 1,
@@ -12,3 +13,4 @@ enum class DayName : uint32_t{
 };
 
 std::string toString(const DayName& day_name);
+DayName& operator++(DayName& d);

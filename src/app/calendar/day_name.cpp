@@ -30,3 +30,12 @@ std::string toString(const DayName& day_name){
     }
     return day_name_str;
 }
+
+DayName& operator++(DayName& d) {
+    if(d == DayName::Sunday){
+        d = DayName::Monday;
+    }else{
+        d = static_cast<DayName>(static_cast<int>(d) + 1);
+    }
+    return d;
+}
