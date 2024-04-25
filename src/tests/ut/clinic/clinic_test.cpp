@@ -7,7 +7,7 @@ TEST_F(ClinicTestFixture, GivenStaticContainerWhenDoctorCreatedExpectContainerSi
 {
     ASSERT_TRUE(Clinic::getDoctors().empty());
 
-    Doctor::createDoctor("Jan", "Pawel", "00000000000");
+    Doctor::createDoctor("Jan", "Pawel", "00000000000", Gender::Male);
 
     EXPECT_EQ(Clinic::getDoctors().size(), 1U);
 }
@@ -16,7 +16,7 @@ TEST_F(ClinicTestFixture, GivenStaticContainerWithDoctorWhenDoctorRemovedExpectC
 {
     ASSERT_TRUE(Clinic::getDoctors().empty());
 
-    Doctor::createDoctor("Jan", "Pawel", "00000000000");
+    Doctor::createDoctor("Jan", "Pawel", "00000000000", Gender::Male);
     Clinic::removeDoctor(Clinic::getDoctors().front());
 
     EXPECT_TRUE(Clinic::getDoctors().empty());
@@ -26,7 +26,7 @@ TEST_F(ClinicTestFixture, GivenStaticContainersWhenDoctorAndVisitCreatedExpectCo
 {
     ASSERT_TRUE(Clinic::getDoctors().empty());
 
-    Doctor::createDoctor("Jan", "Pawel", "00000000000");
+    Doctor::createDoctor("Jan", "Pawel", "00000000000", Gender::Male);
     Visit::createVisit(Clinic::getDoctors().front());
 
     EXPECT_EQ(Clinic::getDoctors().size(), 1U);
@@ -38,7 +38,7 @@ TEST_F(ClinicTestFixture,
 {
     ASSERT_TRUE(Clinic::getDoctors().empty());
 
-    Doctor::createDoctor("Jan", "Pawel", "00000000000");
+    Doctor::createDoctor("Jan", "Pawel", "00000000000", Gender::Male);
     Visit::createVisit(Clinic::getDoctors().front());
     Clinic::removeVisit(Clinic::getVisits().front());
 
@@ -50,7 +50,7 @@ TEST_F(ClinicTestFixture, GivenStaticContainerWhenReceptionistCreatedThenRemoved
 {
     ASSERT_TRUE(Clinic::getReceptionists().empty());
 
-    Receptionist::createReceptionist("Jan", "Kowalski", "00000000000");
+    Receptionist::createReceptionist("Jan", "Kowalski", "00000000000", Gender::Male);
     EXPECT_EQ(Clinic::getReceptionists().size(), 1U);
 
     Clinic::removeReceptionist(Clinic::getReceptionists().front());
@@ -61,8 +61,8 @@ TEST_F(ClinicTestFixture, GivenMultiplePatientsExpectCorrectNumberOfPatientsCrea
 {
     ASSERT_TRUE(Clinic::getPatients().empty());
 
-    Patient::createPatient("Jan", "Kowalski", "00000000000");
-    Patient::createPatient("Pawel", "Awel", "999");
+    Patient::createPatient("Jan", "Kowalski", "00000000000", Gender::Male);
+    Patient::createPatient("Pawel", "Awel", "999", Gender::Male);
     const size_t extected_size{2};
 
     EXPECT_EQ(Clinic::getPatients().size(), extected_size);

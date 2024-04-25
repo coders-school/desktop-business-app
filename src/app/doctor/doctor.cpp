@@ -3,8 +3,8 @@
 #include "../visit/visit.hpp"
 #include <stdexcept>
 
-Doctor::Doctor(const std::string& name, const std::string& surname, const std::string& pesel)
-    : Person{name, surname, pesel}
+Doctor::Doctor(const std::string& name, const std::string& surname, const std::string& pesel, const Gender& gender)
+    : Person{name, surname, pesel, gender}
 {
 }
 
@@ -23,9 +23,10 @@ std::vector<std::shared_ptr<Visit>> Doctor::getVisits() const
     return visits_;
 }
 
-void Doctor::createDoctor(const std::string& name, const std::string& surname, const std::string& pesel)
+void Doctor::createDoctor(const std::string& name, const std::string& surname, const std::string& pesel,
+                          const Gender& gender)
 {
-    Doctor doctor{name, surname, pesel};
+    Doctor doctor{name, surname, pesel, gender};
     Clinic::appendDoctor(std::make_shared<Doctor>(doctor));
 }
 

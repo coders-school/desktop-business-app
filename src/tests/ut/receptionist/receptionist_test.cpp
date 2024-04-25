@@ -8,7 +8,7 @@ TEST_F(ReceptionistTestFixture, GivenReceptionistOnMorningShiftExpectCorrectShif
 {
     const auto shift = Shift::Morning;
     const auto expected_shift = toString(shift);
-    Receptionist::createReceptionist("John", "Smith", "123");
+    Receptionist::createReceptionist("John", "Smith", "123", Gender::Male);
     auto receptionist{Clinic::getReceptionists().front()};
     receptionist->setShift(shift);
 
@@ -19,7 +19,7 @@ TEST_F(ReceptionistTestFixture, GivenReceptionistOnAfternoonShiftExpectCorrectSh
 {
     const auto shift = Shift::Afternoon;
     const auto expected_shift = toString(shift);
-    Receptionist::createReceptionist("John", "Smith", "123");
+    Receptionist::createReceptionist("John", "Smith", "123", Gender::Male);
     auto receptionist{Clinic::getReceptionists().front()};
     receptionist->setShift(shift);
 

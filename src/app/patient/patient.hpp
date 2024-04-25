@@ -13,7 +13,7 @@ class Patient : public Person, public std::enable_shared_from_this<Patient>
     std::set<Allergen> allergens_;
     size_t debt_;
 
-    Patient(const std::string& name, const std::string& surname, const std::string& pesel,
+    Patient(const std::string& name, const std::string& surname, const std::string& pesel, const Gender& gender,
             const std::set<Allergen>& allergens = {});
 
   public:
@@ -28,7 +28,7 @@ class Patient : public Person, public std::enable_shared_from_this<Patient>
     void updateAllergens(const std::set<Allergen>& allergens);
 
     static void createPatient(const std::string& name, const std::string& surname, const std::string& pesel,
-                              const std::set<Allergen>& allergens = {});
+                              const Gender& gender, const std::set<Allergen>& allergens = {});
     static std::vector<std::shared_ptr<Patient>> getPatient(const std::string& name, const std::string& surname);
     static std::shared_ptr<Patient>& getPatient(const std::string& pesel);
 };

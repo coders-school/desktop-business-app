@@ -1,9 +1,9 @@
 #include "patient.hpp"
 #include "../clinic/clinic_facade.hpp"
 
-Patient::Patient(const std::string& name, const std::string& surname, const std::string& pesel,
+Patient::Patient(const std::string& name, const std::string& surname, const std::string& pesel, const Gender& gender,
                  const std::set<Allergen>& allergens)
-    : Person{name, surname, pesel}, allergens_{allergens}, debt_{}
+    : Person{name, surname, pesel, gender}, allergens_{allergens}, debt_{}
 {
 }
 
@@ -61,9 +61,9 @@ void Patient::updateAllergens(const std::set<Allergen>& allergens)
 }
 
 void Patient::createPatient(const std::string& name, const std::string& surname, const std::string& pesel,
-                            const std::set<Allergen>& allergens)
+                            const Gender& gender, const std::set<Allergen>& allergens)
 {
-    Patient patient{name, surname, pesel, allergens};
+    Patient patient{name, surname, pesel, gender, allergens};
     Clinic::appendPatient(std::make_shared<Patient>(patient));
 }
 

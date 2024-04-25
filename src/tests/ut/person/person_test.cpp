@@ -3,13 +3,34 @@
 
 TEST(PeselTest, PersonHasCorrectPesel)
 {
-    Person person{"Jan", "Kowalski", "95082910213"};
+    Person person{"Jan", "Kowalski", "95082910213", Gender::Male};
 
-    EXPECT_EQ(person.validatePesel("95082910213"), true);
+    EXPECT_EQ(person.validatePesel(), true);
 }
-TEST(PeselTest, PersonHasIncorrectPesel)
+TEST(PeselTest, PersonHasIncorrectPeselSize)
 {
-    Person person{"Jan", "Kowalski", "00000000001"};
+    Person person{"Jan", "Kowalski", "950829102130", Gender::Male};
 
-    EXPECT_EQ(person.validatePesel("00000000001"), false);
+    EXPECT_EQ(person.validatePesel(), false);
+}
+
+TEST(PeselTest, PersonHasIncorrectPeselDate)
+{
+    Person person{"Jan", "Kowalski", "95132910213", Gender::Male};
+
+    EXPECT_EQ(person.validatePesel(), false);
+}
+
+TEST(PeselTest, PersonHasIncorrectPeselControlNumber)
+{
+    Person person{"Jan", "Kowalski", "95132910210", Gender::Male};
+
+    EXPECT_EQ(person.validatePesel(), false);
+}
+
+TEST(PeselTest, PersonHasIncorrectPeselGender)
+{
+    Person person{"Jan", "Kowalski", "95082910213", Gender::Female};
+
+    EXPECT_EQ(person.validatePesel(), false);
 }

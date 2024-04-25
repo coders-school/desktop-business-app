@@ -3,8 +3,8 @@
 #include <numeric>
 #include <vector>
 
-Person::Person(const std::string& name, const std::string& surname, const std::string& pesel)
-    : name_{name}, surname_{surname}
+Person::Person(const std::string& name, const std::string& surname, const std::string& pesel, const Gender& gender)
+    : name_{name}, surname_{surname}, gender_{gender}
 {
     setPesel(pesel);
 }
@@ -46,6 +46,16 @@ std::string Person::getPesel() const
 bool Person::validatePesel(const std::string& pesel) const
 {
     if (not validatePeselSize(pesel) or not validatePeselDate(pesel) or not validateControlNumber(pesel))
+    {
+        return false;
+    }
+    return true;
+}
+
+bool Person::validatePesel() const
+{
+    if (not validatePeselSize(pesel_) or not validatePeselDate(pesel_) or not validateControlNumber(pesel_) or
+        not validateGender())
     {
         return false;
     }
@@ -105,4 +115,20 @@ bool Person::validateControlNumber(const std::string& pesel) const
         return false;
     }
     return true;
+}
+
+bool Person::validateGender() const
+{
+    std::string gender = pesel_.substr(9, 1);
+
+    if (std::stoi(gender) % 2 == 1 and gender_ == Gender::Male)
+    {
+        return true;
+    }
+    else if (std::stoi(gender) % 2 == 0 and gender_ == Gender::Female)
+    {
+        return true;
+    }
+    else
+        return false;
 }
