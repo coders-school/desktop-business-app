@@ -1,12 +1,13 @@
 #pragma once
 
-#include "../visit/treatment.hpp"
-#include "../visit/visit.hpp"
-#include "../warehouse/warehouse.hpp"
 #include <memory>
 #include <vector>
 
-class Room
+enum class Treatment : uint32_t;
+class Visit;
+class Warehouse;
+
+class Room : public std::enable_shared_from_this<Room>
 {
     unsigned room_id_;
     std::vector<Treatment> treatments_;
@@ -14,7 +15,8 @@ class Room
     std::shared_ptr<Warehouse> warehouse_;
     std::vector<std::shared_ptr<Visit>> visits_;
 
-    Room(const unsigned& room_id, const std::vector<Treatment>& treatments, std::shared_ptr<Warehouse>& warehouse);
+    Room(const unsigned room_id, const std::vector<Treatment>& treatments, const std::shared_ptr<Warehouse>& warehouse);
+    bool isVisitAssigned(const std::shared_ptr<Visit>& visit);
 
   public:
     void addVisit(const std::shared_ptr<Visit>& visit);
@@ -23,8 +25,7 @@ class Room
     std::vector<Treatment> getTreatments() const;
     std::shared_ptr<Warehouse> getWarehouse() const;
     void setRoomAvalaibility(bool avalaible);
-    void setWarehouse(std::shared_ptr<Warehouse>& warehouse);
 
-    static void createRoom(const unsigned& room_id, const std::vector<Treatment>& treatments,
-                           std::shared_ptr<Warehouse>& warehouse);
+    static void createRoom(const unsigned room_id, const std::vector<Treatment>& treatments,
+                           const std::shared_ptr<Warehouse>& warehouse);
 };

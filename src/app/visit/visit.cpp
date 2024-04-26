@@ -57,5 +57,9 @@ void Visit::setPatient(const std::shared_ptr<Patient>& patient)
 
 void Visit::setRoom(const std::shared_ptr<Room>& room)
 {
-    room_ = room;
+    if (room_ != room)
+    {
+        room_ = room;
+        room->addVisit(shared_from_this());
+    }
 }
