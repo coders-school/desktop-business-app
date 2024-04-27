@@ -3,11 +3,22 @@
 #include <memory>
 #include <string>
 
+struct Address
+{
+    std::string city_;
+    std::string country_;
+    std::string province_;
+    std::string street_;
+    std::string zip_code_;
+};
+
 class Person
 {
     std::string name_;
     std::string surname_;
     std::string pesel_;
+    std::string phone_number_;
+    Address address_;
 
     bool validatePeselSize(const std::string& PESEL) const;
     bool validatePeselDate(const std::string& PESEL) const;
@@ -23,4 +34,8 @@ class Person
     void setPesel(const std::string& pesel);
     std::string getPesel() const;
     bool validatePesel(const std::string& PESEL) const;
+    void setAddress(const Address& address);
+    Address getAddress() const;
+    void setPhoneNumber(const std::string& phone_number);
+    std::string getPhoneNumber() const;
 };

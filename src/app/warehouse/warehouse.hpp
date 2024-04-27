@@ -18,7 +18,5 @@ class Warehouse
     void addProducts(const std::vector<std::shared_ptr<Product>>& products);
     void removeProducts(const std::vector<std::shared_ptr<Product>>& products);
     std::vector<std::shared_ptr<Product>> getPtrsToProducts(const std::string& name);
-    std::vector<std::shared_ptr<Product>>& getExpiredProducts(); // TODO: write this function when type Date will be
-                                                                 // created
     std::set<std::shared_ptr<Product>>& getProducts();
 };
