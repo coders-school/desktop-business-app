@@ -12,7 +12,7 @@ class VisitTestFixture : public ::testing::Test
   protected:
     void SetUp() override
     {
-        Doctor::createDoctor("Jan", "Kowalski", "00000000000", Gender::Male);
+        Doctor::createDoctor("Jan", "Kowalski", "87071989652", Gender::Male);
         Visit::createVisit(Clinic::getDoctors().front());
     }
 

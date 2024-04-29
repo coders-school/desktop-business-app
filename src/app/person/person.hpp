@@ -1,13 +1,8 @@
 #pragma once
 
+#include "gender.hpp"
 #include <memory>
 #include <string>
-
-enum class Gender
-{
-    Male,
-    Female
-};
 
 class Person
 {
@@ -16,10 +11,11 @@ class Person
     std::string pesel_;
     Gender gender_;
 
-    bool validatePeselSize(const std::string& PESEL) const;
-    bool validatePeselDate(const std::string& PESEL) const;
-    bool validateControlNumber(const std::string& PESEL) const;
-    bool validateGender() const;
+    bool hasValidSize(const std::string& PESEL) const;
+    bool hasValidDate(const std::string& PESEL) const;
+    bool hasValidControlNumber(const std::string& PESEL) const;
+    bool hasValidGender(const std::string& pesel, const Gender gender) const;
+    bool validatePesel(const std::string& PESEL, const Gender gender) const;
 
   public:
     Person(const std::string& name, const std::string& surname, const std::string& pesel, const Gender& gender);
@@ -28,8 +24,6 @@ class Person
     std::string getName() const;
     void setSurname(const std::string& surname);
     std::string getSurname() const;
-    void setPesel(const std::string& pesel);
+    void setPesel(const std::string& pesel, const Gender gender);
     std::string getPesel() const;
-    bool validatePesel(const std::string& PESEL) const;
-    bool validatePesel() const;
 };

@@ -1,12 +1,14 @@
 #include "person.hpp"
 #include <algorithm>
+#include <iostream>
 #include <numeric>
+#include <stdexcept>
 #include <vector>
 
 Person::Person(const std::string& name, const std::string& surname, const std::string& pesel, const Gender& gender)
     : name_{name}, surname_{surname}, gender_{gender}
 {
-    setPesel(pesel);
+    setPesel(pesel, gender);
 }
 
 Person::~Person()
@@ -33,9 +35,14 @@ std::string Person::getSurname() const
     return surname_;
 }
 
-void Person::setPesel(const std::string& pesel)
+void Person::setPesel(const std::string& pesel, const Gender gender)
 {
-    pesel_ = pesel;
+    if (validatePesel(pesel, gender))
+    {
+        pesel_ = pesel;
+    }
+    else
+        throw std::invalid_argument{"Invalid pesel"};
 }
 
 std::string Person::getPesel() const
@@ -43,26 +50,17 @@ std::string Person::getPesel() const
     return pesel_;
 }
 
-bool Person::validatePesel(const std::string& pesel) const
+bool Person::validatePesel(const std::string& pesel, const Gender gender) const
 {
-    if (not validatePeselSize(pesel) or not validatePeselDate(pesel) or not validateControlNumber(pesel))
+    if (not hasValidSize(pesel) or not hasValidDate(pesel) or not hasValidControlNumber(pesel) or
+        not hasValidGender(pesel, gender))
     {
         return false;
     }
     return true;
 }
 
-bool Person::validatePesel() const
-{
-    if (not validatePeselSize(pesel_) or not validatePeselDate(pesel_) or not validateControlNumber(pesel_) or
-        not validateGender())
-    {
-        return false;
-    }
-    return true;
-}
-
-bool Person::validatePeselSize(const std::string& pesel) const
+bool Person::hasValidSize(const std::string& pesel) const
 {
     if (pesel.size() != 11)
     {
@@ -71,7 +69,7 @@ bool Person::validatePeselSize(const std::string& pesel) const
     return true;
 }
 
-bool Person::validatePeselDate(const std::string& pesel) const
+bool Person::hasValidDate(const std::string& pesel) const
 {
     std::string Month = pesel.substr(2, 2);
     std::string Day = pesel.substr(4, 2);
@@ -98,7 +96,7 @@ bool Person::validatePeselDate(const std::string& pesel) const
     return true;
 }
 
-bool Person::validateControlNumber(const std::string& pesel) const
+bool Person::hasValidControlNumber(const std::string& pesel) const
 {
     std::vector<int> weights{1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
     std::transform(begin(weights), end(weights), begin(pesel), begin(weights),
@@ -117,18 +115,17 @@ bool Person::validateControlNumber(const std::string& pesel) const
     return true;
 }
 
-bool Person::validateGender() const
+bool Person::hasValidGender(const std::string& pesel, const Gender gender) const
 {
-    std::string gender = pesel_.substr(9, 1);
+    std::string genderNumber = pesel.substr(9, 1);
 
-    if (std::stoi(gender) % 2 == 1 and gender_ == Gender::Male)
+    if (std::stoi(genderNumber) % 2 == 1 and gender == Gender::Male)
     {
         return true;
     }
-    else if (std::stoi(gender) % 2 == 0 and gender_ == Gender::Female)
+    else if (std::stoi(genderNumber) % 2 == 0 and gender == Gender::Female)
     {
         return true;
     }
-    else
-        return false;
+    return false;
 }

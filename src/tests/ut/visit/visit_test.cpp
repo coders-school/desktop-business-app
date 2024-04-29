@@ -51,7 +51,7 @@ TEST_F(VisitTestFixture, GivenTreatmentSetExpectTreatmentsUpdated)
 TEST_F(VisitTestFixture, GivenVisitAddedViaPatientExpectCorrectConnectionBetweenObjects)
 {
     const auto visit = Clinic::getVisits().front();
-    Patient::createPatient("Dawid", "Goliat", "00000000000", Gender::Male);
+    Patient::createPatient("Dawid", "Goliat", "72080357978", Gender::Male);
     const auto patient = Clinic::getPatients().front();
 
     patient->addVisit(visit);
@@ -64,7 +64,7 @@ TEST_F(VisitTestFixture, GivenVisitAddedViaPatientExpectCorrectConnectionBetween
 TEST_F(VisitTestFixture, GivenPatientAddedViaVisitExpectCorrectConnectionBetweenObjects)
 {
     const auto visit = Clinic::getVisits().front();
-    Patient::createPatient("Dawid", "Goliat", "00000000000", Gender::Male);
+    Patient::createPatient("Dawid", "Goliat", "99053033817", Gender::Male);
     const auto patient = Clinic::getPatients().front();
 
     visit->setPatient(patient);

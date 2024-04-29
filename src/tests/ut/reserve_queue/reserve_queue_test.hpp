@@ -29,14 +29,14 @@ class ReserveQueueFixture : public ::testing::Test
   public:
     void SetUp() override
     {
-        Doctor::createDoctor("Tomasz", "Zutek", "98041000079", Gender::Male);
-        Doctor::createDoctor("Joanna", "Iksińska", "98041000079", Gender::Female);
-        Doctor::createDoctor("Zuzanna", "Misiowa", "28032507069", Gender::Female);
+        Doctor::createDoctor("Tomasz", "Zutek", "87071989652", Gender::Male);
+        Doctor::createDoctor("Joanna", "Iksińska", "56020625965", Gender::Female);
+        Doctor::createDoctor("Zuzanna", "Misiowa", "78031165346", Gender::Female);
 
-        Patient::createPatient("Jakub", "Wąsaty", "98041000079", Gender::Male, {Allergen::SomeAllergen});
-        Patient::createPatient("Jan", "Nowak", "39032302226", Gender::Male, {Allergen::DifferentAllergen});
-        Patient::createPatient("Maria", "Maria", "33121907675", Gender::Female, {Allergen::DifferentAllergen});
-        Patient::createPatient("Piotr", "Lewandowski", "54091904398", Gender::Male);
+        Patient::createPatient("Jakub", "Wąsaty", "72080357978", Gender::Male, {Allergen::SomeAllergen});
+        Patient::createPatient("Jan", "Nowak", "99053033817", Gender::Male, {Allergen::DifferentAllergen});
+        Patient::createPatient("Maria", "Maria", "49121347966", Gender::Female, {Allergen::DifferentAllergen});
+        Patient::createPatient("Piotr", "Lewandowski", "55110335191", Gender::Male);
 
         patients_ = Clinic::getPatients();
         doctors_ = Clinic::getDoctors();
