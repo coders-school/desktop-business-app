@@ -1,6 +1,7 @@
 #include "calendar_test.hpp"
 
-namespace{
+namespace
+{
 
 TEST_F(CalendarTestFixture, CreateNewCalendarCheckIfItGivesAnException)
 {
@@ -14,4 +15,4 @@ TEST_F(CalendarTestFixture, RemoveCalendarAndCreateTwoCalendarsCheckIfThrowsExce
     EXPECT_ANY_THROW(Calendar::createCalendar());
 }
 
-} //namespace
+} // namespace

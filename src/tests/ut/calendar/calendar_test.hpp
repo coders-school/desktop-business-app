@@ -5,6 +5,6 @@
 #include "test_utils.hpp"
 #include "gtest/gtest.h"
 
-class CalendarTestFixture : public ::testing::Test{
-
+class CalendarTestFixture : public ::testing::Test
+{
 };

@@ -25,10 +25,10 @@ void Clinic::appendRoom(const std::shared_ptr<Room>& room)
     rooms_.emplace_back(room);
 }
 
-void Clinic::appendCalendar(const std::shared_ptr<Calendar>& calendar){
+void Clinic::appendCalendar(const std::shared_ptr<Calendar>& calendar)
+{
     calendar_ = calendar;
 }
-
 
 std::vector<std::shared_ptr<Doctor>>& Clinic::getDoctors()
 {
@@ -54,7 +54,8 @@ std::vector<std::shared_ptr<Room>>& Clinic::getRooms()
     return rooms_;
 }
 
-std::shared_ptr<Calendar>& Clinic::getCalendar(){
+std::shared_ptr<Calendar>& Clinic::getCalendar()
+{
     return calendar_;
 }
 
@@ -88,6 +89,7 @@ void Clinic::removeRoom(const std::shared_ptr<Room>& room)
     rooms_.erase(std::remove(rooms_.begin(), rooms_.end(), room));
 }
 
-void Clinic::removeCalendar(){
+void Clinic::removeCalendar()
+{
     calendar_ = nullptr;
 }
