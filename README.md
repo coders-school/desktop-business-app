@@ -1,8 +1,21 @@
 # Desktop Business Application
 
-TBD...
+This project is developed within the Ninja C++ Club. 
+Its purpose is to familiarize participants with the software development lifecycle, repository creation, and principles of automating CI/CD processes and many more!
 
-## Development
+## Overview
+
+**Desktop Business Application** is a software designed to assist in managing a dental clinic.
+ 
+This application serves as a practical exercise in software development, offering hands-on experience in building a comprehensive desktop solution for business needs within the healthcare industry.
+
+## Features
+
+- **Appointment Management**: Schedule and manage appointments for patients efficiently.
+- **Inventory Management**: Keep track of clinic inventory to ensure availability of necessary supplies.
+- **Patient Database**: Maintain a database of patient records for easy access and management.
+- **Employee Database**: Store employee information and manage staff effectively.
+- **Calendar Functionality**: View appointments and other events conveniently on a calendar interface.
 
 ### Prerequisites
 
@@ -27,7 +40,6 @@ chmod +x ./clang-fmt-all.sh
 ./clang-fmt-all.sh
 ```
 
-
 ### Build
 
 ```bash
@@ -38,6 +50,13 @@ docker build -t desktop-business-application .
 
 ```bash
 docker run -it --entrypoint /bin/bash desktop-business-application
+```
+
+```bash
+apt-get install -y xvfb
+Xvfb :99 -screen 0 1024x768x16 &
+export DISPLAY=:99
+export QT_QPA_PLATFORM=offscreen
 ```
 
 ### Run all tests from image

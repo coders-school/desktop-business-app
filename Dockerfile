@@ -18,6 +18,7 @@ ENV PROJECT_NAME=desktop-business-app
 WORKDIR /application
 
 COPY /dependencies.sh /application/
+COPY /src/app/main.qml /application/src/app/
 RUN /application/dependencies.sh
 
 COPY --from=BUILD /application/database /application/database

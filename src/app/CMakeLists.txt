@@ -18,13 +18,18 @@ add_subdirectory(medicine)
 add_subdirectory(equipment)
 add_subdirectory(warehouse)
 
-qt_add_executable(${PROJECT_NAME} main.cpp
-                                  mainwindow.cpp
-                                  mainwindow.ui
-                                  mainwindow.h)
+qt_add_executable(${PROJECT_NAME}
+    main.cpp
+)
 
+qt_add_qml_module(${PROJECT_NAME}
+    URI this
+    VERSION 0.0
+    QML_FILES
+    main.qml
+)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick
                                               calendar-lib
                                               clinic-lib
                                               data_file_manager-lib
