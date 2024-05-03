@@ -13,8 +13,22 @@ TEST_F(VisitTestFixture, GivenVisitExpectDoctorValidData)
     const auto expected_name = "Jan";
     const auto expected_surname = "Kowalski";
 
-    EXPECT_EQ(assigned_doctor->getName(), expected_name);
-    EXPECT_EQ(assigned_doctor->getSurname(), expected_surname);
+    EXPECT_EQ(assigned_doctor.lock()->getName(), expected_name);
+    EXPECT_EQ(assigned_doctor.lock()->getSurname(), expected_surname);
+}
+
+TEST_F(VisitTestFixture, GivenTwoVisitExpectOneDoctorValidData)
+{
+    Visit::createVisit(Clinic::getDoctors().front());
+
+    const auto first_visit = Clinic::getVisits().at(0);
+    const auto second_visit = Clinic::getVisits().at(1);
+
+    const auto first_visit_assigned_doctor = first_visit->getDoctor();
+    const auto second_visit_assigned_doctor = second_visit->getDoctor();
+
+    EXPECT_EQ(first_visit->getDoctor().lock()->getName(), second_visit->getDoctor().lock()->getName());
+    EXPECT_EQ(first_visit->getDoctor().lock()->getSurname(), second_visit->getDoctor().lock()->getSurname());
 }
 
 TEST_F(VisitTestFixture, GivenVisitInformationExpectInformationReturned)
@@ -56,9 +70,9 @@ TEST_F(VisitTestFixture, GivenVisitAddedViaPatientExpectCorrectConnectionBetween
 
     patient->addVisit(visit);
 
-    EXPECT_EQ(visit->getPatient()->getName(), "Dawid");
-    EXPECT_EQ(*(visit->getPatient()->getVisits().begin()), visit);
-    EXPECT_EQ((*(patient->getVisits().begin()))->getPatient(), patient);
+    EXPECT_EQ(visit->getPatient().lock()->getName(), "Dawid");
+    EXPECT_EQ(*(visit->getPatient().lock()->getVisits().begin()), visit);
+    EXPECT_EQ((*(patient->getVisits().begin()))->getPatient().lock(), patient);
 }
 
 TEST_F(VisitTestFixture, GivenPatientAddedViaVisitExpectCorrectConnectionBetweenObjects)
@@ -69,9 +83,9 @@ TEST_F(VisitTestFixture, GivenPatientAddedViaVisitExpectCorrectConnectionBetween
 
     visit->setPatient(patient);
 
-    EXPECT_EQ(visit->getPatient()->getName(), "Dawid");
-    EXPECT_EQ(*(visit->getPatient()->getVisits().begin()), visit);
-    EXPECT_EQ((*(patient->getVisits().begin()))->getPatient(), patient);
+    EXPECT_EQ(visit->getPatient().lock()->getName(), "Dawid");
+    EXPECT_EQ(*(visit->getPatient().lock()->getVisits().begin()), visit);
+    EXPECT_EQ((*(patient->getVisits().begin()))->getPatient().lock(), patient);
 }
 
 } // namespace
