@@ -1,5 +1,5 @@
 #include "patient.hpp"
-#include "../clinic/clinic_facade.hpp"
+#include "clinic_facade.hpp"
 
 Patient::Patient(const std::string& name, const std::string& surname, const std::string& pesel, const Gender gender,
                  const std::set<Allergen>& allergens)

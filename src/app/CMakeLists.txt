@@ -1,4 +1,4 @@
-# qt_standard_project_setup()
+qt_standard_project_setup()
 
 add_subdirectory(clinic)
 add_subdirectory(doctor)
