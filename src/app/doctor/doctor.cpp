@@ -1,7 +1,6 @@
 #include "doctor.hpp"
-#include "../clinic/clinic_facade.hpp"
-#include "../visit/visit.hpp"
-#include <stdexcept>
+#include "clinic_facade.hpp"
+#include "visit.hpp"
 
 Doctor::Doctor(const std::string& name, const std::string& surname, const std::string& pesel, const Gender gender)
     : Person{name, surname, pesel, gender}

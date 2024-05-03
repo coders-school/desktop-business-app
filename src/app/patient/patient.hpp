@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../person/person.hpp"
-#include "../visit/visit.hpp"
 #include "allergen.hpp"
+#include "person.hpp"
+#include "visit.hpp"
 #include <memory>
 #include <set>
 #include <string>
