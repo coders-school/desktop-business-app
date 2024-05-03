@@ -1,5 +1,5 @@
 #include "receptionist.hpp"
-#include "../clinic/clinic_facade.hpp"
+#include "clinic_facade.hpp"
 
 Receptionist::Receptionist(const std::string& name, const std::string& surname, const std::string& pesel)
     : Person{name, surname, pesel}

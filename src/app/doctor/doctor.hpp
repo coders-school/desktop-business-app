@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../person/person.hpp"
+#include "person.hpp"
 #include <vector>
 
 class Visit;

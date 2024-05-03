@@ -1,5 +1,5 @@
 #pragma once
-#include "../person/person.hpp"
+#include "person.hpp"
 #include "shift.hpp"
 
 class Receptionist : public Person
