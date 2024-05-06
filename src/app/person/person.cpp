@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <vector>
 
-Person::Person(const std::string& name, const std::string& surname, const std::string& pesel, const Gender& gender)
+Person::Person(const std::string& name, const std::string& surname, const std::string& pesel, const Gender gender)
     : name_{name}, surname_{surname}, gender_{gender}
 {
     setPesel(pesel, gender);

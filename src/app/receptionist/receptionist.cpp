@@ -2,7 +2,7 @@
 #include "../clinic/clinic_facade.hpp"
 
 Receptionist::Receptionist(const std::string& name, const std::string& surname, const std::string& pesel,
-                           const Gender& gender)
+                           const Gender gender)
     : Person{name, surname, pesel, gender}
 {
 }
@@ -18,7 +18,7 @@ void Receptionist::setShift(const Shift& shift)
 }
 
 void Receptionist::createReceptionist(const std::string& name, const std::string& surname, const std::string& pesel,
-                                      const Gender& gender)
+                                      const Gender gender)
 {
     Receptionist receptionist{name, surname, pesel, gender};
     Clinic::appendReceptionist(std::make_shared<Receptionist>(receptionist));
