@@ -129,3 +129,29 @@ bool Person::hasValidGender(const std::string& pesel, const Gender gender) const
     }
     return false;
 }
+
+void Person::setAddress(const Address& address)
+{
+    // TODO some data could be validated ex. zip-code format
+    address_.city_ = address.city_;
+    address_.country_ = address.country_;
+    address_.province_ = address.province_;
+    address_.street_ = address.street_;
+    address_.zip_code_ = address.zip_code_;
+}
+
+Address Person::getAddress() const
+{
+    return address_;
+}
+
+void Person::setPhoneNumber(const std::string& phone_number)
+{
+    // TODO Validate phone number
+    phone_number_ = phone_number;
+}
+
+std::string Person::getPhoneNumber() const
+{
+    return phone_number_;
+}

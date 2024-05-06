@@ -1,14 +1,40 @@
 #include "room.hpp"
+#include "clinic_facade.hpp"
+#include "treatment.hpp"
+#include "visit.hpp"
+#include "warehouse.hpp"
 
-Room::Room(const uint roomNumber, const std::vector<Treatment>& treatments, std::shared_ptr<Warehouse>& ptrToWarehouse)
-    : roomNumber_{roomNumber}, treatments_{treatments}, ptrToWarehouse_{ptrToWarehouse}
+Room::Room(const unsigned room_id, const std::vector<Treatment>& treatments,
+           const std::shared_ptr<Warehouse>& warehouse)
+    : room_id_{room_id}, treatments_{treatments}, warehouse_{warehouse}, visits_{}
 {
 }
 
-uint Room::getRoomNumber() const
+bool Room::isVisitAssigned(const std::shared_ptr<Visit>& visit)
+{
+    return std::find(visits_.begin(), visits_.end(), visit) == visits_.end() ? false : true;
+}
+
+void Room::addVisit(const std::shared_ptr<Visit>& visit)
+{
+    if (!isVisitAssigned(visit))
+    {
+        visits_.emplace_back(visit);
+        visit->setRoom(shared_from_this());
+    }
+}
+
+bool Room::isRoomFree(const unsigned& timestamp)
+{
+    // TODO When Calendar will be available adjust accordingly
+    std::ignore = timestamp;
+    return false;
+}
+
+unsigned Room::getRoomNumber() const
 
 {
-    return roomNumber_;
+    return room_id_;
 }
 
 std::vector<Treatment> Room::getTreatments() const
@@ -18,7 +44,7 @@ std::vector<Treatment> Room::getTreatments() const
 
 std::shared_ptr<Warehouse> Room::getWarehouse() const
 {
-    return ptrToWarehouse_;
+    return warehouse_;
 }
 
 void Room::setRoomAvalaibility(bool avalaible)
@@ -26,7 +52,9 @@ void Room::setRoomAvalaibility(bool avalaible)
     avalaible_ = avalaible;
 }
 
-void Room::setWarehouse(std::shared_ptr<Warehouse>& ptrToWarehouse)
+void Room::createRoom(const unsigned room_id, const std::vector<Treatment>& treatments,
+                      const std::shared_ptr<Warehouse>& warehouse)
 {
-    ptrToWarehouse_ = ptrToWarehouse;
+    Room room{room_id, treatments, warehouse};
+    Clinic::appendRoom(std::make_shared<Room>(room));
 }

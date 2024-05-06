@@ -75,7 +75,7 @@ std::vector<std::shared_ptr<Patient>> Patient::getPatient(const std::string& nam
     {
         if ((patient->getName() == name) && (patient->getSurname() == surname))
         {
-            patients.push_back(patient);
+            patients.emplace_back(patient);
         }
     }
     return patients;
