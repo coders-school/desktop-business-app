@@ -400,4 +400,4 @@ TEST_F(getDoctorQueuesShould, ReturnQueuesForAllDoctors)
     EXPECT_THAT(allDoctorQueues[doctors_[2]], ElementsAre(patients_[2], patients_[3]));
 }
 
-} // anonymous namespace
+} // namespace

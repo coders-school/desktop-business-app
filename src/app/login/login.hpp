@@ -12,7 +12,6 @@ class Login
 {
     std::string user_name_;
     std::string password_hash_;
-    //  std::map<std::string, std::string> mapOfRandomQuestionsAndAnswers{}; TODO #54
     std::string hashPassword(const std::string& password);
 
   public:
