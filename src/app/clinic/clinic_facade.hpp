@@ -1,9 +1,9 @@
 #pragma once
-#include "../doctor/doctor.hpp"
-#include "../patient/patient.hpp"
-#include "../receptionist/receptionist.hpp"
-#include "../room/room.hpp"
-#include "../visit/visit.hpp"
+#include "doctor.hpp"
+#include "patient.hpp"
+#include "receptionist.hpp"
+#include "room.hpp"
+#include "visit.hpp"
 #include <algorithm>
 #include <memory>
 #include <vector>

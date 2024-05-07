@@ -12,17 +12,18 @@ class Room;
 
 class Visit : public std::enable_shared_from_this<Visit>
 {
-    std::shared_ptr<Doctor> doctor_;
-    std::shared_ptr<Patient> patient_;
+    std::weak_ptr<Doctor> doctor_;
+    std::weak_ptr<Patient> patient_;
+    std::weak_ptr<Room> room_;
     std::vector<Treatment> treatments_;
-    std::shared_ptr<Room> room_;
     std::string visit_information_;
 
     Visit(const std::shared_ptr<Doctor>& doctor, const std::vector<Treatment>& treatments = {});
 
   public:
-    std::shared_ptr<Doctor> getDoctor() const;
-    std::shared_ptr<Patient> getPatient() const;
+    std::weak_ptr<Doctor> getDoctor() const;
+    std::weak_ptr<Patient> getPatient() const;
+    std::weak_ptr<Room> getRoom() const;
     std::vector<Treatment> getTreatments() const;
     std::string getVisitInformation() const;
 

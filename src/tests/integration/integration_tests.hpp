@@ -23,8 +23,8 @@ class IntegratonFixture : public ::testing::Test
     {
         std::vector<Treatment> treatments{Treatment::TeethCleaning, Treatment::TeethWhitening};
         Room::createRoom(1, treatments, std::make_shared<Warehouse>(warehouse_));
-        Doctor::createDoctor("Jan", "Kowalski", "88031110333");
-        Receptionist::createReceptionist("Agnieszka", "Winna", "98010211354");
+        Doctor::createDoctor("Jan", "Kowalski", "80062378532", Gender::Male);
+        Receptionist::createReceptionist("Agnieszka", "Winna", "99053033817", Gender::Male);
 
         fillWarehouseWithProducts();
     }
