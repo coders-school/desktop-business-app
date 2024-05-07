@@ -7,6 +7,10 @@
 Visit::Visit(const std::shared_ptr<Doctor>& doctor, const std::vector<Treatment>& treatments)
     : doctor_{doctor}, patient_{}, room_{}, treatments_{std::move(treatments)}, visit_information_{}
 {
+    if (doctor_.expired())
+    {
+        throw std::runtime_error("Cannot create Visit because doctor is expired!");
+    }
 }
 
 std::weak_ptr<Doctor> Visit::getDoctor() const
@@ -54,14 +58,14 @@ void Visit::createVisit(const std::shared_ptr<Doctor>& doctor)
     }
     else
     {
-        visit.doctor_.lock()->appendVisit(visit_ptr); // does it need to checkced by expired()?
+        visit.doctor_.lock()->appendVisit(visit_ptr);
         Clinic::appendVisit(visit_ptr);
     }
 }
 
 void Visit::setPatient(const std::shared_ptr<Patient>& patient)
 {
-    if (patient_.lock() == nullptr)
+    if (!patient_.lock())
     {
         patient_ = patient;
         patient->addVisit(shared_from_this());
@@ -70,9 +74,9 @@ void Visit::setPatient(const std::shared_ptr<Patient>& patient)
 
 void Visit::setRoom(const std::shared_ptr<Room>& room)
 {
-    if (room_.expired() == false)
+    if (!room_.expired())
     {
-        if (room_.lock() == nullptr)
+        if (!room_.lock())
         {
             room_ = room;
             room->addVisit(shared_from_this());

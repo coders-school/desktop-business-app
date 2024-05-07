@@ -64,7 +64,7 @@ void Clinic::removeVisit(const std::shared_ptr<Visit>& visit)
     auto visit_it = std::find(visits_.begin(), visits_.end(), visit);
     if (visit_it != visits_.end())
     {
-        if ((*visit_it)->getDoctor().expired() == false)
+        if (!(*visit_it)->getDoctor().expired())
         {
             (*visit_it)->getDoctor().lock()->removeVisit(*visit_it);
         }
