@@ -1,7 +1,7 @@
 #pragma once
-#include "../doctor/doctor.hpp"
-#include "../room/room.hpp"
-#include "../visit/visit.hpp"
+#include "doctor.hpp"
+#include "room.hpp"
+#include "visit.hpp"
 #include <chrono>
 #include <vector>
 
