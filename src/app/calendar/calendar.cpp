@@ -13,9 +13,8 @@ void Calendar::createCalendar()
         throw std::length_error("There cannot be more than one calendar");
     }
 }
-void Calendar::addConnector(const std::chrono::year_month_day& ymd,
-                                                  const std::shared_ptr<Room>& room,
-                                                  const std::shared_ptr<Doctor>& doctor)
+void Calendar::addConnector(const std::chrono::year_month_day& ymd, const std::shared_ptr<Room>& room,
+                            const std::shared_ptr<Doctor>& doctor)
 {
     if (!room || !doctor)
     {
