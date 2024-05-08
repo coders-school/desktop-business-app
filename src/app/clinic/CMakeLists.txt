@@ -5,5 +5,6 @@ target_link_libraries(clinic-lib PUBLIC doctor-lib
                                          patient-lib
                                          receptionist-lib
                                          room-lib
-                                         visit-lib)
+                                         visit-lib
+                                         calendar-lib)
 target_include_directories(clinic-lib PUBLIC .)

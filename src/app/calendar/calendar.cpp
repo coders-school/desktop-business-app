@@ -1,5 +1,5 @@
 #include "calendar.hpp"
-#include "../clinic/clinic_facade.hpp"
+#include "clinic_facade.hpp"
 #include <iostream>
 
 void Calendar::createCalendar()
@@ -13,7 +13,7 @@ void Calendar::createCalendar()
         throw std::length_error("There cannot be more than one calendar");
     }
 }
-std::shared_ptr<Connector> Calendar::addConnector(const std::chrono::year_month_day& ymd,
+void Calendar::addConnector(const std::chrono::year_month_day& ymd,
                                                   const std::shared_ptr<Room>& room,
                                                   const std::shared_ptr<Doctor>& doctor)
 {
@@ -21,7 +21,5 @@ std::shared_ptr<Connector> Calendar::addConnector(const std::chrono::year_month_
     {
         throw std::invalid_argument("Invalid room or doctor provided");
     }
-    auto connection = std::make_shared<Connector>(ymd, room, doctor);
-    map_calendar_.emplace(ymd, connection);
-    return connection;
+    map_calendar_.emplace(ymd, Connector{ymd, room, doctor});
 }
