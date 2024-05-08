@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <memory> // Include for std::unique_ptr
+#include <memory>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -20,6 +20,6 @@ class MainWindow : public QMainWindow
     ~MainWindow();
 
   private:
-    std::unique_ptr<Ui::MainWindow> ui; // Changed to unique_ptr
+    std::unique_ptr<Ui::MainWindow> ui;
 };
-#endif // MAINWINDOW_H
+#endif

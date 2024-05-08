@@ -1,9 +1,9 @@
 #include "patient.hpp"
-#include "../clinic/clinic_facade.hpp"
+#include "clinic_facade.hpp"
 
-Patient::Patient(const std::string& name, const std::string& surname, const std::string& pesel,
+Patient::Patient(const std::string& name, const std::string& surname, const std::string& pesel, const Gender gender,
                  const std::set<Allergen>& allergens)
-    : Person{name, surname, pesel}, allergens_{allergens}, debt_{}
+    : Person{name, surname, pesel, gender}, allergens_{allergens}, debt_{}
 {
 }
 
@@ -61,9 +61,9 @@ void Patient::updateAllergens(const std::set<Allergen>& allergens)
 }
 
 void Patient::createPatient(const std::string& name, const std::string& surname, const std::string& pesel,
-                            const std::set<Allergen>& allergens)
+                            const Gender gender, const std::set<Allergen>& allergens)
 {
-    Patient patient{name, surname, pesel, allergens};
+    Patient patient{name, surname, pesel, gender, allergens};
     Clinic::appendPatient(std::make_shared<Patient>(patient));
 }
 
@@ -83,7 +83,7 @@ std::vector<std::shared_ptr<Patient>> Patient::getPatient(const std::string& nam
 
 std::shared_ptr<Patient>& Patient::getPatient(const std::string& pesel)
 {
-    auto patients = Clinic::getPatients();
+    auto& patients = Clinic::getPatients();
     auto exact_patient = std::find_if(patients.begin(), patients.end(),
                                       [&](const auto& patient) { return patient->getPesel() == pesel; });
 

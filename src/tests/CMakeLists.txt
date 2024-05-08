@@ -2,6 +2,7 @@ set(UT_SOURCES ut/calendar/calendar_test.cpp
                ut/clinic/clinic_test.cpp
                ut/doctor/doctor_test.cpp
                ut/equipment/equipment_test.cpp
+               integration/integration_tests.cpp
                ut/login/login_test.cpp
                ut/medicine/medicine_test.cpp
                ut/patient/allergen_test.cpp
@@ -38,6 +39,7 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             product-lib
                                             receptionist-lib
                                             reserve_queue-lib
+                                            room-lib
                                             test_utils-lib
                                             visit-lib
                                             warehouse-lib

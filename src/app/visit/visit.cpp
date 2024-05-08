@@ -2,20 +2,30 @@
 #include "clinic_facade.hpp"
 #include "patient.hpp"
 #include "room.hpp"
+#include <stdexcept>
 
 Visit::Visit(const std::shared_ptr<Doctor>& doctor, const std::vector<Treatment>& treatments)
-    : doctor_{doctor}, patient_{}, treatments_{std::move(treatments)}, room_{}, visit_information_{}
+    : doctor_{doctor}, patient_{}, room_{}, treatments_{std::move(treatments)}, visit_information_{}
 {
+    if (doctor_.expired())
+    {
+        throw std::runtime_error("Cannot create Visit because doctor is expired!");
+    }
 }
 
-std::shared_ptr<Doctor> Visit::getDoctor() const
+std::weak_ptr<Doctor> Visit::getDoctor() const
 {
     return doctor_;
 }
 
-std::shared_ptr<Patient> Visit::getPatient() const
+std::weak_ptr<Patient> Visit::getPatient() const
 {
     return patient_;
+}
+
+std::weak_ptr<Room> Visit::getRoom() const
+{
+    return room_;
 }
 
 std::vector<Treatment> Visit::getTreatments() const
@@ -42,13 +52,20 @@ void Visit::createVisit(const std::shared_ptr<Doctor>& doctor)
 {
     Visit visit(doctor);
     auto visit_ptr = std::make_shared<Visit>(visit);
-    visit.doctor_->appendVisit(visit_ptr);
-    Clinic::appendVisit(visit_ptr);
+    if (visit.doctor_.expired())
+    {
+        throw std::runtime_error("Cannot create Visit because doctor is expired!");
+    }
+    else
+    {
+        visit.doctor_.lock()->appendVisit(visit_ptr);
+        Clinic::appendVisit(visit_ptr);
+    }
 }
 
 void Visit::setPatient(const std::shared_ptr<Patient>& patient)
 {
-    if (patient_ == nullptr)
+    if (!patient_.lock())
     {
         patient_ = patient;
         patient->addVisit(shared_from_this());
@@ -57,9 +74,12 @@ void Visit::setPatient(const std::shared_ptr<Patient>& patient)
 
 void Visit::setRoom(const std::shared_ptr<Room>& room)
 {
-    if (room_ != room)
+    if (!room_.expired())
     {
-        room_ = room;
-        room->addVisit(shared_from_this());
+        if (!room_.lock())
+        {
+            room_ = room;
+            room->addVisit(shared_from_this());
+        }
     }
 }
