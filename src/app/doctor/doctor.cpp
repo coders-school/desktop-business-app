@@ -14,7 +14,7 @@ void Doctor::appendVisit(const std::shared_ptr<Visit>& visit)
 
 void Doctor::removeVisit(const std::shared_ptr<Visit>& visit)
 {
-    visits_.erase(std::remove(visits_.begin(), visits_.end(), visit));
+    visits_.erase(std::remove(visits_.begin(), visits_.end(), visit), visits_.end());
 }
 
 std::vector<std::shared_ptr<Visit>> Doctor::getVisits() const
