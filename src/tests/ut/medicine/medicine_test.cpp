@@ -1,3 +1,15 @@
+#include "medicine.hpp"
+#include "product.hpp"
+#include "gtest/gtest.h"
+
+struct MedicineTest : ::testing::Test
+{
+    std::chrono::year_month_day expirationDate{static_cast<std::chrono::year>(2030), std::chrono::January,
+                                               static_cast<std::chrono::day>(31)};
+    std::shared_ptr<Product> anaesthetic =
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate, std::pair{-10, 0},
+                                   std::vector<std::string>{{"chemicals"}});
+};
 #include "medicine_test.hpp"
 
 TEST_F(MedicineTest, MedicineGetInfoTest)

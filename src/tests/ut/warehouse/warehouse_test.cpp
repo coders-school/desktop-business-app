@@ -2,6 +2,18 @@
 
 #include <utility>
 
+struct WarehouseTest : ::testing::Test
+{
+    Warehouse testWarehouse;
+    std::chrono::year_month_day expirationDate{static_cast<std::chrono::year>(2030), std::chrono::January,
+                                               static_cast<std::chrono::day>(31)};
+    std::shared_ptr<Product> anaesthetic =
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate, std::pair{-10, 0},
+                                   std::vector<std::string>{{"chemicals"}});
+    std::shared_ptr<Product> painkiller = std::make_shared<Medicine>(
+        std::string{"painkiller"}, 20, 100, expirationDate, std::pair{0, 20}, std::vector<std::string>{"ibuprofenum"});
+};
+
 TEST_F(WarehouseTest, increaseAmountTest)
 {
     test_warehouse->addProducts({anaesthetic});
@@ -79,6 +91,11 @@ TEST_F(WarehouseTest, addDuplicateMedicineTest)
 
 TEST_F(WarehouseTest, addTwoMedicinesWithSameNameTest)
 {
+    testWarehouse.addProducts({anaesthetic, painkiller});
+    std::shared_ptr<Product> otherAnaesthetic =
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate, std::pair{-10, 0},
+                                   std::vector<std::string>{{"chemicals"}});
+    testWarehouse.addProducts({otherAnaesthetic});
     test_warehouse->addProducts({anaesthetic, painkiller});
     std::shared_ptr<Product> otherAnaesthetic = std::make_shared<Medicine>(
         std::string{"anaesthetic"}, 45, 100, 15102026, std::pair{-10, 0}, std::vector<std::string>{{"chemicals"}});
