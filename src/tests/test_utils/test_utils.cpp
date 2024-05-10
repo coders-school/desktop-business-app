@@ -22,7 +22,7 @@ void cleanupClinic()
     {
         Clinic::removePatient(patient);
     }
-    
+
     Clinic::removeCalendar();
     Clinic::removeWarehouse();
 }

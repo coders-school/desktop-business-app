@@ -30,7 +30,8 @@ void Clinic::appendCalendar(const std::shared_ptr<Calendar>& calendar)
     calendar_ = calendar;
 }
 
-void Clinic::appendWarehouse(const std::shared_ptr<Warehouse>& warehouse){
+void Clinic::appendWarehouse(const std::shared_ptr<Warehouse>& warehouse)
+{
     warehouse_ = warehouse;
 }
 
@@ -63,7 +64,8 @@ std::shared_ptr<Calendar> Clinic::getCalendar()
     return calendar_;
 }
 
-std::shared_ptr<Warehouse> Clinic::getWarehouse(){
+std::shared_ptr<Warehouse> Clinic::getWarehouse()
+{
     return warehouse_;
 }
 
