@@ -1,8 +1,9 @@
 #include "warehouse.hpp"
-#include "product.hpp"
 #include "clinic_facade.hpp"
+#include "product.hpp"
 
-void Warehouse::createWarehouse(){
+void Warehouse::createWarehouse()
+{
     if (!Clinic::getWarehouse())
     {
         Warehouse warehouse;

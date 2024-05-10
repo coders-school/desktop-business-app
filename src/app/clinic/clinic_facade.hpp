@@ -4,8 +4,8 @@
 #include "patient.hpp"
 #include "receptionist.hpp"
 #include "room.hpp"
-#include "warehouse.hpp"
 #include "visit.hpp"
+#include "warehouse.hpp"
 #include <algorithm>
 #include <memory>
 #include <vector>
