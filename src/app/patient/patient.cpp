@@ -83,7 +83,7 @@ std::vector<std::shared_ptr<Patient>> Patient::getPatient(const std::string& nam
 
 std::shared_ptr<Patient>& Patient::getPatient(const std::string& pesel)
 {
-    auto& patients = Clinic::getPatients();
+    auto patients = Clinic::getPatients();
     auto exact_patient = std::find_if(patients.begin(), patients.end(),
                                       [&](const auto& patient) { return patient->getPesel() == pesel; });
 
