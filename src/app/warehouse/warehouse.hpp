@@ -11,8 +11,10 @@ class Warehouse
 {
     bool is_valid_state;
     std::set<std::shared_ptr<Product>> products_;
+    Warehouse() = default;
 
   public:
+    static void createWarehouse();
     void increaseAmount(const std::shared_ptr<Product>& ptrToProduct, const uint amount);
     void decreaseAmount(const std::shared_ptr<Product>& ptrToProduct, const uint amount);
     void addProducts(const std::vector<std::shared_ptr<Product>>& products);

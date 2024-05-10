@@ -30,33 +30,41 @@ void Clinic::appendCalendar(const std::shared_ptr<Calendar>& calendar)
     calendar_ = calendar;
 }
 
-std::vector<std::shared_ptr<Doctor>>& Clinic::getDoctors()
+void Clinic::appendWarehouse(const std::shared_ptr<Warehouse>& warehouse){
+    warehouse_ = warehouse;
+}
+
+std::vector<std::shared_ptr<Doctor>> Clinic::getDoctors()
 {
     return doctors_;
 }
 
-std::vector<std::shared_ptr<Patient>>& Clinic::getPatients()
+std::vector<std::shared_ptr<Patient>> Clinic::getPatients()
 {
     return patients_;
 }
 
-std::vector<std::shared_ptr<Visit>>& Clinic::getVisits()
+std::vector<std::shared_ptr<Visit>> Clinic::getVisits()
 {
     return visits_;
 }
-std::vector<std::shared_ptr<Receptionist>>& Clinic::getReceptionists()
+std::vector<std::shared_ptr<Receptionist>> Clinic::getReceptionists()
 {
     return receptionists_;
 }
 
-std::vector<std::shared_ptr<Room>>& Clinic::getRooms()
+std::vector<std::shared_ptr<Room>> Clinic::getRooms()
 {
     return rooms_;
 }
 
-std::shared_ptr<Calendar>& Clinic::getCalendar()
+std::shared_ptr<Calendar> Clinic::getCalendar()
 {
     return calendar_;
+}
+
+std::shared_ptr<Warehouse> Clinic::getWarehouse(){
+    return warehouse_;
 }
 
 void Clinic::removeDoctor(const std::shared_ptr<Doctor>& doctor)
@@ -95,4 +103,9 @@ void Clinic::removeRoom(const std::shared_ptr<Room>& room)
 void Clinic::removeCalendar()
 {
     calendar_ = nullptr;
+}
+
+void Clinic::removeWarehouse()
+{
+    warehouse_ = nullptr;
 }
