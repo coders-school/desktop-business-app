@@ -14,8 +14,8 @@ bool Medicine::isExpired() const
     std::time_t t = std::time(0);
     std::tm* now = std::localtime(&t);
     int currentYear = now->tm_year + 1900;
-    int currentMonth = now->tm_mon + 1;
-    int currentDay = now->tm_mday;
+    unsigned currentMonth = now->tm_mon + 1;
+    unsigned currentDay = now->tm_mday;
 
     if (static_cast<int>(expiration_date_.year()) < currentYear)
     {
@@ -27,8 +27,8 @@ bool Medicine::isExpired() const
         return true;
     }
     else if (static_cast<int>(expiration_date_.year()) >= currentYear and
-             static_cast<unsigned>(expiration_date_.month()) >= static_cast<unsigned>(currentMonth) and
-             static_cast<unsigned>(expiration_date_.day()) < static_cast<unsigned>(currentDay))
+             static_cast<unsigned>(expiration_date_.month()) >= currentMonth and
+             static_cast<unsigned>(expiration_date_.day()) < currentDay)
     {
         return true;
     }
