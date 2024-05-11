@@ -16,6 +16,5 @@ class Medicine : public Product
              const std::vector<std::string>& composition);
 
     bool isExpired();
-
     std::map<std::string, std::string> getInfo() const override;
 };

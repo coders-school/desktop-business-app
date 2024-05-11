@@ -11,6 +11,39 @@ struct MedicineTest : ::testing::Test
                                    std::vector<std::string>{{"chemicals"}});
 };
 
+TEST_F(MedicineTest, MedicineIsExpiredVariousYears)
+{
+    std::chrono::year_month_day expirationDate2{static_cast<std::chrono::year>(2000), std::chrono::January,
+                                                static_cast<std::chrono::day>(31)};
+    std::shared_ptr<Product> expiredAnaesthetic =
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate2, std::pair{-10, 0},
+                                   std::vector<std::string>{{"chemicals"}});
+    EXPECT_TRUE(expiredAnaesthetic->isExpired());
+}
+
+TEST_F(MedicineTest, MedicineIsNotExpiredCurrentYear)
+{
+    std::time_t t = std::time(0);
+    std::tm* now = std::localtime(&t);
+    int currentYear = now->tm_year + 1900;
+    std::chrono::year_month_day expirationDate3{static_cast<std::chrono::year>(currentYear), std::chrono::December,
+                                                static_cast<std::chrono::day>(31)};
+    std::shared_ptr<Product> notExpiredAnaesthetic =
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate3, std::pair{-10, 0},
+                                   std::vector<std::string>{{"chemicals"}});
+    EXPECT_FALSE(notExpiredAnaesthetic->isExpired());
+}
+
+TEST_F(MedicineTest, MedicineIsNotExpiredVariousYears)
+{
+    std::chrono::year_month_day expirationDate4{static_cast<std::chrono::year>(2100), std::chrono::December,
+                                                static_cast<std::chrono::day>(31)};
+    std::shared_ptr<Product> notExpiredAnaesthetic =
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate4, std::pair{-10, 0},
+                                   std::vector<std::string>{{"chemicals"}});
+    EXPECT_FALSE(notExpiredAnaesthetic->isExpired());
+}
+
 TEST_F(MedicineTest, MedicineGetInfoTest)
 {
     auto infoVec = anaesthetic->getInfo();
