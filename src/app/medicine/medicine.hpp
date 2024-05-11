@@ -15,6 +15,6 @@ class Medicine : public Product
              const std::chrono::year_month_day expiration_date, const std::pair<double, double>& storage_temperature,
              const std::vector<std::string>& composition);
 
-    bool isExpired();
+    bool isExpired() const;
     std::map<std::string, std::string> getInfo() const override;
 };

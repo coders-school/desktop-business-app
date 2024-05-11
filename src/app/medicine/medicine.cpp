@@ -9,7 +9,7 @@ Medicine::Medicine(const std::string& name, const double price, const int amount
       composition_{composition}
 {
 }
-bool Medicine::isExpired()
+bool Medicine::isExpired() const
 {
     std::time_t t = std::time(0);
     std::tm* now = std::localtime(&t);

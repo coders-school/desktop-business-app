@@ -26,7 +26,7 @@ class Product
     void setAmount(const uint amount);
 
     virtual std::map<std::string, std::string> getInfo() const = 0;
-    virtual bool isExpired()
+    virtual bool isExpired() const
     {
         return false;
     };
