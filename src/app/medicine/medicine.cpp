@@ -22,7 +22,7 @@ bool Medicine::isExpired() const
         return true;
     }
     else if (static_cast<int>(expiration_date_.year()) >= currentYear and
-             static_cast<unsigned>(expiration_date_.month()) < static_cast<unsigned>(currentMonth))
+             static_cast<unsigned>(expiration_date_.month()) < currentMonth)
     {
         return true;
     }
