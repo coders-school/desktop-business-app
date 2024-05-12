@@ -26,10 +26,10 @@ std::map<std::string, std::string> Medicine::getInfo() const
     {
         comp += el + ", ";
     }
-    auto expDateDay = std::to_string(static_cast<unsigned>(expiration_date_.day()));
-    auto expDateMonth = std::to_string(static_cast<unsigned>(expiration_date_.month()));
-    auto expDateYear = std::to_string(static_cast<int>(expiration_date_.year()));
-    auto expDate = expDateDay + "." + expDateMonth + "." + expDateYear;
+    const auto expDateDay = std::to_string(static_cast<unsigned>(expiration_date_.day()));
+    const auto expDateMonth = std::to_string(static_cast<unsigned>(expiration_date_.month()));
+    const auto expDateYear = std::to_string(static_cast<int>(expiration_date_.year()));
+    const auto expDate = expDateDay + "." + expDateMonth + "." + expDateYear;
     return {{{"expiration date"}, {expDate}},
             {{"storage temperature"},
              {std::to_string(storage_temperature_.first) + " / " + std::to_string(storage_temperature_.second)}},

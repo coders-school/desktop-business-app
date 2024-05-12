@@ -1,17 +1,28 @@
-#include "warehouse_test.hpp"
-
+#include "medicine.hpp"
+#include "product.hpp"
+#include "warehouse.hpp"
+#include "gtest/gtest.h"
 #include <utility>
 
-struct WarehouseTest : ::testing::Test
+using namespace std::chrono_literals;
+
+constexpr uint price1{45};
+constexpr uint price2{20};
+constexpr uint amount{100};
+constexpr std::pair storage_temperature1{-10, 0};
+constexpr std::pair storage_temperature2{-10, 0};
+
+class WarehouseTest : public ::testing::Test
 {
+  public:
     Warehouse testWarehouse;
-    std::chrono::year_month_day expirationDate{static_cast<std::chrono::year>(2030), std::chrono::January,
-                                               static_cast<std::chrono::day>(31)};
+    std::chrono::year_month_day expiration_date{2030y, std::chrono::January, 31d};
     std::shared_ptr<Product> anaesthetic =
-        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate, std::pair{-10, 0},
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, price1, amount, expiration_date, storage_temperature1,
                                    std::vector<std::string>{{"chemicals"}});
-    std::shared_ptr<Product> painkiller = std::make_shared<Medicine>(
-        std::string{"painkiller"}, 20, 100, expirationDate, std::pair{0, 20}, std::vector<std::string>{"ibuprofenum"});
+    std::shared_ptr<Product> painkiller =
+        std::make_shared<Medicine>(std::string{"painkiller"}, price2, amount, expiration_date, storage_temperature2,
+                                   std::vector<std::string>{"ibuprofenum"});
 };
 
 TEST_F(WarehouseTest, increaseAmountTest)
@@ -93,7 +104,7 @@ TEST_F(WarehouseTest, addTwoMedicinesWithSameNameTest)
 {
     testWarehouse.addProducts({anaesthetic, painkiller});
     std::shared_ptr<Product> otherAnaesthetic =
-        std::make_shared<Medicine>(std::string{"anaesthetic"}, 45, 100, expirationDate, std::pair{-10, 0},
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, price1, amount, expiration_date, storage_temperature1,
                                    std::vector<std::string>{{"chemicals"}});
     testWarehouse.addProducts({otherAnaesthetic});
     test_warehouse->addProducts({anaesthetic, painkiller});
