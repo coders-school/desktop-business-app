@@ -1,6 +1,7 @@
 #include "medicine.hpp"
-#include <ctime>
+#include <chrono>
 #include <iostream>
+#include <sstream>
 
 Medicine::Medicine(const std::string& name, const double price, const int amount,
                    const std::chrono::year_month_day expiration_date,
@@ -11,29 +12,9 @@ Medicine::Medicine(const std::string& name, const double price, const int amount
 }
 bool Medicine::isExpired() const
 {
-    std::time_t t = std::time(0);
-    std::tm* now = std::localtime(&t);
-    int currentYear = now->tm_year + 1900;
-    unsigned currentMonth = now->tm_mon + 1;
-    unsigned currentDay = now->tm_mday;
-
-    if (static_cast<int>(expiration_date_.year()) < currentYear)
-    {
-        return true;
-    }
-    else if (static_cast<int>(expiration_date_.year()) >= currentYear and
-             static_cast<unsigned>(expiration_date_.month()) < currentMonth)
-    {
-        return true;
-    }
-    else if (static_cast<int>(expiration_date_.year()) >= currentYear and
-             static_cast<unsigned>(expiration_date_.month()) >= currentMonth and
-             static_cast<unsigned>(expiration_date_.day()) < currentDay)
-    {
-        return true;
-    }
-    else
-        return false;
+    const auto expDate = std::chrono::sys_days{expiration_date_};
+    const auto currentDate = std::chrono::system_clock::now();
+    return expDate < currentDate;
 }
 
 std::map<std::string, std::string> Medicine::getInfo() const
@@ -43,10 +24,10 @@ std::map<std::string, std::string> Medicine::getInfo() const
     {
         comp += el + ", ";
     }
-    auto expDateDay = std::to_string(static_cast<unsigned>(expiration_date_.day()));
-    auto expDateMonth = std::to_string(static_cast<unsigned>(expiration_date_.month()));
-    auto expDateYear = std::to_string(static_cast<int>(expiration_date_.year()));
-    auto expDate = expDateDay + "." + expDateMonth + "." + expDateYear;
+    const auto expDateDay = std::to_string(static_cast<unsigned>(expiration_date_.day()));
+    const auto expDateMonth = std::to_string(static_cast<unsigned>(expiration_date_.month()));
+    const auto expDateYear = std::to_string(static_cast<int>(expiration_date_.year()));
+    const auto expDate = expDateDay + "." + expDateMonth + "." + expDateYear;
     return {{{"expiration date"}, {expDate}},
             {{"storage temperature"},
              {std::to_string(storage_temperature_.first) + " / " + std::to_string(storage_temperature_.second)}},
