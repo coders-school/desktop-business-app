@@ -1,5 +1,6 @@
 #include "room.hpp"
 #include "clinic_facade.hpp"
+#include "connector.hpp"
 #include "treatment.hpp"
 #include "visit.hpp"
 #include "warehouse.hpp"
@@ -24,15 +25,19 @@ void Room::addVisit(const std::shared_ptr<Visit>& visit)
     }
 }
 
-bool Room::isRoomFree(const unsigned& timestamp)
+void Room::addConnector(const std::shared_ptr<Connector>& connector)
 {
-    // TODO When Calendar will be available adjust accordingly
-    std::ignore = timestamp;
-    return false;
+    connectors_.emplace_back(connector);
+}
+
+bool Room::isRoomFree(const std::chrono::hh_mm_ss<std::chrono::seconds>& day_time) const
+{
+    std::ignore = day_time;
+    // search connectors for room and compare if day_time is between start and end time
+    return available_;
 }
 
 unsigned Room::getRoomNumber() const
-
 {
     return room_id_;
 }
@@ -47,9 +52,9 @@ std::shared_ptr<Warehouse> Room::getWarehouse() const
     return warehouse_;
 }
 
-void Room::setRoomAvalaibility(bool avalaible)
+void Room::setRoomAvailability(bool available)
 {
-    avalaible_ = avalaible;
+    available_ = available;
 }
 
 void Room::createRoom(const unsigned room_id, const std::vector<Treatment>& treatments,
