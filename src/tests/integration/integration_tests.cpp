@@ -2,9 +2,8 @@
 
 TEST_F(IntegratonFixture, IntegrationTest)
 {
-    // prepare clinic for work day
     prepareClinic();
-    // check if all objects have been created as expected
+    expectClinicWellPrepared();
     // new patient
     // check if patient has been created as expected
     // new visit for patient

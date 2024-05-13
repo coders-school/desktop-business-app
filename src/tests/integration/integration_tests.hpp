@@ -29,4 +29,21 @@ class IntegratonFixture : public ::testing::Test
 
         fillWarehouseWithProducts();
     }
+    void expectClinicWellPrepared()
+    {
+        const std::string doctor_name = "Jan";
+        const std::string doctor_surname = "Kowalski";
+        const std::string receptionist_name = "Agnieszka";
+        const std::string receptionist_surname = "Winna";
+        EXPECT_EQ(1, Clinic::getRooms().size());
+        EXPECT_EQ(2, Clinic::getRooms().front()->getTreatments().size());
+        const auto doctor = Clinic::getDoctors().front();
+        EXPECT_EQ(1, Clinic::getDoctors().size());
+        EXPECT_EQ(doctor_name, doctor->getName());
+        EXPECT_EQ(doctor_surname, doctor->getName());
+        const auto receptionist = Clinic::getReceptionists().front();
+        EXPECT_EQ(1, Clinic::getReceptionists().size());
+        EXPECT_EQ(receptionist_name, receptionist->getName());
+        EXPECT_EQ(receptionist_surname, receptionist->getName());
+    }
 };
