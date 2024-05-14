@@ -40,10 +40,10 @@ class IntegratonFixture : public ::testing::Test
         const auto doctor = Clinic::getDoctors().front();
         EXPECT_EQ(1, Clinic::getDoctors().size());
         EXPECT_EQ(doctor_name, doctor->getName());
-        EXPECT_EQ(doctor_surname, doctor->getName());
+        EXPECT_EQ(doctor_surname, doctor->getSurname());
         const auto receptionist = Clinic::getReceptionists().front();
         EXPECT_EQ(1, Clinic::getReceptionists().size());
         EXPECT_EQ(receptionist_name, receptionist->getName());
-        EXPECT_EQ(receptionist_surname, receptionist->getName());
+        EXPECT_EQ(receptionist_surname, receptionist->getSurname());
     }
 };
