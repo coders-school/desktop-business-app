@@ -6,7 +6,8 @@ void Calendar::createCalendar()
 {
     if (!Clinic::getCalendar())
     {
-        Clinic::appendCalendar(std::make_shared<Calendar>());
+        Calendar calendar;
+        Clinic::appendCalendar(std::make_shared<Calendar>(calendar));
     }
     else
     {

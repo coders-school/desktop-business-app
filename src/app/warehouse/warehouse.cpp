@@ -1,5 +1,19 @@
 #include "warehouse.hpp"
+#include "clinic_facade.hpp"
 #include "product.hpp"
+
+void Warehouse::createWarehouse()
+{
+    if (!Clinic::getWarehouse())
+    {
+        Warehouse warehouse;
+        Clinic::appendWarehouse(std::make_shared<Warehouse>(warehouse));
+    }
+    else
+    {
+        throw std::length_error("There cannot be more than one warehouse");
+    }
+}
 
 void Warehouse::increaseAmount(const std::shared_ptr<Product>& ptrToProduct, const uint amount)
 {

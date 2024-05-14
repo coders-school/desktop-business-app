@@ -10,19 +10,20 @@
 
 class IntegratonFixture : public ::testing::Test
 {
-    Warehouse warehouse_{};
 
   public:
     void fillWarehouseWithProducts()
     {
+        auto warehouse = Clinic::getWarehouse();
         std::vector<std::shared_ptr<Product>> products{};
-        warehouse_.addProducts(products);
+        warehouse->addProducts(products);
     }
 
     void prepareClinic()
     {
+        Warehouse::createWarehouse();
         std::vector<Treatment> treatments{Treatment::TeethCleaning, Treatment::TeethWhitening};
-        Room::createRoom(1, treatments, std::make_shared<Warehouse>(warehouse_));
+        Room::createRoom(1, treatments, Clinic::getWarehouse());
         Doctor::createDoctor("Jan", "Kowalski", "80062378532", Gender::Male);
         Receptionist::createReceptionist("Agnieszka", "Winna", "99053033817", Gender::Male);
 

@@ -10,6 +10,7 @@
 class Calendar
 {
     std::multimap<std::chrono::year_month_day, Connector> map_calendar_;
+    Calendar() = default;
 
   public:
     static void createCalendar();

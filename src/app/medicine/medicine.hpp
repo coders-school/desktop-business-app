@@ -10,7 +10,7 @@ class Medicine : public Product
 
   public:
     Medicine() = delete;
-    Medicine(const std::string& name, const double price, const int amount, const int expiration_date,
+    Medicine(const std::string& name, const double& price, const int& amount, const int& expiration_date,
              const std::pair<double, double>& storage_temperature, const std::vector<std::string>& composition);
 
     bool isExpired();
