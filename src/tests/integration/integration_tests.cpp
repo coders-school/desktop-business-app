@@ -1,11 +1,26 @@
 #include "integration_tests.hpp"
 
+// TODO: make nice integration test name after completed
 TEST_F(IntegratonFixture, IntegrationTest)
 {
     prepareClinic();
     expectClinicWellPrepared();
-    // new patient
-    // check if patient has been created as expected
+    ASSERT_EQ(Clinic::getPatients().size(), 0);
+    Patient::createPatient("Jan", "Kowalski", "87071989652", Gender::Male,
+                           {Allergen::SomeAllergen, Allergen::DifferentAllergen});
+    ASSERT_EQ(Clinic::getPatients().size(), 1);
+    auto patient = Clinic::getPatients().front();
+    checkIfPatientCreatedAsExpected(patient);
+
+    checkIfInitialAddressEmpty(patient);
+    Address expectedAddress{"Suwałki", "Poland", "Warmińsko-Mazurskie", "Wroblewskiego 10/44", "50-370"};
+    patient->setAddress(expectedAddress);
+    checkIfPatientHasExpectedAddress(patient, expectedAddress);
+
+    EXPECT_TRUE(patient->getPhoneNumber().empty());
+    patient->setPhoneNumber("700 112 112");
+    EXPECT_EQ(patient->getPhoneNumber(), "700 112 112");
+
     // new visit for patient
     // check if visit data is correctly assigned
     // perform visit

@@ -46,4 +46,32 @@ class IntegratonFixture : public ::testing::Test
         EXPECT_EQ(receptionist_name, receptionist->getName());
         EXPECT_EQ(receptionist_surname, receptionist->getSurname());
     }
+
+    void checkIfPatientCreatedAsExpected(const std::shared_ptr<Patient>& patient)
+    {
+        EXPECT_EQ(patient->getName(), "Jan");
+        EXPECT_EQ(patient->getSurname(), "Kowalski");
+        EXPECT_EQ(patient->getPesel(), "87071989652");
+        EXPECT_EQ(patient->getGender(), Gender::Male);
+    }
+
+    void checkIfInitialAddressEmpty(const std::shared_ptr<Patient>& patient)
+    {
+        Address initial_address{patient->getAddress()};
+        EXPECT_TRUE(initial_address.city_.empty());
+        EXPECT_TRUE(initial_address.country_.empty());
+        EXPECT_TRUE(initial_address.province_.empty());
+        EXPECT_TRUE(initial_address.street_.empty());
+        EXPECT_TRUE(initial_address.zip_code_.empty());
+    }
+
+    void checkIfPatientHasExpectedAddress(const std::shared_ptr<Patient>& patient, const Address& expected_address)
+    {
+        Address patient_address{patient->getAddress()};
+        EXPECT_EQ(patient_address.city_, expected_address.city_);
+        EXPECT_EQ(patient_address.country_, expected_address.country_);
+        EXPECT_EQ(patient_address.province_, expected_address.province_);
+        EXPECT_EQ(patient_address.street_, expected_address.street_);
+        EXPECT_EQ(patient_address.zip_code_, expected_address.zip_code_);
+    }
 };
