@@ -155,3 +155,8 @@ std::string Person::getPhoneNumber() const
 {
     return phone_number_;
 }
+
+Gender Person::getGender() const
+{
+    return gender_;
+}

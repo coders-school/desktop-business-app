@@ -42,4 +42,5 @@ class Person
     Address getAddress() const;
     void setPhoneNumber(const std::string& phone_number);
     std::string getPhoneNumber() const;
+    Gender getGender() const;
 };
