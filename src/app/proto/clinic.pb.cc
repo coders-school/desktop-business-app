@@ -26,6 +26,7 @@ PROTOBUF_CONSTEXPR Workers_Doctor::Workers_Doctor(
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.surname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.pesel_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.gender_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Workers_DoctorDefaultTypeInternal {
   PROTOBUF_CONSTEXPR Workers_DoctorDefaultTypeInternal()
@@ -41,6 +42,7 @@ PROTOBUF_CONSTEXPR Workers_Receptionist::Workers_Receptionist(
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.surname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.pesel_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.gender_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Workers_ReceptionistDefaultTypeInternal {
   PROTOBUF_CONSTEXPR Workers_ReceptionistDefaultTypeInternal()
@@ -103,6 +105,7 @@ const uint32_t TableStruct_clinic_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Doctor, _impl_.name_),
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Doctor, _impl_.surname_),
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Doctor, _impl_.pesel_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Doctor, _impl_.gender_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Receptionist, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -112,6 +115,7 @@ const uint32_t TableStruct_clinic_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Receptionist, _impl_.name_),
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Receptionist, _impl_.surname_),
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Receptionist, _impl_.pesel_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Receptionist, _impl_.gender_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Doctors, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -135,10 +139,10 @@ const uint32_t TableStruct_clinic_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::clinic_data::Workers_Doctor)},
-  { 9, -1, -1, sizeof(::clinic_data::Workers_Receptionist)},
-  { 18, -1, -1, sizeof(::clinic_data::Workers_Doctors)},
-  { 25, -1, -1, sizeof(::clinic_data::Workers_Receptionists)},
-  { 32, -1, -1, sizeof(::clinic_data::Workers)},
+  { 10, -1, -1, sizeof(::clinic_data::Workers_Receptionist)},
+  { 20, -1, -1, sizeof(::clinic_data::Workers_Doctors)},
+  { 27, -1, -1, sizeof(::clinic_data::Workers_Receptionists)},
+  { 34, -1, -1, sizeof(::clinic_data::Workers)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -150,18 +154,19 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_clinic_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014clinic.proto\022\013clinic_data\"\203\002\n\007Workers\032"
-  "6\n\006Doctor\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t"
-  "\022\r\n\005pesel\030\003 \001(\t\032<\n\014Receptionist\022\014\n\004name\030"
-  "\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\r\n\005pesel\030\003 \001(\t\0327\n"
-  "\007Doctors\022,\n\007doctors\030\001 \003(\0132\033.clinic_data."
-  "Workers.Doctor\032I\n\rReceptionists\0228\n\rrecep"
-  "tionists\030\001 \003(\0132!.clinic_data.Workers.Rec"
-  "eptionistb\006proto3"
+  "\n\014clinic.proto\022\013clinic_data\"\243\002\n\007Workers\032"
+  "F\n\006Doctor\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t"
+  "\022\r\n\005pesel\030\003 \001(\t\022\016\n\006gender\030\004 \001(\t\032L\n\014Recep"
+  "tionist\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\r"
+  "\n\005pesel\030\003 \001(\t\022\016\n\006gender\030\004 \001(\t\0327\n\007Doctors"
+  "\022,\n\007doctors\030\001 \003(\0132\033.clinic_data.Workers."
+  "Doctor\032I\n\rReceptionists\0228\n\rreceptionists"
+  "\030\001 \003(\0132!.clinic_data.Workers.Receptionis"
+  "tb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_clinic_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_clinic_2eproto = {
-    false, false, 297, descriptor_table_protodef_clinic_2eproto,
+    false, false, 329, descriptor_table_protodef_clinic_2eproto,
     "clinic.proto",
     &descriptor_table_clinic_2eproto_once, nullptr, 0, 5,
     schemas, file_default_instances, TableStruct_clinic_2eproto::offsets,
@@ -195,6 +200,7 @@ Workers_Doctor::Workers_Doctor(const Workers_Doctor& from)
       decltype(_impl_.name_){}
     , decltype(_impl_.surname_){}
     , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -222,6 +228,14 @@ Workers_Doctor::Workers_Doctor(const Workers_Doctor& from)
     _this->_impl_.pesel_.Set(from._internal_pesel(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_gender().empty()) {
+    _this->_impl_.gender_.Set(from._internal_gender(), 
+      _this->GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:clinic_data.Workers.Doctor)
 }
 
@@ -233,6 +247,7 @@ inline void Workers_Doctor::SharedCtor(
       decltype(_impl_.name_){}
     , decltype(_impl_.surname_){}
     , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.name_.InitDefault();
@@ -246,6 +261,10 @@ inline void Workers_Doctor::SharedCtor(
   _impl_.pesel_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.pesel_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -263,6 +282,7 @@ inline void Workers_Doctor::SharedDtor() {
   _impl_.name_.Destroy();
   _impl_.surname_.Destroy();
   _impl_.pesel_.Destroy();
+  _impl_.gender_.Destroy();
 }
 
 void Workers_Doctor::SetCachedSize(int size) const {
@@ -278,6 +298,7 @@ void Workers_Doctor::Clear() {
   _impl_.name_.ClearToEmpty();
   _impl_.surname_.ClearToEmpty();
   _impl_.pesel_.ClearToEmpty();
+  _impl_.gender_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -314,6 +335,16 @@ const char* Workers_Doctor::_InternalParse(const char* ptr, ::_pbi::ParseContext
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "clinic_data.Workers.Doctor.pesel"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string gender = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_gender();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.Workers.Doctor.gender"));
         } else
           goto handle_unusual;
         continue;
@@ -376,6 +407,16 @@ uint8_t* Workers_Doctor::_InternalSerialize(
         3, this->_internal_pesel(), target);
   }
 
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_gender().data(), static_cast<int>(this->_internal_gender().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.Workers.Doctor.gender");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_gender(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -413,6 +454,13 @@ size_t Workers_Doctor::ByteSizeLong() const {
         this->_internal_pesel());
   }
 
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_gender());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -439,6 +487,9 @@ void Workers_Doctor::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const :
   }
   if (!from._internal_pesel().empty()) {
     _this->_internal_set_pesel(from._internal_pesel());
+  }
+  if (!from._internal_gender().empty()) {
+    _this->_internal_set_gender(from._internal_gender());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -471,6 +522,10 @@ void Workers_Doctor::InternalSwap(Workers_Doctor* other) {
       &_impl_.pesel_, lhs_arena,
       &other->_impl_.pesel_, rhs_arena
   );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.gender_, lhs_arena,
+      &other->_impl_.gender_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Workers_Doctor::GetMetadata() const {
@@ -498,6 +553,7 @@ Workers_Receptionist::Workers_Receptionist(const Workers_Receptionist& from)
       decltype(_impl_.name_){}
     , decltype(_impl_.surname_){}
     , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -525,6 +581,14 @@ Workers_Receptionist::Workers_Receptionist(const Workers_Receptionist& from)
     _this->_impl_.pesel_.Set(from._internal_pesel(), 
       _this->GetArenaForAllocation());
   }
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_gender().empty()) {
+    _this->_impl_.gender_.Set(from._internal_gender(), 
+      _this->GetArenaForAllocation());
+  }
   // @@protoc_insertion_point(copy_constructor:clinic_data.Workers.Receptionist)
 }
 
@@ -536,6 +600,7 @@ inline void Workers_Receptionist::SharedCtor(
       decltype(_impl_.name_){}
     , decltype(_impl_.surname_){}
     , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.name_.InitDefault();
@@ -549,6 +614,10 @@ inline void Workers_Receptionist::SharedCtor(
   _impl_.pesel_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.pesel_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
@@ -566,6 +635,7 @@ inline void Workers_Receptionist::SharedDtor() {
   _impl_.name_.Destroy();
   _impl_.surname_.Destroy();
   _impl_.pesel_.Destroy();
+  _impl_.gender_.Destroy();
 }
 
 void Workers_Receptionist::SetCachedSize(int size) const {
@@ -581,6 +651,7 @@ void Workers_Receptionist::Clear() {
   _impl_.name_.ClearToEmpty();
   _impl_.surname_.ClearToEmpty();
   _impl_.pesel_.ClearToEmpty();
+  _impl_.gender_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -617,6 +688,16 @@ const char* Workers_Receptionist::_InternalParse(const char* ptr, ::_pbi::ParseC
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "clinic_data.Workers.Receptionist.pesel"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string gender = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_gender();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.Workers.Receptionist.gender"));
         } else
           goto handle_unusual;
         continue;
@@ -679,6 +760,16 @@ uint8_t* Workers_Receptionist::_InternalSerialize(
         3, this->_internal_pesel(), target);
   }
 
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_gender().data(), static_cast<int>(this->_internal_gender().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.Workers.Receptionist.gender");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_gender(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -716,6 +807,13 @@ size_t Workers_Receptionist::ByteSizeLong() const {
         this->_internal_pesel());
   }
 
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_gender());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -742,6 +840,9 @@ void Workers_Receptionist::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, c
   }
   if (!from._internal_pesel().empty()) {
     _this->_internal_set_pesel(from._internal_pesel());
+  }
+  if (!from._internal_gender().empty()) {
+    _this->_internal_set_gender(from._internal_gender());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -773,6 +874,10 @@ void Workers_Receptionist::InternalSwap(Workers_Receptionist* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.pesel_, lhs_arena,
       &other->_impl_.pesel_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.gender_, lhs_arena,
+      &other->_impl_.gender_, rhs_arena
   );
 }
 

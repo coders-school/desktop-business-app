@@ -197,6 +197,7 @@ class Workers_Doctor final :
     kNameFieldNumber = 1,
     kSurnameFieldNumber = 2,
     kPeselFieldNumber = 3,
+    kGenderFieldNumber = 4,
   };
   // string name = 1;
   void clear_name();
@@ -240,6 +241,20 @@ class Workers_Doctor final :
   std::string* _internal_mutable_pesel();
   public:
 
+  // string gender = 4;
+  void clear_gender();
+  const std::string& gender() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_gender(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_gender();
+  PROTOBUF_NODISCARD std::string* release_gender();
+  void set_allocated_gender(std::string* gender);
+  private:
+  const std::string& _internal_gender() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_gender(const std::string& value);
+  std::string* _internal_mutable_gender();
+  public:
+
   // @@protoc_insertion_point(class_scope:clinic_data.Workers.Doctor)
  private:
   class _Internal;
@@ -251,6 +266,7 @@ class Workers_Doctor final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr surname_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pesel_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gender_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -382,6 +398,7 @@ class Workers_Receptionist final :
     kNameFieldNumber = 1,
     kSurnameFieldNumber = 2,
     kPeselFieldNumber = 3,
+    kGenderFieldNumber = 4,
   };
   // string name = 1;
   void clear_name();
@@ -425,6 +442,20 @@ class Workers_Receptionist final :
   std::string* _internal_mutable_pesel();
   public:
 
+  // string gender = 4;
+  void clear_gender();
+  const std::string& gender() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_gender(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_gender();
+  PROTOBUF_NODISCARD std::string* release_gender();
+  void set_allocated_gender(std::string* gender);
+  private:
+  const std::string& _internal_gender() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_gender(const std::string& value);
+  std::string* _internal_mutable_gender();
+  public:
+
   // @@protoc_insertion_point(class_scope:clinic_data.Workers.Receptionist)
  private:
   class _Internal;
@@ -436,6 +467,7 @@ class Workers_Receptionist final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr surname_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pesel_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gender_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1039,6 +1071,56 @@ inline void Workers_Doctor::set_allocated_pesel(std::string* pesel) {
   // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.pesel)
 }
 
+// string gender = 4;
+inline void Workers_Doctor::clear_gender() {
+  _impl_.gender_.ClearToEmpty();
+}
+inline const std::string& Workers_Doctor::gender() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.gender)
+  return _internal_gender();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Doctor::set_gender(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.gender_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.gender)
+}
+inline std::string* Workers_Doctor::mutable_gender() {
+  std::string* _s = _internal_mutable_gender();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.gender)
+  return _s;
+}
+inline const std::string& Workers_Doctor::_internal_gender() const {
+  return _impl_.gender_.Get();
+}
+inline void Workers_Doctor::_internal_set_gender(const std::string& value) {
+  
+  _impl_.gender_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Workers_Doctor::_internal_mutable_gender() {
+  
+  return _impl_.gender_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Workers_Doctor::release_gender() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.gender)
+  return _impl_.gender_.Release();
+}
+inline void Workers_Doctor::set_allocated_gender(std::string* gender) {
+  if (gender != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.gender_.SetAllocated(gender, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.gender_.IsDefault()) {
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.gender)
+}
+
 // -------------------------------------------------------------------
 
 // Workers_Receptionist
@@ -1191,6 +1273,56 @@ inline void Workers_Receptionist::set_allocated_pesel(std::string* pesel) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.pesel)
+}
+
+// string gender = 4;
+inline void Workers_Receptionist::clear_gender() {
+  _impl_.gender_.ClearToEmpty();
+}
+inline const std::string& Workers_Receptionist::gender() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.gender)
+  return _internal_gender();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Receptionist::set_gender(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.gender_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.gender)
+}
+inline std::string* Workers_Receptionist::mutable_gender() {
+  std::string* _s = _internal_mutable_gender();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.gender)
+  return _s;
+}
+inline const std::string& Workers_Receptionist::_internal_gender() const {
+  return _impl_.gender_.Get();
+}
+inline void Workers_Receptionist::_internal_set_gender(const std::string& value) {
+  
+  _impl_.gender_.Set(value, GetArenaForAllocation());
+}
+inline std::string* Workers_Receptionist::_internal_mutable_gender() {
+  
+  return _impl_.gender_.Mutable(GetArenaForAllocation());
+}
+inline std::string* Workers_Receptionist::release_gender() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.gender)
+  return _impl_.gender_.Release();
+}
+inline void Workers_Receptionist::set_allocated_gender(std::string* gender) {
+  if (gender != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.gender_.SetAllocated(gender, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.gender_.IsDefault()) {
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.gender)
 }
 
 // -------------------------------------------------------------------

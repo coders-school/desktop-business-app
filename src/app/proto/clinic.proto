@@ -8,12 +8,14 @@ message Workers
     string name = 1;
     string surname = 2;
     string pesel = 3;
+    string gender = 4;
   }
 
   message Receptionist {
     string name = 1;
     string surname = 2;
     string pesel = 3;
+    string gender = 4;
   }
 
   message Doctors{
