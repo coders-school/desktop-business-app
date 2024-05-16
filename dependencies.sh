@@ -6,3 +6,5 @@ apt install -y libgl1-mesa-dev
 apt install -y libssl-dev 
 apt install -y nlohmann-json3-dev
 apt install -y libgoogle-glog-dev  
+apt install -y protobuf-compiler
+apt install -y libprotobuf-dev

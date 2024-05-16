@@ -4,6 +4,7 @@ project(desktop-business-app)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
+find_package(Protobuf REQUIRED)
 find_package(GTest REQUIRED)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 find_package(OpenSSL REQUIRED)
