@@ -1,4 +1,4 @@
-qt_standard_project_setup()
+# qt_standard_project_setup()
 
 add_subdirectory(calendar)
 add_subdirectory(clinic)
@@ -6,6 +6,7 @@ add_subdirectory(doctor)
 add_subdirectory(login)
 add_subdirectory(patient)
 add_subdirectory(person)
+add_subdirectory(proto)
 add_subdirectory(receptionist)
 add_subdirectory(reserve_queue)
 add_subdirectory(visit)
@@ -30,6 +31,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
                                               medicine-lib
                                               person-lib
                                               product-lib
+                                              proto-lib
                                               receptionist-lib
                                               reserve_queue-lib
                                               room-lib
