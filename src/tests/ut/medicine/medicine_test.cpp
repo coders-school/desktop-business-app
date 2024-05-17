@@ -1,31 +1,4 @@
-#include "medicine.hpp"
-#include "product.hpp"
-#include "gtest/gtest.h"
-
-using namespace std::chrono_literals;
-
-constexpr uint price{45};
-constexpr uint amount{100};
-constexpr std::pair storage_temperature{-10, 0};
-
-class MedicineTest : public ::testing::Test
-{
-  public:
-    std::chrono::year_month_day expiration_date{2030y, std::chrono::January, 31d};
-    std::shared_ptr<Product> anaesthetic =
-        std::make_shared<Medicine>(std::string{"anaesthetic"}, price, amount, expiration_date, storage_temperature,
-                                   std::vector<std::string>{{"chemicals"}});
-};
 #include "medicine_test.hpp"
-
-TEST_F(MedicineTest, MedicineIsExpiredVariousYears)
-{
-    std::chrono::year_month_day expiration_date2{2000y, std::chrono::January, 31d};
-    std::shared_ptr<Product> expiredAnaesthetic =
-        std::make_shared<Medicine>(std::string{"anaesthetic"}, price, amount, expiration_date2, storage_temperature,
-                                   std::vector<std::string>{{"chemicals"}});
-    EXPECT_TRUE(expiredAnaesthetic->isExpired());
-}
 
 TEST_F(MedicineTest, MedicineIsNotExpiredCurrentYear)
 {
