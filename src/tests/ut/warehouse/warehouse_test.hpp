@@ -28,6 +28,7 @@ struct WarehouseTest : ::testing::Test
     {
         Warehouse::createWarehouse();
         test_warehouse = Clinic::getWarehouse();
+
         std::shared_ptr<Product> anaesthetic =
             std::make_shared<Medicine>(std::string{"anaesthetic"}, price1, amount, expiration_date,
                                        storage_temperature1, std::vector<std::string>{{"chemicals"}});

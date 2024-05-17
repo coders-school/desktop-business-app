@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include "medicine.hpp"
@@ -8,6 +9,7 @@ using namespace std::chrono_literals;
 
 constexpr uint price{45};
 constexpr uint amount{100};
+
 constexpr std::pair storage_temperature{-10, 0};
 
 struct MedicineTest : ::testing::Test
