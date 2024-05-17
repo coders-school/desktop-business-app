@@ -5,8 +5,6 @@
 
 Medicine::Medicine(const std::string& name, const double price, const int amount,
                    const std::chrono::year_month_day expiration_date,
-Medicine::Medicine(const std::string& name, const double price, const int amount,
-                   const std::chrono::year_month_day expiration_date,
                    const std::pair<double, double>& storage_temperature, const std::vector<std::string>& composition)
     : Product(name, price, amount), expiration_date_{expiration_date}, storage_temperature_{storage_temperature},
       composition_{composition}
