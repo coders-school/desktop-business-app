@@ -2,9 +2,11 @@
 #include <fstream>
 #include <string>
 
-class FileManager {
-public:
-enum class FileMode {
+class FileManager
+{
+  public:
+    enum class FileMode
+    {
         Input,
         OutputAppend,
         OutputTruncate
@@ -18,7 +20,8 @@ enum class FileMode {
 
     std::fstream& getFileRef();
     std::string getFilePath() const;
-private:
+
+  private:
     std::string file_name_;
     std::filesystem::path file_path_;
     std::fstream file_;

@@ -25,7 +25,7 @@ std::vector<std::shared_ptr<Visit>> Doctor::getVisits() const
 void Doctor::createDoctor(const std::string& name, const std::string& surname, const std::string& pesel,
                           const Gender gender)
 {
-    if(Clinic::doctorExists(pesel))
+    if (Clinic::doctorExists(pesel))
     {
         throw std::invalid_argument("Doctor already exists!\n");
     }

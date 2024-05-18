@@ -18,15 +18,16 @@ std::string toString(const Gender gender)
     return gender_text;
 }
 
-Gender toEnum(const std::string &gender)
+Gender toEnum(const std::string& gender)
 {
-    if(gender == "male")
+    if (gender == "male")
     {
         return Gender::Male;
     }
-    else if(gender == "female")
+    else if (gender == "female")
     {
         return Gender::Female;
     }
-    else return Gender::Unknown;
+    else
+        return Gender::Unknown;
 }
