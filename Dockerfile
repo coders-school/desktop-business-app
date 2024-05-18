@@ -1,6 +1,8 @@
 FROM ubuntu:mantic as BUILD
 ENV PROJECT_NAME=desktop-business-app
 
+COPY database/ /application/database
+
 WORKDIR /application
 COPY . /application
 
@@ -17,6 +19,8 @@ WORKDIR /application
 
 COPY /dependencies.sh /application/
 RUN /application/dependencies.sh
+
+COPY --from=BUILD /application/database /application/database
 
 COPY --from=BUILD /application/bin/${PROJECT_NAME} /application/bin/${PROJECT_NAME}
 COPY --from=BUILD /application/bin/${PROJECT_NAME}-tests /application/bin/${PROJECT_NAME}-tests
