@@ -19,36 +19,33 @@
 #error regenerate this file with a newer version of protoc.
 #endif
 
+#include <google/protobuf/port_undef.inc>
+#include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/extension_set.h> // IWYU pragma: export
 #include <google/protobuf/generated_message_bases.h>
-#include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/generated_message_util.h>
-#include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/message.h>
 #include <google/protobuf/metadata_lite.h>
-#include <google/protobuf/port_undef.inc>
-#include <google/protobuf/repeated_field.h> // IWYU pragma: export
+#include <google/protobuf/generated_message_reflection.h>
+#include <google/protobuf/message.h>
+#include <google/protobuf/repeated_field.h>  // IWYU pragma: export
+#include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_clinic_2eproto
 PROTOBUF_NAMESPACE_OPEN
-namespace internal
-{
+namespace internal {
 class AnyMetadata;
-} // namespace internal
+}  // namespace internal
 PROTOBUF_NAMESPACE_CLOSE
 
 // Internal implementation detail -- do not use these members.
-struct TableStruct_clinic_2eproto
-{
-    static const uint32_t offsets[];
+struct TableStruct_clinic_2eproto {
+  static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_clinic_2eproto;
-namespace clinic_data
-{
+namespace clinic_data {
 class Workers;
 struct WorkersDefaultTypeInternal;
 extern WorkersDefaultTypeInternal _Workers_default_instance_;
@@ -64,1258 +61,1064 @@ extern Workers_ReceptionistDefaultTypeInternal _Workers_Receptionist_default_ins
 class Workers_Receptionists;
 struct Workers_ReceptionistsDefaultTypeInternal;
 extern Workers_ReceptionistsDefaultTypeInternal _Workers_Receptionists_default_instance_;
-} // namespace clinic_data
+}  // namespace clinic_data
 PROTOBUF_NAMESPACE_OPEN
-template <>::clinic_data::Workers* Arena::CreateMaybeMessage<::clinic_data::Workers>(Arena*);
-template <>::clinic_data::Workers_Doctor* Arena::CreateMaybeMessage<::clinic_data::Workers_Doctor>(Arena*);
-template <>::clinic_data::Workers_Doctors* Arena::CreateMaybeMessage<::clinic_data::Workers_Doctors>(Arena*);
-template <>::clinic_data::Workers_Receptionist* Arena::CreateMaybeMessage<::clinic_data::Workers_Receptionist>(Arena*);
-template <>
-::clinic_data::Workers_Receptionists* Arena::CreateMaybeMessage<::clinic_data::Workers_Receptionists>(Arena*);
+template<> ::clinic_data::Workers* Arena::CreateMaybeMessage<::clinic_data::Workers>(Arena*);
+template<> ::clinic_data::Workers_Doctor* Arena::CreateMaybeMessage<::clinic_data::Workers_Doctor>(Arena*);
+template<> ::clinic_data::Workers_Doctors* Arena::CreateMaybeMessage<::clinic_data::Workers_Doctors>(Arena*);
+template<> ::clinic_data::Workers_Receptionist* Arena::CreateMaybeMessage<::clinic_data::Workers_Receptionist>(Arena*);
+template<> ::clinic_data::Workers_Receptionists* Arena::CreateMaybeMessage<::clinic_data::Workers_Receptionists>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace clinic_data
-{
+namespace clinic_data {
 
 // ===================================================================
 
-class Workers_Doctor final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Doctor)
-                                                                      */
-{
+class Workers_Doctor final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Doctor) */ {
+ public:
+  inline Workers_Doctor() : Workers_Doctor(nullptr) {}
+  ~Workers_Doctor() override;
+  explicit PROTOBUF_CONSTEXPR Workers_Doctor(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Workers_Doctor(const Workers_Doctor& from);
+  Workers_Doctor(Workers_Doctor&& from) noexcept
+    : Workers_Doctor() {
+    *this = ::std::move(from);
+  }
+
+  inline Workers_Doctor& operator=(const Workers_Doctor& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Workers_Doctor& operator=(Workers_Doctor&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Workers_Doctor& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Workers_Doctor* internal_default_instance() {
+    return reinterpret_cast<const Workers_Doctor*>(
+               &_Workers_Doctor_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Workers_Doctor& a, Workers_Doctor& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Workers_Doctor* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Workers_Doctor* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Workers_Doctor* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Workers_Doctor>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Workers_Doctor& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Workers_Doctor& from) {
+    Workers_Doctor::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
-    inline Workers_Doctor() : Workers_Doctor(nullptr)
-    {
-    }
-    ~Workers_Doctor() override;
-    explicit PROTOBUF_CONSTEXPR Workers_Doctor(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
 
-    Workers_Doctor(const Workers_Doctor& from);
-    Workers_Doctor(Workers_Doctor&& from) noexcept : Workers_Doctor()
-    {
-        *this = ::std::move(from);
-    }
-
-    inline Workers_Doctor& operator=(const Workers_Doctor& from)
-    {
-        CopyFrom(from);
-        return *this;
-    }
-    inline Workers_Doctor& operator=(Workers_Doctor&& from) noexcept
-    {
-        if (this == &from)
-            return *this;
-        if (GetOwningArena() == from.GetOwningArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-            && GetOwningArena() != nullptr
-#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
-        )
-        {
-            InternalSwap(&from);
-        }
-        else
-        {
-            CopyFrom(from);
-        }
-        return *this;
-    }
-
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor()
-    {
-        return GetDescriptor();
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor()
-    {
-        return default_instance().GetMetadata().descriptor;
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection()
-    {
-        return default_instance().GetMetadata().reflection;
-    }
-    static const Workers_Doctor& default_instance()
-    {
-        return *internal_default_instance();
-    }
-    static inline const Workers_Doctor* internal_default_instance()
-    {
-        return reinterpret_cast<const Workers_Doctor*>(&_Workers_Doctor_default_instance_);
-    }
-    static constexpr int kIndexInFileMessages = 0;
-
-    friend void swap(Workers_Doctor& a, Workers_Doctor& b)
-    {
-        a.Swap(&b);
-    }
-    inline void Swap(Workers_Doctor* other)
-    {
-        if (other == this)
-            return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() != nullptr && GetOwningArena() == other->GetOwningArena())
-        {
-#else  // PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() == other->GetOwningArena())
-        {
-#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
-            InternalSwap(other);
-        }
-        else
-        {
-            ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-        }
-    }
-    void UnsafeArenaSwap(Workers_Doctor* other)
-    {
-        if (other == this)
-            return;
-        GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-        InternalSwap(other);
-    }
-
-    // implements Message ----------------------------------------------
-
-    Workers_Doctor* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final
-    {
-        return CreateMaybeMessage<Workers_Doctor>(arena);
-    }
-    using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-    void CopyFrom(const Workers_Doctor& from);
-    using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-    void MergeFrom(const Workers_Doctor& from)
-    {
-        Workers_Doctor::MergeImpl(*this, from);
-    }
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
   private:
-    static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-
-  public:
-    PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-    bool IsInitialized() const final;
-
-    size_t ByteSizeLong() const final;
-    const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-    uint8_t* _InternalSerialize(uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-    int GetCachedSize() const final
-    {
-        return _impl_._cached_size_.Get();
-    }
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Workers_Doctor* other);
 
   private:
-    void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-    void SharedDtor();
-    void SetCachedSize(int size) const final;
-    void InternalSwap(Workers_Doctor* other);
-
-  private:
-    friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-    static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName()
-    {
-        return "clinic_data.Workers.Doctor";
-    }
-
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "clinic_data.Workers.Doctor";
+  }
   protected:
-    explicit Workers_Doctor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned = false);
-
+  explicit Workers_Doctor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
   public:
-    static const ClassData _class_data_;
-    const ::PROTOBUF_NAMESPACE_ID::Message::ClassData* GetClassData() const final;
 
-    ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
 
-    // nested types ----------------------------------------------------
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
-    // accessors -------------------------------------------------------
+  // nested types ----------------------------------------------------
 
-    enum : int
-    {
-        kNameFieldNumber = 1,
-        kSurnameFieldNumber = 2,
-        kPeselFieldNumber = 3,
-        kGenderFieldNumber = 4,
-    };
-    // string name = 1;
-    void clear_name();
-    const std::string& name() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_name(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_name();
-    PROTOBUF_NODISCARD std::string* release_name();
-    void set_allocated_name(std::string* name);
+  // accessors -------------------------------------------------------
 
+  enum : int {
+    kNameFieldNumber = 1,
+    kSurnameFieldNumber = 2,
+    kPeselFieldNumber = 3,
+    kGenderFieldNumber = 4,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
   private:
-    const std::string& _internal_name() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-    std::string* _internal_mutable_name();
-
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
   public:
-    // string surname = 2;
-    void clear_surname();
-    const std::string& surname() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_surname(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_surname();
-    PROTOBUF_NODISCARD std::string* release_surname();
-    void set_allocated_surname(std::string* surname);
 
+  // string surname = 2;
+  void clear_surname();
+  const std::string& surname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_surname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_surname();
+  PROTOBUF_NODISCARD std::string* release_surname();
+  void set_allocated_surname(std::string* surname);
   private:
-    const std::string& _internal_surname() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_surname(const std::string& value);
-    std::string* _internal_mutable_surname();
-
+  const std::string& _internal_surname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_surname(const std::string& value);
+  std::string* _internal_mutable_surname();
   public:
-    // string pesel = 3;
-    void clear_pesel();
-    const std::string& pesel() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_pesel(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_pesel();
-    PROTOBUF_NODISCARD std::string* release_pesel();
-    void set_allocated_pesel(std::string* pesel);
 
+  // string pesel = 3;
+  void clear_pesel();
+  const std::string& pesel() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_pesel(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_pesel();
+  PROTOBUF_NODISCARD std::string* release_pesel();
+  void set_allocated_pesel(std::string* pesel);
   private:
-    const std::string& _internal_pesel() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_pesel(const std::string& value);
-    std::string* _internal_mutable_pesel();
-
+  const std::string& _internal_pesel() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_pesel(const std::string& value);
+  std::string* _internal_mutable_pesel();
   public:
-    // string gender = 4;
-    void clear_gender();
-    const std::string& gender() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_gender(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_gender();
-    PROTOBUF_NODISCARD std::string* release_gender();
-    void set_allocated_gender(std::string* gender);
 
+  // string gender = 4;
+  void clear_gender();
+  const std::string& gender() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_gender(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_gender();
+  PROTOBUF_NODISCARD std::string* release_gender();
+  void set_allocated_gender(std::string* gender);
   private:
-    const std::string& _internal_gender() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_gender(const std::string& value);
-    std::string* _internal_mutable_gender();
-
+  const std::string& _internal_gender() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_gender(const std::string& value);
+  std::string* _internal_mutable_gender();
   public:
-    // @@protoc_insertion_point(class_scope:clinic_data.Workers.Doctor)
-  private:
-    class _Internal;
 
-    template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-    typedef void InternalArenaConstructable_;
-    typedef void DestructorSkippable_;
-    struct Impl_
-    {
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr surname_;
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pesel_;
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gender_;
-        mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    };
-    union {
-        Impl_ _impl_;
-    };
-    friend struct ::TableStruct_clinic_2eproto;
+  // @@protoc_insertion_point(class_scope:clinic_data.Workers.Doctor)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr surname_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pesel_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gender_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_clinic_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Workers_Receptionist final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Receptionist)
-                                                                            */
-{
+class Workers_Receptionist final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Receptionist) */ {
+ public:
+  inline Workers_Receptionist() : Workers_Receptionist(nullptr) {}
+  ~Workers_Receptionist() override;
+  explicit PROTOBUF_CONSTEXPR Workers_Receptionist(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Workers_Receptionist(const Workers_Receptionist& from);
+  Workers_Receptionist(Workers_Receptionist&& from) noexcept
+    : Workers_Receptionist() {
+    *this = ::std::move(from);
+  }
+
+  inline Workers_Receptionist& operator=(const Workers_Receptionist& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Workers_Receptionist& operator=(Workers_Receptionist&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Workers_Receptionist& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Workers_Receptionist* internal_default_instance() {
+    return reinterpret_cast<const Workers_Receptionist*>(
+               &_Workers_Receptionist_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(Workers_Receptionist& a, Workers_Receptionist& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Workers_Receptionist* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Workers_Receptionist* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Workers_Receptionist* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Workers_Receptionist>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Workers_Receptionist& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Workers_Receptionist& from) {
+    Workers_Receptionist::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
-    inline Workers_Receptionist() : Workers_Receptionist(nullptr)
-    {
-    }
-    ~Workers_Receptionist() override;
-    explicit PROTOBUF_CONSTEXPR Workers_Receptionist(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
 
-    Workers_Receptionist(const Workers_Receptionist& from);
-    Workers_Receptionist(Workers_Receptionist&& from) noexcept : Workers_Receptionist()
-    {
-        *this = ::std::move(from);
-    }
-
-    inline Workers_Receptionist& operator=(const Workers_Receptionist& from)
-    {
-        CopyFrom(from);
-        return *this;
-    }
-    inline Workers_Receptionist& operator=(Workers_Receptionist&& from) noexcept
-    {
-        if (this == &from)
-            return *this;
-        if (GetOwningArena() == from.GetOwningArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-            && GetOwningArena() != nullptr
-#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
-        )
-        {
-            InternalSwap(&from);
-        }
-        else
-        {
-            CopyFrom(from);
-        }
-        return *this;
-    }
-
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor()
-    {
-        return GetDescriptor();
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor()
-    {
-        return default_instance().GetMetadata().descriptor;
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection()
-    {
-        return default_instance().GetMetadata().reflection;
-    }
-    static const Workers_Receptionist& default_instance()
-    {
-        return *internal_default_instance();
-    }
-    static inline const Workers_Receptionist* internal_default_instance()
-    {
-        return reinterpret_cast<const Workers_Receptionist*>(&_Workers_Receptionist_default_instance_);
-    }
-    static constexpr int kIndexInFileMessages = 1;
-
-    friend void swap(Workers_Receptionist& a, Workers_Receptionist& b)
-    {
-        a.Swap(&b);
-    }
-    inline void Swap(Workers_Receptionist* other)
-    {
-        if (other == this)
-            return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() != nullptr && GetOwningArena() == other->GetOwningArena())
-        {
-#else  // PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() == other->GetOwningArena())
-        {
-#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
-            InternalSwap(other);
-        }
-        else
-        {
-            ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-        }
-    }
-    void UnsafeArenaSwap(Workers_Receptionist* other)
-    {
-        if (other == this)
-            return;
-        GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-        InternalSwap(other);
-    }
-
-    // implements Message ----------------------------------------------
-
-    Workers_Receptionist* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final
-    {
-        return CreateMaybeMessage<Workers_Receptionist>(arena);
-    }
-    using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-    void CopyFrom(const Workers_Receptionist& from);
-    using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-    void MergeFrom(const Workers_Receptionist& from)
-    {
-        Workers_Receptionist::MergeImpl(*this, from);
-    }
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
   private:
-    static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-
-  public:
-    PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-    bool IsInitialized() const final;
-
-    size_t ByteSizeLong() const final;
-    const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-    uint8_t* _InternalSerialize(uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-    int GetCachedSize() const final
-    {
-        return _impl_._cached_size_.Get();
-    }
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Workers_Receptionist* other);
 
   private:
-    void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-    void SharedDtor();
-    void SetCachedSize(int size) const final;
-    void InternalSwap(Workers_Receptionist* other);
-
-  private:
-    friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-    static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName()
-    {
-        return "clinic_data.Workers.Receptionist";
-    }
-
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "clinic_data.Workers.Receptionist";
+  }
   protected:
-    explicit Workers_Receptionist(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned = false);
-
+  explicit Workers_Receptionist(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
   public:
-    static const ClassData _class_data_;
-    const ::PROTOBUF_NAMESPACE_ID::Message::ClassData* GetClassData() const final;
 
-    ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
 
-    // nested types ----------------------------------------------------
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
-    // accessors -------------------------------------------------------
+  // nested types ----------------------------------------------------
 
-    enum : int
-    {
-        kNameFieldNumber = 1,
-        kSurnameFieldNumber = 2,
-        kPeselFieldNumber = 3,
-        kGenderFieldNumber = 4,
-    };
-    // string name = 1;
-    void clear_name();
-    const std::string& name() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_name(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_name();
-    PROTOBUF_NODISCARD std::string* release_name();
-    void set_allocated_name(std::string* name);
+  // accessors -------------------------------------------------------
 
+  enum : int {
+    kNameFieldNumber = 1,
+    kSurnameFieldNumber = 2,
+    kPeselFieldNumber = 3,
+    kGenderFieldNumber = 4,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
   private:
-    const std::string& _internal_name() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-    std::string* _internal_mutable_name();
-
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
   public:
-    // string surname = 2;
-    void clear_surname();
-    const std::string& surname() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_surname(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_surname();
-    PROTOBUF_NODISCARD std::string* release_surname();
-    void set_allocated_surname(std::string* surname);
 
+  // string surname = 2;
+  void clear_surname();
+  const std::string& surname() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_surname(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_surname();
+  PROTOBUF_NODISCARD std::string* release_surname();
+  void set_allocated_surname(std::string* surname);
   private:
-    const std::string& _internal_surname() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_surname(const std::string& value);
-    std::string* _internal_mutable_surname();
-
+  const std::string& _internal_surname() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_surname(const std::string& value);
+  std::string* _internal_mutable_surname();
   public:
-    // string pesel = 3;
-    void clear_pesel();
-    const std::string& pesel() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_pesel(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_pesel();
-    PROTOBUF_NODISCARD std::string* release_pesel();
-    void set_allocated_pesel(std::string* pesel);
 
+  // string pesel = 3;
+  void clear_pesel();
+  const std::string& pesel() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_pesel(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_pesel();
+  PROTOBUF_NODISCARD std::string* release_pesel();
+  void set_allocated_pesel(std::string* pesel);
   private:
-    const std::string& _internal_pesel() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_pesel(const std::string& value);
-    std::string* _internal_mutable_pesel();
-
+  const std::string& _internal_pesel() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_pesel(const std::string& value);
+  std::string* _internal_mutable_pesel();
   public:
-    // string gender = 4;
-    void clear_gender();
-    const std::string& gender() const;
-    template <typename ArgT0 = const std::string&, typename... ArgT> void set_gender(ArgT0&& arg0, ArgT... args);
-    std::string* mutable_gender();
-    PROTOBUF_NODISCARD std::string* release_gender();
-    void set_allocated_gender(std::string* gender);
 
+  // string gender = 4;
+  void clear_gender();
+  const std::string& gender() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_gender(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_gender();
+  PROTOBUF_NODISCARD std::string* release_gender();
+  void set_allocated_gender(std::string* gender);
   private:
-    const std::string& _internal_gender() const;
-    inline PROTOBUF_ALWAYS_INLINE void _internal_set_gender(const std::string& value);
-    std::string* _internal_mutable_gender();
-
+  const std::string& _internal_gender() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_gender(const std::string& value);
+  std::string* _internal_mutable_gender();
   public:
-    // @@protoc_insertion_point(class_scope:clinic_data.Workers.Receptionist)
-  private:
-    class _Internal;
 
-    template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-    typedef void InternalArenaConstructable_;
-    typedef void DestructorSkippable_;
-    struct Impl_
-    {
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr surname_;
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pesel_;
-        ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gender_;
-        mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    };
-    union {
-        Impl_ _impl_;
-    };
-    friend struct ::TableStruct_clinic_2eproto;
+  // @@protoc_insertion_point(class_scope:clinic_data.Workers.Receptionist)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr surname_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr pesel_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gender_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_clinic_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Workers_Doctors final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Doctors)
-                                                                       */
-{
+class Workers_Doctors final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Doctors) */ {
+ public:
+  inline Workers_Doctors() : Workers_Doctors(nullptr) {}
+  ~Workers_Doctors() override;
+  explicit PROTOBUF_CONSTEXPR Workers_Doctors(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Workers_Doctors(const Workers_Doctors& from);
+  Workers_Doctors(Workers_Doctors&& from) noexcept
+    : Workers_Doctors() {
+    *this = ::std::move(from);
+  }
+
+  inline Workers_Doctors& operator=(const Workers_Doctors& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Workers_Doctors& operator=(Workers_Doctors&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Workers_Doctors& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Workers_Doctors* internal_default_instance() {
+    return reinterpret_cast<const Workers_Doctors*>(
+               &_Workers_Doctors_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(Workers_Doctors& a, Workers_Doctors& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Workers_Doctors* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Workers_Doctors* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Workers_Doctors* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Workers_Doctors>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Workers_Doctors& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Workers_Doctors& from) {
+    Workers_Doctors::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
-    inline Workers_Doctors() : Workers_Doctors(nullptr)
-    {
-    }
-    ~Workers_Doctors() override;
-    explicit PROTOBUF_CONSTEXPR Workers_Doctors(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
 
-    Workers_Doctors(const Workers_Doctors& from);
-    Workers_Doctors(Workers_Doctors&& from) noexcept : Workers_Doctors()
-    {
-        *this = ::std::move(from);
-    }
-
-    inline Workers_Doctors& operator=(const Workers_Doctors& from)
-    {
-        CopyFrom(from);
-        return *this;
-    }
-    inline Workers_Doctors& operator=(Workers_Doctors&& from) noexcept
-    {
-        if (this == &from)
-            return *this;
-        if (GetOwningArena() == from.GetOwningArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-            && GetOwningArena() != nullptr
-#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
-        )
-        {
-            InternalSwap(&from);
-        }
-        else
-        {
-            CopyFrom(from);
-        }
-        return *this;
-    }
-
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor()
-    {
-        return GetDescriptor();
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor()
-    {
-        return default_instance().GetMetadata().descriptor;
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection()
-    {
-        return default_instance().GetMetadata().reflection;
-    }
-    static const Workers_Doctors& default_instance()
-    {
-        return *internal_default_instance();
-    }
-    static inline const Workers_Doctors* internal_default_instance()
-    {
-        return reinterpret_cast<const Workers_Doctors*>(&_Workers_Doctors_default_instance_);
-    }
-    static constexpr int kIndexInFileMessages = 2;
-
-    friend void swap(Workers_Doctors& a, Workers_Doctors& b)
-    {
-        a.Swap(&b);
-    }
-    inline void Swap(Workers_Doctors* other)
-    {
-        if (other == this)
-            return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() != nullptr && GetOwningArena() == other->GetOwningArena())
-        {
-#else  // PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() == other->GetOwningArena())
-        {
-#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
-            InternalSwap(other);
-        }
-        else
-        {
-            ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-        }
-    }
-    void UnsafeArenaSwap(Workers_Doctors* other)
-    {
-        if (other == this)
-            return;
-        GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-        InternalSwap(other);
-    }
-
-    // implements Message ----------------------------------------------
-
-    Workers_Doctors* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final
-    {
-        return CreateMaybeMessage<Workers_Doctors>(arena);
-    }
-    using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-    void CopyFrom(const Workers_Doctors& from);
-    using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-    void MergeFrom(const Workers_Doctors& from)
-    {
-        Workers_Doctors::MergeImpl(*this, from);
-    }
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
   private:
-    static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-
-  public:
-    PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-    bool IsInitialized() const final;
-
-    size_t ByteSizeLong() const final;
-    const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-    uint8_t* _InternalSerialize(uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-    int GetCachedSize() const final
-    {
-        return _impl_._cached_size_.Get();
-    }
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Workers_Doctors* other);
 
   private:
-    void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-    void SharedDtor();
-    void SetCachedSize(int size) const final;
-    void InternalSwap(Workers_Doctors* other);
-
-  private:
-    friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-    static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName()
-    {
-        return "clinic_data.Workers.Doctors";
-    }
-
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "clinic_data.Workers.Doctors";
+  }
   protected:
-    explicit Workers_Doctors(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned = false);
-
+  explicit Workers_Doctors(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
   public:
-    static const ClassData _class_data_;
-    const ::PROTOBUF_NAMESPACE_ID::Message::ClassData* GetClassData() const final;
 
-    ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
 
-    // nested types ----------------------------------------------------
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
-    // accessors -------------------------------------------------------
+  // nested types ----------------------------------------------------
 
-    enum : int
-    {
-        kDoctorsFieldNumber = 1,
-    };
-    // repeated .clinic_data.Workers.Doctor doctors = 1;
-    int doctors_size() const;
+  // accessors -------------------------------------------------------
 
+  enum : int {
+    kDoctorsFieldNumber = 1,
+  };
+  // repeated .clinic_data.Workers.Doctor doctors = 1;
+  int doctors_size() const;
   private:
-    int _internal_doctors_size() const;
-
+  int _internal_doctors_size() const;
   public:
-    void clear_doctors();
-    ::clinic_data::Workers_Doctor* mutable_doctors(int index);
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Doctor>* mutable_doctors();
-
+  void clear_doctors();
+  ::clinic_data::Workers_Doctor* mutable_doctors(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Doctor >*
+      mutable_doctors();
   private:
-    const ::clinic_data::Workers_Doctor& _internal_doctors(int index) const;
-    ::clinic_data::Workers_Doctor* _internal_add_doctors();
-
+  const ::clinic_data::Workers_Doctor& _internal_doctors(int index) const;
+  ::clinic_data::Workers_Doctor* _internal_add_doctors();
   public:
-    const ::clinic_data::Workers_Doctor& doctors(int index) const;
-    ::clinic_data::Workers_Doctor* add_doctors();
-    const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Doctor>& doctors() const;
+  const ::clinic_data::Workers_Doctor& doctors(int index) const;
+  ::clinic_data::Workers_Doctor* add_doctors();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Doctor >&
+      doctors() const;
 
-    // @@protoc_insertion_point(class_scope:clinic_data.Workers.Doctors)
-  private:
-    class _Internal;
+  // @@protoc_insertion_point(class_scope:clinic_data.Workers.Doctors)
+ private:
+  class _Internal;
 
-    template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-    typedef void InternalArenaConstructable_;
-    typedef void DestructorSkippable_;
-    struct Impl_
-    {
-        ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Doctor> doctors_;
-        mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    };
-    union {
-        Impl_ _impl_;
-    };
-    friend struct ::TableStruct_clinic_2eproto;
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Doctor > doctors_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_clinic_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Workers_Receptionists final : public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Receptionists)
-                                                                             */
-{
+class Workers_Receptionists final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:clinic_data.Workers.Receptionists) */ {
+ public:
+  inline Workers_Receptionists() : Workers_Receptionists(nullptr) {}
+  ~Workers_Receptionists() override;
+  explicit PROTOBUF_CONSTEXPR Workers_Receptionists(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Workers_Receptionists(const Workers_Receptionists& from);
+  Workers_Receptionists(Workers_Receptionists&& from) noexcept
+    : Workers_Receptionists() {
+    *this = ::std::move(from);
+  }
+
+  inline Workers_Receptionists& operator=(const Workers_Receptionists& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Workers_Receptionists& operator=(Workers_Receptionists&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Workers_Receptionists& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Workers_Receptionists* internal_default_instance() {
+    return reinterpret_cast<const Workers_Receptionists*>(
+               &_Workers_Receptionists_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(Workers_Receptionists& a, Workers_Receptionists& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Workers_Receptionists* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Workers_Receptionists* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Workers_Receptionists* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Workers_Receptionists>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Workers_Receptionists& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const Workers_Receptionists& from) {
+    Workers_Receptionists::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
-    inline Workers_Receptionists() : Workers_Receptionists(nullptr)
-    {
-    }
-    ~Workers_Receptionists() override;
-    explicit PROTOBUF_CONSTEXPR Workers_Receptionists(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
 
-    Workers_Receptionists(const Workers_Receptionists& from);
-    Workers_Receptionists(Workers_Receptionists&& from) noexcept : Workers_Receptionists()
-    {
-        *this = ::std::move(from);
-    }
-
-    inline Workers_Receptionists& operator=(const Workers_Receptionists& from)
-    {
-        CopyFrom(from);
-        return *this;
-    }
-    inline Workers_Receptionists& operator=(Workers_Receptionists&& from) noexcept
-    {
-        if (this == &from)
-            return *this;
-        if (GetOwningArena() == from.GetOwningArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-            && GetOwningArena() != nullptr
-#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
-        )
-        {
-            InternalSwap(&from);
-        }
-        else
-        {
-            CopyFrom(from);
-        }
-        return *this;
-    }
-
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor()
-    {
-        return GetDescriptor();
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor()
-    {
-        return default_instance().GetMetadata().descriptor;
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection()
-    {
-        return default_instance().GetMetadata().reflection;
-    }
-    static const Workers_Receptionists& default_instance()
-    {
-        return *internal_default_instance();
-    }
-    static inline const Workers_Receptionists* internal_default_instance()
-    {
-        return reinterpret_cast<const Workers_Receptionists*>(&_Workers_Receptionists_default_instance_);
-    }
-    static constexpr int kIndexInFileMessages = 3;
-
-    friend void swap(Workers_Receptionists& a, Workers_Receptionists& b)
-    {
-        a.Swap(&b);
-    }
-    inline void Swap(Workers_Receptionists* other)
-    {
-        if (other == this)
-            return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() != nullptr && GetOwningArena() == other->GetOwningArena())
-        {
-#else  // PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() == other->GetOwningArena())
-        {
-#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
-            InternalSwap(other);
-        }
-        else
-        {
-            ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-        }
-    }
-    void UnsafeArenaSwap(Workers_Receptionists* other)
-    {
-        if (other == this)
-            return;
-        GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-        InternalSwap(other);
-    }
-
-    // implements Message ----------------------------------------------
-
-    Workers_Receptionists* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final
-    {
-        return CreateMaybeMessage<Workers_Receptionists>(arena);
-    }
-    using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-    void CopyFrom(const Workers_Receptionists& from);
-    using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-    void MergeFrom(const Workers_Receptionists& from)
-    {
-        Workers_Receptionists::MergeImpl(*this, from);
-    }
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
 
   private:
-    static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-
-  public:
-    PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-    bool IsInitialized() const final;
-
-    size_t ByteSizeLong() const final;
-    const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-    uint8_t* _InternalSerialize(uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-    int GetCachedSize() const final
-    {
-        return _impl_._cached_size_.Get();
-    }
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Workers_Receptionists* other);
 
   private:
-    void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-    void SharedDtor();
-    void SetCachedSize(int size) const final;
-    void InternalSwap(Workers_Receptionists* other);
-
-  private:
-    friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-    static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName()
-    {
-        return "clinic_data.Workers.Receptionists";
-    }
-
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "clinic_data.Workers.Receptionists";
+  }
   protected:
-    explicit Workers_Receptionists(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned = false);
-
+  explicit Workers_Receptionists(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
   public:
-    static const ClassData _class_data_;
-    const ::PROTOBUF_NAMESPACE_ID::Message::ClassData* GetClassData() const final;
 
-    ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
 
-    // nested types ----------------------------------------------------
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
-    // accessors -------------------------------------------------------
+  // nested types ----------------------------------------------------
 
-    enum : int
-    {
-        kReceptionistsFieldNumber = 1,
-    };
-    // repeated .clinic_data.Workers.Receptionist receptionists = 1;
-    int receptionists_size() const;
+  // accessors -------------------------------------------------------
 
+  enum : int {
+    kReceptionistsFieldNumber = 1,
+  };
+  // repeated .clinic_data.Workers.Receptionist receptionists = 1;
+  int receptionists_size() const;
   private:
-    int _internal_receptionists_size() const;
-
+  int _internal_receptionists_size() const;
   public:
-    void clear_receptionists();
-    ::clinic_data::Workers_Receptionist* mutable_receptionists(int index);
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Receptionist>* mutable_receptionists();
-
+  void clear_receptionists();
+  ::clinic_data::Workers_Receptionist* mutable_receptionists(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Receptionist >*
+      mutable_receptionists();
   private:
-    const ::clinic_data::Workers_Receptionist& _internal_receptionists(int index) const;
-    ::clinic_data::Workers_Receptionist* _internal_add_receptionists();
-
+  const ::clinic_data::Workers_Receptionist& _internal_receptionists(int index) const;
+  ::clinic_data::Workers_Receptionist* _internal_add_receptionists();
   public:
-    const ::clinic_data::Workers_Receptionist& receptionists(int index) const;
-    ::clinic_data::Workers_Receptionist* add_receptionists();
-    const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Receptionist>& receptionists() const;
+  const ::clinic_data::Workers_Receptionist& receptionists(int index) const;
+  ::clinic_data::Workers_Receptionist* add_receptionists();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Receptionist >&
+      receptionists() const;
 
-    // @@protoc_insertion_point(class_scope:clinic_data.Workers.Receptionists)
-  private:
-    class _Internal;
+  // @@protoc_insertion_point(class_scope:clinic_data.Workers.Receptionists)
+ private:
+  class _Internal;
 
-    template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-    typedef void InternalArenaConstructable_;
-    typedef void DestructorSkippable_;
-    struct Impl_
-    {
-        ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Receptionist> receptionists_;
-        mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    };
-    union {
-        Impl_ _impl_;
-    };
-    friend struct ::TableStruct_clinic_2eproto;
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Receptionist > receptionists_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_clinic_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Workers final : public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:clinic_data.Workers)
-                                                                                */
-{
+class Workers final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:clinic_data.Workers) */ {
+ public:
+  inline Workers() : Workers(nullptr) {}
+  explicit PROTOBUF_CONSTEXPR Workers(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Workers(const Workers& from);
+  Workers(Workers&& from) noexcept
+    : Workers() {
+    *this = ::std::move(from);
+  }
+
+  inline Workers& operator=(const Workers& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Workers& operator=(Workers&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Workers& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Workers* internal_default_instance() {
+    return reinterpret_cast<const Workers*>(
+               &_Workers_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(Workers& a, Workers& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Workers* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Workers* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Workers* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Workers>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const Workers& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const Workers& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
   public:
-    inline Workers() : Workers(nullptr)
-    {
-    }
-    explicit PROTOBUF_CONSTEXPR Workers(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-    Workers(const Workers& from);
-    Workers(Workers&& from) noexcept : Workers()
-    {
-        *this = ::std::move(from);
-    }
-
-    inline Workers& operator=(const Workers& from)
-    {
-        CopyFrom(from);
-        return *this;
-    }
-    inline Workers& operator=(Workers&& from) noexcept
-    {
-        if (this == &from)
-            return *this;
-        if (GetOwningArena() == from.GetOwningArena()
-#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-            && GetOwningArena() != nullptr
-#endif // !PROTOBUF_FORCE_COPY_IN_MOVE
-        )
-        {
-            InternalSwap(&from);
-        }
-        else
-        {
-            CopyFrom(from);
-        }
-        return *this;
-    }
-
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor()
-    {
-        return GetDescriptor();
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor()
-    {
-        return default_instance().GetMetadata().descriptor;
-    }
-    static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection()
-    {
-        return default_instance().GetMetadata().reflection;
-    }
-    static const Workers& default_instance()
-    {
-        return *internal_default_instance();
-    }
-    static inline const Workers* internal_default_instance()
-    {
-        return reinterpret_cast<const Workers*>(&_Workers_default_instance_);
-    }
-    static constexpr int kIndexInFileMessages = 4;
-
-    friend void swap(Workers& a, Workers& b)
-    {
-        a.Swap(&b);
-    }
-    inline void Swap(Workers* other)
-    {
-        if (other == this)
-            return;
-#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() != nullptr && GetOwningArena() == other->GetOwningArena())
-        {
-#else  // PROTOBUF_FORCE_COPY_IN_SWAP
-        if (GetOwningArena() == other->GetOwningArena())
-        {
-#endif // !PROTOBUF_FORCE_COPY_IN_SWAP
-            InternalSwap(other);
-        }
-        else
-        {
-            ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-        }
-    }
-    void UnsafeArenaSwap(Workers* other)
-    {
-        if (other == this)
-            return;
-        GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-        InternalSwap(other);
-    }
-
-    // implements Message ----------------------------------------------
-
-    Workers* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final
-    {
-        return CreateMaybeMessage<Workers>(arena);
-    }
-    using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-    inline void CopyFrom(const Workers& from)
-    {
-        ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
-    }
-    using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-    void MergeFrom(const Workers& from)
-    {
-        ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-    }
-
-  public:
   private:
-    friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-    static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName()
-    {
-        return "clinic_data.Workers";
-    }
-
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "clinic_data.Workers";
+  }
   protected:
-    explicit Workers(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned = false);
-
+  explicit Workers(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
   public:
-    static const ClassData _class_data_;
-    const ::PROTOBUF_NAMESPACE_ID::Message::ClassData* GetClassData() const final;
 
-    ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
 
-    // nested types ----------------------------------------------------
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
 
-    typedef Workers_Doctor Doctor;
-    typedef Workers_Receptionist Receptionist;
-    typedef Workers_Doctors Doctors;
-    typedef Workers_Receptionists Receptionists;
+  // nested types ----------------------------------------------------
 
-    // accessors -------------------------------------------------------
+  typedef Workers_Doctor Doctor;
+  typedef Workers_Receptionist Receptionist;
+  typedef Workers_Doctors Doctors;
+  typedef Workers_Receptionists Receptionists;
 
-    // @@protoc_insertion_point(class_scope:clinic_data.Workers)
-  private:
-    class _Internal;
+  // accessors -------------------------------------------------------
 
-    template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-    typedef void InternalArenaConstructable_;
-    typedef void DestructorSkippable_;
-    struct Impl_
-    {
-    };
-    friend struct ::TableStruct_clinic_2eproto;
+  // @@protoc_insertion_point(class_scope:clinic_data.Workers)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+  };
+  friend struct ::TableStruct_clinic_2eproto;
 };
 // ===================================================================
+
 
 // ===================================================================
 
 #ifdef __GNUC__
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wstrict-aliasing"
-#endif // __GNUC__
+  #pragma GCC diagnostic push
+  #pragma GCC diagnostic ignored "-Wstrict-aliasing"
+#endif  // __GNUC__
 // Workers_Doctor
 
 // string name = 1;
-inline void Workers_Doctor::clear_name()
-{
-    _impl_.name_.ClearToEmpty();
+inline void Workers_Doctor::clear_name() {
+  _impl_.name_.ClearToEmpty();
 }
-inline const std::string& Workers_Doctor::name() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.name)
-    return _internal_name();
+inline const std::string& Workers_Doctor::name() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.name)
+  return _internal_name();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Doctor::set_name(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.name_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.name)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Doctor::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.name)
 }
-inline std::string* Workers_Doctor::mutable_name()
-{
-    std::string* _s = _internal_mutable_name();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.name)
-    return _s;
+inline std::string* Workers_Doctor::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.name)
+  return _s;
 }
-inline const std::string& Workers_Doctor::_internal_name() const
-{
-    return _impl_.name_.Get();
+inline const std::string& Workers_Doctor::_internal_name() const {
+  return _impl_.name_.Get();
 }
-inline void Workers_Doctor::_internal_set_name(const std::string& value)
-{
-
-    _impl_.name_.Set(value, GetArenaForAllocation());
+inline void Workers_Doctor::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::_internal_mutable_name()
-{
-
-    return _impl_.name_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Doctor::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::release_name()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.name)
-    return _impl_.name_.Release();
+inline std::string* Workers_Doctor::release_name() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.name)
+  return _impl_.name_.Release();
 }
-inline void Workers_Doctor::set_allocated_name(std::string* name)
-{
-    if (name != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+inline void Workers_Doctor::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.name_.IsDefault())
-    {
-        _impl_.name_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.name)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.name)
 }
 
 // string surname = 2;
-inline void Workers_Doctor::clear_surname()
-{
-    _impl_.surname_.ClearToEmpty();
+inline void Workers_Doctor::clear_surname() {
+  _impl_.surname_.ClearToEmpty();
 }
-inline const std::string& Workers_Doctor::surname() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.surname)
-    return _internal_surname();
+inline const std::string& Workers_Doctor::surname() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.surname)
+  return _internal_surname();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Doctor::set_surname(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.surname_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.surname)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Doctor::set_surname(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.surname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.surname)
 }
-inline std::string* Workers_Doctor::mutable_surname()
-{
-    std::string* _s = _internal_mutable_surname();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.surname)
-    return _s;
+inline std::string* Workers_Doctor::mutable_surname() {
+  std::string* _s = _internal_mutable_surname();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.surname)
+  return _s;
 }
-inline const std::string& Workers_Doctor::_internal_surname() const
-{
-    return _impl_.surname_.Get();
+inline const std::string& Workers_Doctor::_internal_surname() const {
+  return _impl_.surname_.Get();
 }
-inline void Workers_Doctor::_internal_set_surname(const std::string& value)
-{
-
-    _impl_.surname_.Set(value, GetArenaForAllocation());
+inline void Workers_Doctor::_internal_set_surname(const std::string& value) {
+  
+  _impl_.surname_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::_internal_mutable_surname()
-{
-
-    return _impl_.surname_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Doctor::_internal_mutable_surname() {
+  
+  return _impl_.surname_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::release_surname()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.surname)
-    return _impl_.surname_.Release();
+inline std::string* Workers_Doctor::release_surname() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.surname)
+  return _impl_.surname_.Release();
 }
-inline void Workers_Doctor::set_allocated_surname(std::string* surname)
-{
-    if (surname != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.surname_.SetAllocated(surname, GetArenaForAllocation());
+inline void Workers_Doctor::set_allocated_surname(std::string* surname) {
+  if (surname != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.surname_.SetAllocated(surname, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.surname_.IsDefault())
-    {
-        _impl_.surname_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.surname_.IsDefault()) {
+    _impl_.surname_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.surname)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.surname)
 }
 
 // string pesel = 3;
-inline void Workers_Doctor::clear_pesel()
-{
-    _impl_.pesel_.ClearToEmpty();
+inline void Workers_Doctor::clear_pesel() {
+  _impl_.pesel_.ClearToEmpty();
 }
-inline const std::string& Workers_Doctor::pesel() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.pesel)
-    return _internal_pesel();
+inline const std::string& Workers_Doctor::pesel() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.pesel)
+  return _internal_pesel();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Doctor::set_pesel(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.pesel_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.pesel)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Doctor::set_pesel(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.pesel_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.pesel)
 }
-inline std::string* Workers_Doctor::mutable_pesel()
-{
-    std::string* _s = _internal_mutable_pesel();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.pesel)
-    return _s;
+inline std::string* Workers_Doctor::mutable_pesel() {
+  std::string* _s = _internal_mutable_pesel();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.pesel)
+  return _s;
 }
-inline const std::string& Workers_Doctor::_internal_pesel() const
-{
-    return _impl_.pesel_.Get();
+inline const std::string& Workers_Doctor::_internal_pesel() const {
+  return _impl_.pesel_.Get();
 }
-inline void Workers_Doctor::_internal_set_pesel(const std::string& value)
-{
-
-    _impl_.pesel_.Set(value, GetArenaForAllocation());
+inline void Workers_Doctor::_internal_set_pesel(const std::string& value) {
+  
+  _impl_.pesel_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::_internal_mutable_pesel()
-{
-
-    return _impl_.pesel_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Doctor::_internal_mutable_pesel() {
+  
+  return _impl_.pesel_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::release_pesel()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.pesel)
-    return _impl_.pesel_.Release();
+inline std::string* Workers_Doctor::release_pesel() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.pesel)
+  return _impl_.pesel_.Release();
 }
-inline void Workers_Doctor::set_allocated_pesel(std::string* pesel)
-{
-    if (pesel != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.pesel_.SetAllocated(pesel, GetArenaForAllocation());
+inline void Workers_Doctor::set_allocated_pesel(std::string* pesel) {
+  if (pesel != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.pesel_.SetAllocated(pesel, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.pesel_.IsDefault())
-    {
-        _impl_.pesel_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.pesel_.IsDefault()) {
+    _impl_.pesel_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.pesel)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.pesel)
 }
 
 // string gender = 4;
-inline void Workers_Doctor::clear_gender()
-{
-    _impl_.gender_.ClearToEmpty();
+inline void Workers_Doctor::clear_gender() {
+  _impl_.gender_.ClearToEmpty();
 }
-inline const std::string& Workers_Doctor::gender() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.gender)
-    return _internal_gender();
+inline const std::string& Workers_Doctor::gender() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctor.gender)
+  return _internal_gender();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Doctor::set_gender(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.gender_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.gender)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Doctor::set_gender(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.gender_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Doctor.gender)
 }
-inline std::string* Workers_Doctor::mutable_gender()
-{
-    std::string* _s = _internal_mutable_gender();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.gender)
-    return _s;
+inline std::string* Workers_Doctor::mutable_gender() {
+  std::string* _s = _internal_mutable_gender();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctor.gender)
+  return _s;
 }
-inline const std::string& Workers_Doctor::_internal_gender() const
-{
-    return _impl_.gender_.Get();
+inline const std::string& Workers_Doctor::_internal_gender() const {
+  return _impl_.gender_.Get();
 }
-inline void Workers_Doctor::_internal_set_gender(const std::string& value)
-{
-
-    _impl_.gender_.Set(value, GetArenaForAllocation());
+inline void Workers_Doctor::_internal_set_gender(const std::string& value) {
+  
+  _impl_.gender_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::_internal_mutable_gender()
-{
-
-    return _impl_.gender_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Doctor::_internal_mutable_gender() {
+  
+  return _impl_.gender_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Doctor::release_gender()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.gender)
-    return _impl_.gender_.Release();
+inline std::string* Workers_Doctor::release_gender() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Doctor.gender)
+  return _impl_.gender_.Release();
 }
-inline void Workers_Doctor::set_allocated_gender(std::string* gender)
-{
-    if (gender != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.gender_.SetAllocated(gender, GetArenaForAllocation());
+inline void Workers_Doctor::set_allocated_gender(std::string* gender) {
+  if (gender != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.gender_.SetAllocated(gender, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.gender_.IsDefault())
-    {
-        _impl_.gender_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.gender_.IsDefault()) {
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.gender)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Doctor.gender)
 }
 
 // -------------------------------------------------------------------
@@ -1323,243 +1126,203 @@ inline void Workers_Doctor::set_allocated_gender(std::string* gender)
 // Workers_Receptionist
 
 // string name = 1;
-inline void Workers_Receptionist::clear_name()
-{
-    _impl_.name_.ClearToEmpty();
+inline void Workers_Receptionist::clear_name() {
+  _impl_.name_.ClearToEmpty();
 }
-inline const std::string& Workers_Receptionist::name() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.name)
-    return _internal_name();
+inline const std::string& Workers_Receptionist::name() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.name)
+  return _internal_name();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Receptionist::set_name(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.name_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.name)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Receptionist::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.name)
 }
-inline std::string* Workers_Receptionist::mutable_name()
-{
-    std::string* _s = _internal_mutable_name();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.name)
-    return _s;
+inline std::string* Workers_Receptionist::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.name)
+  return _s;
 }
-inline const std::string& Workers_Receptionist::_internal_name() const
-{
-    return _impl_.name_.Get();
+inline const std::string& Workers_Receptionist::_internal_name() const {
+  return _impl_.name_.Get();
 }
-inline void Workers_Receptionist::_internal_set_name(const std::string& value)
-{
-
-    _impl_.name_.Set(value, GetArenaForAllocation());
+inline void Workers_Receptionist::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::_internal_mutable_name()
-{
-
-    return _impl_.name_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Receptionist::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::release_name()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.name)
-    return _impl_.name_.Release();
+inline std::string* Workers_Receptionist::release_name() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.name)
+  return _impl_.name_.Release();
 }
-inline void Workers_Receptionist::set_allocated_name(std::string* name)
-{
-    if (name != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+inline void Workers_Receptionist::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.name_.IsDefault())
-    {
-        _impl_.name_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.name)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.name)
 }
 
 // string surname = 2;
-inline void Workers_Receptionist::clear_surname()
-{
-    _impl_.surname_.ClearToEmpty();
+inline void Workers_Receptionist::clear_surname() {
+  _impl_.surname_.ClearToEmpty();
 }
-inline const std::string& Workers_Receptionist::surname() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.surname)
-    return _internal_surname();
+inline const std::string& Workers_Receptionist::surname() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.surname)
+  return _internal_surname();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Receptionist::set_surname(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.surname_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.surname)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Receptionist::set_surname(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.surname_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.surname)
 }
-inline std::string* Workers_Receptionist::mutable_surname()
-{
-    std::string* _s = _internal_mutable_surname();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.surname)
-    return _s;
+inline std::string* Workers_Receptionist::mutable_surname() {
+  std::string* _s = _internal_mutable_surname();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.surname)
+  return _s;
 }
-inline const std::string& Workers_Receptionist::_internal_surname() const
-{
-    return _impl_.surname_.Get();
+inline const std::string& Workers_Receptionist::_internal_surname() const {
+  return _impl_.surname_.Get();
 }
-inline void Workers_Receptionist::_internal_set_surname(const std::string& value)
-{
-
-    _impl_.surname_.Set(value, GetArenaForAllocation());
+inline void Workers_Receptionist::_internal_set_surname(const std::string& value) {
+  
+  _impl_.surname_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::_internal_mutable_surname()
-{
-
-    return _impl_.surname_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Receptionist::_internal_mutable_surname() {
+  
+  return _impl_.surname_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::release_surname()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.surname)
-    return _impl_.surname_.Release();
+inline std::string* Workers_Receptionist::release_surname() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.surname)
+  return _impl_.surname_.Release();
 }
-inline void Workers_Receptionist::set_allocated_surname(std::string* surname)
-{
-    if (surname != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.surname_.SetAllocated(surname, GetArenaForAllocation());
+inline void Workers_Receptionist::set_allocated_surname(std::string* surname) {
+  if (surname != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.surname_.SetAllocated(surname, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.surname_.IsDefault())
-    {
-        _impl_.surname_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.surname_.IsDefault()) {
+    _impl_.surname_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.surname)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.surname)
 }
 
 // string pesel = 3;
-inline void Workers_Receptionist::clear_pesel()
-{
-    _impl_.pesel_.ClearToEmpty();
+inline void Workers_Receptionist::clear_pesel() {
+  _impl_.pesel_.ClearToEmpty();
 }
-inline const std::string& Workers_Receptionist::pesel() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.pesel)
-    return _internal_pesel();
+inline const std::string& Workers_Receptionist::pesel() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.pesel)
+  return _internal_pesel();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Receptionist::set_pesel(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.pesel_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.pesel)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Receptionist::set_pesel(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.pesel_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.pesel)
 }
-inline std::string* Workers_Receptionist::mutable_pesel()
-{
-    std::string* _s = _internal_mutable_pesel();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.pesel)
-    return _s;
+inline std::string* Workers_Receptionist::mutable_pesel() {
+  std::string* _s = _internal_mutable_pesel();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.pesel)
+  return _s;
 }
-inline const std::string& Workers_Receptionist::_internal_pesel() const
-{
-    return _impl_.pesel_.Get();
+inline const std::string& Workers_Receptionist::_internal_pesel() const {
+  return _impl_.pesel_.Get();
 }
-inline void Workers_Receptionist::_internal_set_pesel(const std::string& value)
-{
-
-    _impl_.pesel_.Set(value, GetArenaForAllocation());
+inline void Workers_Receptionist::_internal_set_pesel(const std::string& value) {
+  
+  _impl_.pesel_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::_internal_mutable_pesel()
-{
-
-    return _impl_.pesel_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Receptionist::_internal_mutable_pesel() {
+  
+  return _impl_.pesel_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::release_pesel()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.pesel)
-    return _impl_.pesel_.Release();
+inline std::string* Workers_Receptionist::release_pesel() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.pesel)
+  return _impl_.pesel_.Release();
 }
-inline void Workers_Receptionist::set_allocated_pesel(std::string* pesel)
-{
-    if (pesel != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.pesel_.SetAllocated(pesel, GetArenaForAllocation());
+inline void Workers_Receptionist::set_allocated_pesel(std::string* pesel) {
+  if (pesel != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.pesel_.SetAllocated(pesel, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.pesel_.IsDefault())
-    {
-        _impl_.pesel_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.pesel_.IsDefault()) {
+    _impl_.pesel_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.pesel)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.pesel)
 }
 
 // string gender = 4;
-inline void Workers_Receptionist::clear_gender()
-{
-    _impl_.gender_.ClearToEmpty();
+inline void Workers_Receptionist::clear_gender() {
+  _impl_.gender_.ClearToEmpty();
 }
-inline const std::string& Workers_Receptionist::gender() const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.gender)
-    return _internal_gender();
+inline const std::string& Workers_Receptionist::gender() const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionist.gender)
+  return _internal_gender();
 }
 template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE void Workers_Receptionist::set_gender(ArgT0&& arg0, ArgT... args)
-{
-
-    _impl_.gender_.Set(static_cast<ArgT0&&>(arg0), args..., GetArenaForAllocation());
-    // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.gender)
+inline PROTOBUF_ALWAYS_INLINE
+void Workers_Receptionist::set_gender(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.gender_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:clinic_data.Workers.Receptionist.gender)
 }
-inline std::string* Workers_Receptionist::mutable_gender()
-{
-    std::string* _s = _internal_mutable_gender();
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.gender)
-    return _s;
+inline std::string* Workers_Receptionist::mutable_gender() {
+  std::string* _s = _internal_mutable_gender();
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionist.gender)
+  return _s;
 }
-inline const std::string& Workers_Receptionist::_internal_gender() const
-{
-    return _impl_.gender_.Get();
+inline const std::string& Workers_Receptionist::_internal_gender() const {
+  return _impl_.gender_.Get();
 }
-inline void Workers_Receptionist::_internal_set_gender(const std::string& value)
-{
-
-    _impl_.gender_.Set(value, GetArenaForAllocation());
+inline void Workers_Receptionist::_internal_set_gender(const std::string& value) {
+  
+  _impl_.gender_.Set(value, GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::_internal_mutable_gender()
-{
-
-    return _impl_.gender_.Mutable(GetArenaForAllocation());
+inline std::string* Workers_Receptionist::_internal_mutable_gender() {
+  
+  return _impl_.gender_.Mutable(GetArenaForAllocation());
 }
-inline std::string* Workers_Receptionist::release_gender()
-{
-    // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.gender)
-    return _impl_.gender_.Release();
+inline std::string* Workers_Receptionist::release_gender() {
+  // @@protoc_insertion_point(field_release:clinic_data.Workers.Receptionist.gender)
+  return _impl_.gender_.Release();
 }
-inline void Workers_Receptionist::set_allocated_gender(std::string* gender)
-{
-    if (gender != nullptr)
-    {
-    }
-    else
-    {
-    }
-    _impl_.gender_.SetAllocated(gender, GetArenaForAllocation());
+inline void Workers_Receptionist::set_allocated_gender(std::string* gender) {
+  if (gender != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.gender_.SetAllocated(gender, GetArenaForAllocation());
 #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    if (_impl_.gender_.IsDefault())
-    {
-        _impl_.gender_.Set("", GetArenaForAllocation());
-    }
+  if (_impl_.gender_.IsDefault()) {
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-       // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.gender)
+  // @@protoc_insertion_point(field_set_allocated:clinic_data.Workers.Receptionist.gender)
 }
 
 // -------------------------------------------------------------------
@@ -1567,51 +1330,43 @@ inline void Workers_Receptionist::set_allocated_gender(std::string* gender)
 // Workers_Doctors
 
 // repeated .clinic_data.Workers.Doctor doctors = 1;
-inline int Workers_Doctors::_internal_doctors_size() const
-{
-    return _impl_.doctors_.size();
+inline int Workers_Doctors::_internal_doctors_size() const {
+  return _impl_.doctors_.size();
 }
-inline int Workers_Doctors::doctors_size() const
-{
-    return _internal_doctors_size();
+inline int Workers_Doctors::doctors_size() const {
+  return _internal_doctors_size();
 }
-inline void Workers_Doctors::clear_doctors()
-{
-    _impl_.doctors_.Clear();
+inline void Workers_Doctors::clear_doctors() {
+  _impl_.doctors_.Clear();
 }
-inline ::clinic_data::Workers_Doctor* Workers_Doctors::mutable_doctors(int index)
-{
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctors.doctors)
-    return _impl_.doctors_.Mutable(index);
+inline ::clinic_data::Workers_Doctor* Workers_Doctors::mutable_doctors(int index) {
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Doctors.doctors)
+  return _impl_.doctors_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Doctor>* Workers_Doctors::mutable_doctors()
-{
-    // @@protoc_insertion_point(field_mutable_list:clinic_data.Workers.Doctors.doctors)
-    return &_impl_.doctors_;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Doctor >*
+Workers_Doctors::mutable_doctors() {
+  // @@protoc_insertion_point(field_mutable_list:clinic_data.Workers.Doctors.doctors)
+  return &_impl_.doctors_;
 }
-inline const ::clinic_data::Workers_Doctor& Workers_Doctors::_internal_doctors(int index) const
-{
-    return _impl_.doctors_.Get(index);
+inline const ::clinic_data::Workers_Doctor& Workers_Doctors::_internal_doctors(int index) const {
+  return _impl_.doctors_.Get(index);
 }
-inline const ::clinic_data::Workers_Doctor& Workers_Doctors::doctors(int index) const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctors.doctors)
-    return _internal_doctors(index);
+inline const ::clinic_data::Workers_Doctor& Workers_Doctors::doctors(int index) const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Doctors.doctors)
+  return _internal_doctors(index);
 }
-inline ::clinic_data::Workers_Doctor* Workers_Doctors::_internal_add_doctors()
-{
-    return _impl_.doctors_.Add();
+inline ::clinic_data::Workers_Doctor* Workers_Doctors::_internal_add_doctors() {
+  return _impl_.doctors_.Add();
 }
-inline ::clinic_data::Workers_Doctor* Workers_Doctors::add_doctors()
-{
-    ::clinic_data::Workers_Doctor* _add = _internal_add_doctors();
-    // @@protoc_insertion_point(field_add:clinic_data.Workers.Doctors.doctors)
-    return _add;
+inline ::clinic_data::Workers_Doctor* Workers_Doctors::add_doctors() {
+  ::clinic_data::Workers_Doctor* _add = _internal_add_doctors();
+  // @@protoc_insertion_point(field_add:clinic_data.Workers.Doctors.doctors)
+  return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Doctor>& Workers_Doctors::doctors() const
-{
-    // @@protoc_insertion_point(field_list:clinic_data.Workers.Doctors.doctors)
-    return _impl_.doctors_;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Doctor >&
+Workers_Doctors::doctors() const {
+  // @@protoc_insertion_point(field_list:clinic_data.Workers.Doctors.doctors)
+  return _impl_.doctors_;
 }
 
 // -------------------------------------------------------------------
@@ -1619,53 +1374,43 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Do
 // Workers_Receptionists
 
 // repeated .clinic_data.Workers.Receptionist receptionists = 1;
-inline int Workers_Receptionists::_internal_receptionists_size() const
-{
-    return _impl_.receptionists_.size();
+inline int Workers_Receptionists::_internal_receptionists_size() const {
+  return _impl_.receptionists_.size();
 }
-inline int Workers_Receptionists::receptionists_size() const
-{
-    return _internal_receptionists_size();
+inline int Workers_Receptionists::receptionists_size() const {
+  return _internal_receptionists_size();
 }
-inline void Workers_Receptionists::clear_receptionists()
-{
-    _impl_.receptionists_.Clear();
+inline void Workers_Receptionists::clear_receptionists() {
+  _impl_.receptionists_.Clear();
 }
-inline ::clinic_data::Workers_Receptionist* Workers_Receptionists::mutable_receptionists(int index)
-{
-    // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionists.receptionists)
-    return _impl_.receptionists_.Mutable(index);
+inline ::clinic_data::Workers_Receptionist* Workers_Receptionists::mutable_receptionists(int index) {
+  // @@protoc_insertion_point(field_mutable:clinic_data.Workers.Receptionists.receptionists)
+  return _impl_.receptionists_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Receptionist>* Workers_Receptionists::
-    mutable_receptionists()
-{
-    // @@protoc_insertion_point(field_mutable_list:clinic_data.Workers.Receptionists.receptionists)
-    return &_impl_.receptionists_;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Receptionist >*
+Workers_Receptionists::mutable_receptionists() {
+  // @@protoc_insertion_point(field_mutable_list:clinic_data.Workers.Receptionists.receptionists)
+  return &_impl_.receptionists_;
 }
-inline const ::clinic_data::Workers_Receptionist& Workers_Receptionists::_internal_receptionists(int index) const
-{
-    return _impl_.receptionists_.Get(index);
+inline const ::clinic_data::Workers_Receptionist& Workers_Receptionists::_internal_receptionists(int index) const {
+  return _impl_.receptionists_.Get(index);
 }
-inline const ::clinic_data::Workers_Receptionist& Workers_Receptionists::receptionists(int index) const
-{
-    // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionists.receptionists)
-    return _internal_receptionists(index);
+inline const ::clinic_data::Workers_Receptionist& Workers_Receptionists::receptionists(int index) const {
+  // @@protoc_insertion_point(field_get:clinic_data.Workers.Receptionists.receptionists)
+  return _internal_receptionists(index);
 }
-inline ::clinic_data::Workers_Receptionist* Workers_Receptionists::_internal_add_receptionists()
-{
-    return _impl_.receptionists_.Add();
+inline ::clinic_data::Workers_Receptionist* Workers_Receptionists::_internal_add_receptionists() {
+  return _impl_.receptionists_.Add();
 }
-inline ::clinic_data::Workers_Receptionist* Workers_Receptionists::add_receptionists()
-{
-    ::clinic_data::Workers_Receptionist* _add = _internal_add_receptionists();
-    // @@protoc_insertion_point(field_add:clinic_data.Workers.Receptionists.receptionists)
-    return _add;
+inline ::clinic_data::Workers_Receptionist* Workers_Receptionists::add_receptionists() {
+  ::clinic_data::Workers_Receptionist* _add = _internal_add_receptionists();
+  // @@protoc_insertion_point(field_add:clinic_data.Workers.Receptionists.receptionists)
+  return _add;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Receptionist>& Workers_Receptionists::
-    receptionists() const
-{
-    // @@protoc_insertion_point(field_list:clinic_data.Workers.Receptionists.receptionists)
-    return _impl_.receptionists_;
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::clinic_data::Workers_Receptionist >&
+Workers_Receptionists::receptionists() const {
+  // @@protoc_insertion_point(field_list:clinic_data.Workers.Receptionists.receptionists)
+  return _impl_.receptionists_;
 }
 
 // -------------------------------------------------------------------
@@ -1673,8 +1418,8 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Re
 // Workers
 
 #ifdef __GNUC__
-#pragma GCC diagnostic pop
-#endif // __GNUC__
+  #pragma GCC diagnostic pop
+#endif  // __GNUC__
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -1682,12 +1427,13 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<::clinic_data::Workers_Re
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
-} // namespace clinic_data
+}  // namespace clinic_data
 
 // @@protoc_insertion_point(global_scope)
 
 #include <google/protobuf/port_undef.inc>
-#endif // GOOGLE_PROTOBUF_INCLUDED_GOOGLE_PROTOBUF_INCLUDED_clinic_2eproto
+#endif  // GOOGLE_PROTOBUF_INCLUDED_GOOGLE_PROTOBUF_INCLUDED_clinic_2eproto

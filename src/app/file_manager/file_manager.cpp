@@ -6,6 +6,11 @@ FileManager::FileManager(const std::filesystem::path& path, const std::string& f
     : file_name_(file_name),
       file_path_(std::filesystem::absolute(std::filesystem::current_path().parent_path() / path / file_name))
 {
+    if (!std::filesystem::exists(file_path_))
+    {
+        file_path_ = std::filesystem::absolute(std::filesystem::current_path() / path / file_name);
+    }
+
     switch (mode)
     {
     case FileMode::Input:

@@ -2,8 +2,7 @@ syntax = "proto3";
 
 package clinic_data;
 
-message Workers
-{
+message Workers {
   message Doctor {
     string name = 1;
     string surname = 2;
@@ -18,11 +17,11 @@ message Workers
     string gender = 4;
   }
 
-  message Doctors{
+  message Doctors {
     repeated Doctor doctors = 1;
   }
 
-  message Receptionists{
+  message Receptionists {
     repeated Receptionist receptionists = 1;
   }
 }
