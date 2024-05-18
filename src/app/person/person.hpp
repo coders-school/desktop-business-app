@@ -37,6 +37,7 @@ class Person
     std::string getSurname() const;
     void setPesel(const std::string& pesel, const Gender gender);
     std::string getPesel() const;
+    std::string getGender() const;
     bool validatePesel(const std::string& pesel) const;
     void setAddress(const Address& address);
     Address getAddress() const;

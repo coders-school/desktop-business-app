@@ -5,7 +5,9 @@
 enum class Gender
 {
     Male,
-    Female
+    Female,
+    Unknown
 };
 
 std::string toString(const Gender gender);
+Gender toEnum(const std::string&);
