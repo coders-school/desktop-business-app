@@ -50,6 +50,11 @@ std::string Person::getPesel() const
     return pesel_;
 }
 
+std::string Person::getGender() const
+{
+    return toString(gender_);
+}
+
 bool Person::validatePesel(const std::string& pesel, const Gender gender) const
 {
     if (not hasValidSize(pesel) or not hasValidDate(pesel) or not hasValidControlNumber(pesel) or
