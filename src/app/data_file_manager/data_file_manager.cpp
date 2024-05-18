@@ -18,9 +18,9 @@ void DataFileManager::promptReceptionist(clinic_data::Workers::Receptionist* new
     new_receptionist->set_gender(receptionist_data->getGender());
 }
 
-void DataFileManager::addDoctorToDatabase(const std::shared_ptr<Doctor>& new_doctor)
+void DataFileManager::addDoctorToDatabase(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Doctor>& new_doctor)
 {
-    FileManager file_manager(PATH::WORKERS, "doctors.proto", FileManager::FileMode::OutputAppend);
+    FileManager file_manager(path, file_name, FileManager::FileMode::OutputAppend);
     auto& output_file = file_manager.getFileRef();
     clinic_data::Workers::Doctors doctor_data;
     DataFileManager::promptDoctor(doctor_data.add_doctors(), new_doctor);
@@ -29,9 +29,9 @@ void DataFileManager::addDoctorToDatabase(const std::shared_ptr<Doctor>& new_doc
     google::protobuf::ShutdownProtobufLibrary();
 }
 
-void DataFileManager::addReceptionistToDatabase(const std::shared_ptr<Receptionist>& new_receptionist)
+void DataFileManager::addReceptionistToDatabase(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Receptionist>& new_receptionist)
 {
-    FileManager file_manager(PATH::WORKERS, "receptionists.proto", FileManager::FileMode::OutputAppend);
+    FileManager file_manager(path, file_name, FileManager::FileMode::OutputAppend);
     auto& output_file = file_manager.getFileRef();
     clinic_data::Workers::Receptionists receptionist_data;
     DataFileManager::promptReceptionist(receptionist_data.add_receptionists(), new_receptionist);
@@ -40,13 +40,13 @@ void DataFileManager::addReceptionistToDatabase(const std::shared_ptr<Receptioni
     google::protobuf::ShutdownProtobufLibrary();
 }
 
-void DataFileManager::removeDoctorFromFile(const std::shared_ptr<Doctor>& doctor)
+void DataFileManager::removeDoctorFromFile(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Doctor>& doctor)
 {
 
     clinic_data::Workers::Doctors doctor_data;
 
     {
-        FileManager file_manager(PATH::WORKERS, "doctors.proto", FileManager::FileMode::Input);
+        FileManager file_manager(path, file_name, FileManager::FileMode::Input);
         auto& input_file = file_manager.getFileRef();
         if(!doctor_data.ParseFromIstream(&input_file))
         {
@@ -61,19 +61,19 @@ void DataFileManager::removeDoctorFromFile(const std::shared_ptr<Doctor>& doctor
             }
         }
     }
-    FileManager file_manager(PATH::WORKERS, "doctors.proto", FileManager::FileMode::OutputTruncate);
+    FileManager file_manager(path, file_name, FileManager::FileMode::OutputTruncate);
     auto& output_file = file_manager.getFileRef();
     doctor_data.SerializeToOstream(&output_file);
 
     google::protobuf::ShutdownProtobufLibrary();
 }
 
-void DataFileManager::removeReceptionistFromFile(const std::shared_ptr<Receptionist>& receptionist)
+void DataFileManager::removeReceptionistFromFile(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Receptionist>& receptionist)
 {
     clinic_data::Workers::Receptionists receptionist_data;
 
     {
-        FileManager file_manager(PATH::WORKERS, "receptionists.proto", FileManager::FileMode::Input);
+        FileManager file_manager(path, file_name, FileManager::FileMode::Input);
         auto& input_file = file_manager.getFileRef();
         if(!receptionist_data.ParseFromIstream(&input_file))
         {
@@ -88,7 +88,7 @@ void DataFileManager::removeReceptionistFromFile(const std::shared_ptr<Reception
             }
         }
     }
-    FileManager file_manager(PATH::WORKERS, "receptionists.proto", FileManager::FileMode::OutputTruncate);
+    FileManager file_manager(path, file_name, FileManager::FileMode::OutputTruncate);
     auto& output_file = file_manager.getFileRef();
     receptionist_data.SerializeToOstream(&output_file);
 
@@ -134,4 +134,33 @@ void DataFileManager::loadAllDataForWorkers()
 {
     DataFileManager::loadDataForDoctors();
     DataFileManager::loadDataForReceptionists();
+}
+
+std::string DataFileManager::printDoctors(const std::filesystem::path& path, const std::string& file_name)
+{
+    std::string temp{};
+    FileManager file_manager(path, file_name, FileManager::FileMode::Input);
+    auto& input_file = file_manager.getFileRef();
+    clinic_data::Workers::Doctors doctor;
+    doctor.ParseFromIstream(&input_file);
+    for(int i = 0; i < doctor.doctors_size(); i++)
+    {
+        temp += "Doctor: " + doctor.doctors(i).name() + " " + doctor.doctors(i).surname() + " " + doctor.doctors(i).pesel() + " " + doctor.doctors(i).gender() + "\n";
+    }
+    return temp;
+}
+
+std::string DataFileManager::printReceptionists(const std::filesystem::path& path, const std::string& file_name)
+{
+    std::string temp{};
+    FileManager file_manager(path, file_name, FileManager::FileMode::Input);
+    auto& input_file = file_manager.getFileRef();
+    clinic_data::Workers::Receptionists receptionist;
+    receptionist.ParseFromIstream(&input_file);
+
+    for(int i = 0; i < receptionist.receptionists_size(); i++)
+    {
+        temp += "Receptionist: " + receptionist.receptionists(i).name() + " " + receptionist.receptionists(i).surname() + " " + receptionist.receptionists(i).pesel() + " " + receptionist.receptionists(i).gender() + "\n";
+    }
+    return temp;
 }
