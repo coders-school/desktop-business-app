@@ -1,6 +1,6 @@
 #include "data_file_manager.hpp"
-#include "paths.hpp"
 #include "gender.hpp"
+#include "paths.hpp"
 
 void DataFileManager::promptDoctor(clinic_data::Workers::Doctor* new_doctor, const std::shared_ptr<Doctor>& doctor_data)
 {
@@ -10,7 +10,8 @@ void DataFileManager::promptDoctor(clinic_data::Workers::Doctor* new_doctor, con
     new_doctor->set_gender(doctor_data->getGender());
 }
 
-void DataFileManager::promptReceptionist(clinic_data::Workers::Receptionist* new_receptionist, const std::shared_ptr<Receptionist>& receptionist_data)
+void DataFileManager::promptReceptionist(clinic_data::Workers::Receptionist* new_receptionist,
+                                         const std::shared_ptr<Receptionist>& receptionist_data)
 {
     new_receptionist->set_name(receptionist_data->getName());
     new_receptionist->set_surname(receptionist_data->getSurname());
@@ -18,7 +19,8 @@ void DataFileManager::promptReceptionist(clinic_data::Workers::Receptionist* new
     new_receptionist->set_gender(receptionist_data->getGender());
 }
 
-void DataFileManager::addDoctorToDatabase(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Doctor>& new_doctor)
+void DataFileManager::addDoctorToDatabase(const std::filesystem::path& path, const std::string& file_name,
+                                          const std::shared_ptr<Doctor>& new_doctor)
 {
     FileManager file_manager(path, file_name, FileManager::FileMode::OutputAppend);
     auto& output_file = file_manager.getFileRef();
@@ -29,7 +31,8 @@ void DataFileManager::addDoctorToDatabase(const std::filesystem::path& path, con
     google::protobuf::ShutdownProtobufLibrary();
 }
 
-void DataFileManager::addReceptionistToDatabase(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Receptionist>& new_receptionist)
+void DataFileManager::addReceptionistToDatabase(const std::filesystem::path& path, const std::string& file_name,
+                                                const std::shared_ptr<Receptionist>& new_receptionist)
 {
     FileManager file_manager(path, file_name, FileManager::FileMode::OutputAppend);
     auto& output_file = file_manager.getFileRef();
@@ -40,7 +43,8 @@ void DataFileManager::addReceptionistToDatabase(const std::filesystem::path& pat
     google::protobuf::ShutdownProtobufLibrary();
 }
 
-void DataFileManager::removeDoctorFromFile(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Doctor>& doctor)
+void DataFileManager::removeDoctorFromFile(const std::filesystem::path& path, const std::string& file_name,
+                                           const std::shared_ptr<Doctor>& doctor)
 {
 
     clinic_data::Workers::Doctors doctor_data;
@@ -48,13 +52,13 @@ void DataFileManager::removeDoctorFromFile(const std::filesystem::path& path, co
     {
         FileManager file_manager(path, file_name, FileManager::FileMode::Input);
         auto& input_file = file_manager.getFileRef();
-        if(!doctor_data.ParseFromIstream(&input_file))
+        if (!doctor_data.ParseFromIstream(&input_file))
         {
             throw std::invalid_argument("Error while parsing doctor data");
         }
-        for(int i = 0; i < doctor_data.doctors_size(); i++)
+        for (int i = 0; i < doctor_data.doctors_size(); i++)
         {
-            if(doctor_data.doctors(i).pesel() == doctor->getPesel())
+            if (doctor_data.doctors(i).pesel() == doctor->getPesel())
             {
                 doctor_data.mutable_doctors()->DeleteSubrange(i, 1);
                 break;
@@ -68,20 +72,21 @@ void DataFileManager::removeDoctorFromFile(const std::filesystem::path& path, co
     google::protobuf::ShutdownProtobufLibrary();
 }
 
-void DataFileManager::removeReceptionistFromFile(const std::filesystem::path& path, const std::string& file_name, const std::shared_ptr<Receptionist>& receptionist)
+void DataFileManager::removeReceptionistFromFile(const std::filesystem::path& path, const std::string& file_name,
+                                                 const std::shared_ptr<Receptionist>& receptionist)
 {
     clinic_data::Workers::Receptionists receptionist_data;
 
     {
         FileManager file_manager(path, file_name, FileManager::FileMode::Input);
         auto& input_file = file_manager.getFileRef();
-        if(!receptionist_data.ParseFromIstream(&input_file))
+        if (!receptionist_data.ParseFromIstream(&input_file))
         {
             throw std::invalid_argument("Error while parsing receptionist data");
         }
-        for(int i = 0; i < receptionist_data.receptionists_size(); i++)
+        for (int i = 0; i < receptionist_data.receptionists_size(); i++)
         {
-            if(receptionist_data.receptionists(i).pesel() == receptionist->getPesel())
+            if (receptionist_data.receptionists(i).pesel() == receptionist->getPesel())
             {
                 receptionist_data.mutable_receptionists()->DeleteSubrange(i, 1);
                 break;
@@ -103,10 +108,8 @@ void DataFileManager::loadDataForDoctors()
     doctor_data.ParseFromIstream(&input_file);
     for (int i = 0; i < doctor_data.doctors_size(); i++)
     {
-        Doctor::createDoctor(doctor_data.doctors(i).name(),
-                            doctor_data.doctors(i).surname(),
-                            doctor_data.doctors(i).pesel(),
-                            toEnum(doctor_data.doctors(i).gender()));
+        Doctor::createDoctor(doctor_data.doctors(i).name(), doctor_data.doctors(i).surname(),
+                             doctor_data.doctors(i).pesel(), toEnum(doctor_data.doctors(i).gender()));
     }
 
     google::protobuf::ShutdownProtobufLibrary();
@@ -121,10 +124,9 @@ void DataFileManager::loadDataForReceptionists()
 
     for (int i = 0; i < receptionist_data.receptionists_size(); i++)
     {
-        Receptionist::createReceptionist(receptionist_data.receptionists(i).name(),
-                                        receptionist_data.receptionists(i).surname(),
-                                        receptionist_data.receptionists(i).pesel(),
-                                        toEnum(receptionist_data.receptionists(i).gender()));
+        Receptionist::createReceptionist(
+            receptionist_data.receptionists(i).name(), receptionist_data.receptionists(i).surname(),
+            receptionist_data.receptionists(i).pesel(), toEnum(receptionist_data.receptionists(i).gender()));
     }
 
     google::protobuf::ShutdownProtobufLibrary();
@@ -143,9 +145,10 @@ std::string DataFileManager::printDoctors(const std::filesystem::path& path, con
     auto& input_file = file_manager.getFileRef();
     clinic_data::Workers::Doctors doctor;
     doctor.ParseFromIstream(&input_file);
-    for(int i = 0; i < doctor.doctors_size(); i++)
+    for (int i = 0; i < doctor.doctors_size(); i++)
     {
-        temp += "Doctor: " + doctor.doctors(i).name() + " " + doctor.doctors(i).surname() + " " + doctor.doctors(i).pesel() + " " + doctor.doctors(i).gender() + "\n";
+        temp += "Doctor: " + doctor.doctors(i).name() + " " + doctor.doctors(i).surname() + " " +
+                doctor.doctors(i).pesel() + " " + doctor.doctors(i).gender() + "\n";
     }
     return temp;
 }
@@ -158,9 +161,11 @@ std::string DataFileManager::printReceptionists(const std::filesystem::path& pat
     clinic_data::Workers::Receptionists receptionist;
     receptionist.ParseFromIstream(&input_file);
 
-    for(int i = 0; i < receptionist.receptionists_size(); i++)
+    for (int i = 0; i < receptionist.receptionists_size(); i++)
     {
-        temp += "Receptionist: " + receptionist.receptionists(i).name() + " " + receptionist.receptionists(i).surname() + " " + receptionist.receptionists(i).pesel() + " " + receptionist.receptionists(i).gender() + "\n";
+        temp += "Receptionist: " + receptionist.receptionists(i).name() + " " +
+                receptionist.receptionists(i).surname() + " " + receptionist.receptionists(i).pesel() + " " +
+                receptionist.receptionists(i).gender() + "\n";
     }
     return temp;
 }

@@ -44,5 +44,4 @@ class Clinic
     static void removeWarehouse();
     static bool doctorExists(const std::string& doctor_pesel);
     static bool receptionistExists(const std::string& receptionist_pesel);
-
 };

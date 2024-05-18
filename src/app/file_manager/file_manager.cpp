@@ -1,9 +1,9 @@
 #include "file_manager.hpp"
-#include <stdexcept>
 #include <iostream>
+#include <stdexcept>
 
 FileManager::FileManager(const std::filesystem::path& path, const std::string& file_name, FileMode mode)
-    : file_name_(file_name), 
+    : file_name_(file_name),
       file_path_(std::filesystem::absolute(std::filesystem::current_path().parent_path() / path / file_name))
 {
     switch (mode)
