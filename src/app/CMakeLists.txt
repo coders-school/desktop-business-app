@@ -1,8 +1,10 @@
-# qt_standard_project_setup()
+qt_standard_project_setup()
 
 add_subdirectory(calendar)
 add_subdirectory(clinic)
+add_subdirectory(data_file_manager)
 add_subdirectory(doctor)
+add_subdirectory(file_manager)
 add_subdirectory(login)
 add_subdirectory(patient)
 add_subdirectory(person)
@@ -25,7 +27,9 @@ qt_add_executable(${PROJECT_NAME} main.cpp
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Widgets
                                               calendar-lib
                                               clinic-lib
+                                              data_file_manager-lib
                                               doctor-lib
+                                              file_manager-lib
                                               login-lib
                                               equipment-lib
                                               medicine-lib

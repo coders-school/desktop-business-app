@@ -14,9 +14,9 @@ class DoctorRemoveVisitFunction : public DoctorTestFixture
 TEST_F(DoctorTestFixture, CreatingDoctorViaCreateShouldAppendDoctorsToClinic)
 {
     Doctor::createDoctor("Jan", "Kowalski", "80062378532", Gender::Male);
-    Doctor::createDoctor("Janusz", "Schmit", "80062378532", Gender::Male);
-    Doctor::createDoctor("Gawel", "Pawel", "80062378532", Gender::Male);
-    Doctor::createDoctor("Jan", "Poniatowski", "80062378532", Gender::Male);
+    Doctor::createDoctor("Janusz", "Schmit", "70080149412", Gender::Male);
+    Doctor::createDoctor("Gawel", "Pawel", "49042481257", Gender::Male);
+    Doctor::createDoctor("Jan", "Poniatowski", "95071719638", Gender::Male);
 
     auto first_expected_doctor = Clinic::getDoctors().at(0);
     auto second_expected_doctor = Clinic::getDoctors().at(1);
@@ -32,7 +32,7 @@ TEST_F(DoctorTestFixture, CreatingDoctorViaCreateShouldAppendDoctorsToClinic)
 TEST_F(DoctorAppendVisitFunction, ShouldAppendGivenVisitToSpecifiedDoctor)
 {
     Doctor::createDoctor("Jan", "Kowalski", "80062378532", Gender::Male);
-    Doctor::createDoctor("Jan", "Poniatowski", "80062378532", Gender::Male);
+    Doctor::createDoctor("Jan", "Poniatowski", "70080149412", Gender::Male);
 
     auto doctor_tested = Clinic::getDoctors().at(0);
     auto irrelevant_doctor = Clinic::getDoctors().at(1);
@@ -86,7 +86,7 @@ TEST_F(DoctorRemoveVisitFunction, ShouldRemoveLastVisitFromDoctorsVisitContainer
 TEST_F(DoctorRemoveVisitFunction, ShouldNotRemoveVisitNotBelongingToSpecificDoctor)
 {
     Doctor::createDoctor("Jan", "Kowalski", "80062378532", Gender::Male);
-    Doctor::createDoctor("Jan", "Poniatowski", "80062378532", Gender::Male);
+    Doctor::createDoctor("Jan", "Poniatowski", "70080149412", Gender::Male);
 
     auto doctor_tested = Clinic::getDoctors().at(0);
     auto irrelevant_doctor = Clinic::getDoctors().at(1);
