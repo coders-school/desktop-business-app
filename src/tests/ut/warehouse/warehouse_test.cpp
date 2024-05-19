@@ -1,5 +1,4 @@
 #include "warehouse_test.hpp"
-
 #include <utility>
 
 TEST_F(WarehouseTest, increaseAmountTest)
@@ -80,8 +79,9 @@ TEST_F(WarehouseTest, addDuplicateMedicineTest)
 TEST_F(WarehouseTest, addTwoMedicinesWithSameNameTest)
 {
     test_warehouse->addProducts({anaesthetic, painkiller});
-    std::shared_ptr<Product> otherAnaesthetic = std::make_shared<Medicine>(
-        std::string{"anaesthetic"}, 45, 100, 15102026, std::pair{-10, 0}, std::vector<std::string>{{"chemicals"}});
+     std::shared_ptr<Product> otherAnaesthetic =
+        std::make_shared<Medicine>(std::string{"anaesthetic"}, price1, amount, expiration_date, storage_temperature1,
+                                   std::vector<std::string>{{"chemicals"}});
     test_warehouse->addProducts({otherAnaesthetic});
 
     auto ptrsToProducts1 = test_warehouse->getPtrsToProducts("anaesthetic");
