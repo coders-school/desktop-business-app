@@ -28,12 +28,10 @@ struct WarehouseTest : ::testing::Test
     {
         Warehouse::createWarehouse();
         test_warehouse = Clinic::getWarehouse();
-        anaesthetic =
-            std::make_shared<Medicine>(std::string{"anaesthetic"}, price1, amount, expiration_date,
-                                       storage_temperature1, std::vector<std::string>{{"chemicals"}});
-        painkiller =
-            std::make_shared<Medicine>(std::string{"painkiller"}, price2, amount, expiration_date, storage_temperature2,
-                                       std::vector<std::string>{"ibuprofenum"});
+        anaesthetic = std::make_shared<Medicine>(std::string{"anaesthetic"}, price1, amount, expiration_date,
+                                                 storage_temperature1, std::vector<std::string>{{"chemicals"}});
+        painkiller = std::make_shared<Medicine>(std::string{"painkiller"}, price2, amount, expiration_date,
+                                                storage_temperature2, std::vector<std::string>{"ibuprofenum"});
     }
 
     void TearDown()
