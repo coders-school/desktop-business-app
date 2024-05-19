@@ -22,7 +22,6 @@ TEST_F(MedicineTest, MedicineIsNotExpiredVariousYears)
     EXPECT_FALSE(notExpiredAnaesthetic->isExpired());
 }
 
-
 TEST_F(MedicineTest, MedicineGetInfoTest)
 {
     auto infoVec = anaesthetic->getInfo();
