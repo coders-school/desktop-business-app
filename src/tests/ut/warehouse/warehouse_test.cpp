@@ -1,4 +1,5 @@
 #include "warehouse_test.hpp"
+#include <iostream>
 
 TEST_F(WarehouseTest, increaseAmountTest)
 {
