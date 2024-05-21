@@ -1,7 +1,12 @@
 #pragma once
 
 #include <string>
+#include <cstdint>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c95576 (Besides minor corrections:)
 enum class Gender : uint8_t
 {
     Male = 0,
