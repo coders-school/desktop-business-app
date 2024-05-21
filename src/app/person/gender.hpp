@@ -2,11 +2,11 @@
 
 #include <string>
 
-enum class Gender
+enum class Gender : uint8_t
 {
-    Male,
-    Female,
-    Unknown
+    Male = 0,
+    Female = 1,
+    Unknown = 255
 };
 
 std::string toString(const Gender gender);

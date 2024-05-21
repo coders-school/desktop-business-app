@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 
-FileManager::FileManager(const std::filesystem::path& path, const std::string& file_name, FileMode mode)
+FileManager::FileManager(const std::filesystem::path& path, const std::string& file_name, const FileMode mode)
     : file_name_(file_name),
       file_path_(std::filesystem::absolute(std::filesystem::current_path().parent_path() / path / file_name))
 {
@@ -11,6 +11,26 @@ FileManager::FileManager(const std::filesystem::path& path, const std::string& f
         file_path_ = std::filesystem::absolute(std::filesystem::current_path() / path / file_name);
     }
 
+    openFile(mode);
+
+    if (!file_.is_open())
+    {
+        throw std::runtime_error{"Cannot open file"};
+    }
+}
+
+std::fstream& FileManager::getFileRef()
+{
+    return file_;
+}
+
+std::string FileManager::getFilePath() const
+{
+    return file_path_;
+}
+
+void FileManager::openFile(const FileMode mode)
+{
     switch (mode)
     {
     case FileMode::Input:
@@ -28,23 +48,4 @@ FileManager::FileManager(const std::filesystem::path& path, const std::string& f
     default:
         throw std::invalid_argument{"Invalid file mode"};
     }
-    if (!file_.is_open())
-    {
-        throw std::runtime_error{"Cannot open file"};
-    }
-}
-
-FileManager::~FileManager()
-{
-    file_.close();
-}
-
-std::fstream& FileManager::getFileRef()
-{
-    return file_;
-}
-
-std::string FileManager::getFilePath() const
-{
-    return file_path_;
 }

@@ -7,7 +7,6 @@
 
 class PatientTestFixture : public ::testing::Test
 {
-
     void TearDown() override
     {
         cleanupClinic();

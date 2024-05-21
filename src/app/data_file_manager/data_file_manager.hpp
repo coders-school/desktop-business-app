@@ -1,5 +1,5 @@
 #pragma once
-#include "../proto/clinic.pb.h"
+#include "clinic.pb.h"
 #include "doctor.hpp"
 #include "file_manager.hpp"
 #include "patient.hpp"
