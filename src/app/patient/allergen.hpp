@@ -1,8 +1,9 @@
 #pragma once
 
 #include <string>
+#include <cstdint>
 
-enum class Allergen
+enum class Allergen : uint8_t
 {
     Allergen = 0,
     AnotherAllergen = 1,
