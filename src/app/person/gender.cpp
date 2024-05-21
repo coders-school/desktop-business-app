@@ -13,6 +13,7 @@ std::string toString(const Gender gender)
         gender_text = "female";
         break;
     default:
+        gender_text = "unknown";
         break;
     }
     return gender_text;

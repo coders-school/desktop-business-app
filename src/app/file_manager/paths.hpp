@@ -2,7 +2,7 @@
 
 namespace PATH
 {
-constexpr char DEFAULT[] = "database/";
-constexpr char WORKERS[] = "database/workers/";
-constexpr char TEST_WORKERS[] = "database/test_workers/";
+constexpr const char* DEFAULT = "database/";
+constexpr const char* WORKERS = "database/workers/";
+constexpr const char* TEST_WORKERS = "database/test_workers/";
 } // namespace PATH
