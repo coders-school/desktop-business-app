@@ -16,6 +16,7 @@ class Room : public std::enable_shared_from_this<Room>
     std::vector<std::shared_ptr<Visit>> visits_;
 
     Room(const unsigned room_id, const std::vector<Treatment>& treatments, const std::shared_ptr<Warehouse>& warehouse);
+    Room(const unsigned room_id, const std::shared_ptr<Warehouse>& warehouse);
     bool isVisitAssigned(const std::shared_ptr<Visit>& visit);
 
   public:
@@ -25,7 +26,9 @@ class Room : public std::enable_shared_from_this<Room>
     std::vector<Treatment> getTreatments() const;
     std::shared_ptr<Warehouse> getWarehouse() const;
     void setRoomAvalaibility(bool avalaible);
+    std::vector<std::shared_ptr<Visit>> getVisits();
 
     static void createRoom(const unsigned room_id, const std::vector<Treatment>& treatments,
                            const std::shared_ptr<Warehouse>& warehouse);
+    static void createRoom(const unsigned room_id, const std::shared_ptr<Warehouse>& warehouse);
 };

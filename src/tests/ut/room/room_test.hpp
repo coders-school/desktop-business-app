@@ -1,16 +1,17 @@
 #pragma once
 
 #include "clinic_facade.hpp"
-#include "patient.hpp"
+#include "room.hpp"
 #include "test_utils.hpp"
 #include "gtest/gtest.h"
 
-class PatientTestFixture : public ::testing::Test
+class RoomTestFixture : public ::testing::Test
 {
+
     void SetUp() override
     {
+        Doctor::createDoctor("Jan", "Kowalski", "80062378532", Gender::Male);
         Doctor::createDoctor("Gawel", "Pawel", "49042481257", Gender::Male);
-        Doctor::createDoctor("Pawel", "Awel", "87071989652", Gender::Male);
 
         Visit::createVisit(Clinic::getDoctors().at(0));
         Visit::createVisit(Clinic::getDoctors().at(1));
