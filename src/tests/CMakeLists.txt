@@ -15,6 +15,7 @@ set(UT_SOURCES ut/calendar/calendar_test.cpp
                ut/reserve_queue/reserve_queue_test.cpp
                ut/visit/status_test.cpp
                ut/room/room_test.cpp
+               ut/visit/status_test.cpp
                ut/visit/treatment_test.cpp
                ut/visit/visit_test.cpp
                ut/warehouse/warehouse_test.cpp
