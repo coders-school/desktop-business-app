@@ -111,3 +111,19 @@ void Clinic::removeWarehouse()
 {
     warehouse_ = nullptr;
 }
+
+bool Clinic::doctorExists(const std::string& new_doctor_pesel)
+{
+    return std::find_if(doctors_.begin(), doctors_.end(),
+                        [&new_doctor_pesel](const std::shared_ptr<Doctor>& exist_doctors) {
+                            return new_doctor_pesel == exist_doctors->getPesel();
+                        }) != doctors_.end();
+}
+
+bool Clinic::receptionistExists(const std::string& new_receptionist_pesel)
+{
+    return std::find_if(receptionists_.begin(), receptionists_.end(),
+                        [&new_receptionist_pesel](const std::shared_ptr<Receptionist>& exist_receptionists) {
+                            return new_receptionist_pesel == exist_receptionists->getPesel();
+                        }) != receptionists_.end();
+}

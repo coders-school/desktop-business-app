@@ -42,4 +42,6 @@ class Clinic
     static void removeRoom(const std::shared_ptr<Room>& room);
     static void removeCalendar();
     static void removeWarehouse();
+    static bool doctorExists(const std::string& doctor_pesel);
+    static bool receptionistExists(const std::string& receptionist_pesel);
 };

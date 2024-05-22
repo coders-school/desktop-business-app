@@ -59,6 +59,9 @@ compile_commands.json
 # Build directory
 build/
 
+# Build directory
+buildDebug/
+
 # Binary directory
 bin/
 

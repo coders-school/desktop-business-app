@@ -20,6 +20,10 @@ void Receptionist::setShift(const Shift& shift)
 void Receptionist::createReceptionist(const std::string& name, const std::string& surname, const std::string& pesel,
                                       const Gender gender)
 {
+    if (Clinic::receptionistExists(pesel))
+    {
+        throw std::invalid_argument("Receptionist already exists!\n");
+    }
     Receptionist receptionist{name, surname, pesel, gender};
     Clinic::appendReceptionist(std::make_shared<Receptionist>(receptionist));
 }

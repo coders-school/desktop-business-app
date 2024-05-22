@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package clinic_data;
+
+message Workers {
+  message Doctor {
+    string name = 1;
+    string surname = 2;
+    string pesel = 3;
+    string gender = 4;
+  }
+
+  message Receptionist {
+    string name = 1;
+    string surname = 2;
+    string pesel = 3;
+    string gender = 4;
+  }
+
+  message Doctors {
+    repeated Doctor doctors = 1;
+  }
+
+  message Receptionists {
+    repeated Receptionist receptionists = 1;
+  }
+}

@@ -14,3 +14,4 @@ jobs:
       with:
         clang-format-version: '17'
         check-path: 'src'
+        exclude-regex: 'src/app/proto/clinic.pb.cc|src/app/proto/clinic.pb.h|src/app/proto/clinic.proto'

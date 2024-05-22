@@ -1,5 +1,6 @@
 set(UT_SOURCES ut/calendar/calendar_test.cpp
                ut/clinic/clinic_test.cpp
+               ut/data_file_manager/data_file_manager_test.cpp
                ut/doctor/doctor_test.cpp
                ut/equipment/equipment_test.cpp
                integration/integration_tests.cpp
@@ -8,6 +9,7 @@ set(UT_SOURCES ut/calendar/calendar_test.cpp
                ut/patient/allergen_test.cpp
                ut/patient/patient_test.cpp
                ut/person/person_test.cpp
+               ut/person/gender_test.cpp
                ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
                ut/reserve_queue/reserve_queue_test.cpp
@@ -30,6 +32,7 @@ target_link_libraries(${PROJECT_NAME}-tests PRIVATE
                                             GTest::gmock_main
                                             calendar-lib
                                             clinic-lib
+                                            data_file_manager-lib
                                             doctor-lib
                                             equipment-lib
                                             login-lib
