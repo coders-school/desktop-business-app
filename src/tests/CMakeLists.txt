@@ -13,6 +13,7 @@ set(UT_SOURCES ut/calendar/calendar_test.cpp
                ut/receptionist/receptionist_test.cpp
                ut/receptionist/shift_test.cpp
                ut/reserve_queue/reserve_queue_test.cpp
+               ut/room/room_test.cpp
                ut/visit/treatment_test.cpp
                ut/visit/visit_test.cpp
                ut/warehouse/warehouse_test.cpp
