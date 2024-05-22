@@ -15,6 +15,10 @@ struct TestParamsStringInput
     Gender expected_output_;
 };
 
-class GenderEnumToStringTest : public ::testing::TestWithParam<TestParamsEnumInput> {};
+class GenderEnumToStringTest : public ::testing::TestWithParam<TestParamsEnumInput>
+{
+};
 
-class GenderStringToEnumTest : public ::testing::TestWithParam<TestParamsStringInput> {};
+class GenderStringToEnumTest : public ::testing::TestWithParam<TestParamsStringInput>
+{
+};
