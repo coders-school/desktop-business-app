@@ -23,6 +23,11 @@ void cleanupClinic()
         Clinic::removePatient(patient);
     }
 
+    for (const auto& room : Clinic::getRooms())
+    {
+        Clinic::removeRoom(room);
+    }
+
     Clinic::removeCalendar();
     Clinic::removeWarehouse();
 }

@@ -9,6 +9,10 @@ Room::Room(const unsigned room_id, const std::vector<Treatment>& treatments,
     : room_id_{room_id}, treatments_{treatments}, warehouse_{warehouse}, visits_{}
 {
 }
+Room::Room(const unsigned room_id, const std::shared_ptr<Warehouse>& warehouse)
+    : room_id_{room_id}, warehouse_{warehouse}, visits_{}
+{
+}
 
 bool Room::isVisitAssigned(const std::shared_ptr<Visit>& visit)
 {
@@ -57,4 +61,14 @@ void Room::createRoom(const unsigned room_id, const std::vector<Treatment>& trea
 {
     Room room{room_id, treatments, warehouse};
     Clinic::appendRoom(std::make_shared<Room>(room));
+}
+
+void Room::createRoom(const unsigned room_id, const std::shared_ptr<Warehouse>& warehouse)
+{
+    Clinic::appendRoom(std::make_shared<Room>(Room{room_id, warehouse}));
+}
+
+std::vector<std::shared_ptr<Visit>> Room::getVisits()
+{
+    return visits_;
 }
