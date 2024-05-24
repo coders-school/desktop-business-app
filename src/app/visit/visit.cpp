@@ -33,6 +33,11 @@ std::vector<Treatment> Visit::getTreatments() const
     return treatments_;
 }
 
+Status Visit::getstatus() const
+{
+    return status_;
+}
+
 void Visit::setVisitInformation(const std::string& visit_information)
 {
     visit_information_ = visit_information;
@@ -46,6 +51,11 @@ std::string Visit::getVisitInformation() const
 void Visit::updateTreatments(const std::vector<Treatment>& treatments)
 {
     treatments_ = treatments;
+}
+
+void Visit::setStatus(Status status)
+{
+    status_ = status;
 }
 
 void Visit::createVisit(const std::shared_ptr<Doctor>& doctor)
