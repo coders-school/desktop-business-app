@@ -27,6 +27,19 @@
 
 // each interface -> class?? should have, if possible, a mock class
 // example will be shown 
+
+// data should be separated by context 
+// if there's general class, it should have it's own directory
+// example:
+// class Patient and Person are introduced in single file
+// class Doctor has been created and it will contain some
+// of the data that Patient has (Person)
+// Person shall be moved to separated file and directory
+// all objects that are part of the Person will be moved
+// to the person directory and will own files
+// Person has gender, then person.h and gender.h 
+
+
 enum class Gender : std::uint8_t
 {
     Male = 0,
