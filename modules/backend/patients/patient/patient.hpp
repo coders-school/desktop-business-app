@@ -43,7 +43,11 @@
 // to the person directory and will own files
 // Person has gender, then person.h and gender.h
 
-
+// namespaces should be up to 3 levels deep
+// example:
+// backend::patient
+// backend::utils::logger
+// backend::common::gender
 
 
 
