@@ -1,8 +1,12 @@
 #pragma once
 
+#include <chrono>
 #include <cstdint>
+#include <memory>
 #include <string>
+#include <unordered_map>
 #include <vector>
+
 // all enum types should have following functions
 // getX returning std::string
 
@@ -23,12 +27,12 @@
 // class iName, struct iName
 
 // interfaces need a short description about the
-// context in which shall be used 
+// context in which shall be used
 
 // each interface -> class?? should have, if possible, a mock class
-// example will be shown 
+// example will be shown
 
-// data should be separated by context 
+// data should be separated by context
 // if there's general class, it should have it's own directory
 // example:
 // class Patient and Person are introduced in single file
@@ -37,8 +41,7 @@
 // Person shall be moved to separated file and directory
 // all objects that are part of the Person will be moved
 // to the person directory and will own files
-// Person has gender, then person.h and gender.h 
-
+// Person has gender, then person.h and gender.h
 
 enum class Gender : std::uint8_t
 {
@@ -135,34 +138,69 @@ class Allergens
     // checkAllergen(Allergen)
 };
 
+enum class Treatment : std::uint8_t
+{
+};
+
+enum class TreatmentState : std::uint8_t
+{
+    Planned = 0,
+    Done = 1
+};
+/*
+ *  represents the treatment that is planned for the patient or has been provided to the patient.
+ */
 class Treatments
 {
+    // map or different object containing treatment and date
+    // and then kept in vector?
+    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_done_;
+    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_planned_;
+    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_declined_;
     // vector<treatment> done
+    // vector<treatment> declined
     // vector<treatment> planned
   public:
     // Treatments should contain logic
     // planned -> set once visit is made
     // done -> set once visit state switches
+    // Treatmends done in future should also collect date when
+    // treatment was completed
+    void UpdateTreatment(const TreatmentState treatment_state)
+    {
+        // move Treatment from planned to done
+    }
+};
+
+/*
+ * is a general interface to keep Patietns in collection, other objects shall
+ * use interfaces with API corresponding to their responsibility.
+ */
+class iPatient
+{
+  public:
+    virtual ~iPatient() = 0;
 };
 
 // find better name for the interface
-class iVisitPatient
+class iVisitPatient : public virtual iPatient
 {
     // this interface shall be used within Visit context
     // it should provide methods that will allow to:
     // 1. set planned treatment
     // 2. update the treatment state (planned -> done) once Visit is fulfiled
-    // 3. other.. 
+    // 3. other..
   public:
-    virtual void SetTreatment() = 0;
+    virtual void UpdateTreatment(const TreatmentState, const std::vector<Treatment>&) {};
+    virtual ~iVisitPatient(){};
 };
 
 // find better name for the interface
-class iSerdePatient
+class iSerdePatient : public virtual iPatient
 {
-    public:
+  public:
     virtual void SerializeData() = 0;
-
+    virtual ~iSerdePatient() = 0;
 };
 
 /**
@@ -180,11 +218,123 @@ class Patient : public iVisitPatient, public iSerdePatient
     Treatments treatments_;
 
   public:
-    void SetTreatment() override
+    Patient()
+        : person_{Person{Name{}, Address{}, Pesel{""}, PhoneNumber{}}}, payments_{Payments{}}, allergens_{Allergens{}},
+          treatments_{Treatments{}}
     {
+    }
+    // date of treatment should be also added
+    // what if planned treatment is done faster than expected?
+    // find a way to handle such situation -> will it require using additional method?
+    // try to do it without additional public method
+    void UpdateTreatment(const TreatmentState treatment_state, const std::vector<Treatment>& visit_treatments) override
+    {
+        treatments_.UpdateTreatment(treatment_state);
     }
 
     void SerializeData() override
     {
     }
 };
+
+class VisitPatientCollection
+{
+    std::vector<iPatient> patients_;
+
+  public:
+    void AppendPatient(const iPatient& patient)
+    {
+        patients_.emplace_back(patient);
+    }
+    // this method should be used within context of data visualization
+    // data visualization class should format Patient data accordingly
+    // to the context in which it will be used e.g. doctors view, receptionist view etc.
+    std::vector<iPatient> GetPatient()
+    {
+        return patients_;
+    }
+};
+
+// visits in future might be separated by type (completed, planned, canceled)
+// thus iterface could help manage different types of visits
+class iVisit
+{
+  public:
+    virtual ~iVisit() = 0;
+};
+
+class Visit
+{
+    iVisitPatient patient_;
+    std::vector<Treatment> actual_treatment_;
+    // on gui, doctor should select treatment/s for exact visit
+  public:
+    Visit(const Patient& patient) : patient_{patient}
+    {
+    }
+
+    void FinishVisit()
+    {
+        const TreatmentState treatment_state = TreatmentState::Done;
+        patient_.UpdateTreatment(treatment_state, actual_treatment_);
+    }
+};
+
+class VisitCollection
+{
+    std::vector<iVisit> visits_;
+
+  public:
+    void AppendVisit(const iVisit& visit)
+    {
+        visits_.emplace_back(visit);
+    }
+    std::vector<iVisit> GetVisits()
+    {
+        return visits_;
+    }
+};
+
+void showVisits(const std::vector<Visit>& visits)
+{
+    for (const auto& visit : visits)
+    {
+    }
+}
+
+void someFunction()
+{
+    VisitPatientCollection patient_collection;
+    VisitCollection visit_collection;
+
+    Patient patient;
+    patient_collection.AppendPatient(patient);
+    auto patients = patient_collection.GetPatient();
+}
+
+// *** IDEAS COLLECTOR ***
+// Rules:
+// 1. Idea should have a name
+// 2. Idea should have a short description
+// 3. Idea should have a context in which it should be used
+// 4. Idea should follow below format
+
+/// IDEA NAME
+/// Context - where it should be used (e.g. GUI, data visualization)
+/// Description - short description of the idea
+
+// In the GUI,
+// When patient comes receptionist should look up for patient first
+// if patient not found, then create patient.
+// This implies that active window should have a search bar
+// *decide which data should be used for search* (will be sufficient? name, pesel, phone number)
+// and if patient is not found, then create patient window should be opened.
+// This window should contain all necessary fields to create patient, but it should follow: 
+// Lazy creation via temporary object
+// "TempPatient" should be initialized and then all necessary fields
+// should be filled. Once all fields are filled, then Patient
+// object should be created and added to the Patient collection.
+// This way, we can avoid creating Patient object with missing data.
+// After system break down, TempPatient objects should be 
+// visible in additional field on the window which allows searching.
+// Such filed should be accessible and creation can be resumed.
