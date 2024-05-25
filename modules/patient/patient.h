@@ -99,10 +99,11 @@ class Person
     Address address_;
     Pesel pesel_;
     PhoneNumber phone_number_;
+    Gender gender_;
 
   public:
     Person(const Name& name, const Address& address, const Pesel& pesel, const PhoneNumber& phone_number)
-        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}
+        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, gender_{Gender::Unknown}
     {
     }
 };
@@ -237,22 +238,21 @@ class Patient : public iVisitPatient, public iSerdePatient
     }
 };
 
-class VisitPatientCollection
+class PatientCollection
 {
-    std::vector<iPatient> patients_;
+    std::vector<std::unique_ptr<iPatient>> patients_;
 
   public:
+    PatientCollection(std::vector<std::unique_ptr<iPatient>> patients) : patients_{std::move(patients)}
+    {
+    }
     void AppendPatient(const iPatient& patient)
     {
-        patients_.emplace_back(patient);
+        patients_.emplace_back(std::make_unique<iPatient>(patient));
     }
     // this method should be used within context of data visualization
     // data visualization class should format Patient data accordingly
     // to the context in which it will be used e.g. doctors view, receptionist view etc.
-    std::vector<iPatient> GetPatient()
-    {
-        return patients_;
-    }
 };
 
 // visits in future might be separated by type (completed, planned, canceled)
@@ -302,14 +302,115 @@ void showVisits(const std::vector<Visit>& visits)
     }
 }
 
+class iDoctor
+{
+  public:
+    virtual ~iDoctor() = 0;
+};
+
+class iVisitDoctor : public iDoctor
+{
+  public:
+    virtual ~iVisitDoctor() = 0;
+};
+
+enum class Specialization : std::uint8_t
+{
+    Dentist = 0,
+};
+
+class Doctor : public iVisitDoctor
+{
+    Person person_;
+    Specialization specialization_;
+
+  public:
+    Doctor(const Person& person, const Specialization specialization) : person_{person}, specialization_{specialization}
+    {
+    }
+};
+
+class iRoom
+{
+  public:
+    virtual ~iRoom() = 0;
+};
+
+class Room : public iRoom
+{
+    std::uint8_t room_number_;
+
+  public:
+    Room(const std::uint8_t room_number) : room_number_{room_number}
+    {
+    }
+};
+
+class iStaff
+{
+  public:
+    virtual ~iStaff() = 0;
+};
+
+class Staff : public iStaff
+{
+    std::vector<Doctor> doctors_;
+    // std::vector<Receptionist> receptionists_;
+  public:
+};
+
+class Clinic
+{
+    std::unique_ptr<iStaff> staff_;
+    std::vector<std::unique_ptr<iRoom>> rooms_;
+
+  public:
+    Clinic(std::unique_ptr<iStaff> staff, std::vector<std::unique_ptr<iRoom>> rooms)
+        : staff_{std::move(staff)}, rooms_{std::move(rooms)}
+    {
+    }
+};
+
+class Serializer // find better name
+{
+    std::vector<std::unique_ptr<iSerdePatient>> patients_;
+
+  public:
+    void SerializeData()
+    {
+    }
+};
+
+/*
+ * initializes Patients from serialized data.
+ * Shall be performed only once when application is started.
+ */
+std::vector<std::unique_ptr<iPatient>> InitializePatients(const Serializer& serializer)
+{
+    // this free functions should be in single file
+    // and only be accessible within start of the program section.
+    std::vector<std::unique_ptr<iPatient>> patients;
+    // Expected that Patient data will be deserialized and 
+    // emplaced in patient vector, something like following way:
+    // for(const auto& patient : serializer.DeserializePatients())
+    // {
+    //     patients.emplace_back(std::make_unique<iPatient>(patient));
+    // }
+    // other deserialized objects should follow the same approach
+    patients.emplace_back(std::make_unique<iPatient>());
+
+    return patients;
+}
+
+// *** EXAMPLE USAGE ***
 void someFunction()
 {
-    VisitPatientCollection patient_collection;
+    Serializer serializer;
+    PatientCollection patient_collection{InitializePatients(serializer)};
     VisitCollection visit_collection;
 
     Patient patient;
     patient_collection.AppendPatient(patient);
-    auto patients = patient_collection.GetPatient();
 }
 
 // *** IDEAS COLLECTOR ***
@@ -329,12 +430,12 @@ void someFunction()
 // This implies that active window should have a search bar
 // *decide which data should be used for search* (will be sufficient? name, pesel, phone number)
 // and if patient is not found, then create patient window should be opened.
-// This window should contain all necessary fields to create patient, but it should follow: 
+// This window should contain all necessary fields to create patient, but it should follow:
 // Lazy creation via temporary object
 // "TempPatient" should be initialized and then all necessary fields
 // should be filled. Once all fields are filled, then Patient
 // object should be created and added to the Patient collection.
 // This way, we can avoid creating Patient object with missing data.
-// After system break down, TempPatient objects should be 
+// After system break down, TempPatient objects should be
 // visible in additional field on the window which allows searching.
 // Such filed should be accessible and creation can be resumed.
