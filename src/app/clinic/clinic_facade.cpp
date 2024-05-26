@@ -1,4 +1,5 @@
 #include "clinic_facade.hpp"
+#include <iostream>
 
 void Clinic::appendDoctor(const std::shared_ptr<Doctor>& doctor)
 {
@@ -10,9 +11,19 @@ void Clinic::appendPatient(const std::shared_ptr<Patient>& patient)
     patients_.emplace_back(patient);
 }
 
-void Clinic::appendVisit(const std::shared_ptr<Visit>& visit)
+void Clinic::appendVisit()
 {
-    visits_.emplace_back(visit);
+    if (!temp_visit_->getDoctor().expired() && !temp_visit_->getPatient().expired() &&
+        !temp_visit_->getRoom().expired())
+    {
+        visits_.emplace_back(temp_visit_);
+        temp_visit_ = nullptr;
+    }
+}
+
+void Clinic::appendTempVisit(const std::shared_ptr<Visit>& visit)
+{
+    temp_visit_ = visit;
 }
 
 void Clinic::appendReceptionist(const std::shared_ptr<Receptionist>& receptionist)
@@ -69,6 +80,11 @@ std::shared_ptr<Warehouse> Clinic::getWarehouse()
     return warehouse_;
 }
 
+std::shared_ptr<Visit> Clinic::getTempVisit()
+{
+    return temp_visit_;
+}
+
 void Clinic::removeDoctor(const std::shared_ptr<Doctor>& doctor)
 {
     doctors_.erase(std::remove(doctors_.begin(), doctors_.end(), doctor));
@@ -87,6 +103,14 @@ void Clinic::removeVisit(const std::shared_ptr<Visit>& visit)
         if (!(*visit_it)->getDoctor().expired())
         {
             (*visit_it)->getDoctor().lock()->removeVisit(*visit_it);
+        }
+        if (!(*visit_it)->getPatient().expired())
+        {
+            (*visit_it)->getPatient().lock()->removeVisit(*visit_it);
+        }
+        if (!(*visit_it)->getRoom().expired())
+        {
+            (*visit_it)->getRoom().lock()->removeVisit(*visit_it);
         }
         visits_.erase(visit_it);
     }

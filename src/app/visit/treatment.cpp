@@ -23,3 +23,16 @@ std::string toString(Treatment dental_treatment)
 
     return searched_pair != DentalTreatments.end() ? searched_pair->second : "other treatment type";
 }
+
+Treatment toEnumTreatment(const std::string& dental_treatment)
+{
+    for (const auto& [key, value] : DentalTreatments)
+    {
+        if (value == dental_treatment)
+        {
+            return key;
+        }
+    }
+
+    throw std::invalid_argument("Invalid treatment type");
+}

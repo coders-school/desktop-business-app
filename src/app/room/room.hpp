@@ -17,10 +17,11 @@ class Room : public std::enable_shared_from_this<Room>
 
     Room(const unsigned room_id, const std::vector<Treatment>& treatments, const std::shared_ptr<Warehouse>& warehouse);
     Room(const unsigned room_id, const std::shared_ptr<Warehouse>& warehouse);
-    bool isVisitAssigned(const std::shared_ptr<Visit>& visit);
+    bool isVisitFound(const std::shared_ptr<Visit>& visit);
 
   public:
     void addVisit(const std::shared_ptr<Visit>& visit);
+    void removeVisit(const std::shared_ptr<Visit>& visit);
     bool isRoomFree(const unsigned& timestamp);
     unsigned getRoomNumber() const;
     std::vector<Treatment> getTreatments() const;

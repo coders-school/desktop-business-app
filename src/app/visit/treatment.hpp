@@ -25,3 +25,4 @@ enum class Treatment : uint32_t
 };
 
 std::string toString(Treatment dental_treatment);
+Treatment toEnumTreatment(const std::string& dental_treatment);
