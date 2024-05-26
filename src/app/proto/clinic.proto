@@ -2,6 +2,41 @@ syntax = "proto3";
 
 package clinic_data;
 
+message VisitsData {
+  message Visit {
+    Doctor doctor = 1;
+    Patient patient = 2;
+    Room room = 3;
+    repeated string treatments = 4;
+    string visit_information = 5;
+  }
+
+  message Doctor {
+    string name = 1;
+    string surname = 2;
+    string pesel = 3;
+    string gender = 4;
+  }
+
+  message Patient {
+    string name = 1;
+    string surname = 2;
+    string pesel = 3;
+    string gender = 4;
+    string allergens = 5;
+    string debt = 6;
+  }
+
+  message Room {
+    uint32 room_id = 1;
+    repeated string treatment = 2;
+  }
+
+  message Visits {
+    repeated Visit visits = 1;
+  }
+}
+
 message Workers {
   message Doctor {
     string name = 1;
