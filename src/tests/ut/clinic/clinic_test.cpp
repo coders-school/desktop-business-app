@@ -27,7 +27,9 @@ TEST_F(ClinicTestFixture, GivenStaticContainersWhenDoctorAndVisitCreatedExpectCo
     ASSERT_TRUE(Clinic::getDoctors().empty());
 
     Doctor::createDoctor("Jan", "Pawel", "80062378532", Gender::Male);
-    Visit::createVisit(Clinic::getDoctors().front());
+    Patient::createPatient("Jan", "Kowalski", "80062378532", Gender::Male);
+    Room::createRoom(1, Clinic::getWarehouse());
+    Visit::createVisit(Clinic::getDoctors().front(), Clinic::getPatients().front(), Clinic::getRooms().front());
 
     EXPECT_EQ(Clinic::getDoctors().size(), 1U);
     EXPECT_EQ(Clinic::getVisits().size(), 1U);
@@ -39,7 +41,9 @@ TEST_F(ClinicTestFixture,
     ASSERT_TRUE(Clinic::getDoctors().empty());
 
     Doctor::createDoctor("Jan", "Pawel", "80062378532", Gender::Male);
-    Visit::createVisit(Clinic::getDoctors().front());
+    Patient::createPatient("Jan", "Kowalski", "80062378532", Gender::Male);
+    Room::createRoom(1, Clinic::getWarehouse());
+    Visit::createVisit(Clinic::getDoctors().front(), Clinic::getPatients().front(), Clinic::getRooms().front());
     Clinic::removeVisit(Clinic::getVisits().front());
 
     EXPECT_TRUE(Clinic::getVisits().empty());

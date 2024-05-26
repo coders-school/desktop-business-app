@@ -35,7 +35,7 @@ class DoctorTestFixture : public ::testing::Test
 
     void createVisitWithInformation(const std::shared_ptr<Doctor>& doctor, const std::string& visitInformation) const
     {
-        Visit::createVisit(doctor);
-        Clinic::getVisits().back()->setVisitInformation(visitInformation);
+        Visit::createTempVisit(doctor);
+        Clinic::getTempVisit()->setVisitInformation(visitInformation);
     }
 };

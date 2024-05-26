@@ -12,8 +12,8 @@ class PatientTestFixture : public ::testing::Test
         Doctor::createDoctor("Gawel", "Pawel", "49042481257", Gender::Male);
         Doctor::createDoctor("Pawel", "Awel", "87071989652", Gender::Male);
 
-        Visit::createVisit(Clinic::getDoctors().at(0));
-        Visit::createVisit(Clinic::getDoctors().at(1));
+        Visit::createTempVisit(Clinic::getDoctors().at(0));
+        Visit::createTempVisit(Clinic::getDoctors().at(1));
     }
 
     void TearDown() override

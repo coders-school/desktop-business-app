@@ -14,7 +14,7 @@ const std::map<Treatment, std::string> TestParams = {
     {Treatment::MouthGuards, "mouth guards"},       {Treatment::SleepApneaTreatment, "sleep apnea treatment"},
     {Treatment::OTHER, "other treatment type"}};
 
-TEST_P(TreatmentParameterizedFixture, GivenTreatmentEnumToStringShouldProvideCorrectStringRepresentation)
+TEST_P(TreatmentToStringParameterizedFixture, GivenTreatmentEnumToStringShouldProvideCorrectStringRepresentation)
 {
 
     const auto& [enumValue, stringRepresentation] = GetParam();
@@ -22,6 +22,17 @@ TEST_P(TreatmentParameterizedFixture, GivenTreatmentEnumToStringShouldProvideCor
     EXPECT_EQ(toString(enumValue), stringRepresentation);
 }
 
-INSTANTIATE_TEST_SUITE_P(TreatmentConversionToStringTest, TreatmentParameterizedFixture,
+TEST_P(TreatmentToEnumParameterizedFixture, GivenTreatmentStringToEnumShouldProvideCorrectEnumRepresentation)
+{
+
+    const auto& [enumValue, stringRepresentation] = GetParam();
+
+    EXPECT_EQ(toEnumTreatment(stringRepresentation), enumValue);
+}
+
+INSTANTIATE_TEST_SUITE_P(TreatmentConversionToStringTest, TreatmentToStringParameterizedFixture,
+                         ::testing::ValuesIn(TestParams));
+
+INSTANTIATE_TEST_SUITE_P(TreatmentConversionToEnumTest, TreatmentToEnumParameterizedFixture,
                          ::testing::ValuesIn(TestParams));
 } // namespace

@@ -7,7 +7,7 @@ namespace
 
 TEST_F(VisitTestFixture, GivenVisitExpectDoctorValidData)
 {
-    const auto visit = Clinic::getVisits().front();
+    const auto visit = Clinic::getTempVisit();
 
     const auto assigned_doctor = visit->getDoctor();
     const auto expected_name = "Jan";
@@ -17,23 +17,9 @@ TEST_F(VisitTestFixture, GivenVisitExpectDoctorValidData)
     EXPECT_EQ(assigned_doctor.lock()->getSurname(), expected_surname);
 }
 
-TEST_F(VisitTestFixture, GivenTwoVisitExpectOneDoctorValidData)
-{
-    Visit::createVisit(Clinic::getDoctors().front());
-
-    const auto first_visit = Clinic::getVisits().at(0);
-    const auto second_visit = Clinic::getVisits().at(1);
-
-    const auto first_visit_assigned_doctor = first_visit->getDoctor();
-    const auto second_visit_assigned_doctor = second_visit->getDoctor();
-
-    EXPECT_EQ(first_visit->getDoctor().lock()->getName(), second_visit->getDoctor().lock()->getName());
-    EXPECT_EQ(first_visit->getDoctor().lock()->getSurname(), second_visit->getDoctor().lock()->getSurname());
-}
-
 TEST_F(VisitTestFixture, GivenVisitInformationExpectInformationReturned)
 {
-    const auto visit = Clinic::getVisits().front();
+    const auto visit = Clinic::getTempVisit();
     const std::string visit_information{"Patient absent"};
     visit->setVisitInformation(visit_information);
     const auto visit_info = visit->getVisitInformation();
@@ -43,7 +29,7 @@ TEST_F(VisitTestFixture, GivenVisitInformationExpectInformationReturned)
 
 TEST_F(VisitTestFixture, GivenDefaultTreatmentExpectTreatmentsEmpty)
 {
-    const auto visit = Clinic::getVisits().front();
+    const auto visit = Clinic::getTempVisit();
     const auto visit_treatments = visit->getTreatments();
     const auto expected_treatments{std::vector<Treatment>{}};
 
@@ -52,7 +38,7 @@ TEST_F(VisitTestFixture, GivenDefaultTreatmentExpectTreatmentsEmpty)
 
 TEST_F(VisitTestFixture, GivenTreatmentSetExpectTreatmentsUpdated)
 {
-    const auto visit = Clinic::getVisits().front();
+    const auto visit = Clinic::getTempVisit();
 
     const std::vector expected_treatments = {Treatment::DentalFilling, Treatment::DentalSealants};
 
@@ -64,7 +50,7 @@ TEST_F(VisitTestFixture, GivenTreatmentSetExpectTreatmentsUpdated)
 
 TEST_F(VisitTestFixture, GivenVisitAddedViaPatientExpectCorrectConnectionBetweenObjects)
 {
-    const auto visit = Clinic::getVisits().front();
+    const auto visit = Clinic::getTempVisit();
     Patient::createPatient("Dawid", "Goliat", "72080357978", Gender::Male);
     const auto patient = Clinic::getPatients().front();
 
@@ -77,7 +63,7 @@ TEST_F(VisitTestFixture, GivenVisitAddedViaPatientExpectCorrectConnectionBetween
 
 TEST_F(VisitTestFixture, GivenPatientAddedViaVisitExpectCorrectConnectionBetweenObjects)
 {
-    const auto visit = Clinic::getVisits().front();
+    const auto visit = Clinic::getTempVisit();
     Patient::createPatient("Dawid", "Goliat", "99053033817", Gender::Male);
     const auto patient = Clinic::getPatients().front();
 
@@ -86,6 +72,19 @@ TEST_F(VisitTestFixture, GivenPatientAddedViaVisitExpectCorrectConnectionBetween
     EXPECT_EQ(visit->getPatient().lock()->getName(), "Dawid");
     EXPECT_EQ(*(visit->getPatient().lock()->getVisits().begin()), visit);
     EXPECT_EQ((*(patient->getVisits().begin()))->getPatient().lock(), patient);
+}
+
+TEST_F(VisitTestFixture, GivenVisitAddedViaRoomExpectCorrectConnectionBetweenObjects)
+{
+    const auto visit = Clinic::getTempVisit();
+    Room::createRoom(1, Clinic::getWarehouse());
+    const auto room = Clinic::getRooms().front();
+
+    room->addVisit(visit);
+
+    EXPECT_EQ(visit->getRoom().lock()->getRoomNumber(), 1);
+    EXPECT_EQ(*(visit->getRoom().lock()->getVisits().begin()), visit);
+    EXPECT_EQ((*(room->getVisits().begin()))->getRoom().lock(), room);
 }
 
 } // namespace
