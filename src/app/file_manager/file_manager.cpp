@@ -37,6 +37,10 @@ void FileManager::openFile(const FileMode mode)
         file_.open(file_path_, std::ios::in);
         break;
 
+    case FileMode::Output:
+        file_.open(file_path_, std::ios::out);
+        break;
+
     case FileMode::OutputAppend:
         file_.open(file_path_, std::ios::out | std::ios::app);
         break;
