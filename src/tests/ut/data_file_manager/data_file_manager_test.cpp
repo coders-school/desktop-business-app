@@ -62,3 +62,31 @@ TEST_F(DataFileManagerTestFixture, GivenReceptionistIsSerializedToFile)
     expected = "";
     EXPECT_EQ(test_file_content, expected);
 }
+
+TEST_F(DataFileManagerTestFixture, GivenTempVisitIsSerializedToFile)
+{
+    auto test_file_content = DataFileManager::printVisits(PATH::TEST_VISITS, "test_temp_visits.proto");
+    auto expected = "";
+    EXPECT_EQ(test_file_content, expected);
+    Doctor::createDoctor("Szczepan", "Kowalski", "80083169414", Gender::Male);
+    Visit::createTempVisit(Clinic::getDoctors().front());
+    Patient::createPatient("Andrzej", "Szczepanski", "59122991491", Gender::Male);
+    Clinic::getTempVisit()->setPatient(Clinic::getPatients().front());
+    std::vector<Treatment> treatments{Treatment::DentalBridges, Treatment::DentalFilling, Treatment::DentalImplants};
+    Clinic::getTempVisit()->updateTreatments(treatments);
+    Clinic::getTempVisit()->setVisitInformation("Test visit information");
+    Room::createRoom(2137, Clinic::getWarehouse());
+    Clinic::getTempVisit()->setRoom(Clinic::getRooms().front());
+
+    DataFileManager::addTempVisitToDatabase(PATH::TEST_VISITS, "test_temp_visits.proto", Clinic::getTempVisit());
+    test_file_content = DataFileManager::printVisits(PATH::TEST_VISITS, "test_temp_visits.proto");
+    expected =
+        "Visit:\nDoctor: Szczepan Kowalski 80083169414\nPatient: Andrzej Szczepanski 59122991491\nRoom: 2137\nVisit "
+        "information: Test visit information\nTreatments: \n -dental bridges\n -dental filling\n -dental implants\n";
+    EXPECT_EQ(test_file_content, expected);
+
+    DataFileManager::removeVisitFromFile(PATH::TEST_VISITS, "test_temp_visits.proto", Clinic::getTempVisit());
+    test_file_content = DataFileManager::printVisits(PATH::TEST_VISITS, "test_temp_visits.proto");
+    expected = "";
+    EXPECT_EQ(test_file_content, expected);
+}
