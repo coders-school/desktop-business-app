@@ -1,6 +1,6 @@
 #pragma once
-#include "visitStatus.hpp"
 #include "treatment.hpp"
+#include "visitStatus.hpp"
 #include <memory>
 #include <set>
 #include <string>
