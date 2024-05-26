@@ -1,6 +1,8 @@
 #include "data_file_manager.hpp"
+#include "clinic_facade.hpp"
 #include "gender.hpp"
 #include "paths.hpp"
+#include "treatment.hpp"
 
 void DataFileManager::promptDoctor(clinic_data::Workers::Doctor* new_doctor, const std::shared_ptr<Doctor>& doctor_data)
 {
@@ -17,6 +19,52 @@ void DataFileManager::promptReceptionist(clinic_data::Workers::Receptionist* new
     new_receptionist->set_surname(receptionist_data->getSurname());
     new_receptionist->set_pesel(receptionist_data->getPesel());
     new_receptionist->set_gender(receptionist_data->getGender());
+}
+
+void DataFileManager::promptVisit(clinic_data::VisitsData::Visit* new_visit, const std::shared_ptr<Visit>& visit_data)
+{
+    if (!visit_data->getDoctor().expired())
+    {
+        clinic_data::VisitsData::Doctor* doctor = new_visit->mutable_doctor();
+        doctor->set_name(visit_data->getDoctor().lock()->getName());
+        doctor->set_surname(visit_data->getDoctor().lock()->getSurname());
+        doctor->set_pesel(visit_data->getDoctor().lock()->getPesel());
+        doctor->set_gender(visit_data->getDoctor().lock()->getGender());
+    }
+    if (!visit_data->getPatient().expired())
+    {
+        clinic_data::VisitsData::Patient* patient = new_visit->mutable_patient();
+        patient->set_name(visit_data->getPatient().lock()->getName());
+        patient->set_surname(visit_data->getPatient().lock()->getSurname());
+        patient->set_pesel(visit_data->getPatient().lock()->getPesel());
+        patient->set_gender(visit_data->getPatient().lock()->getGender());
+    }
+    if (!visit_data->getRoom().expired())
+    {
+        clinic_data::VisitsData::Room* room = new_visit->mutable_room();
+        room->set_room_id(visit_data->getRoom().lock()->getRoomNumber());
+    }
+    new_visit->set_visit_information(visit_data->getVisitInformation());
+    auto treatments = visit_data->getTreatments();
+    for (const auto& treatment : treatments)
+    {
+        new_visit->add_treatments(toString(treatment));
+    }
+}
+
+bool DataFileManager::checkFieldsIfBlank(const std::shared_ptr<Visit>& visit)
+{
+    if (visit->getDoctor().expired() || visit->getPatient().expired() || visit->getRoom().expired() ||
+        visit->getVisitInformation().empty() || visit->getTreatments().empty())
+    {
+        return true;
+    }
+    return false;
+}
+
+void DataFileManager::clearFile(const std::filesystem::path& path, const std::string& file_name)
+{
+    FileManager file_manager(path, file_name, FileManager::FileMode::OutputTruncate);
 }
 
 void DataFileManager::addDoctorToDatabase(const std::filesystem::path& path, const std::string& file_name,
@@ -39,7 +87,31 @@ void DataFileManager::addReceptionistToDatabase(const std::filesystem::path& pat
     clinic_data::Workers::Receptionists receptionist_data;
     DataFileManager::promptReceptionist(receptionist_data.add_receptionists(), new_receptionist);
     receptionist_data.SerializeToOstream(&output_file);
+}
 
+void DataFileManager::addVisitToDatabase(const std::filesystem::path& path, const std::string& file_name,
+                                         const std::shared_ptr<Visit>& new_visit)
+{
+    if (!DataFileManager::checkFieldsIfBlank(new_visit))
+    {
+        throw std::invalid_argument("Cannot add visit to database because some fields are blank");
+    }
+    FileManager file_manager(path, file_name, FileManager::FileMode::OutputAppend);
+    auto& output_file = file_manager.getFileRef();
+    clinic_data::VisitsData::Visits visit_data;
+    DataFileManager::promptVisit(visit_data.add_visits(), new_visit);
+    visit_data.SerializeToOstream(&output_file);
+    google::protobuf::ShutdownProtobufLibrary();
+}
+
+void DataFileManager::addTempVisitToDatabase(const std::filesystem::path& path, const std::string& file_name,
+                                             const std::shared_ptr<Visit>& new_visit)
+{
+    FileManager file_manager(path, file_name, FileManager::FileMode::Output);
+    auto& output_file = file_manager.getFileRef();
+    clinic_data::VisitsData::Visits visit_data;
+    DataFileManager::promptVisit(visit_data.add_visits(), new_visit);
+    visit_data.SerializeToOstream(&output_file);
     google::protobuf::ShutdownProtobufLibrary();
 }
 
@@ -100,6 +172,38 @@ void DataFileManager::removeReceptionistFromFile(const std::filesystem::path& pa
     google::protobuf::ShutdownProtobufLibrary();
 }
 
+void DataFileManager::removeVisitFromFile(const std::filesystem::path& path, const std::string& file_name,
+                                          const std::shared_ptr<Visit>& visit)
+{
+    clinic_data::VisitsData::Visits visit_data;
+
+    {
+        FileManager file_manager(path, file_name, FileManager::FileMode::Input);
+        auto& input_file = file_manager.getFileRef();
+        if (!visit_data.ParseFromIstream(&input_file))
+        {
+            throw std::invalid_argument("Error while parsing visit data");
+        }
+        for (int i = 0; i < visit_data.visits_size(); i++)
+        {
+            if (visit_data.visits(i).doctor().pesel() == visit->getDoctor().lock()->getPesel() &&
+                visit_data.visits(i).patient().pesel() == visit->getPatient().lock()->getPesel() &&
+                visit_data.visits(i).room().room_id() == visit->getRoom().lock()->getRoomNumber() &&
+                visit_data.visits(i).visit_information() ==
+                    visit->getVisitInformation()) // todo add calendar date to get individual visit
+            {
+                visit_data.mutable_visits()->DeleteSubrange(i, 1);
+                break;
+            }
+        }
+    }
+    FileManager file_manager(path, file_name, FileManager::FileMode::OutputTruncate);
+    auto& output_file = file_manager.getFileRef();
+    visit_data.SerializeToOstream(&output_file);
+
+    google::protobuf::ShutdownProtobufLibrary();
+}
+
 void DataFileManager::loadDataForDoctors()
 {
     FileManager file_manager(PATH::WORKERS, "doctors.proto", FileManager::FileMode::Input);
@@ -138,6 +242,45 @@ void DataFileManager::loadAllDataForWorkers()
     DataFileManager::loadDataForReceptionists();
 }
 
+void DataFileManager::loadAllDataForVisits()
+{
+    FileManager file_manager(PATH::VISITS, "visits.proto", FileManager::FileMode::Input);
+    auto& input_file = file_manager.getFileRef();
+    clinic_data::VisitsData::Visits visit_data;
+    visit_data.ParseFromIstream(&input_file);
+    auto doctors = Clinic::getDoctors();
+    auto patients = Clinic::getPatients();
+    auto rooms = Clinic::getRooms();
+
+    for (int i = 0; i < visit_data.visits_size(); i++)
+    {
+        auto doctor = std::find_if(doctors.begin(), doctors.end(), [&](const std::shared_ptr<Doctor>& doctor) {
+            return doctor->getPesel() == visit_data.visits(i).doctor().pesel();
+        });
+        auto patient = std::find_if(patients.begin(), patients.end(), [&](const std::shared_ptr<Patient>& patient) {
+            return patient->getPesel() == visit_data.visits(i).patient().pesel();
+        });
+        auto room = std::find_if(rooms.begin(), rooms.end(), [&](const std::shared_ptr<Room>& room) {
+            return room->getRoomNumber() == visit_data.visits(i).room().room_id();
+        });
+        if (doctor != doctors.end() && patient != patients.end() && room != rooms.end())
+        {
+            Visit::createTempVisit(*doctor);
+            auto visit = Clinic::getTempVisit();
+            visit->setPatient(*patient);
+            visit->setRoom(*room);
+            visit->setVisitInformation(visit_data.visits(i).visit_information());
+            std::vector<Treatment> treatments{};
+            for (int j = 0; j < visit_data.visits(i).treatments_size(); j++)
+            {
+                treatments.push_back(toEnumTreatment(visit_data.visits(i).treatments(j)));
+            }
+            visit->updateTreatments(treatments);
+        }
+    }
+    google::protobuf::ShutdownProtobufLibrary();
+}
+
 std::string DataFileManager::printDoctors(const std::filesystem::path& path, const std::string& file_name)
 {
     std::string temp{};
@@ -166,6 +309,31 @@ std::string DataFileManager::printReceptionists(const std::filesystem::path& pat
         temp += "Receptionist: " + receptionist.receptionists(i).name() + " " +
                 receptionist.receptionists(i).surname() + " " + receptionist.receptionists(i).pesel() + " " +
                 receptionist.receptionists(i).gender() + "\n";
+    }
+    return temp;
+}
+
+std::string DataFileManager::printVisits(const std::filesystem::path& path, const std::string& file_name)
+{
+    std::string temp{};
+    FileManager file_manager(path, file_name, FileManager::FileMode::Input);
+    auto& input_file = file_manager.getFileRef();
+    clinic_data::VisitsData::Visits visits;
+    visits.ParseFromIstream(&input_file);
+
+    for (int i = 0; i < visits.visits_size(); i++)
+    {
+        temp += "Visit:\n";
+        temp += "Doctor: " + visits.visits(i).doctor().name() + " " + visits.visits(i).doctor().surname() + " " +
+                visits.visits(i).doctor().pesel() + "\n" + "Patient: " + visits.visits(i).patient().name() + " " +
+                visits.visits(i).patient().surname() + " " + visits.visits(i).patient().pesel() + "\n" +
+                "Room: " + std::to_string(visits.visits(i).room().room_id()) + "\n" +
+                "Visit information: " + visits.visits(i).visit_information() + "\n" + "Treatments: ";
+        for (int j = 0; j < visits.visits(i).treatments_size(); j++)
+        {
+            temp += "\n -" + visits.visits(i).treatments(j);
+        }
+        temp += "\n";
     }
     return temp;
 }
