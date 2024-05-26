@@ -33,9 +33,9 @@ std::vector<Treatment> Visit::getTreatments() const
     return treatments_;
 }
 
-Status Visit::getstatus() const
+VisitStatus Visit::getStatus() const
 {
-    return status_;
+    return visit_status_;
 }
 
 void Visit::setVisitInformation(const std::string& visit_information)
@@ -53,9 +53,9 @@ void Visit::updateTreatments(const std::vector<Treatment>& treatments)
     treatments_ = treatments;
 }
 
-void Visit::setStatus(Status status)
+void Visit::setStatus(VisitStatus visit_status)
 {
-    status_ = status;
+    visit_status_ = visit_status;
 }
 
 void Visit::createVisit(const std::shared_ptr<Doctor>& doctor)
