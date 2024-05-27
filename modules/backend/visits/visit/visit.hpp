@@ -16,3 +16,5 @@ class Visit
         patient_.UpdateTreatment(treatment_state, actual_treatment_);
     }
 };
+
+// Please add who created a Visit and when it was created.

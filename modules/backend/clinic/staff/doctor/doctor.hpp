@@ -1,7 +1,7 @@
 #pragma once
 
 
-class Doctor : public iVisitDoctor
+class Doctor : public iDoctor
 {
     Person person_;
     Specialization specialization_;

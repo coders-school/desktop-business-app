@@ -46,12 +46,7 @@
 // namespaces should be up to 3 levels deep
 // example:
 // backend::patient
-// backend::utils::logger
-// backend::common::gender
-
-
-
-
+// clinic::staff::doctor
 
 /**
  * represents both personal and medical data of patient.
@@ -60,7 +55,7 @@
  * data connected to particular patient. It contains finished
  * and planned treatment informations.
  */
-class Patient : public iVisitPatient, public iSerdePatient
+class Patient : public iPatient
 {
     Person person_;
     Payments payments_;
@@ -77,20 +72,7 @@ class Patient : public iVisitPatient, public iSerdePatient
     // what if planned treatment is done faster than expected?
     // find a way to handle such situation -> will it require using additional method?
     // try to do it without additional public method
-    void UpdateTreatment(const TreatmentState treatment_state, const std::vector<Treatment>& visit_treatments) override
-    {
-        treatments_.UpdateTreatment(treatment_state);
-    }
-
-    void SerializeData() override
-    {
-    }
 };
-
-
-
-
-
 
 // *** EXAMPLE USAGE ***
 void someFunction()
