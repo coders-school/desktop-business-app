@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string>
 
-enum class Specialization : std::uint8_t
+enum class Specialization : uint8_t
 {
     Dentist = 0,
 };

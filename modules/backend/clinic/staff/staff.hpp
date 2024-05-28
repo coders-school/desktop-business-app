@@ -1,6 +1,6 @@
 #pragma once
 
-#include "doctor/i_doctor.hpp"
+#include "staff/doctor/doctor.hpp"
 #include "i_staff.hpp"
 #include <vector>
 

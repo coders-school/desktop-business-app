@@ -2,7 +2,8 @@
 
 #include <memory>
 #include <vector>
-#include "staff/istaff.hpp"
+#include "clinic/staff/i_staff.hpp"
+#include "modules/backend/clinic/staff/room/i_room.hpp"
 
 class Clinic
 {
