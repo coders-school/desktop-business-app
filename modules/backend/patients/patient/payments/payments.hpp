@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 struct Payments
 {
     std::uint8_t paid_;

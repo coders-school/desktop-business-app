@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../name/name.hpp"
-#include "../address/address.hpp"
-#include "../pesel/pesel.hpp"
-#include "../phone_number/phone_number.hpp"
-#include "../enumerations/gender.hpp"
+#include "modules/backend/common/enumerations/gender.hpp"
+#include "modules/backend/common/personal_data/address/address.hpp"
+#include "modules/backend/common/personal_data/name/name.hpp"
+#include "modules/backend/common/personal_data/pesel/pesel.hpp"
+#include "modules/backend/common/personal_data/phone_number/phone_number.hpp"
 
 class PersonalData
 {
@@ -21,27 +21,26 @@ class PersonalData
     }
     Name getName() const
     {
-      return name_;
+        return name_;
     }
 
     Address getAddress() const
     {
-      return address_;
+        return address_;
     }
 
     Pesel getPesel() const
     {
-      return pesel_;
+        return pesel_;
     }
 
     PhoneNumber getPhoneNumber() const
     {
-      return phone_number_;
+        return phone_number_;
     }
 
     Gender getGender() const
     {
-      return gender_;
+        return gender_;
     }
 };
-

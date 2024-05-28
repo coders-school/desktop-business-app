@@ -15,10 +15,10 @@ std::string toString(const Gender& gender)
     switch(gender)
     {
         case Gender::Male:
-            return "male";
+            return "Male";
         case Gender::Female:
-            return "female";
+            return "Female";
         default:
-            return "unknown";
+            return "Unknown";
     }
 }

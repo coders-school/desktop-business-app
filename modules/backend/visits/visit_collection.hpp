@@ -1,5 +1,8 @@
 #pragma once
 
+#include "modules/backend/visits/visit/i_visit.hpp"
+#include <vector>
+
 class VisitCollection
 {
     std::vector<iVisit> visits_;
@@ -9,7 +12,8 @@ class VisitCollection
     {
         visits_.emplace_back(visit);
     }
-    std::vector<iVisit> GetVisits()
+    
+    const std::vector<iVisit>& GetVisits()
     {
         return visits_;
     }

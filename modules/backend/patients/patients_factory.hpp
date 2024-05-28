@@ -1,5 +1,9 @@
 #pragma once
 
+#include "modules/backend/patients/patient/i_patient.hpp"
+#include "modules/backend/serializer/serializer.hpp"
+#include <memory>
+#include <vector>
 
 /*
  * initializes Patients from serialized data.
@@ -10,7 +14,7 @@ std::vector<std::unique_ptr<iPatient>> InitializePatients(const Serializer& seri
     // this free functions should be in single file
     // and only be accessible within start of the program section.
     std::vector<std::unique_ptr<iPatient>> patients;
-    // Expected that Patient data will be deserialized and 
+    // Expected that Patient data will be deserialized and
     // emplaced in patient vector, something like following way:
     // for(const auto& patient : serializer.DeserializePatients())
     // {

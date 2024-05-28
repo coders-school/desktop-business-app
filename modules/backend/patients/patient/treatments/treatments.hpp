@@ -1,5 +1,8 @@
 #pragma once
 
+#include "modules/backend/common/enumerations/treatment.hpp"
+#include "modules/backend/common/enumerations/treatment_state.hpp"
+#include <chrono>
 #include <unordered_map>
 
 /*

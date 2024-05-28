@@ -1,5 +1,9 @@
 #pragma once
 
+#include "modules/backend/patients/patient/i_patient.hpp"
+#include <memory>
+#include <vector>
+
 class PatientCollection
 {
     std::vector<std::unique_ptr<iPatient>> patients_;
@@ -16,5 +20,3 @@ class PatientCollection
     // data visualization class should format Patient data accordingly
     // to the context in which it will be used e.g. doctors view, receptionist view etc.
 };
-
-

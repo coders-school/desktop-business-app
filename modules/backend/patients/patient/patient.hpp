@@ -1,11 +1,10 @@
 #pragma once
 
-#include <chrono>
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <vector>
+#include "modules/backend/common/personal_data/personal_data.hpp"
+#include "modules/backend/patients/patient/allergens/allergens.hpp"
+#include "modules/backend/patients/patient/i_patient.hpp"
+#include "modules/backend/patients/patient/payments/payments.hpp"
+#include "modules/backend/patients/patient/treatments/treatments.hpp"
 
 // all enum types should have following functions
 // getX returning std::string
@@ -40,7 +39,7 @@
 // of the data that Patient has (Person)
 // Person shall be moved to separated file and directory
 // all objects that are part of the Person will be moved
-// to the person directory and will own files
+// to the personal_data directory and will own files
 // Person has gender, then person.h and gender.h
 
 // namespaces should be up to 3 levels deep
@@ -55,17 +54,18 @@
  * data connected to particular patient. It contains finished
  * and planned treatment informations.
  */
+
 class Patient : public iPatient
 {
-    Person person_;
+    PersonalData personal_data_;
     Payments payments_;
     Allergens allergens_;
     Treatments treatments_;
 
   public:
     Patient()
-        : person_{Person{Name{}, Address{}, Pesel{""}, PhoneNumber{}}}, payments_{Payments{}}, allergens_{Allergens{}},
-          treatments_{Treatments{}}
+        : personal_data_{PersonalData{Name{}, Address{}, Pesel{""}, PhoneNumber{}}}, payments_{Payments{}},
+          allergens_{Allergens{}}, treatments_{Treatments{}}
     {
     }
     // date of treatment should be also added
@@ -75,15 +75,15 @@ class Patient : public iPatient
 };
 
 // *** EXAMPLE USAGE ***
-void someFunction()
-{
-    Serializer serializer;
-    PatientCollection patient_collection{InitializePatients(serializer)};
-    VisitCollection visit_collection;
+// void someFunction()
+// {
+//     Serializer serializer;
+//     PatientCollection patient_collection{InitializePatients(serializer)};
+//     VisitCollection visit_collection;
 
-    Patient patient;
-    patient_collection.AppendPatient(patient);
-}
+//     Patient patient;
+//     patient_collection.AppendPatient(patient);
+// }
 
 // *** IDEAS COLLECTOR ***
 // Rules:
