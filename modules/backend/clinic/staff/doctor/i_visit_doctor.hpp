@@ -6,5 +6,5 @@ class iVisitDoctor : public iDoctor
 {
   public:
     virtual ~iVisitDoctor() = 0;
-    virtual void getVists() const = 0;
+    virtual void GetVists() const = 0;
 };

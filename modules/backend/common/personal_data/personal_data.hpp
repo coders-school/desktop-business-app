@@ -19,27 +19,27 @@ class PersonalData
         : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, gender_{Gender::Unknown}
     {
     }
-    Name getName() const
+    Name GetName() const
     {
         return name_;
     }
 
-    Address getAddress() const
+    Address GetAddress() const
     {
         return address_;
     }
 
-    Pesel getPesel() const
+    Pesel GetPesel() const
     {
         return pesel_;
     }
 
-    PhoneNumber getPhoneNumber() const
+    PhoneNumber GetPhoneNumber() const
     {
         return phone_number_;
     }
 
-    Gender getGender() const
+    Gender GetGender() const
     {
         return gender_;
     }
