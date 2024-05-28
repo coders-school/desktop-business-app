@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string>
 
-enum class Allergen : std::uint8_t
+enum class Allergen : uint8_t
 {
     Allergen = 0,
     AnotherAllergen = 1,
@@ -11,4 +11,19 @@ enum class Allergen : std::uint8_t
     DifferentAllergen = 3
 };
 
-std::string toString(const Allergen& shift);
+std::string toString(const Allergen& shift)
+{
+    switch (shift)
+    {
+    case Allergen::Allergen:
+        return "Allergen";
+    case Allergen::AnotherAllergen:
+        return "AnotherAllergen";
+    case Allergen::SomeAllergen:
+        return "SomeAllergen";
+    case Allergen::DifferentAllergen:
+        return "DifferentAllergen";
+    default:
+        return "Unknown";
+    }
+}

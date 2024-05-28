@@ -3,6 +3,7 @@
 
 class iStaff
 {
-  public:
-    virtual ~iStaff() = 0;
+public:
+  virtual ~iStaff() = 0;
+  
 };

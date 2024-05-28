@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 class Pesel
 {
     std::string pesel_;

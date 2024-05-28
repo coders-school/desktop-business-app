@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string>
 
-enum class Treatment : std::uint32_t
+enum class Treatment : uint32_t
 {
     TeethCleaning = 0,
     RootCanal = 1,

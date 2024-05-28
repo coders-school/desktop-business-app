@@ -1,13 +1,24 @@
 #pragma once
 
+#include "modules/backend/common/person/personal_data.hpp"
+#include "modules/backend/common/enumerations/specialization.hpp"
+#include "i_visit_doctor.hpp"
 
 class Doctor : public iVisitDoctor
 {
-    Person person_;
+    PersonalData personal_data_;
     Specialization specialization_;
 
   public:
-    Doctor(const Person& person, const Specialization specialization) : person_{person}, specialization_{specialization}
+    Doctor(const PersonalData& personal_data, const Specialization specialization) : personal_data_{personal_data}, specialization_{specialization}
     {
+    }
+    PersonalData& getPersonalData()
+    {
+      return personal_data_;
+    }
+    Specialization getSpecialization() const override
+    {
+      return specialization_;
     }
 };
