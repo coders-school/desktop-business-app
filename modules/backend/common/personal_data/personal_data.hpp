@@ -12,6 +12,7 @@ class PersonalData
     Address address_;
     Pesel pesel_;
     PhoneNumber phone_number_;
+    // gender should be set by the pesel
     Gender gender_;
 
   public:

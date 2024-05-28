@@ -5,8 +5,8 @@
 
 enum class Gender : uint8_t
 {
-    Male = 0,
-    Female = 1,
+    Female = 0,
+    Male = 1,
     Unknown = 255
 };
 

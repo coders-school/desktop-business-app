@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "modules/backend/common/enumerations/gender.hpp"
 
 class Pesel
 {
@@ -20,4 +21,6 @@ class Pesel
     {
         return pesel_;
     }
+    
+
 };
