@@ -14,12 +14,12 @@ class Pesel
     {
     }
 
-    std::string GetPesel()
+    std::string GetPesel() const
     {
         return pesel_;
     }
 
-    Gender GetGender()
+    Gender GetGender() const
     {
         return (((pesel_[9] - '0') % 2) == 0) ? Gender::Female : Gender::Male;
     }

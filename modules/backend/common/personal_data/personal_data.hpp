@@ -12,14 +12,14 @@ class PersonalData
     Address address_;
     Pesel pesel_;
     PhoneNumber phone_number_;
-    // gender should be set by the pesel
     Gender gender_;
 
   public:
     PersonalData(const Name& name, const Address& address, const Pesel& pesel, const PhoneNumber& phone_number)
-        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, gender_{Gender::Unknown}
+        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, gender_{pesel_.GetGender()}
     {
     }
+
     Name GetName() const
     {
         return name_;
@@ -30,9 +30,9 @@ class PersonalData
         return address_;
     }
 
-    Pesel GetPesel() const
+    std::string GetPesel() const
     {
-        return pesel_;
+        return pesel_.GetPesel();
     }
 
     PhoneNumber GetPhoneNumber() const

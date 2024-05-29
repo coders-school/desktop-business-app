@@ -4,7 +4,8 @@
 
 struct PhoneNumber
 {
-    std::string phone_code_; // +1, +48 (+ == 00)
+    std::string cellphone_code_;
     std::string cellphone_number_;
+    std::string home_number_code_;
     std::string home_number;
 };
