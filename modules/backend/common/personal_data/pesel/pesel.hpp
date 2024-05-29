@@ -1,19 +1,16 @@
 #pragma once
 
-#include <string>
 #include "modules/backend/common/enumerations/gender.hpp"
+#include "modules/backend/common/validators/pesel_validator.hpp"
+#include <string>
 
 class Pesel
 {
+    PeselValidator pesel_validator_;
     std::string pesel_;
-    std::string ValidatePesel(const std::string& pesel)
-    {
-        // move validation
-        return pesel;
-    }
 
   public:
-    Pesel(const std::string& pesel) : pesel_{ValidatePesel(pesel)}
+    Pesel(const std::string& pesel) : pesel_validator_{}, pesel_{pesel_validator_.Validate(pesel)}
     {
     }
 
@@ -21,6 +18,9 @@ class Pesel
     {
         return pesel_;
     }
-    
 
+    Gender GetGender()
+    {
+        return (((pesel_[9] - '0') % 2) == 0) ? Gender::Female : Gender::Male;
+    }
 };

@@ -11,7 +11,6 @@ constexpr int cPeselSize = 11;
 class PeselValidator
 {
   public:
-
     /**
      * @brief Validates a PESEL number.
      *
@@ -21,13 +20,16 @@ class PeselValidator
      * @param pesel The PESEL number to validate.
      *
      * @throws std::invalid_argument If the PESEL number is invalid.
+     *
+     * @return The validated PESEL number.
      */
-    void Validate(const std::string& pesel) const
+    std::string Validate(const std::string& pesel) const
     {
         if (!(IsSizeValid(pesel) && IsDateValid(pesel) && IsControlNumberValid(pesel)))
         {
             throw std::invalid_argument("Invalid PESEL number");
         }
+        return pesel;
     }
 
   private:
