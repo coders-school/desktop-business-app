@@ -6,11 +6,15 @@
 #include "modules/backend/patients/patient/payments/payments.hpp"
 #include "modules/backend/patients/patient/treatments/treatments.hpp"
 
+// *** CONVENTIONS ***
+
+// names of the files should be in CamelCase
+
 // all enum types should have following functions
 // getX returning std::string
 
 // methods in a class should follow the following convention
-// GetData, CreateSometing, FindSomething
+// getData, createSometing, findSomething
 
 // free functions should follow the following convention
 // getData, createSomething, findSomething
@@ -24,6 +28,10 @@
 
 // interfaces naming should follow the following convention
 // class iName, struct iName
+//
+// if an interface is creating for a different context 
+// it shall follow the following convertion 
+// class iNameContext, struct iNameContext
 
 // interfaces need a short description about the
 // context in which shall be used
@@ -54,6 +62,26 @@
  * data connected to particular patient. It contains finished
  * and planned treatment informations.
  */
+
+// CI policies 
+// 1. Clang-format - ignore protobuf files and generated files
+// 2. Clang-tidy
+// 3. build the binaries through gcc and clang then test 
+// 4. valgrind
+// 5. ctest?
+
+// Test names convention 
+// should follow the following convention
+// keep the name as much as possible descriptive
+// TEST(function_name, )
+// TEST_F(fixture_name, )
+// 
+// the fixture should be placed in hpp file
+// tests should be in cpp file
+// if the tests does not have a fixture, then cpp file only
+
+// For each PUBLIC method in the class, there should be at least test
+
 
 class Patient : public iPatient
 {
