@@ -15,7 +15,7 @@ TBD...
 ### Format code before committing manually
 
 ```bash
-find . -name '*.cpp' -or -name '*.h' -or -name '*.hpp' | xargs clang-format --verbose -style=file -i
+find . -name '*.cpp' -or -name '*.hpp' | xargs clang-format --verbose -style=file -i
 ```
 
 ### Format code before committing using bash script
