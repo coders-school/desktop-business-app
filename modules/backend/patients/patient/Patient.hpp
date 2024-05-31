@@ -48,7 +48,7 @@
 // Person shall be moved to separated file and directory
 // all objects that are part of the Person will be moved
 // to the personal_data directory and will own files
-// Person has gender, then person.h and gender.h
+// Person has sex, then person.h and sex.h
 
 // namespaces should be up to 3 levels deep
 // example:

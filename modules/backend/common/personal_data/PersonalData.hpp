@@ -12,11 +12,11 @@ class PersonalData
     Address address_;
     Pesel pesel_;
     PhoneNumber phone_number_;
-    Gender gender_;
+    Sex sex_;
 
   public:
     PersonalData(const Name& name, const Address& address, const Pesel& pesel, const PhoneNumber& phone_number)
-        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, gender_{pesel_.GetGender()}
+        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, sex_{pesel_.GetGender()}
     {
     }
 
@@ -40,8 +40,8 @@ class PersonalData
         return phone_number_;
     }
 
-    Gender GetGender() const
+    Sex GetGender() const
     {
-        return gender_;
+        return sex_;
     }
 };

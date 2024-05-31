@@ -3,20 +3,20 @@
 #include <cstdint>
 #include <string>
 
-enum class Gender : uint8_t
+enum class Sex : uint8_t
 {
     Female = 0,
     Male = 1,
     Unknown = 255
 };
 
-std::string toString(const Gender& gender)
+std::string toString(const Sex& sex)
 {
-    switch(gender)
+    switch(sex)
     {
-        case Gender::Male:
+        case Sex::Male:
             return "Male";
-        case Gender::Female:
+        case Sex::Female:
             return "Female";
         default:
             return "Unknown";
