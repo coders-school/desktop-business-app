@@ -1,7 +1,7 @@
 #pragma once
 
-#include "modules/backend/patients/patient/i_patient.hpp"
-#include "modules/backend/serializer/serializer.hpp"
+#include "modules/backend/patients/patient/iPatient.hpp"
+#include "modules/backend/serializer/Serializer.hpp"
 #include <memory>
 #include <vector>
 

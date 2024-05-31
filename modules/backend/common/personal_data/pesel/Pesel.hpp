@@ -1,7 +1,7 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/gender.hpp"
-#include "modules/backend/common/validators/pesel_validator.hpp"
+#include "modules/backend/common/enumerations/Sex.hpp"
+#include "modules/backend/common/validators/PeselValidator.hpp"
 #include <string>
 
 class Pesel

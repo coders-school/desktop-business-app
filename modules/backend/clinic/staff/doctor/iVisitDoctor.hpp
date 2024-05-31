@@ -1,6 +1,6 @@
 #pragma once
 
-#include "i_doctor.hpp"
+#include "modules/backend/clinic/staff/doctor/iDoctor.hpp"
 
 class iVisitDoctor : public iDoctor
 {

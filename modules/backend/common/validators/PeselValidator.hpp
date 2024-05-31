@@ -1,6 +1,6 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/gender.hpp"
+#include "modules/backend/common/enumerations/Sex.hpp"
 #include <algorithm>
 #include <iostream>
 #include <numeric>

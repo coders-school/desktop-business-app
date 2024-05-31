@@ -1,7 +1,7 @@
 #pragma once
 
-#include "staff/doctor/doctor.hpp"
-#include "i_staff.hpp"
+#include "modules/backend/staff/doctor/Doctor.hpp"
+#include "modules/backend/clinic/staff/iStaff.hpp"
 #include <vector>
 
 class Staff : public iStaff

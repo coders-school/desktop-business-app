@@ -1,6 +1,6 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/allergen.hpp"
+#include "modules/backend/common/enumerations/Allergen.hpp"
 #include <vector>
 
 class Allergens

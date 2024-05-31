@@ -1,10 +1,10 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/gender.hpp"
-#include "modules/backend/common/personal_data/address/address.hpp"
-#include "modules/backend/common/personal_data/name/name.hpp"
-#include "modules/backend/common/personal_data/pesel/pesel.hpp"
-#include "modules/backend/common/personal_data/phone_number/phone_number.hpp"
+#include "modules/backend/common/enumerations/Sex.hpp"
+#include "modules/backend/common/personal_data/address/Address.hpp"
+#include "modules/backend/common/personal_data/name/Name.hpp"
+#include "modules/backend/common/personal_data/pesel/Pesel.hpp"
+#include "modules/backend/common/personal_data/phone_number/PhoneNumber.hpp"
 
 class PersonalData
 {

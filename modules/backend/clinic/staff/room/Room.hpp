@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "i_room.hpp"
+#include "modules/backend/clinic/staff/room/iRoom.hpp"
 
 class Room : public iRoom
 {

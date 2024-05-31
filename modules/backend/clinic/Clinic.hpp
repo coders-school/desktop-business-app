@@ -1,9 +1,9 @@
 #pragma once
 
+#include "modules/backend/clinic/staff/iStaff.hpp"
+#include "modules/backend/clinic/staff/room/iRoom.hpp"
 #include <memory>
 #include <vector>
-#include "clinic/staff/i_staff.hpp"
-#include "modules/backend/clinic/staff/room/i_room.hpp"
 
 class Clinic
 {

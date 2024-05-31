@@ -1,8 +1,9 @@
 #pragma once
 
-#include "i_visit_doctor.hpp"
+#include "modules/backend/clinic/staff/doctor/iVisitDoctor.hpp"
+#include "modules/backend/clinic/staff/doctor/iSerdeDoctor.hpp"
 
-class Doctor : public iDoctor
+class Doctor : public iVisitDoctor, public iSerdeDoctor
 {
     PersonalData personal_data_;
     Specialization specialization_;

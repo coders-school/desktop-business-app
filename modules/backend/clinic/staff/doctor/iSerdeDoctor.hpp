@@ -1,6 +1,8 @@
 #pragma once
 
-class iSerdeDoctor
+#include "modules/backend/clinic/staff/doctor/iDoctor.hpp"
+
+class iSerdeDoctor : public iDoctor
 {
   public:
     virtual ~iSerdeDoctor() = 0;

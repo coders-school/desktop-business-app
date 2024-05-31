@@ -1,7 +1,7 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/specialization.hpp"
-#include "modules/backend/common/personal_data/personal_data.hpp"
+#include "modules/backend/common/enumerations/Specialization.hpp"
+#include "modules/backend/common/personal_data/PersonalData.hpp"
 
 class iDoctor
 {

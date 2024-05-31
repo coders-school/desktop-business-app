@@ -1,7 +1,7 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/treatment.hpp"
-#include "modules/backend/common/enumerations/treatment_state.hpp"
+#include "modules/backend/common/enumerations/Treatment.hpp"
+#include "modules/backend/common/enumerations/TreatmentState.hpp"
 #include <chrono>
 #include <unordered_map>
 

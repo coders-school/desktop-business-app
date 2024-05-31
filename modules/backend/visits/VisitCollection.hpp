@@ -1,6 +1,6 @@
 #pragma once
 
-#include "modules/backend/visits/visit/i_visit.hpp"
+#include "modules/backend/visits/visit/iVisit.hpp"
 #include <vector>
 
 class VisitCollection

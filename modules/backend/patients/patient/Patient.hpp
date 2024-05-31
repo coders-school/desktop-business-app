@@ -1,10 +1,10 @@
 #pragma once
 
-#include "modules/backend/common/personal_data/personal_data.hpp"
-#include "modules/backend/patients/patient/allergens/allergens.hpp"
-#include "modules/backend/patients/patient/i_patient.hpp"
-#include "modules/backend/patients/patient/payments/payments.hpp"
-#include "modules/backend/patients/patient/treatments/treatments.hpp"
+#include "modules/backend/common/personal_data/PersonalData.hpp"
+#include "modules/backend/patients/patient/allergens/Allergens.hpp"
+#include "modules/backend/patients/patient/iPatient.hpp"
+#include "modules/backend/patients/patient/payments/Payments.hpp"
+#include "modules/backend/patients/patient/treatments/Treatments.hpp"
 
 // *** CONVENTIONS ***
 
