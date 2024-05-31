@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-namespace patients
+namespace patient
 {
 
 struct Payments
@@ -16,4 +16,4 @@ struct Payments
     // patient may pay in installments
 };
 
-} // namespace patients
+} // namespace patient

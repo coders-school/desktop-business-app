@@ -15,9 +15,9 @@ class Treatments
 {
     // map or different object containing treatment and date
     // and then kept in vector?
-    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_done_;
-    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_planned_;
-    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_declined_;
+    std::unordered_map<common::Treatment, std::chrono::year_month_day> treatments_done_;
+    std::unordered_map<common::Treatment, std::chrono::year_month_day> treatments_planned_;
+    std::unordered_map<common::Treatment, std::chrono::year_month_day> treatments_declined_;
     // vector<treatment> done
     // vector<treatment> declined
     // vector<treatment> planned
@@ -27,7 +27,7 @@ class Treatments
     // done -> set once visit state switches
     // Treatmends done in future should also collect date when
     // treatment was completed
-    void UpdateTreatment(const TreatmentState treatment_state)
+    void UpdateTreatment(const common::TreatmentState treatment_state)
     {
         // move Treatment from planned to done
     }

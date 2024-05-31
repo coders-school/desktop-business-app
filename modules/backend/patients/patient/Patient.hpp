@@ -11,15 +11,16 @@ namespace patient
 
 class Patient : public iPatient
 {
-    PersonalData personal_data_;
+    common::PersonalData personal_data_;
     Payments payments_;
     Allergens allergens_;
     Treatments treatments_;
 
   public:
     Patient()
-        : personal_data_{PersonalData{Name{}, Address{}, Pesel{""}, PhoneNumber{}}}, payments_{Payments{}},
-          allergens_{Allergens{}}, treatments_{Treatments{}}
+        : personal_data_{common::PersonalData{common::Name{}, common::Address{}, common::Pesel{""},
+                                              common::PhoneNumber{}}},
+          payments_{Payments{}}, allergens_{Allergens{}}, treatments_{Treatments{}}
     {
     }
     // date of treatment should be also added

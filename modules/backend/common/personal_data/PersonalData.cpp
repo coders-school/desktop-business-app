@@ -2,8 +2,6 @@
 
 namespace common
 {
-namespace personal_data
-{
 
 Name PersonalData::GetName() const
 {
@@ -30,5 +28,4 @@ Sex PersonalData::GetSex() const
     return sex_;
 }
 
-} // namespace personal_data
 } // namespace common

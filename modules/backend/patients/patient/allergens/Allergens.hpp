@@ -8,20 +8,20 @@ namespace patient
 
 class Allergens
 {
-    std::set<Allergen> allergens_;
+    std::set<common::Allergen> allergens_;
 
   public:
     /*
      * @brief Add allergen to the container
      * @param allergen - allergen to be added
      */
-    void addAllergen(const Allergen& allergen);
+    void addAllergen(const common::Allergen& allergen);
 
     /*
      * @brief Add set of allergens to the container
      * @param allergens - set of allergens to be added
      */
-    void addAllergen(const std::set<Allergen>& allergens);
+    void addAllergen(const std::set<common::Allergen>& allergens);
 
     /*
      * @brief Clear all allergens from the container
@@ -33,19 +33,19 @@ class Allergens
      * @param allergen - allergen to be checked
      * @return true if allergen is present, false otherwise
      */
-    bool checkAllergen(const Allergen& allergen);
+    bool checkAllergen(const common::Allergen& allergen);
 
     /*
      * @brief Get all allergens from the container
      * @return set of allergens
      */
-    std::set<Allergen> getAllergens() const;
+    std::set<common::Allergen> getAllergens() const;
 
     /*
      * @brief Remove allergen from the container
      * @param allergen - allergen to be removed
      */
-    void removeAllergen(const Allergen& allergen);
+    void removeAllergen(const common::Allergen& allergen);
 };
 
 } // namespace patient

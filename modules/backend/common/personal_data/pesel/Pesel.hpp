@@ -9,7 +9,7 @@ namespace common
 
 class Pesel
 {
-    PeselValidator pesel_validator_;
+    validators::PeselValidator pesel_validator_;
     std::string pesel_;
 
   public:

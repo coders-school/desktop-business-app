@@ -13,7 +13,7 @@ class Visit
     // on gui, doctor should select treatment/s for exact visit
   public:
     // used to set informations required for visit from patient
-    void SetPatientInfo(const iPatient& patient)
+    void SetPatientInfo(const patient::iPatient& patient)
     {
         // patient.GetPatientInfo();
     }

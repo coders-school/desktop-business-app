@@ -8,8 +8,6 @@
 
 namespace common
 {
-namespace personal_data
-{
 
 class PersonalData
 {
@@ -32,5 +30,4 @@ class PersonalData
     Sex GetSex() const;
 };
 
-} // namespace personal_data
 } // namespace common
