@@ -2,7 +2,7 @@
 
 ### Project Rules
 
-#### Naming
+#### General
 
 1. File names should be in PascalCase
 
@@ -23,7 +23,7 @@
     
     for example: 
     
-        class iSomeClassContext
+        class iSomeClass**Context**
 5. Public interfaces shall have short brief
 6. Methods or free functions should be in camelCase
     
@@ -37,6 +37,7 @@
         
         some::example::here
 9. It is forbidden to use 'using namespaces' 
+
 ### Enumerations
 1. Enum types shall
     - have assigned values 
@@ -49,12 +50,16 @@
         {
             cValue = 1,
         }
-11. Tests shall
+
+### Tests
+1. Tests shall
     - keep the name as much as possible descriptive
     - have their fixture placed in hpp file
     - have tests TEST, TEST_F, TEST_P, etc. placed in cpp file
     - if fixture is not present, only cpp should be introduced
-12. CI policies - each pull request should perform
+
+### CI policies
+1. Each pull request should perform
     - clang-format check
     - valgrind check
     - build and run tests
