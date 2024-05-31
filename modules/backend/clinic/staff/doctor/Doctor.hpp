@@ -2,6 +2,13 @@
 
 #include "modules/backend/clinic/staff/doctor/iDoctorSerde.hpp"
 
+namespace clinic
+{
+namespace staff
+{
+namespace doctor
+{
+
 class Doctor : public iDoctorSerde
 {
     PersonalData personal_data_;
@@ -20,3 +27,7 @@ class Doctor : public iDoctorSerde
     void Serialize() override;
     void UpdateSpecialization(const Specialization specialization) override;
 };
+
+} // namespace doctor
+} // namespace staff
+} // namespace clinic

@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <string>
 
+namespace common
+{
+
 enum class Treatment : uint32_t
 {
     TeethCleaning = 0,
@@ -25,3 +28,5 @@ enum class Treatment : uint32_t
 };
 
 std::string toString(Treatment dental_treatment);
+
+} // namespace common

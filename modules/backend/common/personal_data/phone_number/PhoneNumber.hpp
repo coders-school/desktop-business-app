@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace common
+{
+
 struct PhoneNumber
 {
     std::string cellphone_code_;
@@ -9,3 +12,5 @@ struct PhoneNumber
     std::string home_number_code_;
     std::string home_number;
 };
+
+} // namespace common

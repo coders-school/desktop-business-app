@@ -1,5 +1,12 @@
 #include "Doctor.hpp"
 
+namespace clinic
+{
+namespace staff
+{
+namespace doctor
+{
+
 PersonalData Doctor::GetPersonalData() const
 {
     return personal_data_;
@@ -24,3 +31,7 @@ void Doctor::UpdateSpecialization(const Specialization specialization)
 {
     specialization_ = specialization;
 }
+
+} // namespace doctor
+} // namespace staff
+} // namespace clinic

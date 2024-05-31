@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <string>
 
+namespace common
+{
+    
 enum class Sex : uint8_t
 {
     Female = 0,
@@ -21,3 +24,5 @@ std::string toString(const Sex& sex)
         return;
     }
 }
+
+} // namespace common

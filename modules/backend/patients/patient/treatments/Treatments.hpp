@@ -5,6 +5,9 @@
 #include <chrono>
 #include <unordered_map>
 
+namespace patient
+{
+
 /*
  *  represents the treatment that is planned for the patient or has been provided to the patient.
  */
@@ -29,3 +32,5 @@ class Treatments
         // move Treatment from planned to done
     }
 };
+
+} // namespace patient

@@ -4,6 +4,9 @@
 #include "modules/backend/common/validators/PeselValidator.hpp"
 #include <string>
 
+namespace common
+{
+
 class Pesel
 {
     PeselValidator pesel_validator_;
@@ -24,3 +27,5 @@ class Pesel
         return (((pesel_[9] - '0') % 2) == 0) ? Sex::Female : Sex::Male;
     }
 };
+
+} // namespace common

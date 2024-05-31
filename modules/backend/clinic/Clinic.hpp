@@ -5,10 +5,13 @@
 #include <memory>
 #include <vector>
 
+namespace clinic
+{
+
 class Clinic
 {
-    std::unique_ptr<Staff> staff_;
-    std::vector<std::unique_ptr<iRoom>> rooms_;
+    std::unique_ptr<staff::Staff> staff_;
+    std::vector<std::unique_ptr<room::iRoom>> rooms_;
 
   public:
     Clinic(std::unique_ptr<Staff> staff, std::vector<std::unique_ptr<iRoom>> rooms)
@@ -16,3 +19,5 @@ class Clinic
     {
     }
 };
+
+} // namespace clinic

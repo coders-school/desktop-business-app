@@ -2,6 +2,11 @@
 
 #include <cstdint>
 
+namespace clinic
+{
+namespace room
+{
+
 class iRoom
 {
   public:
@@ -9,3 +14,6 @@ class iRoom
     virtual std::uint8_t getNumber() const = 0;
     virtual void updateUsedProducts() = 0;
 };
+
+} // namespace room
+} // namespace clinic

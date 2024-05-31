@@ -6,6 +6,11 @@
 #include <numeric>
 #include <vector>
 
+namespace common
+{
+namespace validators
+{
+
 constexpr int cPeselSize = 11;
 
 class PeselValidator
@@ -135,3 +140,6 @@ class PeselValidator
         return (std::stoi(day) >= 1 && std::stoi(day) <= 31) ? true : false;
     }
 };
+
+} // namespace validators
+} // namespace common

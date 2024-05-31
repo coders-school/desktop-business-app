@@ -2,6 +2,9 @@
 
 #include <cstdint>
 
+namespace patients
+{
+
 struct Payments
 {
     std::uint8_t paid_;
@@ -13,3 +16,4 @@ struct Payments
     // patient may pay in installments
 };
 
+} // namespace patients

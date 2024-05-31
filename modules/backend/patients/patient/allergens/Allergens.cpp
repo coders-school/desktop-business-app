@@ -1,6 +1,9 @@
 #include "Allergens.hpp"
 #include <algorithm>
 
+namespace patient
+{
+
 void Allergens::addAllergen(const Allergen& allergen)
 {
     allergens_.insert(allergen);
@@ -30,3 +33,5 @@ void Allergens::removeAllergen(const Allergen& allergen)
 {
     allergens_.erase(allergen);
 }
+
+} // namespace patient

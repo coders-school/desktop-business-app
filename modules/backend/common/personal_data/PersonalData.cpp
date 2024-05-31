@@ -1,5 +1,10 @@
 #include "PersonalData.hpp"
 
+namespace common
+{
+namespace personal_data
+{
+
 Name PersonalData::GetName() const
 {
     return name_;
@@ -24,3 +29,6 @@ Sex PersonalData::GetSex() const
 {
     return sex_;
 }
+
+} // namespace personal_data
+} // namespace common

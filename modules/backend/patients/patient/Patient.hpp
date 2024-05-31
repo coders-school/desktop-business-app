@@ -6,6 +6,9 @@
 #include "modules/backend/patients/patient/payments/Payments.hpp"
 #include "modules/backend/patients/patient/treatments/Treatments.hpp"
 
+namespace patient
+{
+
 class Patient : public iPatient
 {
     PersonalData personal_data_;
@@ -62,3 +65,5 @@ class Patient : public iPatient
 // After system break down, TempPatient objects should be
 // visible in additional field on the window which allows searching.
 // Such filed should be accessible and creation can be resumed.
+
+} // namespace patient

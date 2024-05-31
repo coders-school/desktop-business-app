@@ -1,5 +1,10 @@
 #include "Room.hpp"
 
+namespace clinic
+{
+namespace room
+{
+
 std::uint8_t Room::getNumber() const
 {
     return room_number_;
@@ -12,3 +17,6 @@ void Room::updateUsedProducts()
     // 1. update argument list if necessary
     // 2. define how the process of updating should look like
 }
+
+} // namespace room
+} // namespace clinic

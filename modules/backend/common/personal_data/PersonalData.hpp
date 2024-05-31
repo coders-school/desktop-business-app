@@ -6,6 +6,11 @@
 #include "modules/backend/common/personal_data/pesel/Pesel.hpp"
 #include "modules/backend/common/personal_data/phone_number/PhoneNumber.hpp"
 
+namespace common
+{
+namespace personal_data
+{
+
 class PersonalData
 {
     Name name_;
@@ -26,3 +31,6 @@ class PersonalData
     PhoneNumber GetPhoneNumber() const;
     Sex GetSex() const;
 };
+
+} // namespace personal_data
+} // namespace common

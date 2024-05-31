@@ -5,6 +5,9 @@
 #include <memory>
 #include <vector>
 
+namespace patient
+{
+
 /*
  * initializes Patients from serialized data.
  * Shall be performed only once when application is started.
@@ -25,3 +28,5 @@ std::vector<std::unique_ptr<iPatient>> InitializePatients(const Serializer& seri
 
     return patients;
 }
+
+} // namespace patient

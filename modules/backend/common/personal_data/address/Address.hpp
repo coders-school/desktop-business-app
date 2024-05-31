@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace common
+{
+
 struct Address
 {
     std::string city_;
@@ -10,3 +13,5 @@ struct Address
     std::string street_;
     std::string zip_code_;
 };
+
+} // namespace common

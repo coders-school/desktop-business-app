@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <string>
 
+namespace common
+{
+
 enum class Allergen : uint8_t
 {
     Allergen = 0,
@@ -28,3 +31,5 @@ std::string toString(const Allergen& shift)
         return "Unknown";
     }
 }
+
+} // namespace common

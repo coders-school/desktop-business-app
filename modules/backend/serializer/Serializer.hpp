@@ -3,7 +3,11 @@
 #include <memory>
 #include <vector>
 
-class Serializer // find better name
+namespace serializer
 {
 
+class Serializer // find better name
+{
 };
+
+} // namespace serializer

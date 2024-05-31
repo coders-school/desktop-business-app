@@ -1,11 +1,19 @@
 #include "Staff.hpp"
 
-void Staff::addDoctor(const Doctor& doctor)
+namespace clinic
+{
+namespace staff
+{
+
+void Staff::addDoctor(const doctor::Doctor& doctor)
 {
     doctors_.emplace_back(doctor);
 }
 
-std::vector<Doctor> Staff::getDoctors() const
+std::vector<doctor::Doctor> Staff::getDoctors() const
 {
     return doctors_;
 }
+
+} // namespace staff
+} // namespace clinic

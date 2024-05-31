@@ -4,6 +4,11 @@
 #include "modules/backend/warehouse/Warehouse.hpp"
 #include <memory>
 
+namespace clinic
+{
+namespace room
+{
+
 class Room : public iRoom
 {
     std::uint8_t room_number_;
@@ -18,3 +23,6 @@ class Room : public iRoom
     std::uint8_t getNumber() const override;
     void updateUsedProducts() override;
 };
+
+} // namespace room
+} // namespace clinic

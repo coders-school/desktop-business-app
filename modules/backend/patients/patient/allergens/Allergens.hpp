@@ -3,6 +3,9 @@
 #include "modules/backend/common/enumerations/Allergen.hpp"
 #include <set>
 
+namespace patient
+{
+
 class Allergens
 {
     std::set<Allergen> allergens_;
@@ -44,3 +47,5 @@ class Allergens
      */
     void removeAllergen(const Allergen& allergen);
 };
+
+} // namespace patient

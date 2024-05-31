@@ -3,6 +3,9 @@
 #include <cstdint>
 #include <string>
 
+namespace common
+{
+
 enum class TreatmentState : uint8_t
 {
     Planned = 0,
@@ -22,3 +25,5 @@ std::string toString(const TreatmentState& treatment_state)
         return "Unknown";
     }
 }
+
+} // namespace common
