@@ -1,19 +1,46 @@
 #pragma once
 
 #include "modules/backend/common/enumerations/Allergen.hpp"
-#include <vector>
+#include <set>
 
 class Allergens
 {
-    // this class should contain allergens container
-    // allow to add and remove allergen/s
-    // return list of allergens
-    // inform (true/false) if queried allergen is present
-    std::vector<Allergen> allergens_;
+    std::set<Allergen> allergens_;
 
   public:
-    // expected methods
-    // addAllergen(singular -> Allergen)
-    // addAllergen(plural -> set, vector?<Allergen>)
-    // checkAllergen(Allergen)
+    /*
+     * @brief Add allergen to the container
+     * @param allergen - allergen to be added
+     */
+    void addAllergen(const Allergen& allergen);
+
+    /*
+     * @brief Add set of allergens to the container
+     * @param allergens - set of allergens to be added
+     */
+    void addAllergen(const std::set<Allergen>& allergens);
+
+    /*
+     * @brief Clear all allergens from the container
+     */
+    void clearAllergens();
+
+    /*
+     * @brief Check if allergen is present in the container
+     * @param allergen - allergen to be checked
+     * @return true if allergen is present, false otherwise
+     */
+    bool checkAllergen(const Allergen& allergen);
+
+    /*
+     * @brief Get all allergens from the container
+     * @return set of allergens
+     */
+    std::set<Allergen> getAllergens() const;
+
+    /*
+     * @brief Remove allergen from the container
+     * @param allergen - allergen to be removed
+     */
+    void removeAllergen(const Allergen& allergen);
 };
