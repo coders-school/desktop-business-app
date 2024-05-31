@@ -57,6 +57,15 @@
     - have their fixture placed in hpp file
     - have tests TEST, TEST_F, TEST_P, etc. placed in cpp file
     - if fixture is not present, only cpp should be introduced
+    - be introduced for each public method except simple getters
+
+    for example:
+    
+        int value{2};
+        int getValue() 
+        {
+            return value;
+        }
 
 ### CI policies
 1. Each pull request should perform
@@ -65,7 +74,7 @@
     - build and run tests
     
 
-// data should be separated by context
+<!-- // data should be separated by context
 // if there's general class, it should have it's own directory
 // example:
 // class Patient and Person are introduced in single file
@@ -87,4 +96,4 @@
 
 
 
-// For each PUBLIC method in the class, there should be at least test
+// For each PUBLIC method in the class, there should be at least test -->
