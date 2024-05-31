@@ -37,6 +37,7 @@
         
         some::example::here
 9. It is forbidden to use 'using namespaces' 
+10. Methods and functions should be in alphabetical order
 
 ### Enumerations
 1. Enum types shall

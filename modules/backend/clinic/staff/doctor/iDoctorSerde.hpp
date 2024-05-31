@@ -2,10 +2,10 @@
 
 #include "modules/backend/clinic/staff/doctor/iDoctor.hpp"
 
-class iSerdeDoctor : public iDoctor
+class iDoctorSerde : public iDoctor
 {
   public:
-    virtual ~iSerdeDoctor() = 0;
-    virtual void Serialize() const = 0;
+    virtual ~iDoctorSerde() = 0;
+    virtual void Serialize()  = 0;
     virtual void Deserialize() = 0;
 };

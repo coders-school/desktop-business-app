@@ -7,6 +7,7 @@ class iDoctor
 {
   public:
     virtual ~iDoctor() = 0;
-    virtual PersonalData& GetPersonalData() = 0;
+    virtual PersonalData GetPersonalData() const = 0;
     virtual Specialization GetSpecialization() const = 0;
+    virtual void UpdateSpecialization(const Specialization specialization) = 0;
 };
