@@ -38,7 +38,7 @@
         some::example::here
 9. It is forbidden to use 'using namespaces' 
 10. Methods and functions should be in alphabetical order
-11. Includes should contain relative path within project
+11. Includes should contain absolute path within project
 
 ### Enumerations
 1. Enum types shall

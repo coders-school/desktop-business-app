@@ -1,12 +1,13 @@
 #pragma once
 
-#include "modules/backend/staff/doctor/Doctor.hpp"
-#include "modules/backend/clinic/staff/iStaff.hpp"
+#include "modules/backend/clinic/staff/doctor/Doctor.hpp"
 #include <vector>
 
-class Staff : public iStaff
+class Staff
 {
     std::vector<Doctor> doctors_;
-    // std::vector<Receptionist> receptionists_;
+    // TODO introduce missing staff members
   public:
+    void addDoctor(const Doctor& doctor);
+    std::vector<Doctor> getDoctors() const;
 };
