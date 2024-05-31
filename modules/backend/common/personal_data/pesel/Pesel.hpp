@@ -19,7 +19,7 @@ class Pesel
         return pesel_;
     }
 
-    Sex GetGender() const
+    Sex GetSex() const
     {
         return (((pesel_[9] - '0') % 2) == 0) ? Sex::Female : Sex::Male;
     }

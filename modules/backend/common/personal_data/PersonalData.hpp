@@ -16,32 +16,13 @@ class PersonalData
 
   public:
     PersonalData(const Name& name, const Address& address, const Pesel& pesel, const PhoneNumber& phone_number)
-        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, sex_{pesel_.GetGender()}
+        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, sex_{pesel_.GetSex()}
     {
     }
 
-    Name GetName() const
-    {
-        return name_;
-    }
-
-    Address GetAddress() const
-    {
-        return address_;
-    }
-
-    std::string GetPesel() const
-    {
-        return pesel_.GetPesel();
-    }
-
-    PhoneNumber GetPhoneNumber() const
-    {
-        return phone_number_;
-    }
-
-    Sex GetGender() const
-    {
-        return sex_;
-    }
+    Address GetAddress() const;
+    Name GetName() const;
+    std::string GetPesel() const;
+    PhoneNumber GetPhoneNumber() const;
+    Sex GetSex() const;
 };
