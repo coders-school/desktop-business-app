@@ -1,6 +1,6 @@
 #pragma once
 
-#include "modules/backend/patients/patient/iPatient.hpp"
+#include "modules/backend/visits/visit/iVisit.hpp"
 #include <vector>
 
 namespace visit
@@ -13,15 +13,11 @@ class Visit
     // on gui, doctor should select treatment/s for exact visit
   public:
     // used to set informations required for visit from patient
-    void SetPatientInfo(const patient::iPatient& patient)
-    {
-        // patient.GetPatientInfo();
-    }
-    void FinishVisit()
-    {
-        // const TreatmentState treatment_state = TreatmentState::Done;
-        // patient_.UpdateTreatment(treatment_state, actual_treatment_);
-    }
+    void setDoctorInfo(const clinic::staff::doctor::iDoctor& doctor);
+    void setPatientInfo(const patient::iPatient& patient);
+    void setPaymentInfo(const patient::Payments& payments);
+    void setRoom(const clinic::room::iRoom& room);
+    void setTreatmentsInfo(const patient::Treatments& treatments);
 };
 
 // Please add who created a Visit and when it was created.
