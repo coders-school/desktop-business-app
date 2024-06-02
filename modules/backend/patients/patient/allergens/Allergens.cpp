@@ -1,4 +1,5 @@
 #include "Allergens.hpp"
+
 #include <algorithm>
 
 namespace patient

@@ -36,13 +36,8 @@ class Product : public iMedicine, public iEquipment
 
 class Warehouse
 {
-    std::vector<std::unique_ptr<iProduct>> products_;
-
   public:
-    void AppendProduct(std::unique_ptr<iProduct> product)
-    {
-        products_.emplace_back(std::move(product));
-    }
+    void AppendProduct(std::unique_ptr<iProduct> product);
 
     // expectation from Room object is to receive
     // all the object in categories
@@ -53,6 +48,9 @@ class Warehouse
     // Once it's defined, Warehouse could become
     // a separated module. But in fact, it's behavior
     // needs to satisfy defined API.
+
+  private:
+    std::vector<std::unique_ptr<iProduct>> products_;
 };
 
 } // namespace warehouse

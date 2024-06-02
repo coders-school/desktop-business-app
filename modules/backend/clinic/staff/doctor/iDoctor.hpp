@@ -1,7 +1,11 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/Specialization.hpp"
-#include "modules/backend/common/personal_data/PersonalData.hpp"
+#include "enumerations/specialization/Specialization.hpp"
+
+namespace common
+{
+class PersonalData;
+} // namespace common
 
 namespace clinic
 {
@@ -13,10 +17,10 @@ namespace doctor
 class iDoctor
 {
   public:
-    virtual ~iDoctor() = 0;
-    virtual PersonalData GetPersonalData() const = 0;
-    virtual Specialization GetSpecialization() const = 0;
-    virtual void UpdateSpecialization(const Specialization specialization) = 0;
+    virtual ~iDoctor() = default;
+    virtual common::PersonalData GetPersonalData() const = 0;
+    virtual common::Specialization GetSpecialization() const = 0;
+    virtual void UpdateSpecialization(const common::Specialization specialization) = 0;
 };
 
 } // namespace doctor

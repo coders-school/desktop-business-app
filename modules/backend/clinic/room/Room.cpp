@@ -1,9 +1,15 @@
 #include "Room.hpp"
+#include "Warehouse.hpp"
 
 namespace clinic
 {
 namespace room
 {
+
+Room::Room(const std::uint8_t room_number, std::shared_ptr<warehouse::Warehouse> warehouse)
+    : room_number_{room_number}, warehouse_{warehouse}
+{
+}
 
 std::uint8_t Room::getNumber() const
 {

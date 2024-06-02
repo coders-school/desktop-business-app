@@ -7,12 +7,17 @@ namespace staff
 namespace doctor
 {
 
-PersonalData Doctor::GetPersonalData() const
+Doctor::Doctor(const common::PersonalData& personal_data, const common::Specialization specialization)
+    : personal_data_{personal_data}, specialization_{specialization}
+{
+}
+
+common::PersonalData Doctor::GetPersonalData() const
 {
     return personal_data_;
 }
 
-Specialization Doctor::GetSpecialization() const
+common::Specialization Doctor::GetSpecialization() const
 {
     return specialization_;
 }
@@ -27,7 +32,7 @@ void Doctor::Deserialize()
     // TODO Deserialization logic
 }
 
-void Doctor::UpdateSpecialization(const Specialization specialization)
+void Doctor::UpdateSpecialization(const common::Specialization specialization)
 {
     specialization_ = specialization;
 }

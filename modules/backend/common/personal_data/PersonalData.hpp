@@ -1,33 +1,31 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/Sex.hpp"
-#include "modules/backend/common/personal_data/address/Address.hpp"
-#include "modules/backend/common/personal_data/name/Name.hpp"
-#include "modules/backend/common/personal_data/pesel/Pesel.hpp"
-#include "modules/backend/common/personal_data/phone_number/PhoneNumber.hpp"
+#include "address/Address.hpp"
+#include "enumerations/sex/Sex.hpp"
+#include "name/Name.hpp"
+#include "pesel/Pesel.hpp"
+#include "phone_number/PhoneNumber.hpp"
 
 namespace common
 {
 
 class PersonalData
 {
+  public:
+    PersonalData(const Name& name, const Address& address, const Pesel& pesel, const PhoneNumber& phone_number);
+
+    Address getAddress() const;
+    Name getName() const;
+    std::string getPesel() const;
+    PhoneNumber getPhoneNumber() const;
+    Sex getSex() const;
+
+  private:
     Name name_;
     Address address_;
     Pesel pesel_;
     PhoneNumber phone_number_;
     Sex sex_;
-
-  public:
-    PersonalData(const Name& name, const Address& address, const Pesel& pesel, const PhoneNumber& phone_number)
-        : name_{name}, address_{address}, pesel_{pesel}, phone_number_{phone_number}, sex_{pesel_.GetSex()}
-    {
-    }
-
-    Address GetAddress() const;
-    Name GetName() const;
-    std::string GetPesel() const;
-    PhoneNumber GetPhoneNumber() const;
-    Sex GetSex() const;
 };
 
 } // namespace common

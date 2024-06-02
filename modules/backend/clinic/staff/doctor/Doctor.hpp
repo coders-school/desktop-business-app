@@ -1,6 +1,7 @@
 #pragma once
 
-#include "modules/backend/clinic/staff/doctor/iDoctorSerde.hpp"
+#include "iDoctorSerde.hpp"
+#include "personal_data/PersonalData.hpp"
 
 namespace clinic
 {
@@ -11,21 +12,19 @@ namespace doctor
 
 class Doctor : public iDoctorSerde
 {
-    PersonalData personal_data_;
-    Specialization specialization_;
+  private:
+    common::PersonalData personal_data_;
+    common::Specialization specialization_;
 
   public:
-    Doctor(const PersonalData& personal_data, const Specialization specialization)
-        : personal_data_{personal_data}, specialization_{specialization}
-    {
-    }
+    Doctor(const common::PersonalData& personal_data, const common::Specialization specialization);
 
     void Deserialize() override;
-    PersonalData GetPersonalData() const override;
-    Specialization GetSpecialization() const override;
+    common::PersonalData GetPersonalData() const override;
+    common::Specialization GetSpecialization() const override;
 
     void Serialize() override;
-    void UpdateSpecialization(const Specialization specialization) override;
+    void UpdateSpecialization(const common::Specialization specialization) override;
 };
 
 } // namespace doctor

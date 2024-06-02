@@ -7,6 +7,7 @@ namespace patient
 
 struct Payments
 {
+    // TODO: consider type: float or double maybe?
     std::uint8_t paid_;
     std::uint8_t planned_;
     std::uint8_t overdue_;
