@@ -10,9 +10,9 @@ std::string toString(const Sex& sex)
         return "Male";
     case Sex::Female:
         return "Female";
-    default:
-        return {"Unknown"};
     }
+
+    return {};
 }
 
 } // namespace common
