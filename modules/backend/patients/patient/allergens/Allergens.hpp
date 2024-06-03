@@ -1,6 +1,7 @@
 #pragma once
 
-#include "modules/backend/common/enumerations/Allergen.hpp"
+#include "enumerations/allergen/Allergen.hpp"
+
 #include <set>
 
 namespace patient
@@ -8,8 +9,6 @@ namespace patient
 
 class Allergens
 {
-    std::set<common::Allergen> allergens_;
-
   public:
     /*
      * @brief Add allergen to the container
@@ -46,6 +45,9 @@ class Allergens
      * @param allergen - allergen to be removed
      */
     void removeAllergen(const common::Allergen& allergen);
+
+  private:
+    std::set<common::Allergen> allergens_;
 };
 
 } // namespace patient

@@ -10,7 +10,7 @@ namespace room
 class iRoom
 {
   public:
-    virtual ~iRoom() = 0;
+    virtual ~iRoom() = default;
     virtual std::uint8_t getNumber() const = 0;
     virtual void updateUsedProducts() = 0;
 };

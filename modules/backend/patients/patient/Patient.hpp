@@ -1,32 +1,27 @@
 #pragma once
 
-#include "modules/backend/common/personal_data/PersonalData.hpp"
-#include "modules/backend/patients/patient/allergens/Allergens.hpp"
-#include "modules/backend/patients/patient/iPatient.hpp"
-#include "modules/backend/patients/patient/payments/Payments.hpp"
-#include "modules/backend/patients/patient/treatments/Treatments.hpp"
+#include "allergens/Allergens.hpp"
+#include "iPatient.hpp"
+#include "payments/Payments.hpp"
+#include "personal_data/PersonalData.hpp"
+#include "treatments/Treatments.hpp"
 
 namespace patient
 {
 
 class Patient : public iPatient
 {
-    common::PersonalData personal_data_;
-    Payments payments_;
-    Allergens allergens_;
-    Treatments treatments_;
-
   public:
-    Patient()
-        : personal_data_{common::PersonalData{common::Name{}, common::Address{}, common::Pesel{""},
-                                              common::PhoneNumber{}}},
-          payments_{Payments{}}, allergens_{Allergens{}}, treatments_{Treatments{}}
-    {
-    }
+    Patient();
     // date of treatment should be also added
     // what if planned treatment is done faster than expected?
     // find a way to handle such situation -> will it require using additional method?
     // try to do it without additional public method
+  private:
+    common::PersonalData personal_data_;
+    Payments payments_;
+    Allergens allergens_;
+    Treatments treatments_;
 };
 
 // *** EXAMPLE USAGE ***

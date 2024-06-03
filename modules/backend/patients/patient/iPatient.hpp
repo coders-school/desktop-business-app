@@ -10,7 +10,7 @@ namespace patient
 class iPatient
 {
   public:
-    virtual ~iPatient() = 0;
+    virtual ~iPatient() = default;
 };
 
 } // namespace patient

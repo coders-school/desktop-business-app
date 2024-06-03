@@ -1,25 +1,22 @@
 #pragma once
 
-#include "modules/backend/visits/visit/iVisit.hpp"
+#include <memory>
 #include <vector>
 
 namespace visit
 {
 
+class iVisit;
+
 class VisitCollection
 {
-    std::vector<iVisit> visits_;
-
   public:
-    void AppendVisit(const iVisit& visit)
-    {
-        visits_.emplace_back(visit);
-    }
+    void appendVisit(std::unique_ptr<iVisit> visit);
+    const std::vector<std::unique_ptr<iVisit>>& getVisits() const;
 
-    const std::vector<iVisit>& GetVisits()
-    {
-        return visits_;
-    }
+  private:
+    //  Functions require this consideration too then
+    std::vector<std::unique_ptr<iVisit>> visits_;
 };
 
 } // namespace visit

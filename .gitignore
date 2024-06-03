@@ -59,6 +59,9 @@ compile_commands.json
 # Build directory
 build/
 
+# Build directory for tests
+build_tests/
+
 # Build directory
 buildDebug/
 
@@ -67,3 +70,9 @@ bin/
 
 # Local machine files
 .vscode/
+
+# external_libraries folder
+external_libraries/
+
+# own libraries built by project
+own_libraries/
