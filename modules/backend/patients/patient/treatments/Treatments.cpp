@@ -5,7 +5,7 @@ namespace patient
 
 void Treatments::updateTreatment([[maybe_unused]] const common::TreatmentState treatment_state)
 {
-    // move Treatment from planned to done
+    // TODO: #128
 }
 
 } // namespace patient
