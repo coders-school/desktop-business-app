@@ -5,7 +5,8 @@ set(VISITS_SOURCES
 
 add_library(visits-lib STATIC ${VISITS_SOURCES})
 
-target_compile_options(visits-lib PRIVATE -Werror -Wall -Wextra -pedantic)
+target_compile_options(visits-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
+                                          -Wconversion -Wdangling-pointer)
 
 target_link_libraries(visits-lib PUBLIC common-lib
 )

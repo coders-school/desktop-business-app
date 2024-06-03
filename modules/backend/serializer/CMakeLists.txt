@@ -4,7 +4,8 @@ set(SERIALIZER_SOURCES
 
 add_library(serializer-lib STATIC ${SERIALIZER_SOURCES})
 
-target_compile_options(serializer-lib PRIVATE -Werror -Wall -Wextra -pedantic)
+target_compile_options(serializer-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
+                                              -Wconversion -Wdangling-pointer)
 #TODO: fill when serializer developed
 # target_link_libraries(serializer-lib PUBLIC )
 

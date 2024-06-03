@@ -7,7 +7,8 @@ set(CLINIC_SOURCES
 
 add_library(clinic-lib STATIC ${CLINIC_SOURCES})
 
-target_compile_options(clinic-lib PRIVATE -Werror -Wall -Wextra -pedantic)
+target_compile_options(clinic-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
+                                          -Wconversion -Wdangling-pointer)
 
 target_link_libraries(clinic-lib PUBLIC
                                  common-lib

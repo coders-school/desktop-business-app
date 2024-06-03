@@ -5,7 +5,8 @@ set(WAREHOUSE_SOURCES
 add_library(warehouse-lib STATIC ${WAREHOUSE_SOURCES})
 
 
-target_compile_options(warehouse-lib PRIVATE -Werror -Wall -Wextra -pedantic)
+target_compile_options(warehouse-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
+                                             -Wconversion -Wdangling-pointer)
 
 #TODO: add targets to be linked against when needed
 # target_link_libraries(visits-lib PUBLIC
