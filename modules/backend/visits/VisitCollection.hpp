@@ -11,14 +11,12 @@ class iVisit;
 class VisitCollection
 {
   public:
-    void appendVisit(const std::shared_ptr<iVisit>& visit);
-    const std::vector<std::shared_ptr<iVisit>>& getVisits() const;
+    void appendVisit(std::unique_ptr<iVisit> visit);
+    const std::vector<std::unique_ptr<iVisit>>& getVisits() const;
 
   private:
-    //  TODO: type of pointer to be decided here (unique/shared/raw).
     //  Functions require this consideration too then
-    std::vector<std::shared_ptr<iVisit>> visits_;
-
+    std::vector<std::unique_ptr<iVisit>> visits_;
 };
 
 } // namespace visit
