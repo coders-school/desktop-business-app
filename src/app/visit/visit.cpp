@@ -97,7 +97,7 @@ void Visit::createVisit(const std::shared_ptr<Doctor>& doctor, const std::shared
         doctor->appendVisit(visit_ptr);
         patient->addVisit(visit_ptr);
         room->addVisit(visit_ptr);
-        Clinic::appendTempVisit(visit_ptr);
+        Clinic::setTempVisit(visit_ptr);
         Clinic::appendVisit();
     }
     else

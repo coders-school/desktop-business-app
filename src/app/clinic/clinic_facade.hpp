@@ -25,7 +25,7 @@ class Clinic
     static void appendDoctor(const std::shared_ptr<Doctor>& doctor);
     static void appendPatient(const std::shared_ptr<Patient>& patient);
     static void appendVisit();
-    static void appendTempVisit(const std::shared_ptr<Visit>& visit);
+    static void setTempVisit(const std::shared_ptr<Visit>& visit);
     static void appendReceptionist(const std::shared_ptr<Receptionist>& receptionist);
     static void appendRoom(const std::shared_ptr<Room>& room);
     static void appendCalendar(const std::shared_ptr<Calendar>& calendar);

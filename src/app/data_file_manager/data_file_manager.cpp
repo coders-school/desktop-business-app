@@ -26,18 +26,20 @@ void DataFileManager::promptVisit(clinic_data::VisitsData::Visit* new_visit, con
     if (!visit_data->getDoctor().expired())
     {
         clinic_data::VisitsData::Doctor* doctor = new_visit->mutable_doctor();
-        doctor->set_name(visit_data->getDoctor().lock()->getName());
-        doctor->set_surname(visit_data->getDoctor().lock()->getSurname());
-        doctor->set_pesel(visit_data->getDoctor().lock()->getPesel());
-        doctor->set_gender(visit_data->getDoctor().lock()->getGender());
+        auto doctor_data = visit_data->getDoctor().lock();
+        doctor->set_name(doctor_data->getName());
+        doctor->set_surname(doctor_data->getSurname());
+        doctor->set_pesel(doctor_data->getPesel());
+        doctor->set_gender(doctor_data->getGender());
     }
     if (!visit_data->getPatient().expired())
     {
         clinic_data::VisitsData::Patient* patient = new_visit->mutable_patient();
-        patient->set_name(visit_data->getPatient().lock()->getName());
-        patient->set_surname(visit_data->getPatient().lock()->getSurname());
-        patient->set_pesel(visit_data->getPatient().lock()->getPesel());
-        patient->set_gender(visit_data->getPatient().lock()->getGender());
+        auto patient_data = visit_data->getPatient().lock();
+        patient->set_name(patient_data->getName());
+        patient->set_surname(patient_data->getSurname());
+        patient->set_pesel(patient_data->getPesel());
+        patient->set_gender(patient_data->getGender());
     }
     if (!visit_data->getRoom().expired())
     {
@@ -52,14 +54,10 @@ void DataFileManager::promptVisit(clinic_data::VisitsData::Visit* new_visit, con
     }
 }
 
-bool DataFileManager::checkFieldsIfBlank(const std::shared_ptr<Visit>& visit)
+bool DataFileManager::anyVisitFieldUnavailable(const std::shared_ptr<Visit>& visit)
 {
-    if (visit->getDoctor().expired() || visit->getPatient().expired() || visit->getRoom().expired() ||
-        visit->getVisitInformation().empty() || visit->getTreatments().empty())
-    {
-        return true;
-    }
-    return false;
+    return (visit->getDoctor().expired() || visit->getPatient().expired() || visit->getRoom().expired() ||
+            visit->getVisitInformation().empty() || visit->getTreatments().empty());
 }
 
 void DataFileManager::clearFile(const std::filesystem::path& path, const std::string& file_name)
@@ -92,7 +90,7 @@ void DataFileManager::addReceptionistToDatabase(const std::filesystem::path& pat
 void DataFileManager::addVisitToDatabase(const std::filesystem::path& path, const std::string& file_name,
                                          const std::shared_ptr<Visit>& new_visit)
 {
-    if (!DataFileManager::checkFieldsIfBlank(new_visit))
+    if (!DataFileManager::anyVisitFieldUnavailable(new_visit))
     {
         throw std::invalid_argument("Cannot add visit to database because some fields are blank");
     }

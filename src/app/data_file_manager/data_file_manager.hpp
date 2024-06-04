@@ -17,7 +17,7 @@ class DataFileManager
     static void promptReceptionist(clinic_data::Workers::Receptionist* new_receptionist,
                                    const std::shared_ptr<Receptionist>& receptionist_data);
     static void promptVisit(clinic_data::VisitsData::Visit* new_visit, const std::shared_ptr<Visit>& visit_data);
-    bool static checkFieldsIfBlank(const std::shared_ptr<Visit>& visit);
+    bool static anyVisitFieldUnavailable(const std::shared_ptr<Visit>& visit);
     static void clearFile(const std::filesystem::path& path, const std::string& file_name);
 
   public:

@@ -21,7 +21,7 @@ void Clinic::appendVisit()
     }
 }
 
-void Clinic::appendTempVisit(const std::shared_ptr<Visit>& visit)
+void Clinic::setTempVisit(const std::shared_ptr<Visit>& visit)
 {
     temp_visit_ = visit;
 }
