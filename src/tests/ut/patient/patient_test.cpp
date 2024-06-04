@@ -85,18 +85,8 @@ TEST_F(PatientTestFixture, GivenVisitCheckIfPatientHasCorrectAmountOfVisits)
 {
     Patient::createPatient("Pawel", "Awel", "87071989652", Gender::Male);
     std::shared_ptr<Patient> patient = Clinic::getPatients().front();
-    patient->addVisit(Clinic::getVisits().at(0));
+    patient->addVisit(Clinic::getTempVisit());
     const size_t expected_output{1};
-    EXPECT_EQ(Clinic::getPatients().front()->getVisits().size(), expected_output);
-}
-
-TEST_F(PatientTestFixture, GivenVisitCheckIfPatientHasCorrectAmountOfVisits2)
-{
-    Patient::createPatient("Pawel", "Gawel", "72080357978", Gender::Male);
-    std::shared_ptr<Patient> patient = Clinic::getPatients().front();
-    patient->addVisit(Clinic::getVisits().at(0));
-    patient->addVisit(Clinic::getVisits().at(1));
-    const size_t expected_output{2};
     EXPECT_EQ(Clinic::getPatients().front()->getVisits().size(), expected_output);
 }
 

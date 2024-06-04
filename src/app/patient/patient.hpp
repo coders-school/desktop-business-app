@@ -24,6 +24,7 @@ class Patient : public Person, public std::enable_shared_from_this<Patient>
     void changePatientInformation();
 
     void addVisit(const std::shared_ptr<Visit>& visit);
+    void removeVisit(const std::shared_ptr<Visit>& visit);
     void setDebt(const size_t& debt);
     void updateAllergens(const std::set<Allergen>& allergens);
 

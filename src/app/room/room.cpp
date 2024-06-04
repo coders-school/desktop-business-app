@@ -3,6 +3,7 @@
 #include "treatment.hpp"
 #include "visit.hpp"
 #include "warehouse.hpp"
+#include <iostream>
 
 Room::Room(const unsigned room_id, const std::vector<Treatment>& treatments,
            const std::shared_ptr<Warehouse>& warehouse)
@@ -14,18 +15,27 @@ Room::Room(const unsigned room_id, const std::shared_ptr<Warehouse>& warehouse)
 {
 }
 
-bool Room::isVisitAssigned(const std::shared_ptr<Visit>& visit)
+bool Room::isVisitFound(const std::shared_ptr<Visit>& visit)
 {
-    return std::find(visits_.begin(), visits_.end(), visit) == visits_.end() ? false : true;
+    return std::find(visits_.begin(), visits_.end(), visit) != visits_.end();
 }
 
 void Room::addVisit(const std::shared_ptr<Visit>& visit)
 {
-    if (!isVisitAssigned(visit))
+    if (!visit)
+    {
+        throw std::invalid_argument(std::string("Argument points to nullptr in ") + __func__);
+    }
+    if (!isVisitFound(visit))
     {
         visits_.emplace_back(visit);
         visit->setRoom(shared_from_this());
     }
+}
+
+void Room::removeVisit(const std::shared_ptr<Visit>& visit)
+{
+    visits_.erase(std::remove(visits_.begin(), visits_.end(), visit), visits_.end());
 }
 
 bool Room::isRoomFree(const unsigned& timestamp)

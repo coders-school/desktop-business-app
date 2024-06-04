@@ -9,8 +9,9 @@ class FileManager
     enum class FileMode : u_int8_t
     {
         Input = 0,
-        OutputAppend = 1,
-        OutputTruncate = 2
+        Output = 1,
+        OutputAppend = 2,
+        OutputTruncate = 3
     };
     FileManager(const std::filesystem::path& path, const std::string& file_name, const FileMode mode);
     FileManager(const FileManager& file_handler) = delete;

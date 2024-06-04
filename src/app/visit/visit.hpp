@@ -35,5 +35,8 @@ class Visit : public std::enable_shared_from_this<Visit>
     void updateTreatments(const std::vector<Treatment>& new_treatments);
     void setStatus(VisitStatus visit_status);
 
-    static void createVisit(const std::shared_ptr<Doctor>& doctor);
+    static void createTempVisit(const std::shared_ptr<Doctor>& doctor);
+    static void createVisit(const std::shared_ptr<Doctor>& doctor, const std::shared_ptr<Patient>& patient,
+                            const std::shared_ptr<Room>& room, const std::vector<Treatment>& treatments = {},
+                            const std::string& visit_information = "");
 };
