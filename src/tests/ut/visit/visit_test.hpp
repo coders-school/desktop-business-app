@@ -13,7 +13,7 @@ class VisitTestFixture : public ::testing::Test
     void SetUp() override
     {
         Doctor::createDoctor("Jan", "Kowalski", "87071989652", Gender::Male);
-        Visit::createVisit(Clinic::getDoctors().front());
+        Visit::createTempVisit(Clinic::getDoctors().front());
     }
 
     void TearDown() override

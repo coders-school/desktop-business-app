@@ -21,6 +21,95 @@ namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
 namespace clinic_data {
+PROTOBUF_CONSTEXPR VisitsData_Visit::VisitsData_Visit(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.treatments_)*/{}
+  , /*decltype(_impl_.visit_information_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.doctor_)*/nullptr
+  , /*decltype(_impl_.patient_)*/nullptr
+  , /*decltype(_impl_.room_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct VisitsData_VisitDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR VisitsData_VisitDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~VisitsData_VisitDefaultTypeInternal() {}
+  union {
+    VisitsData_Visit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VisitsData_VisitDefaultTypeInternal _VisitsData_Visit_default_instance_;
+PROTOBUF_CONSTEXPR VisitsData_Doctor::VisitsData_Doctor(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.surname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.pesel_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.gender_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct VisitsData_DoctorDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR VisitsData_DoctorDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~VisitsData_DoctorDefaultTypeInternal() {}
+  union {
+    VisitsData_Doctor _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VisitsData_DoctorDefaultTypeInternal _VisitsData_Doctor_default_instance_;
+PROTOBUF_CONSTEXPR VisitsData_Patient::VisitsData_Patient(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.surname_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.pesel_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.gender_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.allergens_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.debt_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct VisitsData_PatientDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR VisitsData_PatientDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~VisitsData_PatientDefaultTypeInternal() {}
+  union {
+    VisitsData_Patient _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VisitsData_PatientDefaultTypeInternal _VisitsData_Patient_default_instance_;
+PROTOBUF_CONSTEXPR VisitsData_Room::VisitsData_Room(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.treatment_)*/{}
+  , /*decltype(_impl_.room_id_)*/0u
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct VisitsData_RoomDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR VisitsData_RoomDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~VisitsData_RoomDefaultTypeInternal() {}
+  union {
+    VisitsData_Room _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VisitsData_RoomDefaultTypeInternal _VisitsData_Room_default_instance_;
+PROTOBUF_CONSTEXPR VisitsData_Visits::VisitsData_Visits(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.visits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct VisitsData_VisitsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR VisitsData_VisitsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~VisitsData_VisitsDefaultTypeInternal() {}
+  union {
+    VisitsData_Visits _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VisitsData_VisitsDefaultTypeInternal _VisitsData_Visits_default_instance_;
+PROTOBUF_CONSTEXPR VisitsData::VisitsData(
+    ::_pbi::ConstantInitialized) {}
+struct VisitsDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR VisitsDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~VisitsDataDefaultTypeInternal() {}
+  union {
+    VisitsData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VisitsDataDefaultTypeInternal _VisitsData_default_instance_;
 PROTOBUF_CONSTEXPR Workers_Doctor::Workers_Doctor(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -91,11 +180,65 @@ struct WorkersDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WorkersDefaultTypeInternal _Workers_default_instance_;
 }  // namespace clinic_data
-static ::_pb::Metadata file_level_metadata_clinic_2eproto[5];
+static ::_pb::Metadata file_level_metadata_clinic_2eproto[11];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_clinic_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_clinic_2eproto = nullptr;
 
 const uint32_t TableStruct_clinic_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visit, _impl_.doctor_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visit, _impl_.patient_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visit, _impl_.room_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visit, _impl_.treatments_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visit, _impl_.visit_information_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Doctor, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Doctor, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Doctor, _impl_.surname_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Doctor, _impl_.pesel_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Doctor, _impl_.gender_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Patient, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Patient, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Patient, _impl_.surname_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Patient, _impl_.pesel_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Patient, _impl_.gender_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Patient, _impl_.allergens_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Patient, _impl_.debt_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Room, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Room, _impl_.room_id_),
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Room, _impl_.treatment_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visits, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData_Visits, _impl_.visits_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::clinic_data::VisitsData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::clinic_data::Workers_Doctor, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -138,14 +281,26 @@ const uint32_t TableStruct_clinic_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(p
   ~0u,  // no _inlined_string_donated_
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::clinic_data::Workers_Doctor)},
-  { 10, -1, -1, sizeof(::clinic_data::Workers_Receptionist)},
-  { 20, -1, -1, sizeof(::clinic_data::Workers_Doctors)},
-  { 27, -1, -1, sizeof(::clinic_data::Workers_Receptionists)},
-  { 34, -1, -1, sizeof(::clinic_data::Workers)},
+  { 0, -1, -1, sizeof(::clinic_data::VisitsData_Visit)},
+  { 11, -1, -1, sizeof(::clinic_data::VisitsData_Doctor)},
+  { 21, -1, -1, sizeof(::clinic_data::VisitsData_Patient)},
+  { 33, -1, -1, sizeof(::clinic_data::VisitsData_Room)},
+  { 41, -1, -1, sizeof(::clinic_data::VisitsData_Visits)},
+  { 48, -1, -1, sizeof(::clinic_data::VisitsData)},
+  { 54, -1, -1, sizeof(::clinic_data::Workers_Doctor)},
+  { 64, -1, -1, sizeof(::clinic_data::Workers_Receptionist)},
+  { 74, -1, -1, sizeof(::clinic_data::Workers_Doctors)},
+  { 81, -1, -1, sizeof(::clinic_data::Workers_Receptionists)},
+  { 88, -1, -1, sizeof(::clinic_data::Workers)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
+  &::clinic_data::_VisitsData_Visit_default_instance_._instance,
+  &::clinic_data::_VisitsData_Doctor_default_instance_._instance,
+  &::clinic_data::_VisitsData_Patient_default_instance_._instance,
+  &::clinic_data::_VisitsData_Room_default_instance_._instance,
+  &::clinic_data::_VisitsData_Visits_default_instance_._instance,
+  &::clinic_data::_VisitsData_default_instance_._instance,
   &::clinic_data::_Workers_Doctor_default_instance_._instance,
   &::clinic_data::_Workers_Receptionist_default_instance_._instance,
   &::clinic_data::_Workers_Doctors_default_instance_._instance,
@@ -154,21 +309,33 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_clinic_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014clinic.proto\022\013clinic_data\"\243\002\n\007Workers\032"
-  "F\n\006Doctor\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t"
-  "\022\r\n\005pesel\030\003 \001(\t\022\016\n\006gender\030\004 \001(\t\032L\n\014Recep"
-  "tionist\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\r"
-  "\n\005pesel\030\003 \001(\t\022\016\n\006gender\030\004 \001(\t\0327\n\007Doctors"
-  "\022,\n\007doctors\030\001 \003(\0132\033.clinic_data.Workers."
-  "Doctor\032I\n\rReceptionists\0228\n\rreceptionists"
-  "\030\001 \003(\0132!.clinic_data.Workers.Receptionis"
-  "tb\006proto3"
+  "\n\014clinic.proto\022\013clinic_data\"\352\003\n\nVisitsDa"
+  "ta\032\304\001\n\005Visit\022.\n\006doctor\030\001 \001(\0132\036.clinic_da"
+  "ta.VisitsData.Doctor\0220\n\007patient\030\002 \001(\0132\037."
+  "clinic_data.VisitsData.Patient\022*\n\004room\030\003"
+  " \001(\0132\034.clinic_data.VisitsData.Room\022\022\n\ntr"
+  "eatments\030\004 \003(\t\022\031\n\021visit_information\030\005 \001("
+  "\t\032F\n\006Doctor\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001"
+  "(\t\022\r\n\005pesel\030\003 \001(\t\022\016\n\006gender\030\004 \001(\t\032h\n\007Pat"
+  "ient\022\014\n\004name\030\001 \001(\t\022\017\n\007surname\030\002 \001(\t\022\r\n\005p"
+  "esel\030\003 \001(\t\022\016\n\006gender\030\004 \001(\t\022\021\n\tallergens\030"
+  "\005 \001(\t\022\014\n\004debt\030\006 \001(\t\032*\n\004Room\022\017\n\007room_id\030\001"
+  " \001(\r\022\021\n\ttreatment\030\002 \003(\t\0327\n\006Visits\022-\n\006vis"
+  "its\030\001 \003(\0132\035.clinic_data.VisitsData.Visit"
+  "\"\243\002\n\007Workers\032F\n\006Doctor\022\014\n\004name\030\001 \001(\t\022\017\n\007"
+  "surname\030\002 \001(\t\022\r\n\005pesel\030\003 \001(\t\022\016\n\006gender\030\004"
+  " \001(\t\032L\n\014Receptionist\022\014\n\004name\030\001 \001(\t\022\017\n\007su"
+  "rname\030\002 \001(\t\022\r\n\005pesel\030\003 \001(\t\022\016\n\006gender\030\004 \001"
+  "(\t\0327\n\007Doctors\022,\n\007doctors\030\001 \003(\0132\033.clinic_"
+  "data.Workers.Doctor\032I\n\rReceptionists\0228\n\r"
+  "receptionists\030\001 \003(\0132!.clinic_data.Worker"
+  "s.Receptionistb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_clinic_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_clinic_2eproto = {
-    false, false, 329, descriptor_table_protodef_clinic_2eproto,
+    false, false, 822, descriptor_table_protodef_clinic_2eproto,
     "clinic.proto",
-    &descriptor_table_clinic_2eproto_once, nullptr, 0, 5,
+    &descriptor_table_clinic_2eproto_once, nullptr, 0, 11,
     schemas, file_default_instances, TableStruct_clinic_2eproto::offsets,
     file_level_metadata_clinic_2eproto, file_level_enum_descriptors_clinic_2eproto,
     file_level_service_descriptors_clinic_2eproto,
@@ -180,6 +347,1625 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_clinic_2
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_clinic_2eproto(&descriptor_table_clinic_2eproto);
 namespace clinic_data {
+
+// ===================================================================
+
+class VisitsData_Visit::_Internal {
+ public:
+  static const ::clinic_data::VisitsData_Doctor& doctor(const VisitsData_Visit* msg);
+  static const ::clinic_data::VisitsData_Patient& patient(const VisitsData_Visit* msg);
+  static const ::clinic_data::VisitsData_Room& room(const VisitsData_Visit* msg);
+};
+
+const ::clinic_data::VisitsData_Doctor&
+VisitsData_Visit::_Internal::doctor(const VisitsData_Visit* msg) {
+  return *msg->_impl_.doctor_;
+}
+const ::clinic_data::VisitsData_Patient&
+VisitsData_Visit::_Internal::patient(const VisitsData_Visit* msg) {
+  return *msg->_impl_.patient_;
+}
+const ::clinic_data::VisitsData_Room&
+VisitsData_Visit::_Internal::room(const VisitsData_Visit* msg) {
+  return *msg->_impl_.room_;
+}
+VisitsData_Visit::VisitsData_Visit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:clinic_data.VisitsData.Visit)
+}
+VisitsData_Visit::VisitsData_Visit(const VisitsData_Visit& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  VisitsData_Visit* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.treatments_){from._impl_.treatments_}
+    , decltype(_impl_.visit_information_){}
+    , decltype(_impl_.doctor_){nullptr}
+    , decltype(_impl_.patient_){nullptr}
+    , decltype(_impl_.room_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.visit_information_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.visit_information_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_visit_information().empty()) {
+    _this->_impl_.visit_information_.Set(from._internal_visit_information(), 
+      _this->GetArenaForAllocation());
+  }
+  if (from._internal_has_doctor()) {
+    _this->_impl_.doctor_ = new ::clinic_data::VisitsData_Doctor(*from._impl_.doctor_);
+  }
+  if (from._internal_has_patient()) {
+    _this->_impl_.patient_ = new ::clinic_data::VisitsData_Patient(*from._impl_.patient_);
+  }
+  if (from._internal_has_room()) {
+    _this->_impl_.room_ = new ::clinic_data::VisitsData_Room(*from._impl_.room_);
+  }
+  // @@protoc_insertion_point(copy_constructor:clinic_data.VisitsData.Visit)
+}
+
+inline void VisitsData_Visit::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.treatments_){arena}
+    , decltype(_impl_.visit_information_){}
+    , decltype(_impl_.doctor_){nullptr}
+    , decltype(_impl_.patient_){nullptr}
+    , decltype(_impl_.room_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.visit_information_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.visit_information_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+VisitsData_Visit::~VisitsData_Visit() {
+  // @@protoc_insertion_point(destructor:clinic_data.VisitsData.Visit)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void VisitsData_Visit::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.treatments_.~RepeatedPtrField();
+  _impl_.visit_information_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.doctor_;
+  if (this != internal_default_instance()) delete _impl_.patient_;
+  if (this != internal_default_instance()) delete _impl_.room_;
+}
+
+void VisitsData_Visit::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void VisitsData_Visit::Clear() {
+// @@protoc_insertion_point(message_clear_start:clinic_data.VisitsData.Visit)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.treatments_.Clear();
+  _impl_.visit_information_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.doctor_ != nullptr) {
+    delete _impl_.doctor_;
+  }
+  _impl_.doctor_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.patient_ != nullptr) {
+    delete _impl_.patient_;
+  }
+  _impl_.patient_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.room_ != nullptr) {
+    delete _impl_.room_;
+  }
+  _impl_.room_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* VisitsData_Visit::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .clinic_data.VisitsData.Doctor doctor = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_doctor(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .clinic_data.VisitsData.Patient patient = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_patient(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .clinic_data.VisitsData.Room room = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_room(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string treatments = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_treatments();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Visit.treatments"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string visit_information = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_visit_information();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Visit.visit_information"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* VisitsData_Visit::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:clinic_data.VisitsData.Visit)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .clinic_data.VisitsData.Doctor doctor = 1;
+  if (this->_internal_has_doctor()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::doctor(this),
+        _Internal::doctor(this).GetCachedSize(), target, stream);
+  }
+
+  // .clinic_data.VisitsData.Patient patient = 2;
+  if (this->_internal_has_patient()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::patient(this),
+        _Internal::patient(this).GetCachedSize(), target, stream);
+  }
+
+  // .clinic_data.VisitsData.Room room = 3;
+  if (this->_internal_has_room()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::room(this),
+        _Internal::room(this).GetCachedSize(), target, stream);
+  }
+
+  // repeated string treatments = 4;
+  for (int i = 0, n = this->_internal_treatments_size(); i < n; i++) {
+    const auto& s = this->_internal_treatments(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Visit.treatments");
+    target = stream->WriteString(4, s, target);
+  }
+
+  // string visit_information = 5;
+  if (!this->_internal_visit_information().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_visit_information().data(), static_cast<int>(this->_internal_visit_information().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Visit.visit_information");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_visit_information(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:clinic_data.VisitsData.Visit)
+  return target;
+}
+
+size_t VisitsData_Visit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:clinic_data.VisitsData.Visit)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string treatments = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.treatments_.size());
+  for (int i = 0, n = _impl_.treatments_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.treatments_.Get(i));
+  }
+
+  // string visit_information = 5;
+  if (!this->_internal_visit_information().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_visit_information());
+  }
+
+  // .clinic_data.VisitsData.Doctor doctor = 1;
+  if (this->_internal_has_doctor()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.doctor_);
+  }
+
+  // .clinic_data.VisitsData.Patient patient = 2;
+  if (this->_internal_has_patient()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.patient_);
+  }
+
+  // .clinic_data.VisitsData.Room room = 3;
+  if (this->_internal_has_room()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.room_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VisitsData_Visit::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    VisitsData_Visit::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VisitsData_Visit::GetClassData() const { return &_class_data_; }
+
+
+void VisitsData_Visit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<VisitsData_Visit*>(&to_msg);
+  auto& from = static_cast<const VisitsData_Visit&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:clinic_data.VisitsData.Visit)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.treatments_.MergeFrom(from._impl_.treatments_);
+  if (!from._internal_visit_information().empty()) {
+    _this->_internal_set_visit_information(from._internal_visit_information());
+  }
+  if (from._internal_has_doctor()) {
+    _this->_internal_mutable_doctor()->::clinic_data::VisitsData_Doctor::MergeFrom(
+        from._internal_doctor());
+  }
+  if (from._internal_has_patient()) {
+    _this->_internal_mutable_patient()->::clinic_data::VisitsData_Patient::MergeFrom(
+        from._internal_patient());
+  }
+  if (from._internal_has_room()) {
+    _this->_internal_mutable_room()->::clinic_data::VisitsData_Room::MergeFrom(
+        from._internal_room());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void VisitsData_Visit::CopyFrom(const VisitsData_Visit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:clinic_data.VisitsData.Visit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VisitsData_Visit::IsInitialized() const {
+  return true;
+}
+
+void VisitsData_Visit::InternalSwap(VisitsData_Visit* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.treatments_.InternalSwap(&other->_impl_.treatments_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.visit_information_, lhs_arena,
+      &other->_impl_.visit_information_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(VisitsData_Visit, _impl_.room_)
+      + sizeof(VisitsData_Visit::_impl_.room_)
+      - PROTOBUF_FIELD_OFFSET(VisitsData_Visit, _impl_.doctor_)>(
+          reinterpret_cast<char*>(&_impl_.doctor_),
+          reinterpret_cast<char*>(&other->_impl_.doctor_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VisitsData_Visit::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
+      file_level_metadata_clinic_2eproto[0]);
+}
+
+// ===================================================================
+
+class VisitsData_Doctor::_Internal {
+ public:
+};
+
+VisitsData_Doctor::VisitsData_Doctor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:clinic_data.VisitsData.Doctor)
+}
+VisitsData_Doctor::VisitsData_Doctor(const VisitsData_Doctor& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  VisitsData_Doctor* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.surname_){}
+    , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.surname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.surname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_surname().empty()) {
+    _this->_impl_.surname_.Set(from._internal_surname(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.pesel_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pesel_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_pesel().empty()) {
+    _this->_impl_.pesel_.Set(from._internal_pesel(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_gender().empty()) {
+    _this->_impl_.gender_.Set(from._internal_gender(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:clinic_data.VisitsData.Doctor)
+}
+
+inline void VisitsData_Doctor::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.surname_){}
+    , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.surname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.surname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.pesel_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pesel_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+VisitsData_Doctor::~VisitsData_Doctor() {
+  // @@protoc_insertion_point(destructor:clinic_data.VisitsData.Doctor)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void VisitsData_Doctor::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.surname_.Destroy();
+  _impl_.pesel_.Destroy();
+  _impl_.gender_.Destroy();
+}
+
+void VisitsData_Doctor::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void VisitsData_Doctor::Clear() {
+// @@protoc_insertion_point(message_clear_start:clinic_data.VisitsData.Doctor)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.name_.ClearToEmpty();
+  _impl_.surname_.ClearToEmpty();
+  _impl_.pesel_.ClearToEmpty();
+  _impl_.gender_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* VisitsData_Doctor::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Doctor.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string surname = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_surname();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Doctor.surname"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string pesel = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_pesel();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Doctor.pesel"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string gender = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_gender();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Doctor.gender"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* VisitsData_Doctor::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:clinic_data.VisitsData.Doctor)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Doctor.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // string surname = 2;
+  if (!this->_internal_surname().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_surname().data(), static_cast<int>(this->_internal_surname().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Doctor.surname");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_surname(), target);
+  }
+
+  // string pesel = 3;
+  if (!this->_internal_pesel().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_pesel().data(), static_cast<int>(this->_internal_pesel().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Doctor.pesel");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_pesel(), target);
+  }
+
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_gender().data(), static_cast<int>(this->_internal_gender().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Doctor.gender");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_gender(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:clinic_data.VisitsData.Doctor)
+  return target;
+}
+
+size_t VisitsData_Doctor::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:clinic_data.VisitsData.Doctor)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // string surname = 2;
+  if (!this->_internal_surname().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_surname());
+  }
+
+  // string pesel = 3;
+  if (!this->_internal_pesel().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_pesel());
+  }
+
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_gender());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VisitsData_Doctor::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    VisitsData_Doctor::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VisitsData_Doctor::GetClassData() const { return &_class_data_; }
+
+
+void VisitsData_Doctor::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<VisitsData_Doctor*>(&to_msg);
+  auto& from = static_cast<const VisitsData_Doctor&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:clinic_data.VisitsData.Doctor)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  if (!from._internal_surname().empty()) {
+    _this->_internal_set_surname(from._internal_surname());
+  }
+  if (!from._internal_pesel().empty()) {
+    _this->_internal_set_pesel(from._internal_pesel());
+  }
+  if (!from._internal_gender().empty()) {
+    _this->_internal_set_gender(from._internal_gender());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void VisitsData_Doctor::CopyFrom(const VisitsData_Doctor& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:clinic_data.VisitsData.Doctor)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VisitsData_Doctor::IsInitialized() const {
+  return true;
+}
+
+void VisitsData_Doctor::InternalSwap(VisitsData_Doctor* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.surname_, lhs_arena,
+      &other->_impl_.surname_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.pesel_, lhs_arena,
+      &other->_impl_.pesel_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.gender_, lhs_arena,
+      &other->_impl_.gender_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VisitsData_Doctor::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
+      file_level_metadata_clinic_2eproto[1]);
+}
+
+// ===================================================================
+
+class VisitsData_Patient::_Internal {
+ public:
+};
+
+VisitsData_Patient::VisitsData_Patient(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:clinic_data.VisitsData.Patient)
+}
+VisitsData_Patient::VisitsData_Patient(const VisitsData_Patient& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  VisitsData_Patient* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.surname_){}
+    , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
+    , decltype(_impl_.allergens_){}
+    , decltype(_impl_.debt_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.surname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.surname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_surname().empty()) {
+    _this->_impl_.surname_.Set(from._internal_surname(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.pesel_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pesel_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_pesel().empty()) {
+    _this->_impl_.pesel_.Set(from._internal_pesel(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_gender().empty()) {
+    _this->_impl_.gender_.Set(from._internal_gender(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.allergens_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.allergens_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_allergens().empty()) {
+    _this->_impl_.allergens_.Set(from._internal_allergens(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.debt_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.debt_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_debt().empty()) {
+    _this->_impl_.debt_.Set(from._internal_debt(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:clinic_data.VisitsData.Patient)
+}
+
+inline void VisitsData_Patient::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.surname_){}
+    , decltype(_impl_.pesel_){}
+    , decltype(_impl_.gender_){}
+    , decltype(_impl_.allergens_){}
+    , decltype(_impl_.debt_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.surname_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.surname_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.pesel_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.pesel_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.gender_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.gender_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.allergens_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.allergens_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.debt_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.debt_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+VisitsData_Patient::~VisitsData_Patient() {
+  // @@protoc_insertion_point(destructor:clinic_data.VisitsData.Patient)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void VisitsData_Patient::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.surname_.Destroy();
+  _impl_.pesel_.Destroy();
+  _impl_.gender_.Destroy();
+  _impl_.allergens_.Destroy();
+  _impl_.debt_.Destroy();
+}
+
+void VisitsData_Patient::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void VisitsData_Patient::Clear() {
+// @@protoc_insertion_point(message_clear_start:clinic_data.VisitsData.Patient)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.name_.ClearToEmpty();
+  _impl_.surname_.ClearToEmpty();
+  _impl_.pesel_.ClearToEmpty();
+  _impl_.gender_.ClearToEmpty();
+  _impl_.allergens_.ClearToEmpty();
+  _impl_.debt_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* VisitsData_Patient::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Patient.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string surname = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_surname();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Patient.surname"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string pesel = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_pesel();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Patient.pesel"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string gender = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_gender();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Patient.gender"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string allergens = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          auto str = _internal_mutable_allergens();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Patient.allergens"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string debt = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          auto str = _internal_mutable_debt();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Patient.debt"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* VisitsData_Patient::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:clinic_data.VisitsData.Patient)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Patient.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // string surname = 2;
+  if (!this->_internal_surname().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_surname().data(), static_cast<int>(this->_internal_surname().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Patient.surname");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_surname(), target);
+  }
+
+  // string pesel = 3;
+  if (!this->_internal_pesel().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_pesel().data(), static_cast<int>(this->_internal_pesel().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Patient.pesel");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_pesel(), target);
+  }
+
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_gender().data(), static_cast<int>(this->_internal_gender().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Patient.gender");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_gender(), target);
+  }
+
+  // string allergens = 5;
+  if (!this->_internal_allergens().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_allergens().data(), static_cast<int>(this->_internal_allergens().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Patient.allergens");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_allergens(), target);
+  }
+
+  // string debt = 6;
+  if (!this->_internal_debt().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_debt().data(), static_cast<int>(this->_internal_debt().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Patient.debt");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_debt(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:clinic_data.VisitsData.Patient)
+  return target;
+}
+
+size_t VisitsData_Patient::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:clinic_data.VisitsData.Patient)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // string surname = 2;
+  if (!this->_internal_surname().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_surname());
+  }
+
+  // string pesel = 3;
+  if (!this->_internal_pesel().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_pesel());
+  }
+
+  // string gender = 4;
+  if (!this->_internal_gender().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_gender());
+  }
+
+  // string allergens = 5;
+  if (!this->_internal_allergens().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_allergens());
+  }
+
+  // string debt = 6;
+  if (!this->_internal_debt().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_debt());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VisitsData_Patient::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    VisitsData_Patient::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VisitsData_Patient::GetClassData() const { return &_class_data_; }
+
+
+void VisitsData_Patient::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<VisitsData_Patient*>(&to_msg);
+  auto& from = static_cast<const VisitsData_Patient&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:clinic_data.VisitsData.Patient)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  if (!from._internal_surname().empty()) {
+    _this->_internal_set_surname(from._internal_surname());
+  }
+  if (!from._internal_pesel().empty()) {
+    _this->_internal_set_pesel(from._internal_pesel());
+  }
+  if (!from._internal_gender().empty()) {
+    _this->_internal_set_gender(from._internal_gender());
+  }
+  if (!from._internal_allergens().empty()) {
+    _this->_internal_set_allergens(from._internal_allergens());
+  }
+  if (!from._internal_debt().empty()) {
+    _this->_internal_set_debt(from._internal_debt());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void VisitsData_Patient::CopyFrom(const VisitsData_Patient& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:clinic_data.VisitsData.Patient)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VisitsData_Patient::IsInitialized() const {
+  return true;
+}
+
+void VisitsData_Patient::InternalSwap(VisitsData_Patient* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.surname_, lhs_arena,
+      &other->_impl_.surname_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.pesel_, lhs_arena,
+      &other->_impl_.pesel_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.gender_, lhs_arena,
+      &other->_impl_.gender_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.allergens_, lhs_arena,
+      &other->_impl_.allergens_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.debt_, lhs_arena,
+      &other->_impl_.debt_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VisitsData_Patient::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
+      file_level_metadata_clinic_2eproto[2]);
+}
+
+// ===================================================================
+
+class VisitsData_Room::_Internal {
+ public:
+};
+
+VisitsData_Room::VisitsData_Room(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:clinic_data.VisitsData.Room)
+}
+VisitsData_Room::VisitsData_Room(const VisitsData_Room& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  VisitsData_Room* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.treatment_){from._impl_.treatment_}
+    , decltype(_impl_.room_id_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.room_id_ = from._impl_.room_id_;
+  // @@protoc_insertion_point(copy_constructor:clinic_data.VisitsData.Room)
+}
+
+inline void VisitsData_Room::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.treatment_){arena}
+    , decltype(_impl_.room_id_){0u}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+VisitsData_Room::~VisitsData_Room() {
+  // @@protoc_insertion_point(destructor:clinic_data.VisitsData.Room)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void VisitsData_Room::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.treatment_.~RepeatedPtrField();
+}
+
+void VisitsData_Room::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void VisitsData_Room::Clear() {
+// @@protoc_insertion_point(message_clear_start:clinic_data.VisitsData.Room)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.treatment_.Clear();
+  _impl_.room_id_ = 0u;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* VisitsData_Room::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 room_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.room_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string treatment = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_treatment();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "clinic_data.VisitsData.Room.treatment"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* VisitsData_Room::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:clinic_data.VisitsData.Room)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 room_id = 1;
+  if (this->_internal_room_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_room_id(), target);
+  }
+
+  // repeated string treatment = 2;
+  for (int i = 0, n = this->_internal_treatment_size(); i < n; i++) {
+    const auto& s = this->_internal_treatment(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "clinic_data.VisitsData.Room.treatment");
+    target = stream->WriteString(2, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:clinic_data.VisitsData.Room)
+  return target;
+}
+
+size_t VisitsData_Room::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:clinic_data.VisitsData.Room)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string treatment = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.treatment_.size());
+  for (int i = 0, n = _impl_.treatment_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.treatment_.Get(i));
+  }
+
+  // uint32 room_id = 1;
+  if (this->_internal_room_id() != 0) {
+    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_room_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VisitsData_Room::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    VisitsData_Room::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VisitsData_Room::GetClassData() const { return &_class_data_; }
+
+
+void VisitsData_Room::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<VisitsData_Room*>(&to_msg);
+  auto& from = static_cast<const VisitsData_Room&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:clinic_data.VisitsData.Room)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.treatment_.MergeFrom(from._impl_.treatment_);
+  if (from._internal_room_id() != 0) {
+    _this->_internal_set_room_id(from._internal_room_id());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void VisitsData_Room::CopyFrom(const VisitsData_Room& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:clinic_data.VisitsData.Room)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VisitsData_Room::IsInitialized() const {
+  return true;
+}
+
+void VisitsData_Room::InternalSwap(VisitsData_Room* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.treatment_.InternalSwap(&other->_impl_.treatment_);
+  swap(_impl_.room_id_, other->_impl_.room_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VisitsData_Room::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
+      file_level_metadata_clinic_2eproto[3]);
+}
+
+// ===================================================================
+
+class VisitsData_Visits::_Internal {
+ public:
+};
+
+VisitsData_Visits::VisitsData_Visits(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:clinic_data.VisitsData.Visits)
+}
+VisitsData_Visits::VisitsData_Visits(const VisitsData_Visits& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  VisitsData_Visits* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.visits_){from._impl_.visits_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:clinic_data.VisitsData.Visits)
+}
+
+inline void VisitsData_Visits::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.visits_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+VisitsData_Visits::~VisitsData_Visits() {
+  // @@protoc_insertion_point(destructor:clinic_data.VisitsData.Visits)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void VisitsData_Visits::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.visits_.~RepeatedPtrField();
+}
+
+void VisitsData_Visits::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void VisitsData_Visits::Clear() {
+// @@protoc_insertion_point(message_clear_start:clinic_data.VisitsData.Visits)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.visits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* VisitsData_Visits::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .clinic_data.VisitsData.Visit visits = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_visits(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* VisitsData_Visits::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:clinic_data.VisitsData.Visits)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .clinic_data.VisitsData.Visit visits = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_visits_size()); i < n; i++) {
+    const auto& repfield = this->_internal_visits(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:clinic_data.VisitsData.Visits)
+  return target;
+}
+
+size_t VisitsData_Visits::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:clinic_data.VisitsData.Visits)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .clinic_data.VisitsData.Visit visits = 1;
+  total_size += 1UL * this->_internal_visits_size();
+  for (const auto& msg : this->_impl_.visits_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VisitsData_Visits::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    VisitsData_Visits::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VisitsData_Visits::GetClassData() const { return &_class_data_; }
+
+
+void VisitsData_Visits::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<VisitsData_Visits*>(&to_msg);
+  auto& from = static_cast<const VisitsData_Visits&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:clinic_data.VisitsData.Visits)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.visits_.MergeFrom(from._impl_.visits_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void VisitsData_Visits::CopyFrom(const VisitsData_Visits& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:clinic_data.VisitsData.Visits)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VisitsData_Visits::IsInitialized() const {
+  return true;
+}
+
+void VisitsData_Visits::InternalSwap(VisitsData_Visits* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.visits_.InternalSwap(&other->_impl_.visits_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata VisitsData_Visits::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
+      file_level_metadata_clinic_2eproto[4]);
+}
+
+// ===================================================================
+
+class VisitsData::_Internal {
+ public:
+};
+
+VisitsData::VisitsData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:clinic_data.VisitsData)
+}
+VisitsData::VisitsData(const VisitsData& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  VisitsData* const _this = this; (void)_this;
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:clinic_data.VisitsData)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData VisitsData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VisitsData::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata VisitsData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
+      file_level_metadata_clinic_2eproto[5]);
+}
 
 // ===================================================================
 
@@ -531,7 +2317,7 @@ void Workers_Doctor::InternalSwap(Workers_Doctor* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Workers_Doctor::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
-      file_level_metadata_clinic_2eproto[0]);
+      file_level_metadata_clinic_2eproto[6]);
 }
 
 // ===================================================================
@@ -884,7 +2670,7 @@ void Workers_Receptionist::InternalSwap(Workers_Receptionist* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Workers_Receptionist::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
-      file_level_metadata_clinic_2eproto[1]);
+      file_level_metadata_clinic_2eproto[7]);
 }
 
 // ===================================================================
@@ -1069,7 +2855,7 @@ void Workers_Doctors::InternalSwap(Workers_Doctors* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Workers_Doctors::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
-      file_level_metadata_clinic_2eproto[2]);
+      file_level_metadata_clinic_2eproto[8]);
 }
 
 // ===================================================================
@@ -1254,7 +3040,7 @@ void Workers_Receptionists::InternalSwap(Workers_Receptionists* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Workers_Receptionists::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
-      file_level_metadata_clinic_2eproto[3]);
+      file_level_metadata_clinic_2eproto[9]);
 }
 
 // ===================================================================
@@ -1294,12 +3080,36 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Workers::GetClassData() const 
 ::PROTOBUF_NAMESPACE_ID::Metadata Workers::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_clinic_2eproto_getter, &descriptor_table_clinic_2eproto_once,
-      file_level_metadata_clinic_2eproto[4]);
+      file_level_metadata_clinic_2eproto[10]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace clinic_data
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::clinic_data::VisitsData_Visit*
+Arena::CreateMaybeMessage< ::clinic_data::VisitsData_Visit >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::clinic_data::VisitsData_Visit >(arena);
+}
+template<> PROTOBUF_NOINLINE ::clinic_data::VisitsData_Doctor*
+Arena::CreateMaybeMessage< ::clinic_data::VisitsData_Doctor >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::clinic_data::VisitsData_Doctor >(arena);
+}
+template<> PROTOBUF_NOINLINE ::clinic_data::VisitsData_Patient*
+Arena::CreateMaybeMessage< ::clinic_data::VisitsData_Patient >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::clinic_data::VisitsData_Patient >(arena);
+}
+template<> PROTOBUF_NOINLINE ::clinic_data::VisitsData_Room*
+Arena::CreateMaybeMessage< ::clinic_data::VisitsData_Room >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::clinic_data::VisitsData_Room >(arena);
+}
+template<> PROTOBUF_NOINLINE ::clinic_data::VisitsData_Visits*
+Arena::CreateMaybeMessage< ::clinic_data::VisitsData_Visits >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::clinic_data::VisitsData_Visits >(arena);
+}
+template<> PROTOBUF_NOINLINE ::clinic_data::VisitsData*
+Arena::CreateMaybeMessage< ::clinic_data::VisitsData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::clinic_data::VisitsData >(arena);
+}
 template<> PROTOBUF_NOINLINE ::clinic_data::Workers_Doctor*
 Arena::CreateMaybeMessage< ::clinic_data::Workers_Doctor >(Arena* arena) {
   return Arena::CreateMessageInternal< ::clinic_data::Workers_Doctor >(arena);

@@ -47,6 +47,11 @@ void Patient::addVisit(const std::shared_ptr<Visit>& visit)
     }
 }
 
+void Patient::removeVisit(const std::shared_ptr<Visit>& visit)
+{
+    visits_.erase(visit);
+}
+
 void Patient::setDebt(const size_t& debt)
 {
     debt_ = debt;

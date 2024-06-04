@@ -6,6 +6,10 @@
 
 using TestParam = std::pair<const Treatment, std::string>;
 
-struct TreatmentParameterizedFixture : public ::testing::TestWithParam<TestParam>
+struct TreatmentToStringParameterizedFixture : public ::testing::TestWithParam<TestParam>
+{
+};
+
+struct TreatmentToEnumParameterizedFixture : public ::testing::TestWithParam<TestParam>
 {
 };

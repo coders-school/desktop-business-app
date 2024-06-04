@@ -19,11 +19,13 @@ class Clinic
     inline static std::vector<std::shared_ptr<Room>> rooms_;
     inline static std::shared_ptr<Calendar> calendar_;
     inline static std::shared_ptr<Warehouse> warehouse_;
+    inline static std::shared_ptr<Visit> temp_visit_;
 
   public:
     static void appendDoctor(const std::shared_ptr<Doctor>& doctor);
     static void appendPatient(const std::shared_ptr<Patient>& patient);
-    static void appendVisit(const std::shared_ptr<Visit>& visit);
+    static void appendVisit();
+    static void setTempVisit(const std::shared_ptr<Visit>& visit);
     static void appendReceptionist(const std::shared_ptr<Receptionist>& receptionist);
     static void appendRoom(const std::shared_ptr<Room>& room);
     static void appendCalendar(const std::shared_ptr<Calendar>& calendar);
@@ -35,6 +37,7 @@ class Clinic
     static std::vector<std::shared_ptr<Room>> getRooms();
     static std::shared_ptr<Calendar> getCalendar();
     static std::shared_ptr<Warehouse> getWarehouse();
+    static std::shared_ptr<Visit> getTempVisit();
     static void removeDoctor(const std::shared_ptr<Doctor>& doctor);
     static void removePatient(const std::shared_ptr<Patient>& patient);
     static void removeVisit(const std::shared_ptr<Visit>& visit);
