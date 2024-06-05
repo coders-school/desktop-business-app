@@ -53,11 +53,9 @@ TEST(ClinicConstructionTest, checkIfClinicCanBeConstructed)
 
 TEST(CommonEnumsCreationTest, checkIfEnumsCanBeCreated)
 {
-    common::Allergen allergen = common::Allergen::SomeAllergen;
     common::Treatment treatment = common::Treatment::DentalBridges;
     common::TreatmentState treatment_state = common::TreatmentState::Planned;
 
-    EXPECT_EQ(allergen, common::Allergen::SomeAllergen);
     EXPECT_EQ(treatment, common::Treatment::DentalBridges);
     EXPECT_EQ(treatment_state, common::TreatmentState::Planned);
 }
