@@ -9,5 +9,11 @@ then
     exit 1
 fi
 
-# Navigate to the build_tests directory, run ctest, and navigate back
-cd "$BUILD_TESTS_DIR" && ctest && cd -
+
+cd "$BUILD_TESTS_DIR"
+
+# Run ctest for the summary output
+GTEST_COLOR=1 ctest
+
+# Run ctest again for the detailed output of failed tests only
+GTEST_COLOR=1 ctest --output-on-failure | awk '/\[  FAILED  \]/,/(\d+ ms)/'

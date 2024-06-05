@@ -76,3 +76,6 @@ external_libraries/
 
 # own libraries built by project
 own_libraries/
+
+# ctest temp files
+Testing/Temporary/
