@@ -54,14 +54,10 @@ TEST(ClinicConstructionTest, checkIfClinicCanBeConstructed)
 TEST(CommonEnumsCreationTest, checkIfEnumsCanBeCreated)
 {
     common::Allergen allergen = common::Allergen::SomeAllergen;
-    common::Sex sex = common::Sex::Female;
-    common::Specialization specialization = common::Specialization::Unknown;
     common::Treatment treatment = common::Treatment::DentalBridges;
     common::TreatmentState treatment_state = common::TreatmentState::Planned;
 
     EXPECT_EQ(allergen, common::Allergen::SomeAllergen);
-    EXPECT_EQ(sex, common::Sex::Female);
-    EXPECT_EQ(specialization, common::Specialization::Unknown);
     EXPECT_EQ(treatment, common::Treatment::DentalBridges);
     EXPECT_EQ(treatment_state, common::TreatmentState::Planned);
 }
@@ -91,7 +87,7 @@ TEST(PeselCreationTest, checkIfPeselCanBeCreated)
     common::Pesel pesel{"80062378532"};
 
     EXPECT_EQ(pesel.getPesel(), "80062378532");
-    EXPECT_EQ(pesel.getSex(), common::Sex::Male);
+    EXPECT_EQ(pesel.getSex(), common::sex::Sex::Male);
 }
 
 TEST(PhoneNumberCreationTest, checkIfPhoneNumberCanBeCreated)
@@ -129,7 +125,7 @@ TEST(PersonalDataCreationTest, checkIfPersonalDataCanBeCreated)
     EXPECT_EQ(personal_data.getPhoneNumber().home_number_code_, "23");
     EXPECT_EQ(personal_data.getPhoneNumber().home_number_, "400 500 600");
 
-    EXPECT_EQ(personal_data.getSex(), common::Sex::Male);
+    EXPECT_EQ(personal_data.getSex(), common::sex::Sex::Male);
 }
 
 TEST(PeselValidatorCreationTest, checkIfPeselValidatorCanBeCreated)

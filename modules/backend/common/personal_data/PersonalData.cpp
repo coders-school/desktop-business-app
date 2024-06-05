@@ -29,7 +29,7 @@ PhoneNumber PersonalData::getPhoneNumber() const
     return phone_number_;
 }
 
-Sex PersonalData::getSex() const
+sex::Sex PersonalData::getSex() const
 {
     return sex_;
 }

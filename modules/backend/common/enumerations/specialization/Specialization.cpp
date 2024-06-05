@@ -2,7 +2,8 @@
 
 namespace common
 {
-
+namespace specialization
+{
 std::string toString(const Specialization& specialization)
 {
     switch (specialization)
@@ -14,4 +15,14 @@ std::string toString(const Specialization& specialization)
     }
 }
 
+Specialization toEnum(const std::string& specialization)
+{
+    if (specialization == "Dentist")
+    {
+        return Specialization::Dentist;
+    }
+    return Specialization::Unknown;
+}
+
+} // namespace specialization
 } // namespace common

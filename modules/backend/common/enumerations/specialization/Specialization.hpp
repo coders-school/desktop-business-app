@@ -5,6 +5,8 @@
 
 namespace common
 {
+namespace specialization
+{
 
 enum class Specialization : uint8_t
 {
@@ -13,5 +15,7 @@ enum class Specialization : uint8_t
 };
 
 std::string toString(const Specialization& specialization);
+Specialization toEnum(const std::string& specialization);
 
+} // namespace specialization
 } // namespace common
