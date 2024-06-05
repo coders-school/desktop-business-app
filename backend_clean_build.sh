@@ -25,4 +25,4 @@ mkdir build && cd build
 cmake -DCMAKE_BUILD_TYPE=Debug ../modules/backend/
 
 # Build the target and install backend libs and headers to own_libraries
-cmake --build . --parallel --target install
+cmake --build . --parallel --target install -- -j2
