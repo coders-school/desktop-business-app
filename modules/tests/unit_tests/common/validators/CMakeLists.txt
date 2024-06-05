@@ -11,4 +11,4 @@ target_link_libraries(PeselValidatorTests PRIVATE
     ${COMMON_LIB}
 )
 
-gtest_discover_tests(PeselValidatorTests)
+add_test(NAME PeselValidatorTests COMMAND PeselValidatorTests  WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

@@ -10,4 +10,4 @@ target_link_libraries(SexTests PRIVATE
     ${COMMON_LIB}
 )
 
-gtest_discover_tests(SexTests)
+add_test(NAME SexTests COMMAND SexTests WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

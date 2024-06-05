@@ -24,6 +24,7 @@ endif()
 
 include(GoogleTest)
 enable_testing()
+set(CTEST_BINARY_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
 
 # Set vars to the path to the libraries installed from backend
 set(CLINIC_LIB ${BACKEND_LIB_DIRECTORY}/libclinic-lib.a)

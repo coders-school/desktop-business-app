@@ -16,4 +16,5 @@ target_link_libraries(basic_construction-test PRIVATE
                                               ${WAREHOUSE_LIB}
 )
 
-gtest_discover_tests(basic_construction-test)
+add_test(NAME basic_construction-test COMMAND basic_construction-test
+                                      WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

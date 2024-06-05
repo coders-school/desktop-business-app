@@ -100,3 +100,10 @@ This will not rebuild external_libraries from scratch if they exist and there is
 ```
 Please note that this makes clean build of backend and test, so if you have just minor changes or just tests-changes for example might be more convenient to rebuild manually.
 This will not rebuild external_libraries from scratch if they exist and there is no version change.
+
+### Running ctest
+After building test targets, ctest running all the tests can be run in 2 ways:
+1. from `build_tests` directory (this ctest works unfortunatelly, we need to jump through folders or keep build tests in build directory)
+2. from main desktop-app-folder via script
+   ```bash
+    ./ctest_run.sh
