@@ -4,7 +4,6 @@ target_compile_options(basic_construction-test PRIVATE -Werror -Wall -Wextra -pe
 
 target_include_directories(basic_construction-test PRIVATE ${OWN_LIBS_INCLUDE_DIR})
 
-target_include_directories(basic_construction-test PRIVATE ${CLINIC_INCLUDE_DIR})
 
 # Link against backend libs
 target_link_libraries(basic_construction-test PRIVATE
