@@ -6,7 +6,7 @@ set(PROTOBUF_PREFIX "${EXTERNAL_LIBRARIES_DIR}/protobuf")
 set(PROTOBUF_BASE_URL "https://github.com/protocolbuffers/protobuf/releases/download")
 set(RELEASE_TAG "v21.0")
 set(PROTOBUF_VERSION "3.21.0")
-set(PROTOBUF_PREFIX "${EXTERNAL_LIBRARIES_DIR}/protobuf")
+
 ExternalProject_Add(protobuf
     URL "${PROTOBUF_BASE_URL}/${RELEASE_TAG}/protobuf-cpp-${PROTOBUF_VERSION}.tar.gz"
     PREFIX ${PROTOBUF_PREFIX}
