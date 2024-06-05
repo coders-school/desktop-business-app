@@ -4,7 +4,7 @@ namespace common
 {
 namespace validators
 {
-namespace
+namespace tests
 {
 
 TEST_F(PeselValidatorFixture, GivenValidPeselWhenValidateThenNoThrowException)
@@ -21,6 +21,6 @@ TEST_F(PeselValidatorFixture, GivenInvalidPeselWhenValidateThenThrowException)
     ExpectThrow(pesel);
 }
 
-} // namespace
+} // namespace tests
 } // namespace validators
 } // namespace common

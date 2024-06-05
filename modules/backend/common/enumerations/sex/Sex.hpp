@@ -13,5 +13,6 @@ enum class Sex : uint8_t
 };
 
 std::string toString(const Sex& sex);
+Sex toEnum(const std::string& sex);
 
 } // namespace common
