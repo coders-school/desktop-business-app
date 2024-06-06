@@ -15,6 +15,7 @@ namespace patient
 class Treatments
 {
     using Treatment = common::treatment::Treatment;
+    using TreatmentState = common::treatment_state::TreatmentState;
 
   public:
     // Treatments should contain logic
@@ -23,7 +24,7 @@ class Treatments
     // Treatmends done in future should also collect date when
     // treatment was completed
 
-    void updateTreatment(const common::TreatmentState treatment_state);
+    void updateTreatment(const TreatmentState treatment_state);
 
   private:
     // map or different object containing treatment and date

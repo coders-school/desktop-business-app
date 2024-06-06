@@ -51,13 +51,6 @@ TEST(ClinicConstructionTest, checkIfClinicCanBeConstructed)
     EXPECT_NE(some_clinic, nullptr);
 }
 
-TEST(CommonEnumsCreationTest, checkIfEnumsCanBeCreated)
-{
-    common::TreatmentState treatment_state = common::TreatmentState::Planned;
-
-    EXPECT_EQ(treatment_state, common::TreatmentState::Planned);
-}
-
 TEST(AddressCreationTest, checkIfAddressCanBeCreated)
 {
     common::Address address{"Olsztyn", "Polska", "Warmińsko-Mazurskie", "Błotna 10/4", "00-100"};

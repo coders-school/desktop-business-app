@@ -11,7 +11,7 @@ namespace tests
 struct ToStringTestParams
 {
     Treatment treatment;
-    std::string expectedString;
+    std::string expected_output;
 };
 
 class ToStringTest : public ::testing::TestWithParam<ToStringTestParams>
@@ -21,11 +21,11 @@ class ToStringTest : public ::testing::TestWithParam<ToStringTestParams>
 TEST_P(ToStringTest, GivenTreatmentWhenToStringCalledThenReturnCorrectString)
 {
     Treatment treatment = GetParam().treatment;
-    std::string expectedString = GetParam().expectedString;
+    std::string expected_output = GetParam().expected_output;
 
-    std::string actualString = toString(treatment);
+    std::string output = toString(treatment);
 
-    EXPECT_EQ(actualString, expectedString);
+    EXPECT_EQ(output, expected_output);
 }
 
 INSTANTIATE_TEST_SUITE_P(Treatment, ToStringTest,
@@ -50,7 +50,7 @@ INSTANTIATE_TEST_SUITE_P(Treatment, ToStringTest,
 
 struct ToEnumTestParams
 {
-    std::string allergenString;
+    std::string allergen;
     Treatment expected_treatment;
 };
 
@@ -60,12 +60,12 @@ class ToEnumTest : public ::testing::TestWithParam<ToEnumTestParams>
 
 TEST_P(ToEnumTest, GivenTreatmentStringWhenToEnumCalledThenReturnCorrectTreatment)
 {
-    std::string treatmentString = GetParam().allergenString;
-    Treatment expectedTreatment = GetParam().expected_treatment;
+    std::string allergen = GetParam().allergen;
+    Treatment expected_treatment = GetParam().expected_treatment;
 
-    Treatment actualTreatment = toEnum(treatmentString);
+    Treatment output = toEnum(allergen);
 
-    EXPECT_EQ(actualTreatment, expectedTreatment);
+    EXPECT_EQ(output, expected_treatment);
 }
 
 INSTANTIATE_TEST_SUITE_P(Treatment, ToEnumTest,
