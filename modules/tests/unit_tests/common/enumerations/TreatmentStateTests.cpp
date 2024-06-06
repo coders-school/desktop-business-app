@@ -28,7 +28,8 @@ TEST_P(ToStringTest, GivenTreatmentStateWhenToStringCalledThenReturnCorrectStrin
 INSTANTIATE_TEST_SUITE_P(TreatmentState, ToStringTest,
                          ::testing::Values(TreatmentStateToStringTestParams{TreatmentState::Done, "Done"},
                                            TreatmentStateToStringTestParams{TreatmentState::Planned, "Planned"},
-                                           TreatmentStateToStringTestParams{TreatmentState::Unknown, "Unknown"}));
+                                           TreatmentStateToStringTestParams{TreatmentState::Unknown, "Unknown"},
+                                           TreatmentStateToStringTestParams{static_cast<TreatmentState>(250), "Unknown"}));
 
 struct TreatmentStateToEnumTestParams
 {
@@ -44,6 +45,7 @@ TEST_P(ToEnumTest, GivenTreatmentStateStringWhenToEnumCalledThenReturnCorrectTre
 {
     const auto& output = toEnum(GetParam().treatment_state);
     const auto& expected_state = GetParam().expected_state;
+
     EXPECT_EQ(output, expected_state);
 }
 
@@ -51,8 +53,7 @@ INSTANTIATE_TEST_SUITE_P(TreatmentState, ToEnumTest,
                          ::testing::Values(TreatmentStateToEnumTestParams{"Done", TreatmentState::Done},
                                            TreatmentStateToEnumTestParams{"Planned", TreatmentState::Planned},
                                            TreatmentStateToEnumTestParams{"Unknown", TreatmentState::Unknown},
-                                           TreatmentStateToEnumTestParams{"123babyjagapaczy",
-                                                                          TreatmentState::Unknown}));
+                                           TreatmentStateToEnumTestParams{"invalid", TreatmentState::Unknown}));
 } // namespace tests
 } // namespace treatment_state
 } // namespace common

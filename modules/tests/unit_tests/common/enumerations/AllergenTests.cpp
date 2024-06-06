@@ -11,7 +11,7 @@ namespace tests
 struct ToStringTestParams
 {
     Allergen allergen;
-    std::string expectedString;
+    std::string expected_output;
 };
 
 class AllergenToStringFixture : public ::testing::TestWithParam<ToStringTestParams>
@@ -20,21 +20,23 @@ class AllergenToStringFixture : public ::testing::TestWithParam<ToStringTestPara
 
 TEST_F(AllergenToStringFixture, GivenAllergenEnumerationWhenConvertingToStringExpectValidConversion)
 {
-    ToStringTestParams testData = GetParam();
-    std::string actualString = toString(testData.allergen);
-    EXPECT_EQ(actualString, testData.expectedString);
+    const auto& expected_output = GetParam().expected_output;
+    const auto& output = toString(GetParam().allergen);
+
+    EXPECT_EQ(output, expected_output);
 }
 
 INSTANTIATE_TEST_CASE_P(AllergenParametricTests, AllergenToStringFixture,
                         ::testing::Values(ToStringTestParams{Allergen::Allergen, "Allergen"},
                                           ToStringTestParams{Allergen::AnotherAllergen, "AnotherAllergen"},
                                           ToStringTestParams{Allergen::SomeAllergen, "SomeAllergen"},
-                                          ToStringTestParams{Allergen::DifferentAllergen, "DifferentAllergen"}));
+                                          ToStringTestParams{Allergen::DifferentAllergen, "DifferentAllergen"},
+                                          ToStringTestParams{static_cast<Allergen>(250), "DifferentAllergen"}));
 
 struct ToEnumTestParams
 {
-    std::string allergenString;
-    Allergen expectedAllergen;
+    std::string allergen;
+    Allergen expected_output;
 };
 
 class AllergenToEnumFixture : public ::testing::TestWithParam<ToEnumTestParams>
@@ -43,16 +45,18 @@ class AllergenToEnumFixture : public ::testing::TestWithParam<ToEnumTestParams>
 
 TEST_P(AllergenToEnumFixture, GivenAllergenStringWhenConvertingToEnumExpectValidConversion)
 {
-    ToEnumTestParams testData = GetParam();
-    Allergen actualAllergen = toEnum(testData.allergenString);
-    EXPECT_EQ(actualAllergen, testData.expectedAllergen);
+    const auto& expected_output = GetParam().expected_output;
+    const auto& output = toEnum(GetParam().allergen);
+
+    EXPECT_EQ(output, expected_output);
 }
 
 INSTANTIATE_TEST_CASE_P(AllergenParametricTests, AllergenToEnumFixture,
                         ::testing::Values(ToEnumTestParams{"Allergen", Allergen::Allergen},
                                           ToEnumTestParams{"AnotherAllergen", Allergen::AnotherAllergen},
                                           ToEnumTestParams{"SomeAllergen", Allergen::SomeAllergen},
-                                          ToEnumTestParams{"DifferentAllergen", Allergen::DifferentAllergen}));
+                                          ToEnumTestParams{"DifferentAllergen", Allergen::DifferentAllergen},
+                                          ToEnumTestParams{"invalid", Allergen::DifferentAllergen}));
 
 } // namespace tests
 } // namespace allergen

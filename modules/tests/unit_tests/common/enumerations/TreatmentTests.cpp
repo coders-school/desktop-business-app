@@ -20,10 +20,8 @@ class ToStringTest : public ::testing::TestWithParam<ToStringTestParams>
 
 TEST_P(ToStringTest, GivenTreatmentWhenToStringCalledThenReturnCorrectString)
 {
-    Treatment treatment = GetParam().treatment;
-    std::string expected_output = GetParam().expected_output;
-
-    std::string output = toString(treatment);
+    const auto& expected_output = GetParam().expected_output;
+    const auto& output = toString(GetParam().treatment);
 
     EXPECT_EQ(output, expected_output);
 }
@@ -46,7 +44,7 @@ INSTANTIATE_TEST_SUITE_P(Treatment, ToStringTest,
                                            ToStringTestParams{Treatment::MouthGuards, "mouth guards"},
                                            ToStringTestParams{Treatment::SleepApneaTreatment, "sleep apnea treatment"},
                                            ToStringTestParams{Treatment::OTHER, "other treatment type"},
-                                           ToStringTestParams{static_cast<Treatment>(999), "other treatment type"}));
+                                           ToStringTestParams{static_cast<Treatment>(250), "other treatment type"}));
 
 struct ToEnumTestParams
 {
@@ -60,10 +58,8 @@ class ToEnumTest : public ::testing::TestWithParam<ToEnumTestParams>
 
 TEST_P(ToEnumTest, GivenTreatmentStringWhenToEnumCalledThenReturnCorrectTreatment)
 {
-    std::string allergen = GetParam().allergen;
-    Treatment expected_treatment = GetParam().expected_treatment;
-
-    Treatment output = toEnum(allergen);
+    const auto& expected_treatment = GetParam().expected_treatment;
+    const auto& output = toEnum(GetParam().allergen);
 
     EXPECT_EQ(output, expected_treatment);
 }
