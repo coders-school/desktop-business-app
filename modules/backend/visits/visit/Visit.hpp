@@ -19,7 +19,7 @@ class Visit : public iVisit
     void setTreatmentsInfo(const patient::Treatments& treatments) override;
 
   private:
-    std::vector<common::Treatment> actual_treatment_;
+    std::vector<common::treatment::Treatment> actual_treatment_;
     //  on gui, doctor should select treatment/s for exact visit
 };
 

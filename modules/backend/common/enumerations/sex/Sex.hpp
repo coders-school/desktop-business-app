@@ -6,6 +6,9 @@
 namespace common
 {
 
+namespace sex
+{
+
 enum class Sex : uint8_t
 {
     Female = 0,
@@ -15,4 +18,5 @@ enum class Sex : uint8_t
 std::string toString(const Sex& sex);
 Sex toEnum(const std::string& sex);
 
+} // namespace sex
 } // namespace common

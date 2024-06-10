@@ -11,6 +11,8 @@ namespace common
 
 class PersonalData
 {
+    using Sex = sex::Sex;
+
   public:
     PersonalData(const Name& name, const Address& address, const Pesel& pesel, const PhoneNumber& phone_number);
 

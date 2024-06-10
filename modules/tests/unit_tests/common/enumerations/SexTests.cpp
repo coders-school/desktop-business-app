@@ -4,6 +4,9 @@
 namespace common
 {
 
+namespace sex
+{
+
 namespace tests
 {
 
@@ -32,4 +35,5 @@ TEST(SexTests, GivenInvalidStringWhenToEnumThenThrow)
 }
 
 } // namespace tests
+} // namespace sex
 } // namespace common

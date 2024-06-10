@@ -14,7 +14,7 @@ class Pesel
     Pesel(const std::string& pesel);
 
     std::string getPesel() const;
-    Sex getSex() const;
+    sex::Sex getSex() const;
 
   private:
     validators::PeselValidator pesel_validator_;

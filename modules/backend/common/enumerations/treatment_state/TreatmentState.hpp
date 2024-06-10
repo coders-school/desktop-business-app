@@ -6,6 +6,8 @@
 namespace common
 {
 
+namespace treatment_state
+{
 enum class TreatmentState : uint8_t
 {
     Planned = 0,
@@ -14,5 +16,7 @@ enum class TreatmentState : uint8_t
 };
 
 std::string toString(const TreatmentState& treatment_state);
+TreatmentState toEnum(const std::string& treatment_state);
 
+} // namespace treatment_state
 } // namespace common

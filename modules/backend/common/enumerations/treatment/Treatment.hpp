@@ -6,6 +6,9 @@
 namespace common
 {
 
+namespace treatment
+{
+
 enum class Treatment : uint32_t
 {
     TeethCleaning = 0,
@@ -28,5 +31,7 @@ enum class Treatment : uint32_t
 };
 
 std::string toString(Treatment dental_treatment);
+Treatment toEnum(const std::string& treatment_name);
 
+} // namespace treatment
 } // namespace common

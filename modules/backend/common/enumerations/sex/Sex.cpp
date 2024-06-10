@@ -1,9 +1,10 @@
-#include <stdexcept>
 #include "Sex.hpp"
+#include <stdexcept>
 
 namespace common
 {
-    
+namespace sex
+{
 std::string toString(const Sex& sex)
 {
     switch (sex)
@@ -33,4 +34,5 @@ Sex toEnum(const std::string& sex)
     }
 }
 
+} // namespace sex
 } // namespace common

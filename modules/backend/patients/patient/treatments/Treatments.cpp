@@ -3,7 +3,7 @@
 namespace patient
 {
 
-void Treatments::updateTreatment([[maybe_unused]] const common::TreatmentState treatment_state)
+void Treatments::updateTreatment([[maybe_unused]] const TreatmentState treatment_state)
 {
     // TODO: #128
 }

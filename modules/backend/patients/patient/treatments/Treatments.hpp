@@ -14,6 +14,9 @@ namespace patient
  */
 class Treatments
 {
+    using Treatment = common::treatment::Treatment;
+    using TreatmentState = common::treatment_state::TreatmentState;
+
   public:
     // Treatments should contain logic
     // planned -> set once visit is made
@@ -21,14 +24,14 @@ class Treatments
     // Treatmends done in future should also collect date when
     // treatment was completed
 
-    void updateTreatment(const common::TreatmentState treatment_state);
+    void updateTreatment(const TreatmentState treatment_state);
 
   private:
     // map or different object containing treatment and date
     // and then kept in vector?
-    std::unordered_map<common::Treatment, std::chrono::year_month_day> treatments_done_;
-    std::unordered_map<common::Treatment, std::chrono::year_month_day> treatments_planned_;
-    std::unordered_map<common::Treatment, std::chrono::year_month_day> treatments_declined_;
+    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_done_;
+    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_planned_;
+    std::unordered_map<Treatment, std::chrono::year_month_day> treatments_declined_;
     // vector<treatment> done
     // vector<treatment> declined
     // vector<treatment> planned
