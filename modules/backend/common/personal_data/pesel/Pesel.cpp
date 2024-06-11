@@ -17,4 +17,9 @@ Sex Pesel::getSex() const
     return (((pesel_[9] - '0') % 2) == 0) ? Sex::Female : Sex::Male;
 }
 
+bool Pesel::operator==(const common::Pesel& rhs) const
+{
+    return pesel_ == rhs.getPesel();
+}
+
 } // namespace common

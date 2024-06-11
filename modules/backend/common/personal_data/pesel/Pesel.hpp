@@ -15,6 +15,7 @@ class Pesel
 
     std::string getPesel() const;
     Sex getSex() const;
+    bool operator==(const common::Pesel& rhs) const;
 
   private:
     validators::PeselValidator pesel_validator_;

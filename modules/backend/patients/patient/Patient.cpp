@@ -9,4 +9,8 @@ Patient::Patient()
 {
 }
 
+common::Pesel Patient::getPesel()
+{
+    return personal_data_.getPesel();
+}
 } // namespace patient
