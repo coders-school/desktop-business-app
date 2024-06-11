@@ -167,7 +167,7 @@ TEST(PatientCreationTest, checkIfPatientCanBeCreated)
 
 TEST(PatientCollectionCreationTest, checkIfPatientCollectionCanBeCreated)
 {
-    std::vector<std::unique_ptr<patient::iPatient>> patients;
+    std::vector<patient::Patient> patients;
     patient::PatientCollection patient_collection(std::move(patients));
 }
 

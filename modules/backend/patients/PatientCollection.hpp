@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../common/personal_data/pesel/Pesel.hpp"
+#include "personal_data/pesel/Pesel.hpp"
 #include "patient/Patient.hpp"
 #include "patient/iPatient.hpp"
 
