@@ -8,19 +8,17 @@ namespace clinic
 {
 namespace staff
 {
-namespace doctor
+namespace receptionist
 {
 
-class iDoctor
+class iReceptionist
 {
   public:
-    virtual ~iDoctor() = default;
+    virtual ~iReceptionist() = default;
     virtual common::PersonalData GetPersonalData() const = 0;
-    virtual common::Specialization GetSpecialization() const = 0;
-    virtual void UpdateSpecialization(const common::Specialization specialization) = 0;
 };
-using DoctorPtr = std::unique_ptr<iDoctor>;
+using ReceptionistPtr = std::unique_ptr<iReceptionist>;
 
-} // namespace doctor
+} // namespace receptionist
 } // namespace staff
 } // namespace clinic
