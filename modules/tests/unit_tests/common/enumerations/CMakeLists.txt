@@ -4,11 +4,13 @@ add_executable(SpecializationTests SpecializationTests.cpp)
 add_executable(TreatmentTests TreatmentTests.cpp)
 add_executable(TreatmentStateTests TreatmentStateTests.cpp)
 
-target_compile_options(AllergenTests PRIVATE -Werror -Wall -Wextra -pedantic)
-target_compile_options(SexTests PRIVATE -Werror -Wall -Wextra -pedantic)
-target_compile_options(SpecializationTests PRIVATE -Werror -Wall -Wextra -pedantic)
-target_compile_options(TreatmentTests PRIVATE -Werror -Wall -Wextra -pedantic)
-target_compile_options(TreatmentStateTests PRIVATE -Werror -Wall -Wextra -pedantic)
+set(COMPILE_OPTIONS -Werror -Wall -Wextra -pedantic)
+
+target_compile_options(AllergenTests PRIVATE ${COMPILE_OPTIONS})
+target_compile_options(SexTests PRIVATE ${COMPILE_OPTIONS})
+target_compile_options(SpecializationTests PRIVATE ${COMPILE_OPTIONS})
+target_compile_options(TreatmentTests PRIVATE ${COMPILE_OPTIONS})
+target_compile_options(TreatmentStateTests PRIVATE ${COMPILE_OPTIONS})
 
 target_include_directories(AllergenTests PRIVATE ${OWN_LIBS_INCLUDE_DIR})
 target_include_directories(SexTests PRIVATE ${OWN_LIBS_INCLUDE_DIR})
