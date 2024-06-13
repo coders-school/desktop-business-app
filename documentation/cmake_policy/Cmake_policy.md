@@ -179,6 +179,7 @@ The module has it's own, seperate main CMakeLists.txt file, in `tests` folder.
    The version acquired this way will take precedence over any system installed version.
 
 5. We include Google Test and enable ctest / Google Test support:
+
    ![](image-snippets/image-23.png)
 
 6. Next, we define a set of variables for helping with specific target-linking definitions
