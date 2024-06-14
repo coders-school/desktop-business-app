@@ -62,14 +62,12 @@ For starter it contains one rule for `protobuf` library:
 
 ![](image-snippets/image-8.png)
 
-Not all in this file is obvious for me. I trusted GH Copilot with that and only adjusted to work.
-I consider it to be experimental for the time being.
 
 Coming back to main CMakeLists.txt, we find try to find the version matching the one we requested in helper `installation_rules.cmake` file:
 
 ![](image-snippets/image-9.png)
 
-Hopefully, after running cmake all above will install and find the specific, fixed version placed in external_libraries/protobuf folder.
+After running cmake all above will install and find the specific, fixed version placed in external_libraries/protobuf folder.
 It should be found instead of any other system-installed version of protobuf (at least for development, maybe will not work for running binaries).
 
 On my machine it produces something like this (snippet from cmake print):

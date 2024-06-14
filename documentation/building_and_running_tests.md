@@ -1,6 +1,6 @@
 # **BUILDING TESTS**
 ---
-NOTE: it may be obvious, but if anything in `backend` module changes it has to be rebuild before `tests` module is build.
+NOTE: it may be obvious, but if anything in `backend` changes it has to be rebuild before `tests` module is build.
 Any of the ways may be used for building.
 
 ## Building backend and tests manually
@@ -14,6 +14,8 @@ If we want to build `backend` modules from clean state, we need to:
    ```cmake --build . --parallel --target install -- -j2```
    NOTE: `-j2` flag sets maximum number of threads used. It origins in attempt to fix building on some machines.
    Everyone is free to experiment with number of threads or can remove this flag if maximum available threads is OK.
+   For machines with limited resources or virtual machines it is recommended to use -j2 or -j1 even.
+   On the other hand, for machines which can handle this, more threads would speedup build processes.
 
 If we we have `backend` cmake configuration run beforehand and/or built `backend` it is enough to perform step 4 from "build" directory.
 
