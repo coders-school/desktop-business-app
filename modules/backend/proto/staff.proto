@@ -1,5 +1,5 @@
-import "modules/backend/proto/PersonalData.proto";
-import "modules/backend/proto/enumerations/Specialization.proto";
+import "modules/backend/proto/personal_data.proto";
+import "modules/backend/proto/enumerations/specialization.proto";
 
 package staff;
 

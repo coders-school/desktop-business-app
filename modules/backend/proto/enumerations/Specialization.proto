@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package common;
-
-enum Specialization {
-    Dentist = 0;
-    Unknown = 255;
-}

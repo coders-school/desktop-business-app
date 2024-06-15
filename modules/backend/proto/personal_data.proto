@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "modules/backend/proto/enumerations/Sex.proto";
+import "modules/backend/proto/enumerations/sex.proto";
 
 package common;
 
