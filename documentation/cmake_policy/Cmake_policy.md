@@ -145,7 +145,7 @@ Other submodules look very similar.
 
 # `tests` module
 
-The module has it's own, seperate main CMakeLists.txt file, in `tests` folder.
+The module has it's own, separate main CMakeLists.txt file, in `tests` folder.
 
 ## Main CMakeLists.txt for tests module
 
@@ -188,7 +188,11 @@ The module has it's own, seperate main CMakeLists.txt file, in `tests` folder.
 
    ![](image-snippets/image-25.png)
 
-8. We don't define any binary targets in main CMakeLists.txt file.
+8. We add some magic spells in order to enable valgrind memory checks with ctest (this will be used by our valgrind script):
+
+   ![](image-snippets/image-34.png)
+
+9.  We don't define any binary targets in main CMakeLists.txt file.
    We forward it to inner tests module subfolders:
 
    ![](image-snippets/image-26.png)
