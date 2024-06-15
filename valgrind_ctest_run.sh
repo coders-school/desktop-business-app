@@ -12,8 +12,34 @@ fi
 
 cd "$BUILD_TESTS_DIR"
 
-# Run ctest for the summary output
-GTEST_COLOR=1 ctest
+# Run CTest with Valgrind memory check
+GTEST_COLOR=1 ctest -T memcheck --output-on-failure
 
-# Run ctest again for the detailed output of failed tests only
-GTEST_COLOR=1 valgrind ctest --leak-check=full --output-on-failure | awk '/\[  FAILED  \]/,/(\d+ ms)/'
+# Directory where Valgrind logs are stored
+LOG_DIR="./Testing/Temporary"
+
+# Initialize a flag to indicate if any memory errors were found
+found_errors=0
+
+# Process each log file
+for log_file in ${LOG_DIR}/MemoryChecker.*.log; do
+    # Check if the log file contains any errors
+    if grep -q "ERROR SUMMARY: 0 errors" "$log_file" ; then
+        # No action needed if no errors are found
+        true
+    else
+        # Set the flag to indicate that errors were found
+        found_errors=1
+        # Break the loop as we only need to know if there are any errors
+        break
+    fi
+done
+
+# Return an error code if any memory errors were found
+if [ "$found_errors" -eq 1 ]; then
+    echo "Memory errors detected."
+    exit 1
+else
+    echo "No memory errors detected."
+    exit 0
+fi
