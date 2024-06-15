@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package common;
+
+enum TreatmentState {
+    PLANNED = 0;
+    DONE = 1;
+    UNKNOWN = 255;
+}
