@@ -1,11 +1,7 @@
 #pragma once
 
 #include "enumerations/specialization/Specialization.hpp"
-
-namespace common
-{
-class PersonalData;
-} // namespace common
+#include "personal_data/PersonalData.hpp"
 
 namespace clinic
 {

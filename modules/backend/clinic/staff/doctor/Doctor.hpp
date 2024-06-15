@@ -1,7 +1,6 @@
 #pragma once
 
-#include "iDoctorSerde.hpp"
-#include "personal_data/PersonalData.hpp"
+#include "iDoctor.hpp"
 
 namespace clinic
 {
@@ -10,7 +9,7 @@ namespace staff
 namespace doctor
 {
 
-class Doctor : public iDoctorSerde
+class Doctor : public iDoctor
 {
     using PersonalData = common::PersonalData;
     using Specialization = common::specialization::Specialization;
@@ -18,11 +17,9 @@ class Doctor : public iDoctorSerde
   public:
     Doctor(const PersonalData& personal_data, const Specialization specialization);
 
-    void Deserialize() override;
     PersonalData GetPersonalData() const override;
     Specialization GetSpecialization() const override;
 
-    void Serialize() override;
     void UpdateSpecialization(const Specialization specialization) override;
 
   private:

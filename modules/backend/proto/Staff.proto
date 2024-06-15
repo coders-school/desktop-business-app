@@ -1,0 +1,13 @@
+import "modules/backend/proto/PersonalData.proto";
+import "modules/backend/proto/enumerations/Specialization.proto";
+
+package staff;
+
+message Doctor {
+    repeated common.PersonalData personalData = 1;
+    repeated common.Specialization specialization = 2;
+}
+
+message Receptionist {
+    repeated common.PersonalData personalData = 1;
+}

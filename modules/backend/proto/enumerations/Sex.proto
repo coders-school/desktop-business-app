@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package common;
+
+enum Sex {
+    Female = 0;
+    Male = 1;
+}
