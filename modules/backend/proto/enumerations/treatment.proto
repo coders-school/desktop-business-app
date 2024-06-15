@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package common;
+
+enum Treatment {
+    TEETH_CLEANING = 0;
+    ROOT_CANAL = 1;
+    DENTAL_FILLING = 2;
+    TOOTH_EXTRACTION = 3;
+    TEETH_WHITENING = 4;
+    DENTAL_IMPLANTS = 5;
+    ORTHODONTICS = 6;
+    PERIODONTICS = 7;
+    DENTAL_VENEERS = 8;
+    DENTAL_CROWNS = 9;
+    DENTAL_BRIDGES = 10;
+    DENTURES = 11;
+    GUM_SURGERY = 12;
+    DENTAL_SEALANTS = 13;
+    MOUTH_GUARDS = 14;
+    SLEEP_APNEA_TREATMENT = 15;
+    OTHER = 255;
+}

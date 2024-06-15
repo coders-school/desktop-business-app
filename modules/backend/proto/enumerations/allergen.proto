@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package common;
+
+enum Allergen {
+    ALLERGEN_A = 0;
+    ALLERGEN_B = 1;
+    ALLERGEN_C = 2;
+    ALLERGEN_D = 3;
+    UNKNOWN = 4;
+};
