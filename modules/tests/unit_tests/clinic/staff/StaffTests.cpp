@@ -49,7 +49,7 @@ TEST_F(StaffFixture, GivenStaffWhenMultipleDoctorAddedExpectCorrectSize)
 TEST_F(StaffFixture, GivenStaffWhenExactDoctorQueriedExpectDoctorFoundAndReturned)
 {
     auto doctor = CreateDoctorMock();
-    EXPECT_CALL(*doctor, GetPersonalData()).Times(2).WillRepeatedly(::testing::Return(createTestPersonalData()));
+    EXPECT_CALL(*doctor, GetPersonalData()).WillOnce(::testing::Return(createTestPersonalData()));
     unit_.addDoctor(std::move(doctor));
 
     EXPECT_NE(unit_.getDoctor({"Joe", "", ""}), nullptr);
@@ -70,8 +70,7 @@ TEST_F(StaffFixture, GivenStaffWithMultipleDoctorsWhenExactDoctorQueriedExpectDo
     auto doctor2 = CreateDoctorMock();
     EXPECT_CALL(*doctor, GetPersonalData()).WillOnce(::testing::Return(createTestPersonalData()));
     EXPECT_CALL(*doctor2, GetPersonalData())
-        .Times(2)
-        .WillRepeatedly(::testing::Return(createTestPersonalData(common::Name{"John", "", ""})));
+        .WillOnce(::testing::Return(createTestPersonalData(common::Name{"John", "", ""})));
     unit_.addDoctor(std::move(doctor));
     unit_.addDoctor(std::move(doctor2));
 
@@ -96,7 +95,7 @@ TEST_F(StaffFixture, GivenStaffWhenMultipleReceptionistAddedExpectCorrectSize)
 TEST_F(StaffFixture, GivenStaffWhenExactReceptionistQueriedExpectReceptionistFoundAndReturned)
 {
     auto receptionist = CreateReceptionistMock();
-    EXPECT_CALL(*receptionist, GetPersonalData()).Times(2).WillRepeatedly(::testing::Return(createTestPersonalData()));
+    EXPECT_CALL(*receptionist, GetPersonalData()).WillOnce(::testing::Return(createTestPersonalData()));
     unit_.addReceptionist(std::move(receptionist));
 
     EXPECT_NE(unit_.getReceptionist({"Joe", "", ""}), nullptr);
@@ -117,8 +116,7 @@ TEST_F(StaffFixture, GivenStaffWithMultipleReceptionistsWhenExactReceptionistQue
     auto Receptionist2 = CreateReceptionistMock();
     EXPECT_CALL(*receptionist, GetPersonalData()).WillOnce(::testing::Return(createTestPersonalData()));
     EXPECT_CALL(*Receptionist2, GetPersonalData())
-        .Times(2)
-        .WillRepeatedly(::testing::Return(createTestPersonalData(common::Name{"John", "", ""})));
+        .WillOnce(::testing::Return(createTestPersonalData(common::Name{"John", "", ""})));
     unit_.addReceptionist(std::move(receptionist));
     unit_.addReceptionist(std::move(Receptionist2));
 

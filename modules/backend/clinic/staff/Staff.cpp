@@ -7,12 +7,16 @@ namespace clinic
 namespace staff
 {
 
-template <typename Person> typename Person::iterator Staff::getPersonByName(Person& person, const common::Name& name)
+template <typename Container>
+typename Container::value_type::pointer Staff::getPersonByName(const Container& container,
+                                                               const common::Name& name) const
 {
-    return std::find_if(person.begin(), person.end(), [&name](const auto& per) {
-        return per->GetPersonalData().getName().first_name_ == name.first_name_ &&
-               per->GetPersonalData().getName().last_name_ == name.last_name_;
+    const auto it = std::find_if(container.begin(), container.end(), [&name](const auto& per) {
+        const auto container_name = per->GetPersonalData().getName();
+        return container_name.first_name_ == name.first_name_ && container_name.last_name_ == name.last_name_;
     });
+
+    return it == container.end() ? nullptr : it->get();
 }
 
 void Staff::addDoctor(doctor::DoctorPtr doctor)
@@ -22,9 +26,7 @@ void Staff::addDoctor(doctor::DoctorPtr doctor)
 
 doctor::iDoctor* Staff::getDoctor(const common::Name& name)
 {
-    const auto doctor = getPersonByName<std::vector<doctor::DoctorPtr>>(doctors_, name);
-
-    return doctor == doctors_.end() ? nullptr : doctor->get();
+    return getPersonByName(doctors_, name);
 }
 
 std::vector<doctor::iDoctor*> Staff::getDoctors()
@@ -43,9 +45,7 @@ void Staff::addReceptionist(receptionist::ReceptionistPtr receptionist)
 
 receptionist::iReceptionist* Staff::getReceptionist(const common::Name& name)
 {
-    const auto receptionist = getPersonByName<std::vector<receptionist::ReceptionistPtr>>(receptionists_, name);
-
-    return receptionist == receptionists_.end() ? nullptr : receptionist->get();
+    return getPersonByName(receptionists_, name);
 }
 
 std::vector<receptionist::iReceptionist*> Staff::getReceptionists()

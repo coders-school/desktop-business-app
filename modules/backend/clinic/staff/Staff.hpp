@@ -22,7 +22,8 @@ class Staff
     std::vector<receptionist::iReceptionist*> getReceptionists();
 
   private:
-    template <typename Person> typename Person::iterator getPersonByName(Person& person, const common::Name& name);
+    template <typename Container>
+    typename Container::value_type::pointer getPersonByName(const Container& person, const common::Name& name) const;
 
     std::vector<doctor::DoctorPtr> doctors_;
     std::vector<receptionist::ReceptionistPtr> receptionists_;
