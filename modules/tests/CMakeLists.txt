@@ -36,5 +36,6 @@ set(WAREHOUSE_LIB ${BACKEND_LIB_DIRECTORY}/libwarehouse-lib.a)
 # Set the path to the headers installed from backend
 set(OWN_LIBS_INCLUDE_DIR ${BACKEND_LIB_DIRECTORY}/include)
 
-add_subdirectory(unit_tests)
 add_subdirectory(integration_tests)
+add_subdirectory(mocks)
+add_subdirectory(unit_tests)

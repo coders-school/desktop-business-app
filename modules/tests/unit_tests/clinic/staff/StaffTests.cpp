@@ -1,6 +1,6 @@
+#include "DoctorMock/DoctorMock.hpp"
+#include "ReceptionistsMock/ReceptionistMock.hpp"
 #include "staff/Staff.hpp"
-#include "staff/doctor/DoctorMock.hpp"
-#include "staff/receptionist/ReceptionistMock.hpp"
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <memory>

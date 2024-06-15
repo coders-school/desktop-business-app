@@ -10,6 +10,7 @@ target_link_libraries(StaffTests PRIVATE
     gmock_main
     ${CLINIC_LIB}
     ${COMMON_LIB}
+    mocks-lib
 )
 
 add_test(NAME StaffTests COMMAND StaffTests WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

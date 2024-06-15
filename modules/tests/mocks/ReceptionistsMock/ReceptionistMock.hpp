@@ -1,6 +1,6 @@
 #pragma once
 
-#include "iReceptionist.hpp"
+#include "staff/receptionist/iReceptionist.hpp"
 #include <gmock/gmock.h>
 
 namespace clinic
