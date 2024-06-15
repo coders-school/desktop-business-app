@@ -87,8 +87,21 @@ We have to scripts for run all tests with ctest:
 
 Optionally we can run ctest manually from "build_tests" directory with simple commands:
 ```ctest```
-or
-```valgrind ctest```
-But in this approach we miss some cool stuff offered by scripts like:
-- picking just failed test to print
-- maintaining Google Test colorization in ctest.
+
+It is still recommended to use valgrind script for memory checking instead of trying to run ctest with valgrind manually.
+It is not easy to do so.
+
+The `valgrind_ctest_run.sh` when run will give us some interesting info. Example print:
+```
+5/7 MemCheck: #5: TreatmentTests ...................   Defects: 4
+6/7 MemCheck: #6: TreatmentStateTests ..............   Defects: 4
+7/7 MemCheck: #7: basic_construction-test ..........   Defects: 1
+MemCheck log files can be found here: (<#> corresponds to test number)
+/home/piworzuop/Klub-Ninja/projekt/desktop-business-app/build_tests/Testing/Temporary/MemoryChecker.<#>.log
+Memory checking results:
+Memory Leak - 1
+Uninitialized Memory Conditional - 6
+Uninitialized Memory Read - 2
+Memory errors detected.
+```
+As we can see, we are offered general info about detected problems and we are told where to check detailed logs for each test!
