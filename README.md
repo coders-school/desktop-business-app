@@ -15,7 +15,7 @@ TBD...
 ### Format code before committing manually
 
 ```bash
-find . -name '*.cpp' -or -name '*.h' -or -name '*.hpp' | xargs clang-format --verbose -style=file -i
+find . -name '*.cpp' -or -name '*.hpp' | xargs clang-format --verbose -style=file -i
 ```
 
 ### Format code before committing using bash script
@@ -83,3 +83,29 @@ If we want to limit our output somehow, we can find a best identification string
 ```bash
 valgrind --leak-check=full ./desktop-business-app-tests --gtest_filter="*Association*"
 ```
+
+### New scripts for clean builds of backend and test targets
+Two scripts are provided for convenience of building "backend" and "tests" targets (they might require privilages adding):
+
+1. clean build of backend
+```bash
+./backend_clean_build.sh
+```
+Please note that this makes clean build of backend, so if you have just minor changes it might be more convenient to rebuild manually.
+This will not rebuild external_libraries from scratch if they exist and there is no version change.
+
+2. clean build of tests with previous clean build of backend
+```bash
+./tests_and_backend_clean_build.sh
+```
+Please note that this makes clean build of backend and test, so if you have just minor changes or just tests-changes for example might be more convenient to rebuild manually.
+This will not rebuild external_libraries from scratch if they exist and there is no version change.
+
+### Running ctest
+After building test targets, ctest running all the tests can be run in 2 ways:
+1. from `build_tests` directory, simply using command `ctest`
+2. from main desktop-app-folder via script
+   ```bash
+    ./ctest_run.sh
+   ```
+   I recommend using script. It is tailored to print main info and just failed tests
