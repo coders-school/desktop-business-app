@@ -9,7 +9,7 @@ set(PATIENTS_SOURCES
 add_library(patients-lib STATIC ${PATIENTS_SOURCES})
 
 target_compile_options(patients-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
-                                            -Wconversion -Wdangling-pointer)
+                                            -Wconversion )
 
 target_link_libraries(patients-lib PUBLIC common-lib)
 

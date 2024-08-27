@@ -18,7 +18,7 @@ class iDoctor;
 namespace patient
 {
 class iPatient;
-class Payments;
+struct Payments;
 class Treatments;
 } // namespace patient
 

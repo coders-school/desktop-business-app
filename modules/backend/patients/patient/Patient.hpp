@@ -18,6 +18,10 @@ class Patient : public iPatient
     // find a way to handle such situation -> will it require using additional method?
     // try to do it without additional public method
   private:
+    void X(Payments payments)
+    {
+        payments_ = payments;
+    }
     common::PersonalData personal_data_;
     Payments payments_;
     Allergens allergens_;

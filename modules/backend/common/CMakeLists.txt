@@ -12,7 +12,7 @@ set(COMMON_LIB_SOURCES
 add_library(common-lib STATIC ${COMMON_LIB_SOURCES})
 
 target_compile_options(common-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
-                                          -Wconversion -Wdangling-pointer)
+                                          -Wconversion )
 
 
 target_include_directories(common-lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
