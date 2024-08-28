@@ -1,5 +1,7 @@
-import "modules/backend/proto/personal_data.proto";
-import "modules/backend/proto/enumerations/specialization.proto";
+syntax = "proto3";
+ 
+import "personal_data.proto";
+import "specialization.proto";
 
 package staff;
 
