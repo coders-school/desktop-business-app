@@ -10,11 +10,6 @@ set(OWN_LIBRARIES_DIR ${PROJECT_SOURCE_DIR}/../../own_libraries/)
 
 include(installation_rules.cmake)
 
-# include(FindProtobuf)
-# find_package(Protobuf REQUIRED 3.21.0)
-# include_directories(${PROTOBUF_INCLUDE_DIR})
-# include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
 add_subdirectory(clinic)
 add_subdirectory(common)
 add_subdirectory(patients)
