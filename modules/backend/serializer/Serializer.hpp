@@ -1,10 +1,6 @@
 #pragma once
 
-namespace serializer
+namespace serde
 {
 
-class Serializer // find better name
-{
-};
-
-} // namespace serializer
+} // namespace serde

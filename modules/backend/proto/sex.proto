@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package common;
-
-enum Sex {
-    FEMALE = 0;
-    MALE = 1;
-}

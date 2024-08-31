@@ -1,8 +1,7 @@
 syntax = "proto3";
 
-import "sex.proto";
 
-package common;
+package proto_common;
 
 message PersonalData {
     Address address = 1;
@@ -19,7 +18,6 @@ message PersonalData {
 
     message Pesel {
         string pesel = 1;
-        Sex sex = 2;
     }
 
     message Name {

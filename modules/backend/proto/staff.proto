@@ -1,15 +1,11 @@
 syntax = "proto3";
  
-import "personal_data.proto";
-import "specialization.proto";
+import "doctor.proto";
+import "receptionist.proto";
 
-package staff;
+package proto_staff;
 
-message Doctor {
-    repeated common.PersonalData personalData = 1;
-    repeated common.Specialization specialization = 2;
-}
-
-message Receptionist {
-    repeated common.PersonalData personalData = 1;
+message Staff {
+    repeated proto_staff.Doctor doctor = 1;
+    repeated proto_staff.Receptionist receptionist = 2;
 }
