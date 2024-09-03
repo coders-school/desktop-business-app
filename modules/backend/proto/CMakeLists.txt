@@ -19,7 +19,6 @@ add_library(proto ${PROTO_SRCS} ${PROTO_HDRS})
 target_include_directories(proto PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 target_link_libraries(proto PUBLIC ${PROTOBUF_LIBRARIES})
 
-# Install generated header files and the library
 install(TARGETS proto
     ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR}/lib)
 
