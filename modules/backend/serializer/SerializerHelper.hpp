@@ -1,18 +1,12 @@
 #pragma once
 
-#include "clinic/staff/Staff.hpp"
-#include <staff.pb.h>
+#include "staff.pb.h"
+#include "staff/Staff.hpp"
 
 namespace serde
 {
-
-void serializeStaff(const ::clinic::staff::Staff& staff, ::proto_staff::Staff* proto_staff)
-{
-    for (const auto& doctor : staff.getDoctors())
-    {
-        serializeDoctor(doctor, proto_staff->add_doctor());
-    }
-}
+// TODO should functions be moved to separate files in targets of it's orginal type?
+// TODO introduce deserialize functions
 
 ::proto_common::Specialization serializeSpecialization(const ::common::specialization::Specialization specialization)
 {
@@ -73,5 +67,12 @@ void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staf
     proto_doctor->set_specialization(serializeSpecialization(doctor.GetSpecialization()));
 }
 
+void serializeStaff(const ::clinic::staff::Staff& staff, ::proto_staff::Staff* proto_staff)
+{
+    for (const auto& doctor : staff.getDoctors())
+    {
+        serializeDoctor(doctor, proto_staff->add_doctor());
+    }
+}
 
 } // namespace serde
