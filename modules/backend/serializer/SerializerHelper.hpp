@@ -117,12 +117,15 @@ void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staf
             deserializeSpecialization(proto_doctor.specialization())};
 }
 
-void serializeStaff(const ::clinic::staff::Staff& staff, ::proto_staff::Staff* proto_staff)
+::proto_staff::Staff serializeStaff(const ::clinic::staff::Staff& staff)
 {
+    ::proto_staff::Staff proto_staff{};
     for (const auto& doctor : staff.getDoctors())
     {
-        serializeDoctor(doctor, proto_staff->add_doctor());
+        serializeDoctor(doctor, proto_staff.add_doctor());
     }
+    
+    return proto_staff;
 }
 
 void deserializeStaff(::clinic::staff::Staff& staff, const ::proto_staff::Staff& proto_staff)
