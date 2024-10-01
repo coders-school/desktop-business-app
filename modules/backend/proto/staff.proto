@@ -1,0 +1,11 @@
+syntax = "proto3";
+ 
+import "doctor.proto";
+import "receptionist.proto";
+
+package proto_staff;
+
+message Staff {
+    repeated proto_staff.Doctor doctor = 1;
+    repeated proto_staff.Receptionist receptionist = 2;
+}

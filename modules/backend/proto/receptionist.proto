@@ -1,0 +1,9 @@
+syntax = "proto3";
+ 
+import "personal_data.proto";
+
+package proto_staff;
+
+message Receptionist {
+    proto_common.PersonalData personalData = 1;
+}

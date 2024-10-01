@@ -1,0 +1,12 @@
+syntax = "proto3";
+ 
+import "personal_data.proto";
+import "specialization.proto";
+
+package proto_staff;
+
+message Doctor {
+    proto_common.PersonalData personalData = 1;
+    proto_common.Specialization specialization = 2;
+}
+

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+package proto_common;
+
+message PersonalData {
+    Address address = 1;
+    Name name = 2;
+    Pesel pesel = 3;
+    PhoneNumber phone_numbers = 4;
+
+    message PhoneNumber {
+        optional string cellphone_code_ = 1;
+        optional string cellphone_number_ = 2;
+        optional string home_number_code_ = 3;
+        optional string home_number_ = 4;
+    }
+
+    message Pesel {
+        string pesel = 1;
+    }
+
+    message Name {
+        string first_name = 1;
+        optional string second_name = 2;
+        string last_name = 3;
+    }
+
+    message Address {
+        optional string street = 1;
+        optional string city = 2;
+        string zip_code = 3;
+        optional string province = 4;
+        optional string country = 5;
+    }
+}
