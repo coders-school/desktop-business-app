@@ -10,32 +10,32 @@ set -e
 mkdir build && cd build
 
 # Configure backend with CMake
-cmake -DCMAKE_BUILD_TYPE=Debug ../modules/backend/
+cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ../modules/backend/
 
 # Build the target and install backend libs and headers to own_libraries
-cmake --build . --parallel --target install -- -j2
+cmake --build . --parallel --clean-first -- -j2
 
 # go back to main app directory
-cd ..
+# cd ..
 
-# Check if the build_tests directory does not exist
-if [ ! -d "build_tests" ]; then
-  # If it does not exist, create it
-  mkdir build_tests
-fi
+# # Check if the build_tests directory does not exist
+# if [ ! -d "build_tests" ]; then
+#   # If it does not exist, create it
+#   mkdir build_tests
+# fi
 
 # Change directory to build_tests
-cd build_tests
+# cd build_tests
 
-# Cclean build_tests directory
-# Check if the current directory is build_tests before removing everything
-if [ $(basename "$PWD") == "build_tests" ]; then
-  # Remove everything in the current directory
-  rm -rf *
-fi
+# # Cclean build_tests directory
+# # Check if the current directory is build_tests before removing everything
+# if [ $(basename "$PWD") == "build_tests" ]; then
+#   # Remove everything in the current directory
+#   rm -rf *
+# fi
 
-# configure tests target with CMake
-cmake -DCMAKE_BUILD_TYPE=Debug ../modules/tests/
+# # configure tests target with CMake
+# cmake -DCMAKE_BUILD_TYPE=Debug ../modules/tests/
 
-# Build the tests target
-cmake --build . --parallel
+# # Build the tests target
+# cmake --build . --parallel

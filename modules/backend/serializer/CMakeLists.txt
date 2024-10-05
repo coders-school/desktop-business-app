@@ -1,5 +1,6 @@
 set(SERIALIZER_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/SerializerHelper.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Serializer.cpp
 )
 
 add_library(serializer-lib STATIC ${SERIALIZER_SOURCES})
@@ -7,18 +8,24 @@ add_library(serializer-lib STATIC ${SERIALIZER_SOURCES})
 target_compile_options(serializer-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast -Wconversion)
 
 target_link_libraries(serializer-lib PUBLIC
+    common-lib
     clinic-lib
-    proto  
+    protobuff
 )
 
 target_include_directories(serializer-lib PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${OWN_LIBRARIES_DIR}/include/proto  
+    # ${OWN_LIBRARIES_DIR}/include/proto
 )
-
-install(TARGETS serializer-lib
-    ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR}/lib
+set_target_properties(serializer-lib PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+    LIBRARY_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+    RUNTIME_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
 )
+# install(TARGETS serializer-lib
+#     ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR}
+# )
 
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OWN_LIBRARIES_DIR}/include
-    FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+# install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OWN_LIBRARIES_DIR}/include
+#     FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+# message(STATUS "OWN_LIBRARIES_DIR: ${OWN_LIBRARIES_DIR}")

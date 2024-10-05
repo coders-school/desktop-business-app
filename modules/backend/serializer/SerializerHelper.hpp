@@ -1,6 +1,6 @@
 #pragma once
 
-#include "staff.pb.h"
+#include <staff.pb.h>
 #include "staff/Staff.hpp"
 
 namespace serde
@@ -101,7 +101,7 @@ void serializePersonalData(::proto_common::PersonalData* proto_personal_data,
 {
     ::common::PersonalData personal_data{
         deserializeName(proto_personal_data.name()), deserializeAddress(proto_personal_data.address()),
-        deserializePhoneNumber(proto_personal_data.phone_numbers()), deserializePesel(proto_personal_data.pesel())};
+        deserializePesel(proto_personal_data.pesel()), deserializePhoneNumber(proto_personal_data.phone_numbers())};
     return personal_data;
 }
 
@@ -124,7 +124,7 @@ void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staf
     {
         serializeDoctor(doctor, proto_staff.add_doctor());
     }
-    
+
     return proto_staff;
 }
 

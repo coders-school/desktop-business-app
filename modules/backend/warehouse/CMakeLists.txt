@@ -14,9 +14,14 @@ target_compile_options(warehouse-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wu
 
 target_include_directories(warehouse-lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-# install created lib in our own libraries directory
-install(TARGETS warehouse-lib
-        ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR})
-# copy include files to our own libraries directory
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OWN_LIBRARIES_DIR}/include
-        FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+# # install created lib in our own libraries directory
+# install(TARGETS warehouse-lib
+#         ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR})
+# # copy include files to our own libraries directory
+# install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OWN_LIBRARIES_DIR}/include
+#         FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+set_target_properties(warehouse-lib PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+    LIBRARY_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+    RUNTIME_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+)

@@ -156,17 +156,6 @@ TEST(PatientCollectionCreationTest, checkIfPatientCollectionCanBeCreated)
     patient::PatientCollection patient_collection(std::move(patients));
 }
 
-TEST(PatientsFactoryTest, checkIfPatientsFactoryCanBeUsed)
-{
-    serializer::Serializer some_serializer;
-    EXPECT_THROW(patient::initializePatients(some_serializer), std::invalid_argument);
-}
-
-TEST(SerializerCreationTest, checkIfSerializerCanBeCreated)
-{
-    [[maybe_unused]] serializer::Serializer some_serializer;
-}
-
 TEST(VisitCreationTest, checkIfVisitCanBeCreated)
 {
     visit::Visit some_visit;

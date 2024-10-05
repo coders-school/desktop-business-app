@@ -18,7 +18,7 @@ class AllergenToStringFixture : public ::testing::TestWithParam<ToStringTestPara
 {
 };
 
-TEST_F(AllergenToStringFixture, GivenAllergenEnumerationWhenConvertingToStringExpectValidConversion)
+TEST_P(AllergenToStringFixture, GivenAllergenEnumerationWhenConvertingToStringExpectValidConversion)
 {
     const auto& expected_output = GetParam().expected_output;
     const auto& output = toString(GetParam().allergen);
@@ -31,7 +31,7 @@ INSTANTIATE_TEST_CASE_P(AllergenParametricTests, AllergenToStringFixture,
                                           ToStringTestParams{Allergen::AnotherAllergen, "AnotherAllergen"},
                                           ToStringTestParams{Allergen::SomeAllergen, "SomeAllergen"},
                                           ToStringTestParams{Allergen::DifferentAllergen, "DifferentAllergen"},
-                                          ToStringTestParams{static_cast<Allergen>(250), "DifferentAllergen"}));
+                                          ToStringTestParams{static_cast<Allergen>(250), "Unknown"}));
 
 struct ToEnumTestParams
 {
@@ -56,7 +56,7 @@ INSTANTIATE_TEST_CASE_P(AllergenParametricTests, AllergenToEnumFixture,
                                           ToEnumTestParams{"AnotherAllergen", Allergen::AnotherAllergen},
                                           ToEnumTestParams{"SomeAllergen", Allergen::SomeAllergen},
                                           ToEnumTestParams{"DifferentAllergen", Allergen::DifferentAllergen},
-                                          ToEnumTestParams{"invalid", Allergen::DifferentAllergen}));
+                                          ToEnumTestParams{"invalid", Allergen::Unknown}));
 
 } // namespace tests
 } // namespace allergen

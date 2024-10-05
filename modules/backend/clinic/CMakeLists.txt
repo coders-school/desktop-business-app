@@ -18,9 +18,14 @@ target_link_libraries(clinic-lib PUBLIC
 target_include_directories(clinic-lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 # install created lib in our own libraries directory
-install(TARGETS clinic-lib
-        ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR})
+# install(TARGETS clinic-lib
+#         ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR})
 
-# copy include files to our own libraries directory
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OWN_LIBRARIES_DIR}/include
-        FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+# # copy include files to our own libraries directory
+# install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OWN_LIBRARIES_DIR}/include
+#         FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+set_target_properties(clinic-lib PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+    LIBRARY_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+    RUNTIME_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
+)
