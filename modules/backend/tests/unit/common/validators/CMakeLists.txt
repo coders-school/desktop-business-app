@@ -4,7 +4,6 @@ target_compile_options(PeselValidatorTests PRIVATE -Werror -Wall -Wextra -pedant
 
 target_include_directories(PeselValidatorTests PRIVATE ${OWN_LIBS_INCLUDE_DIR}/common)
 
-# Link against backend libs
 target_link_libraries(PeselValidatorTests PRIVATE
     gtest_main
     common-lib

@@ -4,7 +4,6 @@ target_compile_options(basic_construction-test PRIVATE -Werror -Wall -Wextra -pe
 
 message(STATUS "CMAKE_CURRENT_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}")
 
-# set(aa /home/lnx/cs/desktop-business-app/build/proto)
 set(PROTO_DIR ${PROJECT_SOURCE_DIR}/../../build/proto)
 target_include_directories(basic_construction-test PRIVATE
     ${OWN_LIBS_INCLUDE_DIR}/common

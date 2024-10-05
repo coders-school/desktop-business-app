@@ -15,12 +15,6 @@ target_link_libraries(patients-lib PUBLIC common-lib)
 
 target_include_directories(patients-lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-# install library in our own libraries directory
-# install(TARGETS patients-lib
-#         ARCHIVE DESTINATION ${OWN_LIBRARIES_DIR})
-# # copy include files to our own libraries directory
-# install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ DESTINATION ${OWN_LIBRARIES_DIR}/include
-#         FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
 set_target_properties(patients-lib PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
     LIBRARY_OUTPUT_DIRECTORY ${OWN_LIBRARIES_DIR}
