@@ -114,5 +114,33 @@ After building test targets, ctest running all the tests can be run in 2 ways:
 
 
 ### docker container
-We can mount a local directory (volume) to Docker container. This way any changes we make locally will immediately be reflected in the conatiner withoutt needint to rebuild the image every time.
+We can mount a local directory (volume) to Docker container. This way any changes we make locally will immediately be reflected in the conatiner without need to rebuild the image every time.
 
+To work with it follow steps:
+
+1. Run script run_container.sh 
+Now you should have working container, which is detached and is running in the background.
+You can check it using command: 
+```
+docker ps
+```
+You should see output as follows:
+```
+$ docker ps -a
+CONTAINER ID   IMAGE                  COMMAND               CREATED       STATUS          PORTS     NAMES
+37383cccbce3   desktop-business-app   "tail -f /dev/null"   5 hours ago   Up 43 minutes             desktop-business-app
+```
+2. Enter docker container 
+To enter docker container use docker exec command
+```
+docker exec -it desktop-business-app /bin/bash
+```
+Now you should be inside docker container named desktop-business-app.
+You can add them to your .bashrc file.
+I recommand adding aliases to speed up work
+
+```
+alias doe="docker exec -it desktop-business-app /bin/bash"
+alias domake="docker exec desktop-business-app make -C /application/build"
+alias dotest="docker exec desktop-business-app ctest --test-dir /application/build"
+```
