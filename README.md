@@ -109,3 +109,10 @@ After building test targets, ctest running all the tests can be run in 2 ways:
     ./ctest_run.sh
    ```
    I recommend using script. It is tailored to print main info and just failed tests
+
+
+
+
+### docker container
+We can mount a local directory (volume) to Docker container. This way any changes we make locally will immediately be reflected in the conatiner withoutt needint to rebuild the image every time.
+

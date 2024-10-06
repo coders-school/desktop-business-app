@@ -8,3 +8,4 @@ apt install -y nlohmann-json3-dev
 apt install -y libgoogle-glog-dev  
 apt install -y protobuf-compiler
 apt install -y libprotobuf-dev
+apt install -y git

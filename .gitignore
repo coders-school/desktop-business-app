@@ -75,7 +75,7 @@ bin/
 external_libraries/
 
 # own libraries built by project
-own_libraries/
+libs/
 
 # ctest temp files
 Testing/Temporary/
