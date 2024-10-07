@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Find the build_tests directory
-BUILD_TESTS_DIR=$(find . -type d -name "build_tests")
+# Find the build directory
+BUILD_TESTS_DIR=$(find . -type d -name "build")
 
 if [ -z "$BUILD_TESTS_DIR" ]
 then
-    echo "build_tests directory not found"
+    echo "build directory not found"
     exit 1
 fi
 

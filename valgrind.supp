@@ -1,0 +1,793 @@
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabaseC1Ev
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff24_Staff_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff24_Staff_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff24_Staff_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff24_Staff_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_
+   fun:_ZN6google8protobuf8internal24InitProtobufDefaultsSlowEv
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff24_Staff_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff24_Staff_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   fun:_Z41__static_initialization_and_destruction_1v
+   fun:_GLOBAL__sub_I.00102__ZN11proto_staff25_Doctor_default_instance_E
+   fun:call_init
+   fun:__libc_start_main@@GLIBC_2.34
+   fun:(below main)
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZN6google8protobuf14MessageFactory29InternalRegisterGeneratedFileEPKNS0_8internal15DescriptorTableE
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   proto_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt15__new_allocatorIcE8allocateEmPKv
+   fun:allocate
+   fun:allocate
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_S_allocateERS3_m
+   fun:_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:_ZN6google8protobuf25EncodedDescriptorDatabase3AddEPKvi
+   fun:_ZN6google8protobuf14DescriptorPool24InternalAddGeneratedFileEPKvi
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   obj:/usr/lib/x86_64-linux-gnu/libprotobuf.so.32.0.12
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   obj:/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+}
+
+{
+   gtest_printf
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common15treatment_state5tests32TreatmentStateToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Cond
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common15treatment_state5tests32TreatmentStateToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal21UniversalTersePrinterIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEE5PrintERKS5_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common15treatment_state5tests32TreatmentStateToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common15treatment_state5tests32TreatmentStateToStringTestParamsEEEvRKT_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Cond
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common9treatment5tests18ToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common9treatment5tests18ToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal21UniversalTersePrinterIN6common9treatment5tests18ToStringTestParamsEE5PrintERKS5_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common9treatment5tests18ToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common9treatment5tests18ToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common9treatment5tests18ToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common9treatment5tests18ToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common9treatment5tests18ToStringTestParamsEEEvRKT_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Cond
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common8allergen5tests18ToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common8allergen5tests18ToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal21UniversalTersePrinterIN6common8allergen5tests18ToStringTestParamsEE5PrintERKS5_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common8allergen5tests18ToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common8allergen5tests18ToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+}
+
+{
+   gtest_printf
+   Memcheck:Value8
+   fun:_itoa_word
+   fun:__printf_buffer
+   fun:__vsnprintf_internal
+   fun:snprintf
+   fun:_ZN7testing12_GLOBAL__N_126PrintByteSegmentInObjectToEPKhmmPSo
+   fun:_ZN7testing12_GLOBAL__N_124PrintBytesInObjectToImplEPKhmPSo
+   fun:_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo
+   fun:_ZN7testing8internal15RawBytesPrinter10PrintValueIN6common8allergen5tests18ToStringTestParamsELm40EEEvRKT_PSo
+   fun:_ZN7testing8internal17PrintWithFallbackIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal7PrintToIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+   fun:_ZN7testing8internal16UniversalPrinterIN6common8allergen5tests18ToStringTestParamsEE5PrintERKS5_PSo
+   fun:_ZN7testing8internal14UniversalPrintIN6common8allergen5tests18ToStringTestParamsEEEvRKT_PSo
+}

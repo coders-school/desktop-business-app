@@ -22,15 +22,15 @@ If we we have `backend` cmake configuration run beforehand and/or built `backend
 After having `backend` module built, we can proceed to building `test` module itself.
 
 If we want to build `tests` module from clean state (and we have `backend` built), we need to:
-1. Create or cleanup "build_tests" directory
-2. ```cd build_tests```
+1. Create or cleanup "build" directory
+2. ```cd build```
 3. Run cmake configuration:
    ```cmake -DCMAKE_BUILD_TYPE=Debug ../modules/tests/```
 4. Build `tests` module
    ```cmake --build . --parallel```
    NOTE: `-j2` flag (or with any other reasonable number) can be used to limit number of threads for building if problems are encountered.
 
-If we we have `tests` cmake configuration run beforehand and/or built `tests` it is enough to perform step 4 from "build_tests" directory.
+If we we have `tests` cmake configuration run beforehand and/or built `tests` it is enough to perform step 4 from "build" directory.
 
 ## Building backend with script from clean state
 
@@ -42,7 +42,7 @@ If backend was built previously it might be more efficient to perform just the r
 ### Building tests and backend with script from clean state
 
 If we want to build `backend` and `tests` together from clean state, we can just run from top level folder the `tests_and_backend_clean_build.sh` script.
-NOTE: this script cleans "build" and "build_tests" directory each time so it performs build from the start (**but external_libraries will be reused if built previously**).
+NOTE: this script cleans "build" and "build" directory each time so it performs build from the start (**but external_libraries will be reused if built previously**).
 It is up to developer if one prefers to rebuild from clean build each time because it is handy to use script (with the cost of time).
 If backend and tests were built previously it might be more efficient to perform just the required steps explained in manual building section.
 But remember, that each change in `backend` requires it to be rebuild itself.
@@ -85,7 +85,7 @@ We have to scripts for run all tests with ctest:
 - `ctest_run.sh` - for normal test running
 - `valgrind_ctest_run.sh` - for running ctest under valgrind.
 
-Optionally we can run ctest manually from "build_tests" directory with simple commands:
+Optionally we can run ctest manually from "build" directory with simple commands:
 ```ctest```
 
 It is still recommended to use valgrind script for memory checking instead of trying to run ctest with valgrind manually.
@@ -97,7 +97,7 @@ The `valgrind_ctest_run.sh` when run will give us some interesting info. Example
 6/7 MemCheck: #6: TreatmentStateTests ..............   Defects: 4
 7/7 MemCheck: #7: basic_construction-test ..........   Defects: 1
 MemCheck log files can be found here: (<#> corresponds to test number)
-/home/piworzuop/Klub-Ninja/projekt/desktop-business-app/build_tests/Testing/Temporary/MemoryChecker.<#>.log
+/home/piworzuop/Klub-Ninja/projekt/desktop-business-app/build/Testing/Temporary/MemoryChecker.<#>.log
 Memory checking results:
 Memory Leak - 1
 Uninitialized Memory Conditional - 6

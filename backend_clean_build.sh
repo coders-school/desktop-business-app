@@ -9,10 +9,10 @@ if [ ! -d "external_libraries" ]; then
   mkdir external_libraries
 fi
 
-# Check if the own_libraries directory does not exist
-if [ ! -d "own_libraries" ]; then
+# Check if the libs directory does not exist
+if [ ! -d "libs" ]; then
   # If it does not exist, create it
-  mkdir own_libraries
+  mkdir libs
 fi
 
 # Clean the build library
@@ -24,5 +24,5 @@ mkdir build && cd build
 # Configure with CMake
 cmake -DCMAKE_BUILD_TYPE=Debug ../modules/backend/
 
-# Build the target and install backend libs and headers to own_libraries
+# Build the target and install backend libs and headers to libs
 cmake --build . --parallel --target install -- -j2

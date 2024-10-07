@@ -60,7 +60,7 @@ compile_commands.json
 build/
 
 # Build directory for tests
-build_tests/
+build/
 
 # Build directory
 buildDebug/

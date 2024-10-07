@@ -103,7 +103,7 @@ This will not rebuild external_libraries from scratch if they exist and there is
 
 ### Running ctest
 After building test targets, ctest running all the tests can be run in 2 ways:
-1. from `build_tests` directory, simply using command `ctest`
+1. from `build` directory, simply using command `ctest`
 2. from main desktop-app-folder via script
    ```bash
     ./ctest_run.sh

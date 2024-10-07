@@ -18,7 +18,7 @@ It is supposed to be completely independent from other modules.
 In fact, backend module won't produce typical executable binary (it has no `main.cpp` file).
 
 Instead it will produce multiple libraries, each corresponding directly to its submodule.
-Those libraries will land in separate folder (currently called `own_libraries`).
+Those libraries will land in separate folder (currently called `libs`).
 
 For example:
 `libclinic-lib.a` - relates to `modules/clinic` subfolder.
@@ -129,13 +129,13 @@ Other submodules look very similar.
 
    Regardless of the above, whenever we include something, which is in same folder as our file we just write `#include "someFile.hpp"`
 
-6. In one of final steps we need to install our library in own_libraries folder. This is done through:
+6. In one of final steps we need to install our library in libs folder. This is done through:
 
    ![](image-snippets/image-17.png)
 
    This is required for development of other modules like `tests` or `frontend` in independent cmake trees.
 
-7. But besides the binaries of libs we also need to install/copy include files of current submodule in own_libraries folder.
+7. But besides the binaries of libs we also need to install/copy include files of current submodule in libs folder.
 
    ![](image-snippets/image-18.png)
 
