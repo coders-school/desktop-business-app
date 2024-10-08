@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO fix 
+
 # Find the build directory
 BUILD_TESTS_DIR=$(find . -type d -name "build")
 
