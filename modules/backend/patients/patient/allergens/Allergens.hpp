@@ -9,7 +9,7 @@ namespace patient
 
 class Allergens
 {
-  using Allergen = common::allergen::Allergen;
+    using Allergen = common::allergen::Allergen;
 
   public:
     /*
