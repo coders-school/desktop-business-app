@@ -1,8 +1,8 @@
-name: clang-format check
+name: clang-format
 on: [pull_request, workflow_dispatch]
 
 jobs:
-  formatting-check:
+  clang-format-check:
     runs-on: ubuntu-latest
 
     steps:
