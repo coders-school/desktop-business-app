@@ -1,9 +1,5 @@
-name: CI/CD Action
-
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
+name: Run Test
+on: [pull_request, workflow_dispatch]
 
 jobs:
   unit-tests:
@@ -23,7 +19,13 @@ jobs:
         with:
           context: .
           tags: desktop-business-app
-          # We could give some condition later to push the image to the registry
           push: false
           load: true
 
+      - name: Build Project
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace desktop-business-app /bin/bash -c "mkdir -p build && cd build && cmake ../modules/backend && make"
+
+      - name: Run Unit Tests
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace/build desktop-business-app ctest
