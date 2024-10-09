@@ -9,3 +9,4 @@ apt install -y libgoogle-glog-dev
 apt install -y protobuf-compiler
 apt install -y libprotobuf-dev
 apt install -y git
+apt install -y valgrind

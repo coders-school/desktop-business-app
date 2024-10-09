@@ -29,7 +29,8 @@ INSTANTIATE_TEST_SUITE_P(TreatmentState, ToStringTest,
                          ::testing::Values(TreatmentStateToStringTestParams{TreatmentState::Done, "Done"},
                                            TreatmentStateToStringTestParams{TreatmentState::Planned, "Planned"},
                                            TreatmentStateToStringTestParams{TreatmentState::Unknown, "Unknown"},
-                                           TreatmentStateToStringTestParams{static_cast<TreatmentState>(250), "Unknown"}));
+                                           TreatmentStateToStringTestParams{static_cast<TreatmentState>(250),
+                                                                            "Unknown"}));
 
 struct TreatmentStateToEnumTestParams
 {
