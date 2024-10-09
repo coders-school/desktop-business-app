@@ -1,7 +1,7 @@
 #pragma once
 
-#include <staff.pb.h>
 #include "staff/Staff.hpp"
+#include <staff.pb.h>
 
 namespace serde
 {

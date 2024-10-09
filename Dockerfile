@@ -5,5 +5,3 @@ WORKDIR /application
 COPY /dependencies.sh /application/
 
 RUN /application/dependencies.sh
-
-WORKDIR /application/build

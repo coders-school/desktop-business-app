@@ -18,7 +18,7 @@ enum class Allergen : uint8_t
 };
 
 std::string toString(const Allergen shift);
-Allergen toEnum(const std::string &shift);
+Allergen toEnum(const std::string& shift);
 
 } // namespace allergen
 } // namespace common
