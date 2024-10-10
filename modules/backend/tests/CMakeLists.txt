@@ -1,5 +1,3 @@
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../../bin)
-
 include(install_gtest.cmake)
 
 include(GoogleTest)
