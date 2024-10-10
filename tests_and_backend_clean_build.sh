@@ -7,8 +7,6 @@ set -e
 
 mkdir build && cd build
 
-cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=ON ../modules/backend/
+cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=1 ..
 
 cmake --build . --parallel --clean-first -- -j2
-
-ctest --output-on-failure

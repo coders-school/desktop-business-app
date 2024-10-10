@@ -22,7 +22,7 @@ rm -rf build
 mkdir build && cd build
 
 # Configure with CMake
-cmake -DCMAKE_BUILD_TYPE=Debug ../modules/backend/
+cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTS=0 ..
 
 # Build the target and install backend libs and headers to libs
-cmake --build . --parallel --target install -- -j2
+cmake --build . --parallel --clean-first -- -j2
