@@ -1,9 +1,6 @@
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../../bin)
-
 include(install_gtest.cmake)
 
 include(GoogleTest)
-enable_testing()
 
 include(CTest)
 set(MEMORYCHECK_COMMAND valgrind)

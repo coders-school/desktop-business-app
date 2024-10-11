@@ -2,7 +2,7 @@ add_executable(basic_construction-test basic_construction_test.cpp)
 
 target_compile_options(basic_construction-test PRIVATE -Werror -Wall -Wextra -pedantic)
 
-set(PROTO_DIR ${PROJECT_SOURCE_DIR}/../../build/proto)
+set(PROTO_DIR ${PROJECT_SOURCE_DIR}/build/proto)
 target_include_directories(basic_construction-test PRIVATE
     ${OWN_LIBS_INCLUDE_DIR}/common
     ${OWN_LIBS_INCLUDE_DIR}/clinic
