@@ -14,4 +14,8 @@ find_package(OpenSSL REQUIRED)
 find_package(nlohmann_json 3.2.0 REQUIRED)
 find_package(glog 0.6.0 REQUIRED)
 
+if(BUILD_TESTS)
+    enable_testing()
+endif()
+
 add_subdirectory(modules)
