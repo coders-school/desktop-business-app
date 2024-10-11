@@ -9,7 +9,7 @@ link_directories(${PROJECT_SOURCE_DIR}/libs)
 
 find_package(Protobuf REQUIRED)
 find_package(GTest REQUIRED)
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Quick Gui)
 find_package(OpenSSL REQUIRED)
 find_package(nlohmann_json 3.2.0 REQUIRED)
 find_package(glog 0.6.0 REQUIRED)
