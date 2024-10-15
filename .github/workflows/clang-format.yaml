@@ -1,17 +1,24 @@
-name: clang-format Check
-
-on: [push, pull_request, workflow_dispatch]
+name: clang-format
+on: [pull_request, workflow_dispatch]
 
 jobs:
-  formatting-check:
-    name: clang-format Formatting Check
+  clang-format-check:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Run clang-format style check for C++ files.
+
+    - name: Cache clang-format
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.clang-format
+        key: ${{ runner.os }}-clang-format-${{ hashFiles('.clang-format') }}
+        restore-keys: |
+          ${{ runner.os }}-clang-format-
+
+    - name: Run clang-format style check for C++ files
       uses: jidicula/clang-format-action@v4.11.0
       with:
         clang-format-version: '17'
-        check-path: 'src'
-        exclude-regex: 'src/app/proto/clinic.pb.cc|src/app/proto/clinic.pb.h|src/app/proto/clinic.proto'
+        check-path: 'modules/'  # Specify the directories to check
