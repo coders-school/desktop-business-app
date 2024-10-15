@@ -22,11 +22,3 @@ jobs:
       with:
         clang-format-version: '17'
         check-path: 'modules/'  # Specify the directories to check
-
-    - name: Comment on Pull Request
-      if: github.event_name == 'pull_request'
-      uses: thollander/actions-comment-pull-request@v1
-      with:
-        message: |
-          Clang-format check passed.
-          ${{ steps.formatting-check.outputs.result }}
