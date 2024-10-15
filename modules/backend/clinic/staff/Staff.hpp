@@ -1,6 +1,6 @@
 #pragma once
 
-#include "doctor/Doctor.hpp"
+#include "doctors/doctor/Doctor.hpp"
 
 #include <vector>
 
@@ -11,13 +11,16 @@ namespace staff
 
 class Staff
 {
-  public:
-    void addDoctor(const doctor::Doctor& doctor);
-    std::vector<doctor::Doctor> getDoctors() const;
+public:
+    void addDoctor(doctor::DoctorPtr doctor);
+    doctor::iDoctor* getDoctor(const common::Name& name);
+    std::vector<doctor::iDoctor*> getDoctors() const;
 
   private:
-    std::vector<doctor::Doctor> doctors_;
-    // TODO introduce missing staff members
+    template <typename Container>
+    typename Container::value_type::pointer getPersonByName(const Container& person, const common::Name& name) const;
+
+    std::vector<doctor::DoctorPtr> doctors_;
 };
 
 } // namespace staff
