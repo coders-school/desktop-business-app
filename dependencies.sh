@@ -1,12 +1,15 @@
 #!/bin/sh
-apt update 
-apt install -y libgtest-dev libgmock-dev cmake make g++ 
-apt install -y qt6-base-dev  
-apt install -y libgl1-mesa-dev  
-apt install -y libssl-dev 
-apt install -y nlohmann-json3-dev
-apt install -y libgoogle-glog-dev  
-apt install -y protobuf-compiler
-apt install -y libprotobuf-dev
-apt install -y git
-apt install -y valgrind
+
+apt update
+
+apt install -y \
+    libgtest-dev libgmock-dev \
+    cmake make g++ \
+    qt6-base-dev \
+    libgl1-mesa-dev \
+    libssl-dev \
+    nlohmann-json3-dev \
+    libgoogle-glog-dev \
+    protobuf-compiler libprotobuf-dev \
+    git \
+    valgrind

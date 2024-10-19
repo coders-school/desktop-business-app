@@ -120,9 +120,10 @@ void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staf
 ::proto_staff::Staff serializeStaff(const ::clinic::staff::Staff& staff)
 {
     ::proto_staff::Staff proto_staff{};
-    for (const auto& doctor : staff.getDoctors())
+    for (const auto& doctor_ptr : staff.getDoctors())
     {
-        serializeDoctor(doctor, proto_staff.add_doctor());
+        const auto* doctor = dynamic_cast<const clinic::staff::doctor::Doctor*>(doctor_ptr);
+        serializeDoctor(*doctor, proto_staff.add_doctor());
     }
 
     return proto_staff;
@@ -132,8 +133,8 @@ void deserializeStaff(::clinic::staff::Staff& staff, const ::proto_staff::Staff&
 {
     for (const auto& proto_doctor : proto_staff.doctor())
     {
-        auto doctor = deserializeDoctor(proto_doctor);
-        staff.addDoctor(doctor);
+        auto doctor = std::make_unique<clinic::staff::doctor::Doctor>(deserializeDoctor(proto_doctor));
+        staff.addDoctor(std::move(doctor));
     }
 }
 
