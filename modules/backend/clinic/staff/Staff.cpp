@@ -38,5 +38,24 @@ std::vector<doctor::iDoctor*> Staff::getDoctors() const
     return doctors;
 }
 
+void Staff::addReceptionist(receptionist::ReceptionistPtr receptionist)
+{
+    receptionists_.emplace_back(std::move(receptionist));
+}
+
+receptionist::iReceptionist* Staff::getReceptionist(const common::Name& name)
+{
+    return getPersonByName(receptionists_, name);
+}
+
+std::vector<receptionist::iReceptionist*> Staff::getReceptionists()
+{
+    std::vector<receptionist::iReceptionist*> receptionists;
+    std::transform(receptionists_.begin(), receptionists_.end(), std::back_inserter(receptionists),
+                   [](const auto& receptionist) { return receptionist.get(); });
+
+    return receptionists;
+}
+
 } // namespace staff
 } // namespace clinic

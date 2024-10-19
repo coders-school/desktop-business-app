@@ -1,30 +1,9 @@
-#include "DoctorMock/DoctorMock.hpp"
-#include "staff/Staff.hpp"
-#include <gmock/gmock.h>
-#include <gtest/gtest.h>
-#include <memory>
+#include "../StaffFixture.hpp"
 
 namespace clinic
 {
 namespace staff
 {
-
-class StaffFixture : public ::testing::Test
-{
-  protected:
-    common::PersonalData createTestPersonalData(const common::Name name = {"Joe", "", ""})
-    {
-        return common::PersonalData{name, common::Address{}, common::Pesel{"80062378532"}, common::PhoneNumber{}};
-    }
-
-    std::unique_ptr<::testing::NiceMock<doctor::DoctorMock>> CreateDoctorMock()
-    {
-        return std::make_unique<::testing::NiceMock<doctor::DoctorMock>>();
-    }
-
-    Staff unit_{};
-};
-
 TEST_F(StaffFixture, GivenStaffWhenDoctorAddedExpectCorrectSize)
 {
     unit_.addDoctor(CreateDoctorMock());
