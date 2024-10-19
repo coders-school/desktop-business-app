@@ -2,7 +2,6 @@
 
 #include "Doctor.hpp"
 
-
 namespace clinic
 {
 namespace staff

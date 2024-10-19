@@ -11,7 +11,7 @@ namespace staff
 
 class Staff
 {
-public:
+  public:
     void addDoctor(doctor::DoctorPtr doctor);
     doctor::iDoctor* getDoctor(const common::Name& name);
     std::vector<doctor::iDoctor*> getDoctors() const;
