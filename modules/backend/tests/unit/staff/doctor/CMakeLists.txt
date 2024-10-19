@@ -6,6 +6,7 @@ target_include_directories(DoctorTests PRIVATE ${OWN_LIBS_INCLUDE_DIR}/clinic)
 
 target_link_libraries(DoctorTests PRIVATE
     gtest_main
+    gmock_main
     clinic-lib
     mocks-lib
 )
