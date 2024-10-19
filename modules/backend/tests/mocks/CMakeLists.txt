@@ -1,4 +1,5 @@
-add_library(mocks-lib STATIC DoctorMock/DoctorMock.cpp)
+add_library(mocks-lib STATIC DoctorMock/DoctorMock.cpp
+                             ReceptionistMock/ReceptionistMock.cpp)
 
 target_compile_options(mocks-lib PRIVATE -Werror -Wall -Wextra -pedantic)
 
