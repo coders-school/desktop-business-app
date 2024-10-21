@@ -1,6 +1,6 @@
 #pragma once
 
-#include "staff/doctors/doctor/iDoctor.hpp"
+#include "staff/doctors/iDoctor.hpp"
 #include <gmock/gmock.h>
 
 namespace clinic

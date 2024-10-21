@@ -105,7 +105,7 @@ void serializePersonalData(::proto_common::PersonalData* proto_personal_data,
     return personal_data;
 }
 
-void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staff::Doctor* proto_doctor)
+void serializeDoctor(const ::clinic::staff::doctor::iDoctor& doctor, ::proto_staff::Doctor* proto_doctor)
 {
     serializePersonalData(proto_doctor->mutable_personaldata(), doctor.GetPersonalData());
     proto_doctor->set_specialization(serializeSpecialization(doctor.GetSpecialization()));
@@ -122,8 +122,7 @@ void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staf
     ::proto_staff::Staff proto_staff{};
     for (const auto& doctor_ptr : staff.getDoctors())
     {
-        const auto* doctor = dynamic_cast<const clinic::staff::doctor::Doctor*>(doctor_ptr);
-        serializeDoctor(*doctor, proto_staff.add_doctor());
+        serializeDoctor(*doctor_ptr, proto_staff.add_doctor());
     }
 
     return proto_staff;

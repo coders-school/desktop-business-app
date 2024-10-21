@@ -1,8 +1,8 @@
 set(CLINIC_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/Clinic.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/room/Room.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/staff/doctors/doctor/Doctor.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/staff/receptionists/receptionist/Receptionist.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/staff/doctors/Doctor.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/staff/receptionists/Receptionist.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/staff/Staff.cpp
 )
 

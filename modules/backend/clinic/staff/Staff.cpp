@@ -19,38 +19,38 @@ typename Container::value_type::pointer Staff::getPersonByName(const Container& 
     return it == container.end() ? nullptr : it->get();
 }
 
-void Staff::addDoctor(doctor::DoctorPtr doctor)
+void Staff::addDoctor(DoctorPtr doctor)
 {
     doctors_.emplace_back(std::move(doctor));
 }
 
-doctor::iDoctor* Staff::getDoctor(const common::Name& name)
+iDoctor* Staff::getDoctor(const common::Name& name)
 {
     return getPersonByName(doctors_, name);
 }
 
-std::vector<doctor::iDoctor*> Staff::getDoctors() const
+std::vector<iDoctor*> Staff::getDoctors() const
 {
-    std::vector<doctor::iDoctor*> doctors;
+    std::vector<iDoctor*> doctors;
     std::transform(doctors_.begin(), doctors_.end(), std::back_inserter(doctors),
                    [](const auto& doctor) { return doctor.get(); });
 
     return doctors;
 }
 
-void Staff::addReceptionist(receptionist::ReceptionistPtr receptionist)
+void Staff::addReceptionist(ReceptionistPtr receptionist)
 {
     receptionists_.emplace_back(std::move(receptionist));
 }
 
-receptionist::iReceptionist* Staff::getReceptionist(const common::Name& name)
+iReceptionist* Staff::getReceptionist(const common::Name& name)
 {
     return getPersonByName(receptionists_, name);
 }
 
-std::vector<receptionist::iReceptionist*> Staff::getReceptionists()
+std::vector<iReceptionist*> Staff::getReceptionists() const
 {
-    std::vector<receptionist::iReceptionist*> receptionists;
+    std::vector<iReceptionist*> receptionists;
     std::transform(receptionists_.begin(), receptionists_.end(), std::back_inserter(receptionists),
                    [](const auto& receptionist) { return receptionist.get(); });
 
