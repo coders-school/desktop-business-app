@@ -1,6 +1,5 @@
 #pragma once
 
-#include "enumerations/specialization/Specialization.hpp"
 #include "personal_data/PersonalData.hpp"
 #include <memory>
 
