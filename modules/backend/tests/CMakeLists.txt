@@ -20,3 +20,4 @@ set(MEMORYCHECK_COMMAND_OPTIONS
 
 add_subdirectory(unit)
 add_subdirectory(integration)
+add_subdirectory(mocks)

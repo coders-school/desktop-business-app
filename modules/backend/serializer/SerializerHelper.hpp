@@ -105,7 +105,7 @@ void serializePersonalData(::proto_common::PersonalData* proto_personal_data,
     return personal_data;
 }
 
-void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staff::Doctor* proto_doctor)
+void serializeDoctor(const ::clinic::staff::doctor::iDoctor& doctor, ::proto_staff::Doctor* proto_doctor)
 {
     serializePersonalData(proto_doctor->mutable_personaldata(), doctor.GetPersonalData());
     proto_doctor->set_specialization(serializeSpecialization(doctor.GetSpecialization()));
@@ -120,9 +120,9 @@ void serializeDoctor(const ::clinic::staff::doctor::Doctor& doctor, ::proto_staf
 ::proto_staff::Staff serializeStaff(const ::clinic::staff::Staff& staff)
 {
     ::proto_staff::Staff proto_staff{};
-    for (const auto& doctor : staff.getDoctors())
+    for (const auto& doctor_ptr : staff.getDoctors())
     {
-        serializeDoctor(doctor, proto_staff.add_doctor());
+        serializeDoctor(*doctor_ptr, proto_staff.add_doctor());
     }
 
     return proto_staff;
@@ -132,8 +132,8 @@ void deserializeStaff(::clinic::staff::Staff& staff, const ::proto_staff::Staff&
 {
     for (const auto& proto_doctor : proto_staff.doctor())
     {
-        auto doctor = deserializeDoctor(proto_doctor);
-        staff.addDoctor(doctor);
+        auto doctor = std::make_unique<clinic::staff::doctor::Doctor>(deserializeDoctor(proto_doctor));
+        staff.addDoctor(std::move(doctor));
     }
 }
 
