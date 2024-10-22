@@ -12,4 +12,5 @@ apt install -y \
     libgoogle-glog-dev \
     protobuf-compiler libprotobuf-dev \
     git \
-    valgrind
+    valgrind \
+    qml6-module-*
