@@ -6,6 +6,7 @@ apt install -y \
     libgtest-dev libgmock-dev \
     cmake make g++ \
     qt6-base-dev \
+    qt6-declarative-dev \
     libgl1-mesa-dev \
     libssl-dev \
     nlohmann-json3-dev \
