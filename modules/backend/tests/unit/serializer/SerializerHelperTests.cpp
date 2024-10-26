@@ -71,4 +71,26 @@ TEST(SerializerHelperTests, GivenProtoPhoneNumberWhenDeserializeCalledExpectPhon
     EXPECT_EQ(phone_number.home_number_, "home_number");
 }
 
+TEST(SerializerHelperTests, GivenNameWhenSerializeCalledExpectProtoName)
+{
+    auto name = ::common::Name{"first_name", "second_name", "last_name"};
+    auto proto_name = ::proto_common::PersonalData_Name{};
+    ::serde::serializeName(&proto_name, name);
+    EXPECT_EQ(proto_name.first_name(), "first_name");
+    EXPECT_EQ(proto_name.second_name(), "second_name");
+    EXPECT_EQ(proto_name.last_name(), "last_name");
+}
+
+TEST(SerializerHelperTests, GivenProtoNameWhenDeserializeCalledExpectName)
+{
+    auto proto_name = ::proto_common::PersonalData_Name{};
+    proto_name.set_first_name("first_name");
+    proto_name.set_second_name("second_name");
+    proto_name.set_last_name("last_name");
+    auto name = ::serde::deserializeName(proto_name);
+    EXPECT_EQ(name.first_name_, "first_name");
+    EXPECT_EQ(name.second_name_, "second_name");
+    EXPECT_EQ(name.last_name_, "last_name");
+}
+
 } // namespace
