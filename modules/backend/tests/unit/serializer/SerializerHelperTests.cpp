@@ -46,4 +46,29 @@ TEST(SerializerHelperTests, GivenProtoAddressWhenDeserializeCalledExpectAddress)
     EXPECT_EQ(address.zip_code_, "zip_code");
 }
 
+TEST(SerializerHelperTests, GivenPhoneNumberWhenSerializeCalledExpectProtoPhoneNumber)
+{
+    auto phone_number = ::common::PhoneNumber{"cellphone_code", "cellphone_number", "home_number_code", "home_number"};
+    auto proto_phone_number = ::proto_common::PersonalData_PhoneNumber{};
+    ::serde::serializePhoneNumber(&proto_phone_number, phone_number);
+    EXPECT_EQ(proto_phone_number.cellphone_code_(), "cellphone_code");
+    EXPECT_EQ(proto_phone_number.cellphone_number_(), "cellphone_number");
+    EXPECT_EQ(proto_phone_number.home_number_code_(), "home_number_code");
+    EXPECT_EQ(proto_phone_number.home_number_(), "home_number");
+}
+
+TEST(SerializerHelperTests, GivenProtoPhoneNumberWhenDeserializeCalledExpectPhoneNumber)
+{
+    auto proto_phone_number = ::proto_common::PersonalData_PhoneNumber{};
+    proto_phone_number.set_cellphone_code_("cellphone_code");
+    proto_phone_number.set_cellphone_number_("cellphone_number");
+    proto_phone_number.set_home_number_code_("home_number_code");
+    proto_phone_number.set_home_number_("home_number");
+    auto phone_number = ::serde::deserializePhoneNumber(proto_phone_number);
+    EXPECT_EQ(phone_number.cellphone_code_, "cellphone_code");
+    EXPECT_EQ(phone_number.cellphone_number_, "cellphone_number");
+    EXPECT_EQ(phone_number.home_number_code_, "home_number_code");
+    EXPECT_EQ(phone_number.home_number_, "home_number");
+}
+
 } // namespace
