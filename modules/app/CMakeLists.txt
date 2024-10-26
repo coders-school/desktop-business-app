@@ -11,19 +11,24 @@ find_package(Qt6 REQUIRED COMPONENTS Quick Gui)
 qt_standard_project_setup()
 
 qt_add_executable(${PROJECT_NAME} main.cpp
-                                    application.cpp)
+    application.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Gui
-                                              Qt6::Quick
-                                              libclinic-lib.a
-                                              libcommon-lib.a
-                                              libpatients-lib.a
-                                              libprotobuff.a
-                                              libserializer-lib.a
-                                              libvisits-lib.a
-                                              libwarehouse-lib.a)
+    Qt6::Quick
+    libclinic-lib.a
+    libcommon-lib.a
+    libpatients-lib.a
+    libprotobuff.a
+    libserializer-lib.a
+    libvisits-lib.a
+    libwarehouse-lib.a)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${PROJECT_SOURCE_DIR}/../backend/
+    ${PROJECT_SOURCE_DIR}/../backend/common/personal_data
+    ${PROJECT_SOURCE_DIR}/../backend/common)
 
 qt_add_qml_module(${PROJECT_NAME}
-                    URI desktop-business-app
-                    VERSION 1.0
-                    QML_FILES main.qml)
+    URI desktop-business-app
+    VERSION 1.0
+    QML_FILES main.qml)

@@ -9,11 +9,11 @@ set(CLINIC_SOURCES
 add_library(clinic-lib STATIC ${CLINIC_SOURCES})
 
 target_compile_options(clinic-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
-                                          -Wconversion )
+    -Wconversion)
 
 target_link_libraries(clinic-lib PUBLIC
-                                 common-lib
-                                 warehouse-lib
+    common-lib
+    warehouse-lib
 )
 
 target_include_directories(clinic-lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
