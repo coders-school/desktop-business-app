@@ -3,7 +3,7 @@
 
 namespace
 {
-    
+
 TEST(SerializerHelperTests, serializeSpecialization)
 {
     auto specialization = ::common::specialization::Specialization::Dentist;
