@@ -97,4 +97,23 @@ TEST_F(SerialzierHelperFixture, GivenProtoPersonalDataWhenDeserializeCalledExpec
     ExpectPersonalData(personal_data);
 }
 
+TEST_F(SerialzierHelperFixture, GivenDoctorWhenSerializeCalledExpectProtoDoctor)
+{
+    const auto doctor = PrepareDoctor();
+    ProtoDoctor proto_doctor{};
+
+    ::serde::serializeDoctor(doctor, &proto_doctor);
+
+    ExpectProtoDoctor(proto_doctor);
+}
+
+TEST_F(SerialzierHelperFixture, GivenProtoDoctorWhenDeserializeCalledExpectDoctor)
+{
+    const auto proto_doctor = PrepareProtoDoctor();
+
+    auto doctor = ::serde::deserializeDoctor(proto_doctor);
+
+    ExpectDoctor(doctor);
+}
+
 } // namespace

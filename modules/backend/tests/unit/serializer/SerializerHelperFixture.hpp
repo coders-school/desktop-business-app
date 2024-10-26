@@ -5,6 +5,7 @@
 #include <memory>
 
 using Address = ::common::Address;
+using Doctor = ::clinic::staff::doctor::Doctor;
 using Name = ::common::Name;
 using PersonalData = ::common::PersonalData;
 using Pesel = ::common::Pesel;
@@ -12,6 +13,7 @@ using PhoneNumber = ::common::PhoneNumber;
 using Specialization = ::common::specialization::Specialization;
 
 using ProtoAddress = ::proto_common::PersonalData_Address;
+using ProtoDoctor = ::proto_staff::Doctor;
 using ProtoName = ::proto_common::PersonalData_Name;
 using ProtoPersonalData = ::proto_common::PersonalData;
 using ProtoPesel = ::proto_common::PersonalData_Pesel;
@@ -24,6 +26,11 @@ class SerialzierHelperFixture : public ::testing::Test
     Address PrepareAddress()
     {
         return Address{"city", "country", "province", "street", "zip_code"};
+    }
+
+    Doctor PrepareDoctor()
+    {
+        return Doctor(PreparePersonalData(), PrepareSpecialization());
     }
 
     Name PrepareName()
@@ -60,6 +67,14 @@ class SerialzierHelperFixture : public ::testing::Test
         proto_address.set_street("street");
         proto_address.set_zip_code("zip_code");
         return proto_address;
+    }
+
+    ProtoDoctor PrepareProtoDoctor()
+    {
+        ProtoDoctor proto_doctor{};
+        proto_doctor.set_allocated_personaldata(new ProtoPersonalData(PrepareProtoPersonalData()));
+        proto_doctor.set_specialization(ProtoSpecialization::DENTIST);
+        return proto_doctor;
     }
 
     ProtoName PrepareProtoName()
@@ -112,6 +127,18 @@ class SerialzierHelperFixture : public ::testing::Test
         EXPECT_EQ(address.province_, kProvince);
         EXPECT_EQ(address.street_, kStreet);
         EXPECT_EQ(address.zip_code_, kZipCode);
+    }
+
+    void ExpectProtoDoctor(const ProtoDoctor& proto_doctor)
+    {
+        ExpectProtoPersonalData(proto_doctor.personaldata());
+        EXPECT_EQ(proto_doctor.specialization(), ProtoSpecialization::DENTIST);
+    }
+
+    void ExpectDoctor(const Doctor& doctor)
+    {
+        ExpectPersonalData(doctor.GetPersonalData());
+        EXPECT_EQ(doctor.GetSpecialization(), PrepareSpecialization());
     }
 
     void ExpectProtoPhoneNumber(const ProtoPhoneNumber& proto_phone_number)
