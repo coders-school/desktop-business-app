@@ -1,4 +1,6 @@
+#pragma once
 #include "SerializerHelper.hpp"
+#include "SerializerHelperTestData.hpp"
 #include <gtest/gtest.h>
 #include <memory>
 
