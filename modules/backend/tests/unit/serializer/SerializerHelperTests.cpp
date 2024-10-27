@@ -1,74 +1,119 @@
-#include "SerializerHelper.hpp"
+#include "SerializerHelperFixture.hpp"
 #include <gtest/gtest.h>
 
 namespace
 {
 
-TEST(SerializerHelperTests, GivenSpecializationStateWhenSerializeCalledExpectProtoSpecialization)
+TEST_F(SerialzierHelperFixture, GivenSpecializationStateWhenSerializeCalledExpectProtoSpecialization)
 {
-    auto specialization = ::common::specialization::Specialization::Dentist;
+    const auto specialization = PrepareSpecialization();
+
     auto proto_specialization = ::serde::serializeSpecialization(specialization);
+
     EXPECT_EQ(proto_specialization, ::proto_common::Specialization::DENTIST);
 }
 
-TEST(SerializerHelperTests, GivenProtoSpecializationWhenDeserializeCalledExpectSpecializationState)
+TEST_F(SerialzierHelperFixture, GivenProtoSpecializationWhenDeserializeCalledExpectSpecializationState)
 {
-    auto proto_specialization = ::proto_common::Specialization::DENTIST;
+    const auto proto_specialization = ::proto_common::Specialization::DENTIST;
+
     auto specialization = ::serde::deserializeSpecialization(proto_specialization);
-    EXPECT_EQ(specialization, ::common::specialization::Specialization::Dentist);
+
+    EXPECT_EQ(specialization, PrepareSpecialization());
 }
 
-TEST(SerializerHelperTests, GivenAddressWhenSerializeCalledExpectProtoAddress)
+TEST_F(SerialzierHelperFixture, GivenAddressWhenSerializeCalledExpectProtoAddress)
 {
-    auto address = ::common::Address{"city", "country", "province", "street", "zip_code"};
-    auto proto_address = ::proto_common::PersonalData_Address{};
+    const auto address = PrepareAddress();
+    ProtoAddress proto_address{};
+
     ::serde::serializeAddress(&proto_address, address);
-    EXPECT_EQ(proto_address.city(), "city");
-    EXPECT_EQ(proto_address.country(), "country");
-    EXPECT_EQ(proto_address.province(), "province");
-    EXPECT_EQ(proto_address.street(), "street");
-    EXPECT_EQ(proto_address.zip_code(), "zip_code");
+
+    ExpectProtoAddress(proto_address);
 }
 
-TEST(SerializerHelperTests, GivenProtoAddressWhenDeserializeCalledExpectAddress)
+TEST_F(SerialzierHelperFixture, GivenProtoAddressWhenDeserializeCalledExpectAddress)
 {
-    auto proto_address = ::proto_common::PersonalData_Address{};
-    proto_address.set_city("city");
-    proto_address.set_country("country");
-    proto_address.set_province("province");
-    proto_address.set_street("street");
-    proto_address.set_zip_code("zip_code");
+    const auto proto_address = PrepareProtoAddress();
+
     auto address = ::serde::deserializeAddress(proto_address);
-    EXPECT_EQ(address.city_, "city");
-    EXPECT_EQ(address.country_, "country");
-    EXPECT_EQ(address.province_, "province");
-    EXPECT_EQ(address.street_, "street");
-    EXPECT_EQ(address.zip_code_, "zip_code");
+
+    ExpectAddress(address);
 }
 
-TEST(SerializerHelperTests, GivenPhoneNumberWhenSerializeCalledExpectProtoPhoneNumber)
+TEST_F(SerialzierHelperFixture, GivenPhoneNumberWhenSerializeCalledExpectProtoPhoneNumber)
 {
-    auto phone_number = ::common::PhoneNumber{"cellphone_code", "cellphone_number", "home_number_code", "home_number"};
-    auto proto_phone_number = ::proto_common::PersonalData_PhoneNumber{};
+    const auto phone_number = PreparePhoneNumber();
+    ProtoPhoneNumber proto_phone_number{};
+
     ::serde::serializePhoneNumber(&proto_phone_number, phone_number);
-    EXPECT_EQ(proto_phone_number.cellphone_code_(), "cellphone_code");
-    EXPECT_EQ(proto_phone_number.cellphone_number_(), "cellphone_number");
-    EXPECT_EQ(proto_phone_number.home_number_code_(), "home_number_code");
-    EXPECT_EQ(proto_phone_number.home_number_(), "home_number");
+
+    ExpectProtoPhoneNumber(proto_phone_number);
 }
 
-TEST(SerializerHelperTests, GivenProtoPhoneNumberWhenDeserializeCalledExpectPhoneNumber)
+TEST_F(SerialzierHelperFixture, GivenProtoPhoneNumberWhenDeserializeCalledExpectPhoneNumber)
 {
-    auto proto_phone_number = ::proto_common::PersonalData_PhoneNumber{};
-    proto_phone_number.set_cellphone_code_("cellphone_code");
-    proto_phone_number.set_cellphone_number_("cellphone_number");
-    proto_phone_number.set_home_number_code_("home_number_code");
-    proto_phone_number.set_home_number_("home_number");
+    const auto proto_phone_number = PrepareProtoPhoneNumber();
+
     auto phone_number = ::serde::deserializePhoneNumber(proto_phone_number);
-    EXPECT_EQ(phone_number.cellphone_code_, "cellphone_code");
-    EXPECT_EQ(phone_number.cellphone_number_, "cellphone_number");
-    EXPECT_EQ(phone_number.home_number_code_, "home_number_code");
-    EXPECT_EQ(phone_number.home_number_, "home_number");
+
+    ExpectPhoneNumber(phone_number);
+}
+
+TEST_F(SerialzierHelperFixture, GivenNameWhenSerializeCalledExpectProtoName)
+{
+    const auto name = PrepareName();
+    ProtoName proto_name{};
+
+    ::serde::serializeName(&proto_name, name);
+
+    ExpectProtoName(proto_name);
+}
+
+TEST_F(SerialzierHelperFixture, GivenProtoNameWhenDeserializeCalledExpectName)
+{
+    const auto proto_name = PrepareProtoName();
+
+    auto name = ::serde::deserializeName(proto_name);
+
+    ExpectName(name);
+}
+TEST_F(SerialzierHelperFixture, GivenPersonalDataWhenSerializeCalledExpectProtoPersonalData)
+{
+    const auto personal_data = PreparePersonalData();
+    auto proto_personal_data = ::proto_common::PersonalData{};
+
+    ::serde::serializePersonalData(&proto_personal_data, personal_data);
+
+    ExpectProtoPersonalData(proto_personal_data);
+}
+
+TEST_F(SerialzierHelperFixture, GivenProtoPersonalDataWhenDeserializeCalledExpectPersonalData)
+{
+    const auto proto_personal_data = PrepareProtoPersonalData();
+
+    auto personal_data = ::serde::deserializePersonalData(proto_personal_data);
+
+    ExpectPersonalData(personal_data);
+}
+
+TEST_F(SerialzierHelperFixture, GivenDoctorWhenSerializeCalledExpectProtoDoctor)
+{
+    const auto doctor = PrepareDoctor();
+    ProtoDoctor proto_doctor{};
+
+    ::serde::serializeDoctor(doctor, &proto_doctor);
+
+    ExpectProtoDoctor(proto_doctor);
+}
+
+TEST_F(SerialzierHelperFixture, GivenProtoDoctorWhenDeserializeCalledExpectDoctor)
+{
+    const auto proto_doctor = PrepareProtoDoctor();
+
+    auto doctor = ::serde::deserializeDoctor(proto_doctor);
+
+    ExpectDoctor(doctor);
 }
 
 } // namespace
