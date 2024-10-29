@@ -95,6 +95,7 @@ class SerialzierHelperFixture : public ::testing::Test
         proto_phone_number.set_home_number_("home_number");
         return proto_phone_number;
     }
+
     ProtoPesel PrepareProtoPesel()
     {
         auto proto_pesel = ProtoPesel{};
@@ -111,6 +112,7 @@ class SerialzierHelperFixture : public ::testing::Test
         proto_personal_data.set_allocated_phone_numbers(new ProtoPhoneNumber(PrepareProtoPhoneNumber()));
         return proto_personal_data;
     }
+
     void ExpectProtoAddress(const ProtoAddress& proto_address)
     {
         EXPECT_EQ(proto_address.city(), kCity);
@@ -139,6 +141,16 @@ class SerialzierHelperFixture : public ::testing::Test
     {
         ExpectPersonalData(doctor.GetPersonalData());
         EXPECT_EQ(doctor.GetSpecialization(), PrepareSpecialization());
+    }
+
+    void ExpectProtoPesel(const ProtoPesel& proto_pesel)
+    {
+        EXPECT_EQ(proto_pesel.pesel(), kPesel);
+    }
+
+    void ExpectPesel(const Pesel& pesel)
+    {
+        EXPECT_EQ(pesel.getPesel(), kPesel);
     }
 
     void ExpectProtoPhoneNumber(const ProtoPhoneNumber& proto_phone_number)

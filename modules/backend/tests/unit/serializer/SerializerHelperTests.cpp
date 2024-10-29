@@ -116,4 +116,23 @@ TEST_F(SerialzierHelperFixture, GivenProtoDoctorWhenDeserializeCalledExpectDocto
     ExpectDoctor(doctor);
 }
 
+TEST_F(SerialzierHelperFixture, GivenProtoPeselWhenDeserializeCalledExpectPesel)
+{
+    const auto proto_pesel = PrepareProtoPesel();
+
+    auto pesel = ::serde::deserializePesel(proto_pesel);
+
+    ExpectPesel(pesel);
+}
+
+TEST_F(SerialzierHelperFixture, GivenPeselWhenSerializeCalledExpectProtoPesel)
+{
+    const auto pesel = PreparePesel();
+    auto proto_pesel = ProtoPesel{};
+
+    ::serde::serializePesel(&proto_pesel, pesel);
+
+    ExpectProtoPesel(proto_pesel);
+}
+
 } // namespace
