@@ -4,9 +4,8 @@ import QtQuick.Controls
 Window {
     id: root
     visible: true
+    visibility: Window.Maximized
     color: "lightblue"
-    width: Screen.width
-    height: Screen.height
     minimumHeight: height
     minimumWidth: width
 
