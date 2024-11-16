@@ -1,17 +1,15 @@
 #pragma once
 
+#include "patients/patient/iPatient.hpp"
 #include "staff/doctors/iDoctor.hpp"
 #include "visits/visit/iVisit.hpp"
-#include "patients/patient/iPatient.hpp"
 #include <gmock/gmock.h>
-
-
 
 namespace visit
 {
-class MockVisit : public iVisit 
+class MockVisit : public iVisit
 {
-public:
+  public:
     MOCK_METHOD(void, setDoctorInfo, (const clinic::staff::doctor::iDoctor&), (override));
     MOCK_METHOD(void, setPatientInfo, (const patient::iPatient&), (override));
     MOCK_METHOD(void, setPaymentInfo, (const patient::Payments&), (override));
