@@ -61,6 +61,12 @@ namespace birth_date
         return year_;
     }
 
+    std::string BirthDate::getCompleteDate() const
+    {
+        return day_ + "-" + month_ + "-" + year_;
+    }
+
+
 }  // namespace birth_date
 
 }  // namespace common
