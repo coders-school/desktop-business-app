@@ -25,4 +25,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Gui
 qt_add_qml_module(${PROJECT_NAME}
                     URI desktop-business-app
                     VERSION 1.0
-                    QML_FILES main.qml)
+                    QML_FILES main.qml 
+                    mainMenu.qml
+                    loginScreen.qml)
