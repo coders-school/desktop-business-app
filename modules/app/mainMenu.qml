@@ -4,6 +4,10 @@ import QtQuick.Controls
 Rectangle {
     id: mainMenuRect
     visible: true
-    color: "red"
+    color: "lightblue"
+
+    StatusBar{
+        id: statusBar
+    }
 }
 

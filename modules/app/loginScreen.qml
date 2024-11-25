@@ -3,7 +3,6 @@ import QtQuick.Controls
 
 Rectangle {
     id: loginScreenRect
-    // visible: true
     color: "lightblue"
 
     Loader {
