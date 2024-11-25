@@ -3,7 +3,8 @@
 namespace common
 {
 
-Pesel::Pesel(const std::string& pesel) : pesel_validator_{}, pesel_{pesel_validator_.Validate(pesel)}, birth_date_{pesel}
+Pesel::Pesel(const std::string& pesel)
+    : pesel_validator_{}, pesel_{pesel_validator_.Validate(pesel)}, birth_date_{pesel}
 {
 }
 

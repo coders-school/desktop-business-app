@@ -2,22 +2,22 @@
 
 #include <string>
 
-namespace common 
+namespace common
 {
 
-namespace birth_date 
+namespace birth_date
 {
 
-class BirthDate 
+class BirthDate
 {
-    public:
+  public:
     BirthDate(const std::string& pesel);
     std::string getDay() const;
     std::string getMonth() const;
     std::string getYear() const;
     std::string getCompleteDate() const;
 
-    private:
+  private:
     std::string pesel_;
     std::string day_;
     std::string month_;
@@ -26,6 +26,6 @@ class BirthDate
     void parsePesel();
 };
 
-}  // namespace birth_date
+} // namespace birth_date
 
-}  // namespace common
+} // namespace common
