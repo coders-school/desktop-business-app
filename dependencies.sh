@@ -14,4 +14,5 @@ apt install -y \
     protobuf-compiler libprotobuf-dev \
     git \
     valgrind \
+    clang-format \
     qml6-module-*
