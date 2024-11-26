@@ -1,5 +1,6 @@
 #pragma once
 
+#include "birth_date/BirthDate.hpp"
 #include "enumerations/sex/Sex.hpp"
 #include "validators/PeselValidator.hpp"
 
@@ -15,10 +16,12 @@ class Pesel
 
     std::string getPesel() const;
     sex::Sex getSex() const;
+    birth_date::BirthDate getBirthDate() const;
 
   private:
     validators::PeselValidator pesel_validator_;
     std::string pesel_;
+    birth_date::BirthDate birth_date_;
 };
 
 } // namespace common
