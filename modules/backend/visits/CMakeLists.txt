@@ -8,8 +8,7 @@ add_library(visits-lib STATIC ${VISITS_SOURCES})
 target_compile_options(visits-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
                                           -Wconversion )
 
-target_link_libraries(visits-lib PUBLIC common-lib
-)
+target_link_libraries(visits-lib PUBLIC common-lib patients-lib clinic-lib)
 
 target_include_directories(visits-lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

@@ -1,8 +1,6 @@
 #pragma once
 
-#include "patients/patient/iPatient.hpp"
-#include "staff/doctors/iDoctor.hpp"
-#include "visits/visit/iVisit.hpp"
+#include "visit/iVisit.hpp"
 #include <gmock/gmock.h>
 
 namespace visit
