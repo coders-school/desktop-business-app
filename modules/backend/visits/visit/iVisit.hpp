@@ -1,26 +1,10 @@
 #pragma once
 
-namespace clinic
-{
-namespace room
-{
-class iRoom;
-} // namespace room
-namespace staff
-{
-namespace doctor
-{
-class iDoctor;
-}
-} // namespace staff
-} // namespace clinic
-
-namespace patient
-{
-class iPatient;
-struct Payments;
-class Treatments;
-} // namespace patient
+#include "patient/iPatient.hpp"
+#include "patient/payments/Payments.hpp"
+#include "patient/treatments/Treatments.hpp"
+#include "room/iRoom.hpp"
+#include "staff/doctors/iDoctor.hpp"
 
 namespace visit
 {

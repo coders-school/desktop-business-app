@@ -9,13 +9,14 @@ set(OWN_LIBRARIES_DIR ${PROJECT_SOURCE_DIR}/../../libs/)
 
 include(installation_rules.cmake)
 
+add_subdirectory(calendar)
 add_subdirectory(clinic)
 add_subdirectory(common)
 add_subdirectory(patients)
+add_subdirectory(proto)
 add_subdirectory(serializer)
 add_subdirectory(visits)
 add_subdirectory(warehouse)
-add_subdirectory(proto)
 
 option(BUILD_TESTS "Build tests" ON)
 
