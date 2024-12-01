@@ -14,9 +14,10 @@ class Visit : public iVisit
     // used to set informations required for visit from patient
     void setDoctorInfo(const clinic::staff::doctor::iDoctor& doctor) override;
     void setPatientInfo(const patient::iPatient& patient) override;
-    void setPaymentInfo(const patient::Payments& payments) override;
+    void setPayment(const patient::Payments& payments) override;
     void setRoom(const clinic::room::iRoom& room) override;
     void setTreatmentsInfo(const patient::Treatments& treatments) override;
+    patient::Payments getPayment() const override;
 
   private:
     std::vector<common::treatment::Treatment> actual_treatment_;

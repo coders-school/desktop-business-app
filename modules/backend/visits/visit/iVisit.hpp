@@ -18,9 +18,10 @@ class iVisit
     virtual void setDoctorInfo(const clinic::staff::doctor::iDoctor&) = 0;
     virtual void setPatientInfo(const patient::iPatient&) = 0;
     // // TODO check if payment should be extracted from patient context
-    virtual void setPaymentInfo(const patient::Payments&) = 0;
+    virtual void setPayment(const patient::Payments&) = 0;
     virtual void setTreatmentsInfo(const patient::Treatments&) = 0;
     virtual void setRoom(const clinic::room::iRoom&) = 0;
+    virtual patient::Payments getPayment() const = 0;
 };
 
 } // namespace visit
