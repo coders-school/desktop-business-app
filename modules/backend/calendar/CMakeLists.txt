@@ -1,5 +1,7 @@
 set(CALENDAR_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/TimeSlot.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/WorkUnit.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/Day.cpp
 )
 
 add_library(calendar-lib STATIC ${CALENDAR_SOURCES})
