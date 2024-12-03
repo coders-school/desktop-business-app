@@ -10,36 +10,35 @@ namespace birth_date
 namespace tests
 {
 
-TEST(BirthDateTests, GivenBirthDateWithPeselThenReturnBirthDate)
-{
-    const std::string pesel{"96042982349"};
-    BirthDate birth_date{pesel};
+constexpr const char* kPesel{"96042982349"};
+BirthDate birth_date{kPesel};
 
-    EXPECT_EQ("29", birth_date.getDay());
+TEST(BirthDateTests, GivenBirthDateWithPeselThenReturnBirthDay)
+{
+    const std::string expected_day{"29"};
+
+    EXPECT_EQ(expected_day, birth_date.getDay());
 }
 
 TEST(BirthDateTests, GivenBirthDateWithPeselThenReturnBirthMonth)
 {
-    const std::string pesel{"06280935775"};
-    BirthDate birth_date{pesel};
+    const std::string expected_month{"04"};
 
-    EXPECT_EQ("08", birth_date.getMonth());
+    EXPECT_EQ(expected_month, birth_date.getMonth());
 }
 
 TEST(BirthDateTests, GivenBirthDateWithPeselThenReturnBirthYear)
 {
-    const std::string pesel{"92042692725"};
-    BirthDate birth_date{pesel};
+    const std::string expected_year{"1996"};
 
-    EXPECT_EQ("1992", birth_date.getYear());
+    EXPECT_EQ(expected_year, birth_date.getYear());
 }
 
 TEST(BirthDateTests, GivenBirthDateWithPeselThenReturnCompleteBirthDate)
 {
-    const std::string pesel{"68072753774"};
-    BirthDate birth_date{pesel};
+    const std::string expected_date{"29-04-1996"};
 
-    EXPECT_EQ("27-07-1968", birth_date.getCompleteDate());
+    EXPECT_EQ(expected_date, birth_date.getCompleteDate());
 }
 
 } // namespace tests
