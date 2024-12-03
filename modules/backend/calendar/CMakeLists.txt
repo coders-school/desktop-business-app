@@ -9,7 +9,7 @@ add_library(calendar-lib STATIC ${CALENDAR_SOURCES})
 target_compile_options(calendar-lib PRIVATE -Werror -Wall -Wextra -pedantic -Wunused -Wshadow -Wold-style-cast
                                           -Wconversion )
 
-target_link_libraries(calendar-lib PUBLIC visits-lib)
+target_link_libraries(calendar-lib PUBLIC visits-lib clinic-lib)
 
 target_include_directories(calendar-lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

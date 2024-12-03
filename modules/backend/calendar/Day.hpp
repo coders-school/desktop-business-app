@@ -15,7 +15,7 @@ class Day
     std::chrono::year_month_day getDate() const;
 
   private:
-    std::vector<std::unique_ptr<calendar::WorkUnit>> unit_collection_;
+    std::vector<std::unique_ptr<calendar::WorkUnit>> work_units_;
     std::chrono::year_month_day date_;
 };
 

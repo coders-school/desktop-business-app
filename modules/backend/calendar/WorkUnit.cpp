@@ -3,20 +3,20 @@
 namespace calendar
 {
 
-WorkUnit::WorkUnit(clinic::staff::doctor::iDoctor* doc, clinic::room::iRoom* room) : doc_ptr_(doc), room_ptr_(room)
+WorkUnit::WorkUnit(clinic::staff::doctor::iDoctor* doc, clinic::room::iRoom* room) : doc_(doc), room_(room)
 {
 }
 void WorkUnit::addNewTimeSlot(std::unique_ptr<calendar::TimeSlot> timeSlot)
 {
-    _slot_collection.push_back(std::move(timeSlot));
+    time_slots_.emplace_back(std::move(timeSlot));
 }
 clinic::staff::doctor::iDoctor* WorkUnit::getDoctor() const
 {
-    return doc_ptr_;
+    return doc_;
 }
 clinic::room::iRoom* WorkUnit::getRoom() const
 {
-    return room_ptr_;
+    return room_;
 }
 
 } // namespace calendar

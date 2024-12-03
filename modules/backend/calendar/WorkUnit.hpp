@@ -3,8 +3,8 @@
 #include <memory>
 #include <vector>
 
-#include "../clinic/room/iRoom.hpp"
-#include "../clinic/staff/doctors/iDoctor.hpp"
+#include "room/iRoom.hpp"
+#include "doctors/iDoctor.hpp"
 #include "TimeSlot.hpp"
 
 namespace calendar
@@ -19,9 +19,9 @@ class WorkUnit
     clinic::room::iRoom* getRoom() const;
 
   private:
-    std::vector<std::unique_ptr<calendar::TimeSlot>> _slot_collection;
-    clinic::staff::doctor::iDoctor* doc_ptr_;
-    clinic::room::iRoom* room_ptr_;
+    std::vector<std::unique_ptr<calendar::TimeSlot>> time_slots_;
+    clinic::staff::doctor::iDoctor* doc_;
+    clinic::room::iRoom* room_;
 };
 
 } // namespace calendar
