@@ -26,24 +26,24 @@ const std::map<PhoneCode, std::string> countriesPhoneCode{
     {PhoneCode::Estonia, "Estonia"},       {PhoneCode::Croatia, "Croatia"},
     {PhoneCode::Slovenia, "Slovenia"},     {PhoneCode::CzechRepublic, "CzechRepublic"},
     {PhoneCode::Slovakia, "Slovakia"},     {PhoneCode::Lichtenstein, "Lichtenstein"},
-    {PhoneCode::Unkown, "Unkown"}};
+    {PhoneCode::Unknown, "Unknown"}};
 
 std::string toString(const PhoneCode& phone_code)
 {
     auto searchingElement = countriesPhoneCode.find(phone_code);
-    return searchingElement != countriesPhoneCode.end() ? searchingElement->second : "Unknow";
+    return searchingElement != countriesPhoneCode.end() ? searchingElement->second : "Unknown";
 }
 
 PhoneCode toEnum(const std::string& phone_code)
 {
     auto searchingElement =
         std::ranges::find_if(countriesPhoneCode, [&phone_code](const auto& pair) { return pair.second == phone_code; });
-    return searchingElement != countriesPhoneCode.end() ? searchingElement->first : PhoneCode::Unkown;
+    return searchingElement != countriesPhoneCode.end() ? searchingElement->first : PhoneCode::Unknown;
 }
 
 std::string getPhoneCodeIndex(const PhoneCode& phone_code)
 {
-    return "+" + toString(phone_code);
+    return "+" + std::to_string(static_cast<int>(phone_code));
 }
 
 } // namespace phone_code

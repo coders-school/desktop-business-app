@@ -41,7 +41,7 @@ enum class PhoneCode : uint16_t
     CzechRepublic = 420,
     Slovakia = 421,
     Lichtenstein = 423,
-    Unkown = 500
+    Unknown = 500
 };
 
 std::string toString(const PhoneCode& phone_code);
