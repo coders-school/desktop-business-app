@@ -18,15 +18,6 @@ TBD...
 find . -name '*.cpp' -or -name '*.hpp' | xargs clang-format --verbose -style=file -i
 ```
 
-### Format code before committing using bash script
-
-```bash
-# run once after repo download if permission problem occurs
-chmod +x ./clang-fmt-all.sh
-# run from the top of workspace directory
-./clang-fmt-all.sh
-```
-
 
 ### Build
 
