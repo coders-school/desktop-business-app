@@ -2,42 +2,48 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
-Rectangle{
+Rectangle {
     id: statusBar
     height: 50
-    anchors{
+    anchors {
         left: parent.left
         top: parent.top
         right: parent.right
     }
-    color: Qt.rgba(0,0,0,0)
-    
-    RowLayout{
+    color: Qt.rgba(0, 0, 0, 0)
+
+    RowLayout {
         id: buttonRow
         height: statusBar.height
-        width: statusBar.width/4
+        width: parent.width / 4
         spacing: 0
-        anchors{
-            left: statusBar.left
-            top: statusBar.top
-        }
 
-        Button{
+        Button {
             id: backButton
-            width: parent.width/3
+            width: parent.width / 3
             text: "Back"
         }
 
-        Button{
+        Button {
             id: homeButton
-            width: parent.width/3
+            width: parent.width / 3
             text: "Home"
         }
 
-        Button{
+        Button {
             id: exitButton
-            width: parent.width/3
+            width: parent.width / 3
             text: "Exit"
+            onClicked: Qt.quit()
+        }
+
+        Button {
+            id: doctorButton
+            width: parent.width / 3
+            text: "Doctor"
+            onClicked: {
+                mainLoader.source = "DoctorGraphicalInterface.qml";
+            }
         }
     }
 }
