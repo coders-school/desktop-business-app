@@ -38,6 +38,16 @@ Rectangle{
             id: exitButton
             width: parent.width/3
             text: "Exit"
+            onClicked: Qt.quit()
+        }
+
+        Button {
+            id: doctorButton
+            width: parent.width / 3
+            text: "Doctor"
+            onClicked: {
+                mainLoader.source = "DoctorGraphicalInterface.qml";
+            }
         }
     }
 }
