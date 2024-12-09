@@ -1,6 +1,6 @@
+#include "connections/DoctorGraphicalInterface.hpp"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "connections/DoctorGraphicalInterface.hpp"
 
 int main(int argc, char* argv[])
 {
