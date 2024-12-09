@@ -1,19 +1,28 @@
-include "DoctorGraphicalInterface.hpp"
-DoctorGraphicalInterface::DoctorGraphicalInterface(QObject* parent)
-    : QAbstractTableModel(parent) {}
-int DoctorGraphicalInterface::rowCount(const QModelIndex& parent) const {
+#include "DoctorGraphicalInterface.hpp"
+
+DoctorGraphicalInterface::DoctorGraphicalInterface(QObject* parent) : QAbstractTableModel(parent)
+{
+}
+
+int DoctorGraphicalInterface::rowCount(const QModelIndex& parent) const
+{
     Q_UNUSED(parent);
     return appointments.size();
 }
-int DoctorGraphicalInterface::columnCount(const QModelIndex& parent) const {
+
+int DoctorGraphicalInterface::columnCount(const QModelIndex& parent) const
+{
     Q_UNUSED(parent);
     return 5;
 }
-QVariant DoctorGraphicalInterface::data(const QModelIndex& index, int role) const {
+
+QVariant DoctorGraphicalInterface::data(const QModelIndex& index, int role) const
+{
     if (!index.isValid() || role != Qt::DisplayRole)
         return QVariant();
     const Appointment& appointment = appointments[index.row()];
-    switch (index.column()) {
+    switch (index.column())
+    {
     case 0:
         return appointment.firstName;
     case 1:
@@ -28,11 +37,15 @@ QVariant DoctorGraphicalInterface::data(const QModelIndex& index, int role) cons
         return QVariant();
     }
 }
-QVariant DoctorGraphicalInterface::headerData(int section, Qt::Orientation orientation, int role) const {
+
+QVariant DoctorGraphicalInterface::headerData(int section, Qt::Orientation orientation, int role) const
+{
     if (role != Qt::DisplayRole)
         return QVariant();
-    if (orientation == Qt::Horizontal) {
-        switch (section) {
+    if (orientation == Qt::Horizontal)
+    {
+        switch (section)
+        {
         case 0:
             return "First Name";
         case 1:
@@ -49,8 +62,11 @@ QVariant DoctorGraphicalInterface::headerData(int section, Qt::Orientation orien
     }
     return QVariant();
 }
-void DoctorGraphicalInterface::addAppointment(const QString& firstName, const QString& lastName, const QDate& date, const QString& treatment, const QString& room) {
+
+void DoctorGraphicalInterface::addAppointment(const QString& firstName, const QString& lastName, const QDate& date,
+                                              const QString& treatment, const QString& room)
+{
     beginInsertRows(QModelIndex(), appointments.size(), appointments.size());
-    appointments.append({ firstName, lastName, date, treatment, room });
+    appointments.append({firstName, lastName, date, treatment, room});
     endInsertRows();
 }
