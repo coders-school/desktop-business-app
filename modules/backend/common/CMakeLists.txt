@@ -1,5 +1,6 @@
 set(COMMON_LIB_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/enumerations/allergen/Allergen.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/enumerations/phone_code/PhoneCode.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enumerations/sex/Sex.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enumerations/specialization/Specialization.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/enumerations/treatment/Treatment.cpp
