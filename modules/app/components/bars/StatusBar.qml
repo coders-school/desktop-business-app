@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "../buttons"
+
 
 Rectangle{
     id: statusBar
@@ -22,31 +24,27 @@ Rectangle{
             top: statusBar.top
         }
 
-        Button{
+        CustomButton{
             id: backButton
-            width: parent.width/3
             text: "Back"
         }
 
-        Button{
+        CustomButton{
             id: homeButton
-            width: parent.width/3
             text: "Home"
         }
 
-        Button{
+        CustomButton{
             id: exitButton
-            width: parent.width/3
             text: "Exit"
             onClicked: Qt.quit()
         }
 
-        Button {
+        CustomButton {
             id: doctorButton
-            width: parent.width / 3
             text: "Doctor"
             onClicked: {
-                mainLoader.source = "DoctorGraphicalInterface.qml";
+                mainLoader.source = "qrc:/desktop-business-app/interfaces/DoctorGraphicalInterface.qml";
             }
         }
     }

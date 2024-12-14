@@ -184,7 +184,7 @@ Rectangle {
                 hoverEnabled: true
                 onClicked: {
                     rect1.visible = false
-                    loginLoader.source = "mainMenu.qml"
+                    loginLoader.source = "../../mainMenu.qml"
                 }
             }
         }

@@ -1,4 +1,4 @@
-#include "connections/DoctorGraphicalInterface.hpp"
+#include "bindings/DoctorGraphicalInterface.hpp"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 

@@ -18,7 +18,6 @@ Window {
             top: parent.top
             bottom: parent.bottom
         }
-        source: "loginScreen.qml"
+        source: "views/login/loginScreen.qml"
     }
 }
-
