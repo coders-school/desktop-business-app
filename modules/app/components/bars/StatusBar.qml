@@ -32,6 +32,9 @@ Rectangle{
         CustomButton{
             id: homeButton
             text: "Home"
+            onClicked: {
+                mainLoader.source = "qrc:/desktop-business-app/mainMenu.qml";
+            }
         }
 
         CustomButton{
@@ -45,6 +48,14 @@ Rectangle{
             text: "Doctor"
             onClicked: {
                 mainLoader.source = "qrc:/desktop-business-app/interfaces/DoctorGraphicalInterface.qml";
+            }
+        }
+
+        CustomButton {
+            id: receptionistButton
+            text: "Receptionist"
+            onClicked: {
+                mainLoader.source = "qrc:/desktop-business-app/interfaces/ReceptionistGraphicalInterface.qml";
             }
         }
     }
