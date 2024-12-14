@@ -1,5 +1,6 @@
 import QtQuick
-import QtQuick.Controls 
+import QtQuick.Controls
+import "components/bars/"
 
 Rectangle {
     id: mainMenuRect
