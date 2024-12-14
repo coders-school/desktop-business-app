@@ -6,7 +6,6 @@
 
 #include "DoctorGraphicalInterface.hpp"
 
-
 class ReceptionistGraphicalInterface : public QAbstractTableModel
 {
     Q_OBJECT

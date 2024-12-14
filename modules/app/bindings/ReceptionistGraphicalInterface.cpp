@@ -63,8 +63,8 @@ QVariant ReceptionistGraphicalInterface::headerData(int section, Qt::Orientation
     return QVariant();
 }
 
-void ReceptionistGraphicalInterface::addAppointment(const QString& firstName, const QString& lastName, const QDate& date,
-                                              const QString& treatment, const QString& room)
+void ReceptionistGraphicalInterface::addAppointment(const QString& firstName, const QString& lastName,
+                                                    const QDate& date, const QString& treatment, const QString& room)
 {
     beginInsertRows(QModelIndex(), appointments.size(), appointments.size());
     appointments.append({firstName, lastName, date, treatment, room});
