@@ -30,6 +30,7 @@ qt_add_qml_module(${PROJECT_NAME}
                         components/bars/StatusBar.qml
                         components/buttons/CustomButton.qml
                         interfaces/DoctorGraphicalInterface.qml
+                        interfaces/ReceptionistGraphicalInterface.qml
                         main.qml
                         mainMenu.qml
                         views/login/loginScreen.qml)
