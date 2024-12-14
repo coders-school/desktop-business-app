@@ -11,7 +11,8 @@ find_package(Qt6 REQUIRED COMPONENTS Quick Gui)
 qt_standard_project_setup()
 
 qt_add_executable(${PROJECT_NAME} main.cpp
-                                  bindings/DoctorGraphicalInterface.cpp)
+                                  bindings/DoctorGraphicalInterface.cpp
+                                  bindings/ReceptionistGraphicalInterface.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Gui
                                               Qt6::Quick

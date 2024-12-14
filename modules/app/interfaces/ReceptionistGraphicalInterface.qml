@@ -1,11 +1,16 @@
 import QtQuick
 import QtQuick.Controls
+import ReceptionistApp 1.0
 import "qrc:/desktop-business-app/components/bars"
 
 Rectangle {
     id: receptionistMainRect
     visible: true
     color: "lightblue"
+
+    ReceptionistModel {
+        id: receptionistModel
+    }
 
     StatusBar{
         id: statusBar
@@ -91,27 +96,38 @@ Rectangle {
                 }
             }
         }
-    }
 
-    TableView {
-        id: tableView
-        anchors {
-            top: headerRow.bottom
-            left: headerRow.left
-            right: headerRow.right
-            bottom: parent.bottom
-            bottomMargin: 20
+        TableView {
+            id: tableView
+            anchors {
+                top: headerRow.bottom
+                left: headerRow.left
+                right: headerRow.right
+                bottom: parent.bottom
+                bottomMargin: 20
+            }
+            model: receptionistModel
+            delegate: Rectangle {
+                implicitWidth: headerRow.width / 5
+                implicitHeight: 40
+                border.color: "black"
+                Text {
+                        anchors.centerIn: parent
+                        text: model.display
+                    }
+            }
+            clip: true
         }
-        model: receptionistModel
-        delegate: Rectangle {
-            implicitWidth: parent.width / 5
-            implicitHeight: 40
-            border.color: "black"
-            Text {
-                    anchors.centerIn: parent
-                    text: model.display
-                }
+
+        Button {
+            id: addButton
+            text: "Add Appointment"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 20
+            onClicked: {
+                receptionistModel.addAppointment("Anna", "Smith", "2024-12-06", "Consultation", "202");
+            }
         }
-        clip: true
     }
 }
